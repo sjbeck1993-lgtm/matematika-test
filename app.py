@@ -96,6 +96,12 @@ top_scores = load_top_scores()
 st.sidebar.table(top_scores)
 
 # --- Main App ---
+# Logo placement
+if os.path.exists("logo.png"):
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        st.image("logo.png", use_container_width=True)
+
 st.title("Matematika Testi")
 
 if not st.session_state.quiz_active:
