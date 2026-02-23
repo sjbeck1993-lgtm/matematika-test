@@ -8,7 +8,7 @@ from certificate import create_certificate
 from generators import generate_quiz, DYNAMIC_TOPICS
 
 # Set page config
-st.set_page_config(page_title="Smart Learning Center", page_icon="📚")
+st.set_page_config(page_title="SMART LEARNING CENTER: Mukammal Matematika", page_icon="📚")
 
 # Custom CSS for Blue and Yellow theme optimization
 st.markdown("""
@@ -105,16 +105,37 @@ def main():
         else:
             pass # No logo, no warning needed strictly
 
-    st.title("Smart Learning Center: 3-sinf Mukammal Matematika")
+    st.title("SMART LEARNING CENTER: Mukammal Matematika")
 
     data = load_questions()
-    topics = list(data.keys())
+    all_topics = list(data.keys())
 
     # Sort topics numerically if they start with number
-    topics.sort(key=lambda x: int(x.split('-')[0]) if x.split('-')[0].isdigit() else 999)
+    all_topics.sort(key=lambda x: int(x.split('-')[0]) if x.split('-')[0].isdigit() else 999)
 
     # Add dynamic topics
-    topics.extend(DYNAMIC_TOPICS)
+    all_topics.extend(DYNAMIC_TOPICS)
+
+    # Sidebar Menu
+    st.sidebar.title("Menyu")
+    section = st.sidebar.radio("Bo'limni tanlang:", ["Bosh sahifa", "3-sinf"])
+
+    # Reset state if section changes
+    if 'last_section' not in st.session_state:
+        st.session_state.last_section = section
+
+    if st.session_state.last_section != section:
+        st.session_state.quiz_state = 'welcome'
+        st.session_state.last_section = section
+        st.rerun()
+
+    # Filter topics based on section
+    if section == "3-sinf":
+        # Only show the specific dynamic topic for 3-sinf
+        current_topics = ["3-sinf Mukammal Matematika"]
+    else:
+        # Show everything else
+        current_topics = [t for t in all_topics if "3-sinf Mukammal Matematika" not in t]
 
     # Initialize Session State
     if 'quiz_state' not in st.session_state:
@@ -127,7 +148,11 @@ def main():
         st.subheader("Xush kelibsiz!")
         name = st.text_input("Ismingizni kiriting:")
 
-        topic = st.selectbox("Mavzuni tanlang:", topics)
+        if not current_topics:
+            st.warning("Hozircha bu bo'limda mavzular yo'q.")
+            topic = None
+        else:
+            topic = st.selectbox("Mavzuni tanlang:", current_topics)
 
         st.markdown("---")
         st.write("🏆 **Eng yaxshi 5 natija:**")

@@ -178,35 +178,37 @@ def generate_geometry_questions(count=10):
 
 def generate_mukammal_questions(count=10):
     questions = []
-    names_list = ["Ali", "Vali", "Sardor", "Malika", "Zebo", "Anvar", "Dilnoza", "Jasur", "Madina", "Bobur"]
+    names_list = ["Ali", "Sadiya", "Vali", "Madina"]
     items_list = ["daftar", "qalam", "kitob", "olma", "konfet", "shar", "gul"]
 
     for _ in range(count):
-        name1, name2 = random.sample(names_list, 2)
+        name1 = random.choice(names_list)
+        name2 = random.choice([n for n in names_list if n != name1])
         item = random.choice(items_list)
         q_type = random.choice(['add', 'sub', 'mult', 'div'])
 
         if q_type == 'add':
-            n1 = random.randint(10, 50)
-            n2 = random.randint(10, 50)
+            n1 = random.randint(10, 100)
+            n2 = random.randint(10, 100)
             question_text = f"{name1} {n1} ta {item} oldi va yana {n2} ta oldi. Hammasi qancha?"
             ans = n1 + n2
         elif q_type == 'sub':
-            n1 = random.randint(20, 80)
-            n2 = random.randint(5, n1 - 5)
+            n1 = random.randint(20, 100)
+            n2 = random.randint(10, n1 - 10)
             question_text = f"{name1}da {n1} ta {item} bor edi. U {name2}ga {n2} tasini berdi. {name1}da nechta {item} qoldi?"
             ans = n1 - n2
         elif q_type == 'mult':
-            n1 = random.randint(2, 9)
-            n2 = random.randint(2, 9)
+            n1 = random.randint(2, 10)
+            n2 = random.randint(2, 10)
+            # Make sure product is within reasonable range, though logic allows larger
             question_text = f"{name1}da {n1} ta quti bor. Har bir qutida {n2} tadan {item} bor. Jami nechta {item} bor?"
             ans = n1 * n2
         else: # div
-            total = random.randint(10, 50)
-            divisor = random.randint(2, 5)
+            total = random.randint(10, 100)
+            divisor = random.randint(2, 10)
             # Ensure divisibility
             while total % divisor != 0:
-                total = random.randint(10, 50)
+                total = random.randint(10, 100)
 
             question_text = f"{name1} {total} ta {item}ni {divisor} ta do'stiga teng bo'lib berdi. Har biriga nechtadan tegdi?"
             ans = total // divisor
