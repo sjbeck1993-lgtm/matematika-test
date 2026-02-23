@@ -5,6 +5,7 @@ import os
 import io
 import json
 from certificate import create_certificate
+from generators import generate_quiz, DYNAMIC_TOPICS
 
 # Set page config
 st.set_page_config(page_title="Smart Learning Center", page_icon="📚")
@@ -112,6 +113,9 @@ def main():
     # Sort topics numerically if they start with number
     topics.sort(key=lambda x: int(x.split('-')[0]) if x.split('-')[0].isdigit() else 999)
 
+    # Add dynamic topics
+    topics.extend(DYNAMIC_TOPICS)
+
     # Initialize Session State
     if 'quiz_state' not in st.session_state:
         st.session_state.quiz_state = 'welcome'
@@ -140,7 +144,11 @@ def main():
                 st.session_state.topic = topic
 
                 # Load pool
-                pool = get_question_pool(topic, data)
+                if topic in DYNAMIC_TOPICS:
+                    pool = generate_quiz(topic, 10)
+                else:
+                    pool = get_question_pool(topic, data)
+
                 if not pool:
                     st.error("Ushbu mavzu bo'yicha savollar tayyorlanmoqda (javoblar kiritilmagan). Iltimos, boshqa mavzuni tanlang (masalan, 1-5 mavzular).")
                     return
