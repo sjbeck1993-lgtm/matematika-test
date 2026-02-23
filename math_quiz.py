@@ -1,126 +1,177 @@
+import streamlit as st
 import random
 import time
 import os
+import pandas as pd
 
-def show_top_scores():
-    print("\n--- Eng yaxshi 5 natija ---")
+def generate_question(level):
+    if level == "Oson (1-10, +, -)":
+        range_max = 10
+        ops = ['+', '-']
+    elif level == "O'rta (1-50, +, -, *)":
+        range_max = 50
+        ops = ['+', '-', '*']
+    else:  # Qiyin
+        range_max = 100
+        ops = ['+', '-', '*', '/']
+
+    op = random.choice(ops)
+    num1 = random.randint(1, range_max)
+    num2 = random.randint(1, range_max)
+
+    if op == '+':
+        correct_answer = num1 + num2
+        question_str = f"{num1} + {num2}"
+    elif op == '-':
+        if num1 < num2:
+            num1, num2 = num2, num1
+        correct_answer = num1 - num2
+        question_str = f"{num1} - {num2}"
+    elif op == '*':
+        correct_answer = num1 * num2
+        question_str = f"{num1} * {num2}"
+    elif op == '/':
+        num1 = random.randint(1, range_max)
+        factors = [x for x in range(1, num1 + 1) if num1 % x == 0]
+        num2 = random.choice(factors)
+        correct_answer = num1 // num2
+        question_str = f"{num1} / {num2}"
+
+    return num1, num2, op, correct_answer, question_str
+
+def save_result(name, score, level, duration):
+    with open("results.txt", "a") as file:
+        # Map level name back to number for consistency with CLI or just use name
+        # The prompt didn't specify format strictly, but keeping CSV is good.
+        # Let's just save the level string or a simple int.
+        # For simplicity, I'll save the level string as is, but maybe clean it up.
+        lvl_map = {"Oson (1-10, +, -)": 1, "O'rta (1-50, +, -, *)": 2, "Qiyin (1-100, +, -, *, /)": 3}
+        lvl_num = lvl_map.get(level, 0)
+        file.write(f"{name},{score},{lvl_num},{duration}\n")
+
+def load_top_scores():
     if not os.path.exists("results.txt"):
-        print("Hozircha natijalar yo'q.")
-        print("---------------------------")
-        return
+        return pd.DataFrame(columns=["Ism", "Ball", "Daraja", "Vaqt"])
 
-    scores = []
+    data = []
     with open("results.txt", "r") as file:
         for line in file:
             try:
-                # Expected: name,score,level,time
                 parts = line.strip().split(',')
                 if len(parts) == 4:
                     name, score, level, duration = parts
-                    scores.append({
-                        'name': name,
-                        'score': int(score),
-                        'level': int(level),
-                        'time': float(duration)
+                    data.append({
+                        "Ism": name,
+                        "Ball": int(score),
+                        "Daraja": int(level),
+                        "Vaqt": float(duration)
                     })
             except ValueError:
                 continue
 
-    # Sort: High score first (desc), then low time (asc)
-    scores.sort(key=lambda x: (-x['score'], x['time']))
+    df = pd.DataFrame(data)
+    if not df.empty:
+        df = df.sort_values(by=["Ball", "Vaqt"], ascending=[False, True])
+        return df.head(5)
+    return df
 
-    for i, s in enumerate(scores[:5], 1):
-        print(f"{i}. {s['name']}: {s['score']} ball (Daraja: {s['level']}, Vaqt: {s['time']}s)")
-    print("---------------------------")
+# --- State Initialization ---
+if 'quiz_active' not in st.session_state:
+    st.session_state.quiz_active = False
+if 'score' not in st.session_state:
+    st.session_state.score = 0
+if 'question_count' not in st.session_state:
+    st.session_state.question_count = 0
+if 'current_question' not in st.session_state:
+    st.session_state.current_question = None
+if 'start_time' not in st.session_state:
+    st.session_state.start_time = 0
+if 'feedback' not in st.session_state:
+    st.session_state.feedback = None
 
-def math_quiz():
-    show_top_scores()
-    score = 0
-    total_questions = 10
+# --- Sidebar ---
+st.sidebar.title("Natijalar")
+st.sidebar.subheader("Eng yaxshi 5 natija")
+top_scores = load_top_scores()
+st.sidebar.table(top_scores)
 
-    print("Salom! Matematika testiga xush kelibsiz!")
-    name = input("Ismingizni kiriting: ")
-    print("Darajani tanlang:")
-    print("1. Oson (1-10, +, -)")
-    print("2. O'rta (1-50, +, -, *)")
-    print("3. Qiyin (1-100, +, -, *, /)")
+# --- Main App ---
+# Logo placement
+if os.path.exists("logo.png"):
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        st.image("logo.png", use_container_width=True)
 
-    while True:
-        try:
-            level = int(input("Tanlovingiz (1, 2 yoki 3): "))
-            if level in [1, 2, 3]:
-                break
-            else:
-                print("Iltimos, 1, 2 yoki 3 ni tanlang!")
-        except ValueError:
-            print("Iltimos, son kiriting!")
+st.title("Matematika Testi")
 
-    if level == 1:
-        range_max = 10
-        ops = ['+', '-']
-        points = 1
-    elif level == 2:
-        range_max = 50
-        ops = ['+', '-', '*']
-        points = 2
-    else:
-        range_max = 100
-        ops = ['+', '-', '*', '/']
-        points = 3
+if not st.session_state.quiz_active:
+    st.header("Xush kelibsiz!")
+    name = st.text_input("Ismingizni kiriting:")
+    level = st.selectbox(
+        "Darajani tanlang:",
+        ["Oson (1-10, +, -)", "O'rta (1-50, +, -, *)", "Qiyin (1-100, +, -, *, /)"]
+    )
 
-    print(f"\n{total_questions} ta savolga javob bering. Har bir to'g'ri javob uchun {points} ball beriladi.\n")
-
-    start_time = time.time()
-    for i in range(1, total_questions + 1):
-        op = random.choice(ops)
-
-        # Initialize numbers
-        num1 = random.randint(1, range_max)
-        num2 = random.randint(1, range_max)
-
-        if op == '+':
-            correct_answer = num1 + num2
-            question_str = f"{num1} + {num2}"
-        elif op == '-':
-            # Ensure positive result
-            if num1 < num2:
-                num1, num2 = num2, num1
-            correct_answer = num1 - num2
-            question_str = f"{num1} - {num2}"
-        elif op == '*':
-            correct_answer = num1 * num2
-            question_str = f"{num1} * {num2}"
-        elif op == '/':
-            # Ensure integer result and dividend within range if possible,
-            # or simply divisible.
-            # Strategy: Generate dividend (num1), find random factor as divisor (num2)
-            num1 = random.randint(1, range_max)
-            factors = [x for x in range(1, num1 + 1) if num1 % x == 0]
-            num2 = random.choice(factors)
-            correct_answer = num1 // num2
-            question_str = f"{num1} / {num2}"
-
-        while True:
-            try:
-                user_answer = int(input(f"{i}-savol: {question_str} = "))
-                break
-            except ValueError:
-                print("Iltimos, son kiriting!")
-
-        if user_answer == correct_answer:
-            print("To'g'ri!")
-            score += points
+    if st.button("Boshlash"):
+        if name:
+            st.session_state.user_name = name.replace(',', '')
+            st.session_state.level = level
+            st.session_state.score = 0
+            st.session_state.question_count = 1
+            st.session_state.quiz_active = True
+            st.session_state.start_time = time.time()
+            st.session_state.current_question = generate_question(level)
+            st.rerun()
         else:
-            print(f"Xato! To'g'ri javob: {correct_answer}")
+            st.warning("Iltimos, ismingizni kiriting!")
 
+elif st.session_state.quiz_active and st.session_state.question_count <= 10:
+    q_num = st.session_state.question_count
+    num1, num2, op, correct, q_str = st.session_state.current_question
+
+    st.subheader(f"{q_num}-savol: {q_str} = ?")
+
+    # Use a unique key for input to clear it on next question
+    user_answer = st.number_input("Javobingiz:", step=1, key=f"q_{q_num}")
+
+    if st.button("Javob berish"):
+        if user_answer == correct:
+            st.success("To'g'ri!")
+            st.session_state.score += (1 if "Oson" in st.session_state.level else 2 if "O'rta" in st.session_state.level else 3)
+            st.session_state.feedback = "To'g'ri!"
+        else:
+            st.error(f"Xato! To'g'ri javob: {correct}")
+            st.session_state.feedback = f"Xato! To'g'ri javob: {correct}"
+
+        time.sleep(1) # Brief pause to show feedback
+        st.session_state.question_count += 1
+
+        if st.session_state.question_count <= 10:
+            st.session_state.current_question = generate_question(st.session_state.level)
+        st.rerun()
+
+else:
+    # Quiz Finished
     end_time = time.time()
-    duration = round(end_time - start_time, 2)
+    # Only calculate duration once
+    if 'duration' not in st.session_state:
+        # Subtract the accumulated sleep time (1s per question * 10 questions)
+        total_time = end_time - st.session_state.start_time
+        st.session_state.duration = round(max(0, total_time - 10), 2)
+        save_result(
+            st.session_state.user_name,
+            st.session_state.score,
+            st.session_state.level,
+            st.session_state.duration
+        )
+        st.balloons()
 
-    with open("results.txt", "a") as file:
-        file.write(f"{name},{score},{level},{duration}\n")
+    st.header("Test tugadi!")
+    st.write(f"Ism: {st.session_state.user_name}")
+    st.write(f"Jami ball: {st.session_state.score}")
+    st.write(f"Sarflangan vaqt: {st.session_state.duration} soniya")
 
-    print("\nTest tugadi!")
-    print(f"Siz {total_questions * points} balldan {score} ball to'pladingiz.")
-
-if __name__ == "__main__":
-    math_quiz()
+    if st.button("Qayta boshlash"):
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
+        st.rerun()
