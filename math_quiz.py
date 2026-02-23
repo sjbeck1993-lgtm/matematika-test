@@ -5,6 +5,55 @@ import os
 import io
 from certificate import create_certificate
 
+# Mock Data for Book Curriculum
+COURSES = {
+    "1-sinf": [
+        "10 ichida qo'shish va ayirish",
+        "20 ichida qo'shish va ayirish",
+        "Mantiqiy savollar"
+    ],
+    "2-sinf": [
+        "100 ichida qo'shish va ayirish",
+        "Ko'paytirish va bo'lish",
+        "Qoldiqli bo'lish",
+        "Mantiqiy savollar"
+    ]
+}
+
+# Mock Data for Logical Questions (Interactive Text Problems)
+LOGICAL_QUESTIONS = [
+    {
+        "q": "Stolda 4 ta olma bor edi. Ulardan birini olib yeyishdi. Nechta olma qoldi?",
+        "options": ["A) 3 ta", "B) 4 ta", "C) 5 ta"],
+        "a": "A) 3 ta",
+        "type": "logical"
+    },
+    {
+        "q": "Anvarda 5 ta qalam bor, Boburda esa undan 2 ta ko'p. Boburda nechta qalam bor?",
+        "options": ["A) 3 ta", "B) 7 ta", "C) 5 ta"],
+        "a": "B) 7 ta",
+        "type": "logical"
+    },
+    {
+        "q": "Qaysi son qatorni davom ettiradi: 2, 4, 6, 8, ...?",
+        "options": ["A) 9", "B) 10", "C) 12"],
+        "a": "B) 10",
+        "type": "logical"
+    },
+    {
+        "q": "Bir hafta necha kundan iborat?",
+        "options": ["A) 5 kun", "B) 6 kun", "C) 7 kun"],
+        "a": "C) 7 kun",
+        "type": "logical"
+    },
+    {
+        "q": "Avtobusda 10 kishi bor edi. Bekatda 3 kishi tushdi va 2 kishi chiqdi. Avtobusda necha kishi bo'ldi?",
+        "options": ["A) 9 kishi", "B) 11 kishi", "C) 15 kishi"],
+        "a": "A) 9 kishi",
+        "type": "logical"
+    }
+]
+
 # Set page config
 st.set_page_config(page_title="Matematika Testi", page_icon="🔢")
 
@@ -64,8 +113,20 @@ def save_result(name, score, level, duration):
 
 def generate_question(level, topic):
     q_type = 'standard'
+    q_str = ""
+    ans = 0
+    options = []
 
-    if topic == "Ko'paytirish va bo'lish":
+    if topic == "Mantiqiy savollar":
+        q_data = random.choice(LOGICAL_QUESTIONS)
+        return {
+            'q': q_data['q'],
+            'a': q_data['a'],
+            'options': q_data['options'],
+            'type': 'logical'
+        }
+
+    elif topic == "Ko'paytirish va bo'lish":
         ops = ['*', '/']
         op = random.choice(ops)
         num1 = random.randint(2, 9)
@@ -88,14 +149,32 @@ def generate_question(level, topic):
         q_str = f"{dividend} : {divisor}"
         q_type = 'remainder'
 
-    elif topic == "Mantiqiy amallar":
-        start = random.randint(1, 20)
-        diff = random.randint(2, 5)
-        seq = [start + i*diff for i in range(4)]
-        ans = start + 4*diff
-        q_str = f"{seq[0]}, {seq[1]}, {seq[2]}, {seq[3]}, ..."
+    # Mapping new topics to logic
+    elif "qo'shish va ayirish" in topic:
+        if "10 " in topic:
+            range_max = 10
+        elif "20 " in topic:
+            range_max = 20
+        elif "100 " in topic:
+            range_max = 100
+        else:
+            range_max = 10 * level # Fallback
 
-    else: # Umumiy (General)
+        ops = ['+', '-']
+        op = random.choice(ops)
+        num1 = random.randint(1, range_max)
+        num2 = random.randint(1, range_max)
+
+        if op == '+':
+            ans = num1 + num2
+            q_str = f"{num1} + {num2}"
+        else: # '-'
+            if num1 < num2:
+                num1, num2 = num2, num1
+            ans = num1 - num2
+            q_str = f"{num1} - {num2}"
+
+    else: # Fallback / Umumiy (General)
         if level == 1:
             range_max = 10
             ops = ['+', '-']
@@ -151,14 +230,16 @@ def main():
         st.subheader("Xush kelibsiz!")
         name = st.text_input("Ismingizni kiriting:")
 
-        topic = st.selectbox("Mavzuni tanlang:", [
-            "Umumiy",
-            "Ko'paytirish va bo'lish",
-            "Qoldiqli bo'lish",
-            "Mantiqiy amallar"
-        ])
+        # Updated Selection Logic: Class -> Topic
+        sinf = st.selectbox("Sinfni tanlang:", list(COURSES.keys()))
+        topic = st.selectbox("Mavzuni tanlang:", COURSES[sinf])
 
-        level = st.selectbox("Darajani tanlang:", [1, 2, 3], format_func=lambda x: f"Daraja {x}")
+        # We keep level for scoring multiplier or internal logic if needed
+        level_map = {"1-sinf": 1, "2-sinf": 2}
+        default_level = level_map.get(sinf, 1)
+
+        # Hidden or informational level (since curriculum dictates difficulty mostly)
+        st.write(f"Tanlangan daraja: {default_level}-daraja")
 
         st.markdown("---")
         st.write("🏆 **Eng yaxshi 5 natija:**")
@@ -172,13 +253,13 @@ def main():
         if st.button("Boshlash"):
             if name:
                 st.session_state.user_name = name
-                st.session_state.level = level
+                st.session_state.level = default_level
                 st.session_state.topic = topic
                 st.session_state.quiz_state = 'playing'
                 st.session_state.score = 0
                 st.session_state.question_count = 0
                 st.session_state.start_time = time.time()
-                st.session_state.current_question = generate_question(level, topic)
+                st.session_state.current_question = generate_question(default_level, topic)
                 # Clear feedback from previous games
                 if 'feedback' in st.session_state:
                     del st.session_state.feedback
@@ -191,6 +272,13 @@ def main():
         if 'feedback' in st.session_state:
             if st.session_state.feedback['correct']:
                 st.success("To'g'ri! ✅")
+                # Add Audio and Balloons here?
+                # Ideally, they should trigger on the submission action to be immediate,
+                # but st.rerun() clears them.
+                # We can handle audio via st.audio with autoplay if supported, or just verify balloons appear.
+                st.balloons()
+                if os.path.exists("barakalla.mp3"):
+                     st.audio("barakalla.mp3", autoplay=True)
             else:
                 st.error(f"Xato! ❌ To'g'ri javob: {st.session_state.feedback['ans']}")
 
@@ -208,10 +296,18 @@ def main():
 
         q_data = st.session_state.current_question
 
-        with st.form(key=f"q_form_{q_num}"):
-            st.header(f"{q_data['q']} = ?")
+        # Display Question
+        if q_data.get('type') == 'logical':
+             st.header(q_data['q'])
+        else:
+             st.header(f"{q_data['q']} = ?")
 
-            if q_data.get('type') == 'remainder':
+        with st.form(key=f"q_form_{q_num}"):
+            user_ans = None
+
+            if q_data.get('type') == 'logical':
+                user_ans = st.radio("Javobni tanlang:", q_data['options'], index=None)
+            elif q_data.get('type') == 'remainder':
                 c1, c2 = st.columns(2)
                 with c1:
                     user_q = st.number_input("Bo'linma (Javob):", step=1, value=0)
@@ -224,7 +320,18 @@ def main():
             submit = st.form_submit_button("Javob berish")
 
             if submit:
-                if q_data.get('type') == 'remainder':
+                # Validation logic
+                correct = False
+                ans_display = ""
+
+                if q_data.get('type') == 'logical':
+                    if user_ans: # Check if selected
+                        correct = (user_ans == q_data['a'])
+                        ans_display = q_data['a']
+                    else:
+                        st.warning("Iltimos, javobni tanlang!")
+                        st.stop() # Stop execution to let user select
+                elif q_data.get('type') == 'remainder':
                     correct = (user_ans['quotient'] == q_data['a']['quotient'] and
                                user_ans['remainder'] == q_data['a']['remainder'])
                     ans_display = f"{q_data['a']['quotient']} (Qoldiq: {q_data['a']['remainder']})"
