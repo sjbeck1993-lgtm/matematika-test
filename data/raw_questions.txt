@@ -1,0 +1,742 @@
+[ 1-	MAVZU: QO‘SHISH VA AYIRISHGA DOIR MANTIQIY MASALALAR
+Ushbu bo‘limda biz oddiy hisob-kitobdan chekinib, mantiqiy tahlil, teskari hisoblash usuli va to‘plamlar bilan ishlashni o‘rganamiz.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Teskari yo‘l: Bir son o‘ylandi. Unga 25 ni qo‘shib, natijadan 18 ni ayirganda 40 hosil bo‘ldi. O‘ylangan sonni toping.
+2.	Qo‘shni betlar: Kitobning ochilgan ikki qo‘shni betlari raqamlarining yig‘indisi 73 ga teng. Bu qaysi betlar?
+3.	Qushlar va daraxt: Daraxtda bir necha qush o‘tirgan edi. Avval 15 tasi uchib ketdi, so‘ngra 9 tasi qaytib keldi. Shunda daraxtda 20 ta qush bo‘ldi. Dastlab daraxtda nechta qush bo‘lgan?
+4.	Yig‘indi o‘zgarishi: Ikki sonning yig‘indisi 120 ga teng. Agar birinchi sonni 20 taga oshirib, ikkinchisini 15 taga kamaytirsak, yangi yig‘indi necha bo‘ladi?
+5.	Venn diagrammasi: Sinfdagi 25 o‘quvchidan 18 tasi matematika, 12 tasi esa ingliz tili to‘garagiga boradi. Agar 5 o‘quvchi har ikkala to‘garakka borsa, necha o‘quvchi hech bir to‘garakka bormaydi?
+6.	Uchta son: Uchta sonning yig‘indisi 200. Birinchi va ikkinchi son yig‘indisi 130, ikkinchi va uchinchi son yig‘indisi 110 bo‘lsa, har bir sonni toping.
+7.	Yosh masalasi: Akmal hozir 14 yoshda, uning ukasi esa 6 yoshda. Necha yildan keyin ularning yoshlari yig‘indisi 30 ga teng bo‘ladi?
+8.	Eng katta va kichik: Raqamlari har xil bo‘lgan eng katta uch xonali son va eng kichik uch xonali sonning ayirmasini toping.
++45	−32	+10
+9.	Zanjir:	 	 	 	. So‘roq o‘rnidagi sonni toping.
+10.	Tenglik: 12 + 15 + X = 40 + 5 bo‘lsa, X ni toping.
+11.	Savatdagi mevalar: Birinchi savatda 45 ta, ikkinchi savatda 23 ta olma bor. Birinchi savatdan nechta olma ikkinchisiga olinsa, ulardagi olmalar soni tenglashadi?
+12.	Gugurt cho‘pi: V I − IV = IX noto‘g‘ri tenglik berilgan. Bitta cho‘pni ko‘chirib to‘g‘ri tenglik hosil qiling.
+13.	Ketma-ket sonlar: Uchta ketma-ket natural sonning yig‘indisi 45 ga teng. Shu sonlarni toping.
+14.	Raqamlar mantiqi: Raqamlari yig‘indisi 5 ga teng bo‘lgan barcha ikki xonali sonlarni yozing.
+15.	Avtobus: Avtobusda 30 yo‘lovchi bor edi. Bekatda 8 kishi tushdi va bir necha kishi chiqdi. Avtobusda 35 kishi qolgan bo‘lsa, bekatda necha kishi chiqqan?
+16.	Taqqoslash: 245 + 155□600 − 210 belgisini qo‘ying.
+17.	O‘ylangan son: O‘ylangan sondan 45 ni ayirib, natijaga 12 ni qo‘shsak 100 chiqadi. O‘ylangan son necha?
+18.	Kamayuvchi va ayirma: Ayiruvchi 24 ga teng. Agar kamayuvchi 10 taga oshsa, ayirma qanchaga o‘zgaradi?
+19.	Sehrli kvadrat: 3 × 3 jadvalda har bir qator va ustun yig‘indisi 15 bo‘lishi uchun bo‘sh kataklarni to‘ldiring (Markazda 5 turibdi).
+20.	Oylar: Yanvar va fevral (kabisa bo‘lmagan yil) oylarida jami necha kun bor?
+21.	Do‘kon: Ali do‘kondan 4500 so‘mga non va 12000 so‘mga sariyog‘ oldi. Sotuvchiga 20000 so‘m bersa, qancha qaytim olishi kerak?
+22.	Qatorlar: Maktab tadbirida 1-qatorda 15 kishi, har bir keyingi qatorda esa oldingisidan 2 kishi ko‘p o‘tiribdi. 4-qatorda necha kishi bor?
+23.	Poyga: Sardor marraga 4-bo‘lib yetib keldi. Undan keyin yana 7 kishi kelgan bo‘lsa, poygada jami necha kishi qatnashgan?
+24.	Tanga: Jamshidda 100, 200 va 500 so‘mlik tangalardan bittadan bor. U jami necha xil summani to‘lay oladi?
+25.	Masofa: A va B nuqtalar orasidagi masofa 100 m. C nuqta ularning o‘rtasida. A dan C gacha masofa qancha?
+26.	Toq va juft: 1 dan 20 gacha bo‘lgan barcha toq sonlarning yig‘indisini toping.
+27.	Raqamlar yig‘indisi: 999 sonining raqamlari yig‘indisidan 100 sonining raqamlari yig‘indisini ayiring.
+28.	Shamlar: Stol ustida 5 ta sham yonib turgan edi, 2 tasini o‘chirishdi. Nechta sham qoldi? (Mantiqiy javob: o‘chgani qoladi, qolgani erib bitadi).
+29.	Sim: Uzunligi 40 sm bo‘lgan simdan tomonlari teng bo‘lgan to‘rtburchak (kvadrat) yasaldi. Uning bir tomoni necha sm?
+30.	Smart topshiriq: A + B = 10, B + C = 12, A + C = 14. A, B va C ni toping.
+
+II.	TEST (10 ta)
+1.	Ikki sonning yig‘indisi 50 ga teng. Ulardan biri ikkinchisidan 10 taga ko‘p. Kichik sonni toping. A) 30 B) 20 C) 15 D) 25
+2.	1 + 2 + 3 + ⋯ + 10 yig‘indisi nechaga teng? A) 45 B) 50 C) 55 D) 60
+3.	Qaysi son o‘zidan oldingi sondan 15 taga katta, 85 dan esa 15 taga kichik? A) 100 B) 70
+C) 80 D) 90
+4.	Ayirma 45 ga teng. Agar ayiruvchi 5 taga kamaytirilsa, yangi ayirma necha bo‘ladi? A) 40 B) 50 C) 45 D) 55
+5.	Eng kichik uch xonali toq sonni ko‘rsating: A) 100 B) 101 C) 111 D) 103
+6.	Soat 10:45 da dars boshlandi. Dars 45 minut davom etsa, soat nechada tugaydi? A) 11:30
+B) 11:15 C) 11:45 D) 12:00
+7.	Raqamlari yig‘indisi 3 ga teng bo‘lgan eng katta ikki xonali son: A) 12 B) 21 C) 30 D) 33
+8.	X − 15 = 45 + 5 tenglamada X nechaga teng? A) 55 B) 65 C) 50 D) 35
+9.	Savatda 12 ta ko‘k va 8 ta qizil koptok bor. Qaramasdan kamida nechta koptok olsak, albatta bittasi qizil bo‘ladi? A) 9 B) 12 C) 13 D) 2
+10.	45 va 55 sonlari orasida nechta natural son bor? A) 10 B) 9 C) 11 D) 8
+2-
+MAVZU: KO‘PAYTIRISH VA BO‘LISHGA DOIR MANTIQIY MASALALAR
+Ushbu bo‘limda ko‘paytirish va bo‘lish amallarining yashirin xossalari, kombinatorika elementlari va qoldiqli bo‘lish sirlarini o‘rganamiz.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Ko‘paytma o‘zgarishi: Ikki sonning ko‘paytmasi 40 ga teng. Agar birinchi sonni 2 marta orttirib, ikkinchisini 4 marta kamaytirsak, yangi ko‘paytma necha bo‘ladi?
+2.	Qoldiqli bo‘lish: Sonni 7 ga bo‘lganda bo‘linma 10 va qoldiq 5 chiqdi. Shu sonni toping.
+3.	Mantiqiy ko‘paytirish: 5 ta mushuk 5 ta sichqonni 5 minutda tutsa, 10 ta mushuk 10 ta sichqonni necha minutda tutadi?
+4.	Teskari yo‘l: O‘ylangan sonni 4 marta orttirib, so‘ngra 5 ga bo‘lsak 12 hosil bo‘ladi. O‘ylangan sonni toping.
+5.	Kombinatorika: 4 ta bola o‘zaro qo‘l berib so‘rashishdi. Jami so‘rashishlar soni nechta?
+6.	Karra jadvali: 8 ga bo‘linadigan, lekin 16 dan katta va 40 dan kichik bo‘lgan barcha sonlarni yozing.
+7.	Taqsimot: 36 ta konfetni 3 ta bolaga shunday tarqatingki, har bir keyingi bola oldingisidan 2 taga ko‘p olsin.
+8.	Bo‘linish belgisi: 5 ga ham, 2 ga ham qoldiqsiz bo‘linadigan eng kichik uch xonali sonni toping.
+×3	:2	×4
+9.	Zanjir: X  	 	 	. X ni toping.
+10.	Narxlar: 4 ta kitob 20 000 so‘m turadi. 7 ta shunday kitob necha pul turadi?
+11.	Guruhlash: 60 ta o‘quvchini har birida 4 tadan qilib guruhlarga bo‘lishdi. Jami nechta guruh hosil bo‘ldi?
+12.	Nolning xossasi: 125 × 48 × 0 × 12 ifodaning qiymati necha?
+13.	Qoldiqlar yig‘indisi: Sonni 5 ga bo‘lganda chiqishi mumkin bo‘lgan barcha qoldiqlar yig‘indisini toping.
+14.	Yuzliklar: 400 sonida nechta o‘nlik bor?
+15.	Eng katta qoldiq: Bo‘luvchi 12 ga teng bo‘lsa, qoldiq eng ko‘pi bilan necha bo‘lishi mumkin?
+16.	Smart hisob: 25 × 4 + 25 × 6 ifodani qulay usulda hisoblang.
+17.	Ikki xonali son: Shunday ikki xonali sonni topingki, uni 8 ga ko‘paytirib 4 ni qo‘shsak 100 chiqsin.
+18.	Tovuqlar va oyoqlar: Hovlida tovuqlar va quyonlar bor. Ularning jami boshlari soni 5 ta, oyoqlari soni esa 14 ta. Nechta tovuq bor?
+19.	Vaqt: 1 soatda necha sekund bor?
+20.	Bo‘laklash: Uzunligi 12 metrli simni 2 metrli bo‘laklarga bo‘lish uchun simni necha marta qirqish kerak?
+21.	Ko‘paytuvchilar: Uchta bir xil sonning ko‘paytmasi 27 ga teng. Shu sonni toping.
+22.	Bo‘lish mantiqi: Sonni 2 marta orttirib, so‘ngra yana 2 marta orttirish natijani necha marta orttirishga teng?
+23.	Konfetlar: Agar har bir bolaga 3 tadan konfet bersak, 2 ta konfet ortib qoladi. Bolalar 4 ta bo‘lsa, jami nechta konfet bor?
+24.	Sinfdagi partalar: Sinfda 12 ta parta bor. Har bir partada 2 tadan o‘quvchi o‘tiradi. Agar 3 ta o‘quvchi darsga kelmagan bo‘lsa, sinfda necha o‘quvchi bor?
+25.	Oxirgi raqam: 1 × 2 × 3 × 4 × 5 ko‘paytmaning oxirgi raqami necha?
+26.	To‘rtburchak yuzi: To‘g‘ri to‘rtburchakning yuzi 24 sm2. Agar uning bir tomoni 4 sm bo‘lsa, ikkinchi tomonini toping.
+27.	Teng taqsimot: 100 sonini 4 ta teng qismga bo‘ling.
+28.	Qayiq: Qayiqda 12 kishi bor. Ularning yarmi qirg‘oqqa tushdi, so‘ngra qolganlarning yarmi yana tushdi. Qayiqda necha kishi qoldi?
+29.	Smart savol: A × A = B va B + B = 18. A nechaga teng?
+30.	Ketma-ketlik: 2, 4, 8, 16, … navbatdagi sonni toping.
+
+II.	TEST (10 ta)
+1.	48 sonini 4 ga bo‘lib, natijani 2 ga ko‘paytiring: A) 6 B) 12 C) 24 D) 48
+2.	Ko‘paytuvchilardan biri 5 ga, ko‘paytma esa 0 ga teng. Ikkinchi ko‘paytuvchi necha? A) 5 B) 1 C) 0 D) 10
+3.	8 ga bo‘lganda 5 qoldiq qoladigan eng kichik ikki xonali son qaysi? A) 13 B) 21 C) 16 D) 11
+4.	12 ta qalam 6000 so‘m tursa, 1 ta qalam necha pul? A) 500 B) 600 C) 400 D) 1000
+5.	Qaysi sonni 5 marta orttirib, natijaga 5 ni qo‘shsak 30 chiqadi? A) 6 B) 5 C) 4 D) 7
+6.	Eng kichik uch xonali sonni eng kichik ikki xonali songa bo‘lganda necha chiqadi? A) 1 B) 10 C) 100 D) 0
+7.	Agar bo‘luvchi 6 ga teng bo‘lsa, qoldiq quyidagilardan qaysi biri bo‘lishi mumkin emas?
+A) 0 B) 3 C) 5 D) 7
+8.	25 × 4 × 3 hisoblang: A) 100 B) 200 C) 300 D) 400
+9.	Daftarning yarmi 6 bet. To‘liq daftar necha bet? A) 12 B) 18 C) 24 D) 10
+10.	X : 3 = 12 bo‘lsa, X nechaga teng? A) 4 B) 15 C) 36 D) 9
+3-	MAVZU: TO‘RT AMALGA DOIR MANTIQIY VA MURAKKAB MASALALAR
+Ushbu bo‘limda biz amallar tartibini qat’iy saqlashni, qavslardan to‘g‘ri foydalanishni va murakkab ko‘ringan ifodalarni oson yechish usullarini o‘rganamiz.
+Amallar tartibi eslatmasi:
+1.	Qavs ichidagi amallar.
+2.	Ko‘paytirish va bo‘lish (chapdan o‘ngga).
+3.	Qo‘shish va ayirish (chapdan o‘ngga).
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Hisoblang: 150 − (40 + 60) : 2 + 30.
+2.	Ifodadagi qavslarni shunday qo‘yingki, natija 100 chiqsin: 20 + 80 : 4 × 5.
+3.	Hisoblang: 12 × 5 + 48 : 4 − 15.
+4.	Ikki sonning yig‘indisi 54 ga, ayirmasi 12 ga teng. Shu sonlarni toping.
+5.	A = 25 × 4 − 30 va B = 120 : 6 + 15 bo‘lsa, A + B nechaga teng?
+6.	Bir sonni 3 marta orttirib, so‘ng 10 ni ayirsak, 50 hosil bo‘ladi. Shu sonni toping.
+7.	45 × 99 + 45 ifodasini qulay usulda (ko‘paytirishning taqsimot qonuni) hisoblang.
+8.	Do‘konda 5 ta daftar va 3 ta qalam uchun 11 000 so‘m to‘landi. Agar 1 ta qalam 1200 so‘m bo‘lsa, 1 ta daftar necha pul?
+9.	200 − (12 × 5 + 40) : 2 amallar ketma-ketligini bajaring.
+10.	O‘ylangan songa 15 ni qo‘shib, natijani 2 ga ko‘paytirsak 80 chiqadi. O‘ylangan sonni toping.
+11.	Qavslarni o‘rniga qo‘ying: 36 + 12 : 6 − 3 = 13.
+12.	Ifodani qiymatini toping: (100 − 80) × (45 : 9) + 120.
+13.	7 × 8 − 4 × 9 + 15 : 3 ifodani hisoblang.
+14.	Ikki sonning ko‘paytmasi 48 ga teng. Agar sonlardan biri 2 marta orttirilib, ikkinchisi 3 marta orttirilsa, yangi ko‘paytma qancha bo‘ladi?
+15.	Birinchi son 120, ikkinchi son undan 3 marta kichik, uchinchi son esa ikkinchisidan 15 taga ko‘p. Shu uchta son yig‘indisini toping.
+16.	Tenglamani yeching: (x + 25) : 5 = 12.
+17.	888 : 8 + 111 × 2 ifodaning qiymatini toping.
+18.	Mantiqiy savol: 3 ta sonning yig‘indisi ham, ko‘paytmasi ham bir-biriga teng. Bu qaysi sonlar? (1, 2, 3).
+19.	400 − 300 : 5 + 10 × 2 amallarini bajaring.
+20.	Shunday qavslar qo‘yingki, ifoda qiymati eng kichik bo‘lsin: 12 + 8 × 5 − 2.
+21.	4 ta ketma-ket juft sonning yig‘indisi 44 ga teng. Shu sonlarni toping.
+22.	15 × 4 + 15 × 6 ifodasini qulay usulda hisoblang.
+23.	Bir sonni 10 ga bo‘lib, natijaga 15 ni qo‘shsak 25 chiqadi. Shu sonni toping.
+24.	(45 + 55) × (12 − 12) + 75 ifodaning javobi necha?
+25.	100 dan boshlab 5 tadan kamayib boruvchi 6 ta sonni yozing.
+26.	Ifodaning qiymatini toping: 125 : 5 + 25 × 4 − 50.
+27.	A × B = 36 va A − B = 5 bo‘lsa, A va B ni toping.
+28.	Ikki xonali eng katta son bilan eng kichik uch xonali sonning ayirmasini 5 ga ko‘paytiring.
+29.	1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 yig‘indisini tezkor hisoblash usulini ko‘rsating.
+30.	"Smart" topshiriq: 10 − 9 + 8 − 7 + 6 − 5 + 4 − 3 + 2 − 1 ifodani hisoblang.
+
+II.	TEST (To‘rt amal va mantiq)
+1.	Ifodaning qiymatini toping: 20 + 20 × 2 − 20 : 2 A) 30 B) 50 C) 40 D) 60
+2.	Qaysi ifodada qavslar natijani o‘zgartirmaydi? A) (12 + 8) × 2 B) 45 − (10 + 5) C)
+(15 × 2) + 10 D) 60 : (10 + 2)
+3.	X ni toping: X × 4 − 10 = 30 A) 5 B) 10 C) 15 D) 8
+4.	12 va 8 sonlarining ko‘paytmasi ularning yig‘indisidan qanchaga katta? A) 96 B) 20 C) 76
+D) 80
+5.	Agar 35 : 5 + A = 20 bo‘lsa, A nechaga teng? A) 13 B) 7 C) 15 D) 27
+6.	(100 − 25) : 3 + 25 ifodaning qiymati nechaga teng? A) 50 B) 40 C) 75 D) 100
+7.	Amallar tartibini aniqlang: 120 : (15 − 5) + 4 × 3 A) bo‘lish, ayirish, ko‘paytirish, qo‘shish B) ayirish, bo‘lish, ko‘paytirish, qo‘shish C) ayirish, ko‘paytirish, bo‘lish, qo‘shish D) ko‘paytirish, ayirish, bo‘lish, qo‘shish
+8.	Qavslarni shunday qo‘yingki, natija 2 bo‘lsin: 24 : 4 + 2 A) (24 : 4) + 2 B) 24 : (4 + 2)
+C) Qavs kerak emas D) Mumkin emas
+9.	Ikki sonning ko‘paytmasi 64, ularning yig‘indisi 20 ga teng. Shu sonlarning ayirmasini toping. A) 12 B) 4 C) 8 D) 10
+10.	Eng kichik uch xonali sonni 5 ga bo‘lib, natijadan 12 ni ayiring. Javob nechaga teng? A) 8
+B)	20 C) 12 D) 15
+4-	MAVZU: RAQAMLAR VA NATURAL SONLAR
+Ushbu bo‘limda sonlarning alifbosi bo‘lmish raqamlar, ularning xossalari va natural sonlar ustida mantiqiy amallar bilan tanishamiz.
+Eslatma: Raqamlar jami 10 ta (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Natural sonlar esa sanashda
+ishlatiladigan sonlardir (1, 2, 3, ...).
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Raqamlari har xil bo‘lgan eng kichik uch xonali sonni yozing.
+2.	Raqamlari har xil bo‘lgan eng katta to‘rt xonali sonni yozing.
+3.	1 dan 20 gacha bo‘lgan natural sonlarni yozishda 1 raqami necha marta ishlatiladi?
+4.	Raqamlari yig‘indisi 4 ga teng bo‘lgan barcha ikki xonali sonlarni o‘sish tartibida yozing.
+5.	456 sonida nechta o‘nlik bor? (E’tibor bering: o‘nliklar xonasidagi raqam emas, jami o‘nliklar soni).
+6.	Ikki xonali sonning raqamlari yig‘indisi 15 ga teng. Bu sonlar nechta?
+7.	3, 0, 5 raqamlaridan foydalanib (raqamlar takrorlanmasin) nechta har xil uch xonali son yozish mumkin?
+8.	10 dan 30 gacha bo‘lgan sonlar orasida nechta juft son bor?
+9.	Eng kichik uch xonali son bilan eng katta ikki xonali sonning ayirmasini toping.
+10.	Raqamlari faqat toq sonlardan iborat bo‘lgan eng kichik uch xonali sonni yozing.
+11.	1 dan 50 gacha bo‘lgan sonlar orasida nechta 5 raqami qatnashadi?
+12.	Sahifasi 1 dan 25 gacha raqamlangan kitobni raqamlash uchun jami nechta raqam ishlatilgan?
+13.	Uch xonali sonning yuzliklar xonasidagi raqami 4 ga, birliklar xonasidagi raqami 2 ga teng. Agar raqamlar yig‘indisi 9 bo‘lsa, bu sonni toping.
+14.	24 va 56 sonlari orasida nechta natural son bor?
+15.	Raqamlari ko‘paytmasi 6 ga teng bo‘lgan barcha ikki xonali sonlarni yozing.
+16.	To‘rt xonali sonning raqamlari yig‘indisi eng kamida nechaga teng bo‘lishi mumkin?
+17.	1, 2, 3, 4 raqamlari yordamida (raqamlar takrorlanishi mumkin) nechta ikki xonali son yozish mumkin?
+18.	Eng katta ikki xonali juft son bilan eng kichik ikki xonali toq sonning yig‘indisini toping.
+19.	Shunday ikki xonali sonni topingki, uning o‘nliklar xonasidagi raqami birliklar xonasidagi raqamidan 4 marta katta bo‘lsin.
+20.	1 dan 100 gacha bo‘lgan sonlar ichida nechta son 0 raqami bilan tugaydi?
+21.	555 sonida nechta yuzlik, nechta o‘nlik va nechta birlik borligini alohida ko‘rsating.
+22.	Raqamlari yig‘indisi 3 ga teng bo‘lgan eng katta uch xonali sonni toping.
+23.	1, 2, 3, ... 15, 16 ketma-ketlikda jami nechta raqam yozilgan?
+24.	Ikki xonali sonning o‘nliklar xonasidagi raqami 7 ga teng. Bu sonlar ichida nechta toq son bor?
+25.	99 dan keyin keluvchi 3 ta ketma-ket sonning yig‘indisini toping.
+26.	Eng kichik to‘rt xonali son bilan eng kichik uch xonali sonning bo‘linmasi nechaga teng?
+27.	Raqamlari takrorlanmaydigan eng katta uch xonali juft sonni yozing.
+28.	x < 25 shartni qanoatlantiruvchi nechta natural son bor?
+29.	1 dan 100 gacha bo‘lgan sonlar orasida 7 raqami necha marta qatnashadi?
+30.	"Smart" topshiriq: 1234567891011... ketma-ketlikda 15-o‘rinda turgan raqamni toping.
+
+II.	TEST (Raqamlar va mantiq)
+1.	Eng kichik ikki xonali sonni ko‘rsating: A) 11 B) 10 C) 01 D) 9
+2.	Raqamlari har xil bo‘lgan eng katta uch xonali son qaysi? A) 999 B) 987 C) 900 D) 897
+3.	1 dan 30 gacha bo‘lgan sonlar ichida 2 raqami necha marta ishlatilgan? A) 3 B) 10 C) 13
+D) 12
+4.	789 sonida nechta o‘nlik bor? A) 8 B) 78 C) 9 D) 7
+5.	Raqamlari yig‘indisi 2 ga teng bo‘lgan nechta ikki xonali son bor? A) 2 B) 1 C) 3 D) 4
+6.	5 raqami qatnashgan eng kichik ikki xonali son qaysi? A) 15 B) 50 C) 5 D) 51
+7.	Uch xonali sonlar jami nechta? A) 999 B) 900 C) 899 D) 100
+8.	Qaysi qatorda faqat natural sonlar berilgan? A) 0, 1, 2, 3 B) 1, 2, 3, 4 C) 0.5, 1, 2 D) -1, 1, 2
+9.	Raqamlari ko‘paytmasi 0 ga teng bo‘lgan eng kichik ikki xonali sonni toping: A) 0 B) 10 C) 20 D) 11
+10.	4, 7, 0 raqamlaridan foydalanib yozilgan eng kichik uch xonali son qaysi? A) 047 B) 470
+C)	407 D) 704
+5-	MAVZU: XONA BIRLIKLARI VA RAZRYADLAR
+Ushbu bo‘limda sonlarning xona birliklariga ajratilishi, har bir raqamning turgan o‘rniga ko‘ra qiymati (razryadi) va sonlarni xona qo‘shiluvchilari yig‘indisi ko‘rinishida ifodalashni o‘rganamiz.
+Asosiy tushunchalar:
+Birliklar xonasi: O‘ngdan 1-o‘rin.
+O‘nliklar xonasi: O‘ngdan 2-o‘rin.
+Yuzliklar xonasi: O‘ngdan 3-o‘rin.
+	Mingliklar xonasi: O‘ngdan 4-o‘rin.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	472 sonini xona qo‘shiluvchilari yig‘indisi ko‘rinishida yozing: 472 = 400 + 70 + 2.
+2.	805 sonida nechta yuzlik, nechta o‘nlik va nechta birlik bor?
+3.	3 ta yuzlik, 5 ta o‘nlik va 0 ta birlikdan tashkil topgan sonni toping.
+4.	743 sonida 4 raqami qaysi xona birligida turibdi?
+5.	928 sonining o‘nliklar xonasidagi raqamini 3 taga oshirsak, son qanchaga ortadi?
+6.	Ikki xonali sonning birliklar xonasidagi raqami 5 ga, o‘nliklar xonasidagi raqami esa undan 2 taga ko‘p. Bu sonni toping.
+7.	614 sonida jami nechta o‘nlik bor? (Eslatma: O‘nliklar xonasidagi raqam emas, balki sonning ichidagi jami o‘nliklar miqdori).
+8.	500 + 20 + 9 ifodani bitta son ko‘rinishida yozing.
+9.	Raqamlari yig‘indisi 6 ga teng bo‘lgan barcha uch xonali sonlar ichida eng kichigini toping.
+10.	To‘rt xonali 4567 sonida mingliklar xonasidagi raqam necha?
+11.	382 sonida 8 raqamining xona qiymati (razryadi) nechaga teng? (Javob: 80).
+12.	Uch xonali sonning birliklar xonasi 0 bilan tugaydi. Agar bu 0 ni o‘chirib tashlasak, son qanchaga kamayadi?
+13.	A = 3 × 100 + 5 × 10 + 4 × 1 bo‘lsa, A sonini toping.
+14.	582 sonining yuzliklar xonasidagi raqami bilan birliklar xonasidagi raqami o‘rni almashsa, yangi son qanchaga kamayadi?
+15.	Raqamlari har xil bo‘lgan eng katta uch xonali sonning o‘nliklar xonasidagi raqami necha?
+16.	777 sonida yuzliklar xonasidagi 7 ning qiymati birliklar xonasidagi 7 ning qiymatidan necha marta katta?
+17.	Shunday uch xonali sonni topingki, uning har bir keyingi xonadagi raqami oldingisidan 2 marta katta bo‘lsin.
+18.	1250 sonida jami nechta yuzlik bor?
+19.	Sonni xona birliklariga ajrating: 8402 = …
+20.	Birinchi xona birligi 4, ikkinchi xona birligi 0, uchinchi xona birligi 7 bo‘lgan sonni yozing.
+21.	345 sonining o‘nliklar xonasidagi raqamini 2 taga kamaytirib, yuzliklar xonasidagi raqamini 1 taga oshirsak, hosil bo‘lgan sonni toping.
+22.	450 dan 460 gacha bo‘lgan sonlar ichida birliklar xonasidagi raqami 7 bo‘lgan sonni toping.
+23.	Raqamlari yig‘indisi 3 ga teng bo‘lgan barcha uch xonali sonlarni yozing.
+24.	O‘ylangan sonning yuzliklar xonasidagi raqami 5 ga teng. Bu son 500 dan qancha katta bo‘lishi mumkin? (Eng katta va eng kichik farqni ko‘rsating).
+25.	1000 sonida nechta o‘nlik bor?
+26.	2, 4, 0 raqamlari yordamida hosil qilingan eng kichik uch xonali sonning xona birliklari yig‘indisini yozing.
+27.	678 sonida 6 raqami 100 likni, 7 raqami 10 likni anglatsa, 8 raqami nimani anglatadi?
+28.	Sonning o‘nliklar xonasi 4 ga, yuzliklar xonasi birliklar xonasidan 2 marta katta. Agar birliklar xonasi 3 bo‘lsa, sonni toping.
+29.	To‘rt xonali sonning barcha xonalaridagi raqamlar bir xil va ularning yig‘indisi 12 ga teng. Bu qaysi son?
+30.	"Smart" topshiriq: XY ko‘rinishidagi ikki xonali sonda X - o‘nliklar, Y - birliklar. Agar
+X + Y = 10 va X − Y = 2 bo‘lsa, bu sonni toping.
+
+II.	TEST (Xona birliklari)
+1.	345 sonida nechta yuzlik bor? A) 34 B) 3 C) 5 D) 45
+2.	700 + 5 yig‘indisi qaysi songa teng? A) 750 B) 75 C) 705 D) 507
+3.	981 sonida 8 raqamining xona qiymati (razryadi) nechaga teng? A) 8 B) 80 C) 800 D) 18
+4.	Eng kichik uch xonali son bilan eng kichik ikki xonali sonning yig‘indisi nechaga teng? A) 110 B) 101 C) 111 D) 100
+5.	Qaysi sonda 4 raqami o‘nliklar xonasida turibdi? A) 456 B) 546 C) 654 D) 400
+6.	234 sonini 100 taga oshirish uchun qaysi xonadagi raqamni 1 taga oshirish kerak? A) Birliklar B) O‘nliklar C) Yuzliklar D) Mingliklar
+7.	Raqamlari yig‘indisi 2 ga teng bo‘lgan nechta uch xonali son bor? A) 2 B) 3 C) 1 D) 4
+8.	7 minglik, 0 yuzlik, 2 o‘nlik va 4 birlikdan iborat son qaysi? A) 724 B) 7024 C) 7204 D)
+7420
+9.	Sonning o‘nliklar xonasidagi raqami 5 taga kamaytirilsa, son qanchaga kamayadi? A) 5
+B) 50 C) 500 D) Kamaymaydi
+10.	444 sonidagi yuzliklar va birliklar xonasidagi raqamlar yig‘indisi necha? A) 8 B) 44 C) 12
+D)	4
+6-	MAVZU: KO‘P XONALI SONLARNI TAQQOSLASH
+Ushbu bo‘limda sonlarni o‘zaro solishtirish, (<, >, =) belgilarini to‘g‘ri qo‘llash va noma’lumli tengsizliklarni yechishni o‘rganamiz.
+Asosiy qoidalar:
+1.	Xonalar soni ko‘p bo‘lgan son har doim katta bo‘ladi.
+2.	Xonalar soni teng bo‘lsa, chapdan boshlab yuqori razryadlardagi raqamlar solishtiriladi.
+3.	Sonli ifodalarni solishtirishdan oldin ularning qiymati hisoblanadi.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Sonlarni solishtiring va kerakli belgini qo‘ying: a) 4567□4576 b) 10203□10230 c)
+9999□10000
+2.	1, 3, 5, 0 raqamlaridan foydalanib (raqamlar takrorlanmasin) yozish mumkin bo‘lgan eng katta va eng kichik to‘rt xonali sonlarni toping va ularni solishtiring.
+3.	X < 458 tengsizlikni qanoatlantiruvchi eng katta natural sonni toping.
+4.	125 + 250□130 + 240 ifodalarni hisoblang va solishtiring.
+5.	Berilgan sonlarni kamayish tartibida joylashtiring: 4502, 4052, 5402, 5042, 4520.
+6.	345 < X < 350 shartiga mos keluvchi barcha natural sonlarni yozing.
+7.	Ikki xonali sonlarning eng kattasi bilan uch xonali sonlarning eng kichigini solishtiring.
+8.	A + 10 > 25 bo‘lsa, A ning eng kichik natural qiymati necha?
+9.	7, 8, 9 raqamlari yordamida tuzilgan barcha uch xonali sonlarni o‘sish tartibida yozing.
+10.	456 × 2□900 ifodaga kerakli belgini qo‘ying.
+11.	"Smart" savol: Agar A > B va B > C bo‘lsa, A va C sonlarini solishtiring.
+12.	Raqamlari yig‘indisi 5 ga teng bo‘lgan barcha ikki xonali sonlarni o‘sish tartibida yozing.
+13.	5 kg 200 g □5200 g belgisini qo‘ying.
+14.	To‘rt xonali eng kichik juft son bilan uch xonali eng katta toq sonni solishtiring.
+15.	X + 150 < 200 shartini qanoatlantiruvchi nechta natural son bor?
+16.	Berilgan sonlar orasiga shunday raqam qo‘yingki, tengsizlik to‘g‘ri bo‘lsin: 45_7 < 4517.
+17.	1, 2, 3 raqamlaridan tuzilgan barcha uch xonali sonlar ichida 200 dan katta, lekin 300 dan kichiklarini yozing.
+18.	120 : 4□120 : 3 hisoblamasdan mantiqiy tushuntiring va belgi qo‘ying.
+19.	Raqamlari har xil bo‘lgan eng kichik besh xonali sonni yozing.
+20.	A soni B dan 12 taga katta, B esa C dan 5 taga kichik. A va C ni solishtiring.
+21.	245, 254, 425, 452, 524, 542 sonlari ichida eng kattasi bilan eng kichigining ayirmasini toping.
+22.	3400 + 600□4000 belgisini qo‘ying.
+23.	Ikki xonali sonning o‘nliklar xonasidagi raqami birliklar xonasidagidan katta. Bunday sonlar nechta? (Faqat 10 dan 20 gacha bo‘lganlarini yozing).
+24.	1000 − 1□900 + 99 belgisini qo‘ying.
+25.	Shunday X sonini topingki, u 150 dan katta va 160 dan kichik bo‘lib, raqamlari yig‘indisi 9 bo‘lsin.
+26.	Uch xonali sonlar ichida raqamlari bir xil bo‘lgan eng katta sonni toping.
+27.	A - eng kichik uch xonali son, B - raqamlari har xil eng kichik uch xonali son. A□B
+belgisini qo‘ying.
+28.	789 + 111□900 belgisini qo‘ying.
+29.	X - juft son va 12 < X < 18. X ning qabul qilishi mumkin bo‘lgan qiymatlarini yozing.
+30.	"Smart" topshiriq: A + B = 10 va A > B. A va B natural sonlar bo‘lsa, ularning barcha variantlarini yozing.
+
+II.	TEST (Taqqoslash va mantiq)
+1.	Qaysi tengsizlik to‘g‘ri? A) 4509 > 4590 B) 1203 < 1230 C) 777 = 770 D) 99 < 10
+2.	Raqamlari har xil bo‘lgan eng kichik uch xonali son qaysi? A) 100 B) 101 C) 102 D) 123
+3.	X < 15 shartini nechta natural son qanoatlantiradi? A) 15 B) 14 C) 16 D) Cheksiz
+4.	Agar A = 25 × 4 va B = 120 − 20 bo‘lsa, A□B belgisini toping: A) > B) < C) = D) ≈
+5.	Eng katta ikki xonali son eng kichik uch xonali sondan nechaga kam? A) 1 B) 10 C) 11 D) 9
+6.	Qaysi qatordagi sonlar o‘sish tartibida berilgan? A) 12, 15, 13, 18 B) 100, 200, 150 C) 45,
+54, 63, 72 D) 90, 80, 70
+7.	456 + X > 500 bo‘lishi uchun X ning eng kichik natural qiymati necha bo‘lishi kerak?
+A) 44 B) 45 C) 50 D) 43
+8.	To‘rt xonali son bilan uch xonali son solishtirilganda: A) Har doim to‘rt xonali son katta. B) Har doim uch xonali son katta. C) Ular teng bo‘lishi mumkin. D) Raqamlariga qarab aniqlanadi.
+9.	5 × 5□5 + 5 + 5 + 5 + 5 belgisini qo‘ying: A) > B) < C) = D) =f
+10.	Raqamlari yig‘indisi 3 ga teng bo‘lgan eng katta ikki xonali son qaysi? A) 12 B) 21 C) 30 D) 33
+7-	MAVZU: NATURAL SONLARNI YAXLITLASH
+Ushbu bo‘limda sonlarni o‘nliklar, yuzliklar va mingliklar xonasigacha yaxlitlash qoidalarini hamda yaxlitlashga doir mantiqiy muammolarni yechishni o‘rganamiz.
+Yaxlitlash qoidasi:
+1.	Agar yaxlitlanayotgan xonadan keyingi raqam 0, 1, 2, 3, 4 bo‘lsa, yaxlitlanayotgan xona raqami o‘zgarmaydi.
+2.	Agar keyingi raqam 5, 6, 7, 8, 9 bo‘lsa, yaxlitlanayotgan xona raqami 1 taga oshadi.
+3.	Keyingi barcha xonalar 0 bilan almashadi.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Berilgan sonlarni o‘nliklargacha yaxlitlang: 43, 87, 124, 565, 992.
+2.	Berilgan sonlarni yuzliklargacha yaxlitlang: 341, 789, 1250, 499, 851.
+3.	Berilgan sonlarni mingliklargacha yaxlitlang: 4500, 7299, 12850, 9999.
+4.	O‘nliklargacha yaxlitlanganda 50 hosil bo‘ladigan barcha natural sonlarni yozing.
+5.	Yuzliklargacha yaxlitlanganda 400 hosil bo‘ladigan eng kichik natural sonni toping.
+6.	Mingliklargacha yaxlitlanganda 3000 hosil bo‘ladigan eng katta natural sonni toping.
+7.	456 sonini avval o‘nliklargacha, keyin yuzliklargacha yaxlitlang. Natijalarni solishtiring.
+8.	Do‘konda kitob 12 450 so‘m turadi. Uni mingliklargacha yaxlitlab ayting.
+9.	Ikki sonning yig‘indisi 45 ga teng. Ularni o‘nliklargacha yaxlitlab qo‘shsak, natija necha bo‘lishi mumkin? (Barcha variantlarni ko‘rib chiqing).
+10.	Shunday uch xonali sonni topingki, u yuzliklargacha yaxlitlanganda 1000 hosil bo‘lsin.
+11.	24_ (pastki chiziq o‘rniga raqam qo‘ying) soni o‘nliklargacha yaxlitlanganda 240 bo‘lishi uchun qaysi raqamlar mos keladi?
+12.	O‘nliklargacha yaxlitlanganda 80 hosil bo‘ladigan eng katta va eng kichik sonlar ayirmasini toping.
+13.	Sonni yuzliklargacha yaxlitlashganda u 30 taga ortdi. Bu qanday son bo‘lishi mumkin? (Bitta misol keltiring).
+14.	1237 sonini yuzliklargacha yaxlitlaganda hosil bo‘lgan son bilan asl sonning ayirmasini toping.
+15.	Raqamlari har xil bo‘lgan eng kichik uch xonali sonni o‘nliklargacha yaxlitlang.
+16.	Yuzliklargacha yaxlitlanganda 700 hosil bo‘ladigan nechta natural son bor?
+17.	4, 0, 7 raqamlaridan tuzilgan eng katta uch xonali sonni yuzliklargacha yaxlitlang.
+18.	A soni o‘nliklargacha yaxlitlanganda 120 bo‘ldi, B soni esa 130 bo‘ldi. A + B yig‘indining eng katta qiymati necha bo‘lishi mumkin?
+19.	Shunday X sonini topingki, u o‘nliklargacha yaxlitlanganda 50, yuzliklargacha yaxlitlanganda 0 bo‘lsin.
+20.	Mingliklargacha yaxlitlanganda 10 000 hosil bo‘ladigan eng kichik 5 xonali sonni toping.
+21.	785 sonini yaxlitlanganda 800 hosil bo‘lishi uchun u qaysi xonagacha yaxlitlangan?
+22.	Maktabda 847 o‘quvchi bor. Bu sonni yuzliklargacha yaxlitlab ayting.
+23.	Yaxlitlashda xatolik: Ali 445 sonini o‘nliklargacha yaxlitlab 440 dedi. U qayerda xato qildi? To‘g‘ri javob necha?
+24.	O‘nliklargacha yaxlitlanganda 20 hosil bo‘ladigan barcha juft sonlarni yozing.
+25.	156 + 241 yig‘indini avval hisoblab, keyin yuzliklargacha yaxlitlang.
+26.	156 va 241 sonlarini avval yuzliklargacha yaxlitlab, keyin qo‘shing. Natijalarni (25-misol bilan) solishtiring.
+27.	Raqamlari yig‘indisi 5 bo‘lgan eng katta uch xonali sonni yuzliklargacha yaxlitlang.
+28.	995 sonini o‘nliklargacha yaxlitlang. Natija necha xonali son bo‘ladi?
+29.	Avtobusda taxminan 40 yo‘lovchi bor. Agar bu son o‘nliklargacha yaxlitlangan bo‘lsa, avtobusda eng kamida necha kishi bo‘lishi mumkin?
+30.	"Smart" topshiriq: Shunday uch xonali sonni topingki, u o‘nliklargacha yaxlitlanganda 10 taga kamaysin, yuzliklargacha yaxlitlanganda esa 40 taga ortsin.
+
+II.	TEST (Yaxlitlash va mantiq)
+1.	457 sonini o‘nliklargacha yaxlitlang: A) 450 B) 460 C) 500 D) 400
+2.	Qaysi son yuzliklargacha yaxlitlanganda 800 hosil bo‘ladi? A) 749 B) 851 C) 752 D) 890
+3.	O‘nliklargacha yaxlitlanganda 100 hosil bo‘ladigan eng kichik natural son qaysi? A) 95 B) 94 C) 104 D) 90
+4.	7249 sonini mingliklargacha yaxlitlang: A) 7000 B) 7200 C) 8000 D) 7300
+5.	Yaxlitlanganda son o‘zgarmasligi uchun undan keyingi raqam qaysi bo‘lishi kerak? A) 5
+B)	7 C) 3 D) 9
+6.	145 va 154 sonlarini yuzliklargacha yaxlitlaganda qanday natijalar chiqadi? A) 100 va 100
+B)	100 va 200 C) 200 va 200 D) 150 va 150
+7.	Yuzliklargacha yaxlitlanganda 500 hosil bo‘ladigan eng katta son qaysi? A) 549 B) 550 C) 499 D) 504
+8.	4, 9, 1 raqamlari yordamida tuzilgan eng kichik uch xonali sonni o‘nliklargacha yaxlitlang:
+A)	150 B) 140 C) 190 D) 200
+9.	Sonni mingliklargacha yaxlitlaganda 0 hosil bo‘ldi. Bu son eng ko‘pi bilan necha bo‘lishi mumkin? A) 499 B) 500 C) 999 D) 0
+10.	99 sonini o‘nliklargacha yaxlitlaganda hosil bo‘lgan son bilan 100 ni solishtiring: A) Katta
+B)	Kichik C) Teng D) Solishtirib bo‘lmaydi
+8-	MAVZU: RIM RAQAMLARI
+Ushbu bo‘limda qadimiy rimliklar qo‘llagan raqamlar tizimi, ularning yozilish qoidalari va mantiqiy xususiyatlari bilan tanishamiz.
+Asosiy belgilar:
+I = 1
+V = 5
+X = 10
+L = 50
+C = 100
+D = 500
+	M = 1000
+Asosiy qoidalar:
+1.	Katta raqamdan keyin kichik raqam kelsa — qo‘shiladi (masalan: VI = 5 + 1 = 6).
+2.	Katta raqamdan oldin kichik raqam kelsa — ayiriladi (masalan: IV = 5 - 1 = 4).
+3.	Bir xil raqam ketma-ket 3 martadan ortiq takrorlanishi mumkin emas (masalan: 40 raqami XXXX emas, balki XL ko‘rinishida yoziladi).
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Quyidagi sonlarni rim raqamlarida ifodalang: 3, 7, 12, 19, 24.
+2.	Quyidagi sonlarni rim raqamlarida ifodalang: 38, 45, 59, 72, 88.
+3.	Rim raqamlarida berilgan sonlarni arab raqamlariga o‘tkazing: IV, IX, XIII, XVII, XXVI.
+4.	Rim raqamlarida berilgan sonlarni arab raqamlariga o‘tkazing: XL, LX, XC, CX, LV.
+5.	Hisoblang va natijani rim raqamlarida yozing: X + V =?
+6.	Hisoblang va natijani rim raqamlarida yozing: XXV − IX =?
+7.	Hisoblang: XIV + XIX.
+8.	Hisoblang: L − XX.
+9.	Sonlarni solishtiring (<, >, =): XIX□XXI.
+10.	Sonlarni solishtiring: XL□LX.
+11.	Sonlarni solishtiring: XCIV □CX.
+12.	1 dan 20 gacha bo‘lgan sonlar ichida rim raqamlarida yozilganda eng ko‘p belgi ishlatiladigan sonni toping. (Javob: XVIII).
+13.	Berilgan sonlarni o‘sish tartibida joylashtiring: XV , IX, XX, IV , XII.
+14.	Berilgan sonlarni kamayish tartibida joylashtiring: XL, L, XXX, LX, IX.
+15.	Rim raqamlaridagi soatda soat mili IX da, minut mili esa XII da turibdi. Soat necha bo‘lgan?
+16.	Siz 9 yoshdasiz. Yoshingizni rim raqamlarida yozing. 3 yildan keyin necha yoshda bo‘lasiz? (Natijani rim raqamlarida yozing).
+17.	O‘quvchi 40 sonini rim raqamlarida XXXX deb yozdi. U qaysi qoidani buzdi? To‘g‘ri yozuvni ko‘rsating.
+18.	XC + X yig‘indi nechaga teng? (Rim raqamida).
+19.	Shunday rim raqamini topingki, u bitta belgidan iborat bo‘lsin va qiymati 50 ga teng bo‘lsin.
+20.	2024-yilni rim raqamlari yordamida yozishga harakat qiling. (Maslahat: 2000 + 20 + 4).
+21.	Raqamlar ketma-ketligini davom ettiring: III, V I, IX, ... (keyingi 3 ta son).
+22.	A = XIV , B = XV I, C = XV bo‘lsa, ularni o‘sish tartibida yozing.
+23.	XIX va XXI sonlari orasida qaysi son bor? (Rim raqamida).
+24.	Ikki xonali eng kichik sonni rim raqamida yozing.
+25.	Eng katta ikki xonali sonni (99) rim raqamida yozing. (Ehtiyot bo‘ling: IC deb yozish mumkin emas, XCIX bo‘ladi).
+26.	(Gugurt cho‘pi jumboqlari): V I − IV = IX tenglik noto‘g‘ri. Faqat bitta cho‘pni ko‘chirib to‘g‘ri tenglik hosil qiling.
+27.	(Gugurt cho‘pi jumboqlari): V + I = V tenglikdagi bitta cho‘pni shunday ko‘chiringki, natija to‘g‘ri bo‘lsin.
+28.	Kitobning XLV sahifasidan keyin qaysi sahifa keladi?
+29.	XX × V ko‘paytmaning javobini rim raqamida yozing.
+30.	"Smart" topshiriq: Rim raqamlarida yozilgan eng kichik uch xonali son bilan eng katta bir xonali sonning ayirmasini toping.
+
+II.	TEST (Rim raqamlari)
+1.	Rim raqamlarida 14 qanday yoziladi? A) XIIII B) XIV C) VIX D) XVI
+2.	XL soni arab raqamlarida nechaga teng? A) 60 B) 40 C) 50 D) 45
+3.	Qaysi javobda sonlar to‘g‘ri o‘sish tartibida berilgan? A) IX, X, XI B) X, IX, XI C) XI, X, IX D) IX, XI, X
+4.	XIX + I yig‘indisi nechaga teng? A) XVIII B) XX C) XXI D) XVIV
+5.	Eng katta bir xonali sonni rim raqamida ko‘rsating: A) VIII B) X C) IX D) V
+6.	L harfi qaysi sonni anglatadi? A) 100 B) 50 C) 500 D) 10
+7.	XC sonidan keyin keluvchi sonni toping: A) XCI B) LXXXIX C) C D) IC
+8.	Quyidagi tengliklardan qaysi biri to‘g‘ri? A) V I + IV = X B) X − V = IV C)
+XV + V = XXV D) IX + I = XI
+9.	Rim raqamlarida bitta belgidan iborat bo‘lgan eng katta son qaysi? A) X B) C C) M D) L
+10.	44 sonining rim raqamidagi to‘g‘ri yozuvini toping: A) XXXXIV B) XLIV C) LXIV D) XLIIII
+9-	MAVZU: TO‘G‘RI CHIZIQ, NUR VA KESMA
+Ushbu bo‘limda geometriya fanining eng sodda elementlari va ularning o‘zaro farqlari bilan tanishamiz.
+Asosiy tushunchalar:
+To‘g‘ri chiziq: Na boshi, na oxiri bor chiziq. Uni cheksiz davom ettirish mumkin.
+Nur: Boshi bor, lekin oxiri yo‘q chiziq.
+	Kesma: Ikki nuqta bilan chegaralangan to‘g‘ri chiziq qismi. Uning ham boshi, ham oxiri bor (o‘lchash mumkin).
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Daftaringizga bitta nuqta qo‘ying. Shu nuqta orqali nechta to‘g‘ri chiziq o‘tkazish mumkin?
+2.	Daftaringizga ikkita nuqta qo‘ying. Shu ikki nuqta orqali nechta to‘g‘ri chiziq o‘tkazish mumkin?
+3.	To‘g‘ri chiziqda A, B va C nuqtalar berilgan. Bu yerda nechta kesma borligini aniqlang va ularni nomlang.
+4.	Nur va kesmaning asosiy farqini tushuntirib bering.
+5.	Uzunligi 8 sm bo‘lgan AB kesma chizing. Unda C nuqtani shunday qo‘yingki, AC kesma 3 sm bo‘lsin. CB kesmaning uzunligini toping.
+6.	To‘g‘ri chiziqda 4 ta nuqta belgilangan bo‘lsa, u yerda nechta nur hosil bo‘ladi?
+7.	Uzunligi 12 sm bo‘lgan kesma o‘rtasidan nuqta bilan bo‘lindi. Hosil bo‘lgan har bir kesmaning uzunligi necha sm?
+8.	Agar kesmaning bir uchini cheksiz davom ettirsak, qanday shakl hosil bo‘ladi?
+9.	Tekislikda 3 ta nuqta berilgan. Ularni juft-jufti bilan tutashtirib nechta kesma hosil qilish mumkin? (Ikki holatni ko‘ring: nuqtalar bir to‘g‘ri chiziqda yotgan va yotmagan holat).
+10.	AB kesmaning uzunligi 15 sm. Unda K nuqta belgilangan. Agar AK kesma KB dan 3 sm uzun bo‘lsa, har bir kesma uzunligini toping.
+11.	Nurda uning boshidan boshlab 2 sm, 5 sm va 9 sm masofada nuqtalar qo‘yildi. Hosil bo‘lgan eng uzun va eng qisqa kesmalar ayirmasini toping.
+12.	To‘g‘ri chiziqni bitta nuqta bilan bo‘lsak, nechta nur hosil bo‘ladi?
+13.	Kesmaning uzunligi 20 sm. Uni 4 ta teng qismga bo‘lish uchun nechta nuqta qo‘yish kerak?
+14.	MN kesma 10 sm. Uni 2 sm dan qilib bo‘lsak, nechta bo‘lak hosil bo‘ladi?
+15.	Bir nuqtadan chiquvchi 5 ta nur jami nechta burchak hosil qiladi?
+16.	To‘g‘ri chiziq va nur kesishishi mumkinmi? Chizmada ko‘rsating.
+17.	Uzunliklari 5 sm va 7 sm bo‘lgan ikki kesma bitta to‘g‘ri chiziqda yotibdi. Ularning umumiy qismi (kesishmasi) 2 sm bo‘lsa, bu ikki kesma egallagan jami uzunlikni toping.
+18.	To‘g‘ri chiziqda A, B, C, D nuqtalar ketma-ket turibdi. AB = 2 sm, BC = 3 sm,
+CD = 4 sm. AD kesma uzunligini toping.
+19.	Quyoshdan chiqayotgan yorug‘likni geometrik shakllardan qaysi biriga o‘xshatish mumkin?
+20.	Ikkita kesma faqat bitta nuqtada kesishishi mumkinmi?
+21.	Vertikal va gorizontal to‘g‘ri chiziqlarga hayotdan misollar keltiring.
+22.	PQ kesmaning uzunligi 18 sm. Uning 1/3 qismi necha sm ga teng?
+23.	Ikkita parallel to‘g‘ri chiziq chizing. Ular kesishadimi?
+24.	Qalam bilan chizilgan chiziqning "boshi" va "oxiri" bo‘lsa, u nima deyiladi?
+25.	To‘g‘ri chiziqda 5 ta nuqta belgilangan. Jami nechta kesma bor? (Formula:
+n × (n − 1) : 2)
+26.	Uzunligi 1 metr bo‘lgan kesmani 10 sm li bo‘laklarga bo‘lish uchun necha marta kesish kerak?
+27.	Nur ustida O (boshi), A va B nuqtalar bor. OA = 6 sm, OB = 10 sm bo‘lsa, AB kesma uzunligini toping.
+28.	Kesmaning uchlarini qaysi harflar bilan belgilash qabul qilingan? (Katta lotin yoki kichik lotin?)
+29.	To‘g‘ri chiziqni ikki nuqta bilan bo‘lsak, nechta kesma va nechta nur hosil bo‘ladi?
+30.	"Smart" topshiriq: Uzunligi 24 sm bo‘lgan simdan kvadrat shakli yasaldi. Kvadratning bir tomoni necha sm bo‘lgan?
+
+II.	TEST (Geometriya asoslari)
+1.	To‘g‘ri chiziqning nechta oxiri bor? A) 1 ta B) 2 ta C) Yo‘q D) 10 ta
+2.	Boshi bor, lekin oxiri yo‘q chiziq nima deyiladi? A) Kesma B) Nur C) To‘g‘ri chiziq D) Egri chiziq
+3.	Ikki nuqta orqali nechta to‘g‘ri chiziq o‘tkazish mumkin? A) 1 ta B) 2 ta C) Cheksiz ko‘p D) Imkonsiz
+4.	Kesmaning uzunligini o‘lchash mumkinmi? A) Ha B) Yo‘q C) Faqat nurnikini D) Faqat to‘g‘ri chiziqnikini
+5.	To‘g‘ri chiziqda 3 ta nuqta belgilangan bo‘lsa, nechta nur hosil bo‘ladi? A) 3 ta B) 4 ta C) 6 ta D) 2 ta
+6.	15 sm li kesmaning 5 sm i kesib tashlansa, qancha qoladi? A) 5 sm B) 10 sm C) 20 sm D) 1 sm
+7.	Kesmani belgilash uchun qaysi harflar ishlatiladi? A) a, b, c B) A, B C) 1, 2, 3 D) +, −
+8.	Quyidagilardan qaysi biri to‘g‘ri? A) Nur - bu ikki uchi chegaralangan chiziq. B) Kesma - bu to‘g‘ri chiziqning bir qismi. C) To‘g‘ri chiziqning uzunligi 100 sm. D) Nuqta orqali faqat bitta chiziq o‘tadi.
+9.	Uzunligi 2 sm, 3 sm va 5 sm bo‘lgan uchta kesma bir-biriga ulanib, bitta katta kesma hosil qilindi. Uning uzunligi qancha? A) 5 sm B) 8 sm C) 10 sm D) 15 sm
+10.	To‘g‘ri chiziqda A, B, C nuqtalar berilgan. Nechta kesma bor? A) 2 ta B) 3 ta C) 1 ta D) 4
+10-	MAVZU: SINIQ CHIZIQ VA UNING UZUNLIGI
+Ushbu bo‘limda bir-biriga burchak ostida ulangan kesmalar zanjiri — siniq chiziqlar va ularning xususiyatlarini o‘rganamiz.
+Asosiy tushunchalar:
+Siniq chiziq: Ketma-ket ulangan kesmalardan iborat shakl.
+Bo‘g‘in: Siniq chiziqni tashkil etuvchi har bir kesma.
+Uchlar: Bo‘g‘inlarning tutashgan nuqtalari.
+Ochiq siniq chiziq: Boshi va oxiri tutashmagan.
+Yopiq siniq chiziq: Boshi va oxiri bitta nuqtada tutashgan (bu ko‘pburchakni hosil qiladi).
+	Uzunlik: Barcha bo‘g‘inlar uzunliklarining yig‘indisi.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Siniq chiziq 3 ta bo‘g‘indan iborat. Ularning uzunliklari 4 sm, 7 sm va 9 sm. Siniq chiziqning umumiy uzunligini toping.
+2.	Uzunligi 20 sm bo‘lgan siniq chiziqning 4 ta teng bo‘g‘ini bor. Har bir bo‘g‘inning uzunligini toping.
+3.	Yopiq siniq chiziq 3 ta bo‘g‘indan iborat (uchburchak). Bo‘g‘inlari 5 sm, 12 sm va 13 sm. Uning umumiy uzunligini (perimetrini) toping.
+4.	Ochiq siniq chiziqning 5 ta uchi bor. U nechta bo‘g‘indan iborat?
+5.	Siniq chiziqning uzunligi 15 sm. Uning ikki bo‘g‘ini 4 sm va 6 sm bo‘lsa, uchinchi bo‘g‘ini necha sm?
+6.	Bo‘g‘inlari 2 sm, 4 sm, 6 sm, 8 sm va 10 sm bo‘lgan siniq chiziqning uzunligini toping.
+7.	To‘rtta bo‘g‘indan iborat yopiq siniq chiziqning barcha tomonlari 6 sm dan. Uning umumiy uzunligini toping.
+8.	Siniq chiziqning bo‘g‘inlari soni uning uchlari sonidan 1 taga kam bo‘lsa, bu qanday siniq chiziq? (Ochiq yoki yopiq).
+9.	Uzunligi 30 sm bo‘lgan simdan bo‘g‘inlari teng bo‘lgan 6 bo‘g‘inli ochiq siniq chiziq yasaldi. Har bir bo‘g‘in uzunligini toping.
+10.	Ochiq siniq chiziq 4 ta bo‘g‘indan iborat. Har bir keyingi bo‘g‘in oldingisidan 2 sm uzun. Birinchi bo‘g‘in 3 sm bo‘lsa, jami uzunlikni toping.
+11.	Siniq chiziqning uzunligi 25 sm. Uning birinchi bo‘g‘ini 10 sm, qolgan uchta bo‘g‘ini esa o‘zaro teng. Teng bo‘g‘inlarning uzunligini toping.
+12.	3 ta bo‘g‘indan iborat yopiq siniq chiziq yasash mumkinmi, agar bo‘g‘inlar 2 sm, 3 sm va 10 sm bo‘lsa? (Tushuntirib bering).
+13.	Chumoli to‘g‘ri burchak ostida burilib, avval 5 sm, keyin 12 sm yurdi. U jami necha sm yurgan? Uning boshi va oxiri orasidagi eng qisqa masofa necha sm bo‘ladi? (Chizib ko‘ring).
+14.	Siniq chiziqning 10 ta uchi bor. Agar u yopiq bo‘lsa, nechta bo‘g‘ini bor?
+15.	Bo‘g‘inlari 1 sm, 2 sm, 3 sm, 4 sm va 5 sm bo‘lgan siniq chiziqni yopiq qilish uchun yana necha sm li bitta bo‘g‘in qo‘shish kerak? (Minimal va maksimal variantlarni o‘ylang).
+16.	Besh bo‘g‘inli siniq chiziqning uzunligi 40 sm. Har bir bo‘g‘in 2 sm dan orttirilsa, yangi uzunlik necha sm bo‘ladi?
+17.	Uzunligi 18 sm bo‘lgan kesmadan necha xil usulda bo‘g‘inlari butun sonlardan iborat 3 bo‘g‘inli ochiq siniq chiziq yasash mumkin? (3 ta misol keltiring).
+18.	Yopiq siniq chiziqning bo‘g‘inlari 8 sm, 8 sm va 8 sm. Bu qanday shakl?
+19.	Siniq chiziq bo‘g‘inlari bir-biri bilan kesishishi mumkinmi? Chizmada ko‘rsating.
+20.	Eng kamida nechta bo‘g‘in yordamida yopiq siniq chiziq hosil qilish mumkin?
+21.	Siniq chiziqning uzunligi 1 metr. Unda 10 sm li nechta bo‘g‘in bor?
+22.	"Zig-zag" shaklidagi ochiq siniq chiziqning 20 ta uchi bor. Uning uzunligi 38 sm bo‘lsa va hamma bo‘g‘inlari teng bo‘lsa, har bir bo‘g‘in necha sm?
+23.	3 sm, 4 sm va 5 sm li kesmalardan yopiq siniq chiziq yasaldi. Uning uzunligi 12 sm bo‘lgan kesmadan necha sm ga farq qiladi?
+24.	Har bir bo‘g‘ini 5 sm bo‘lgan siniq chiziqning uzunligi 35 sm. U nechta bo‘g‘indan iborat?
+25.	Siniq chiziqning birinchi va oxirgi uchlari ustma-ust tushsa, u nima deyiladi?
+26.	12 sm li kesmani o‘rtasidan 90 daraja burchak ostida buksak, qanday shakl hosil bo‘ladi va uning uzunligi necha sm bo‘ladi?
+27.	Siniq chiziq bo‘g‘inlari uzunliklari yig‘indisi 48 sm. Agar bo‘g‘inlar soni 8 ta bo‘lsa, bo‘g‘inlarning o‘rtacha uzunligi necha sm?
+28.	To‘rt xonali sonning raqamlari yig‘indisiga teng uzunlikdagi (sm da) siniq chiziq chizing. Son: 1234.
+29.	Siniq chiziqning birinchi bo‘g‘ini 1 sm. Har bir keyingi bo‘g‘in 2 marta uzun. 4-bo‘g‘indan keyin jami uzunlik necha sm bo‘ladi?
+30.	"Smart" topshiriq: Bo‘g‘inlari 3 sm, 4 sm va 5 sm bo‘lgan siniq chiziqning uchlari orasidagi masofa eng ko‘pi bilan necha sm bo‘lishi mumkin?
+
+II.	TEST (Siniq chiziq)
+1.	Siniq chiziqning uzunligi qanday topiladi? A) Faqat birinchi va oxirgi bo‘g‘in qo‘shiladi. B) Barcha bo‘g‘inlar ko‘paytiriladi. C) Barcha bo‘g‘inlar uzunliklari qo‘shiladi. D) Eng uzun bo‘g‘in olinadi.
+2.	Ochiq siniq chiziqning 4 ta bo‘g‘ini bo‘lsa, uning nechta uchi bor? A) 4 ta B) 5 ta C) 3 ta
+D) 8 ta
+3.	Yopiq siniq chiziqning eng kam bo‘g‘inlar soni nechta? A) 2 ta B) 3 ta C) 4 ta D) 1 ta
+4.	Bo‘g‘inlari 6 sm, 8 sm va 10 sm bo‘lgan siniq chiziq uzunligi necha sm? A) 24 sm B) 14 sm
+C) 18 sm D) 20 sm
+5.	Agar siniq chiziq yopiq bo‘lsa, uning uchlari soni va bo‘g‘inlari soni... A) Teng bo‘ladi. B) Uchlari 1 taga ko‘p bo‘ladi. C) Bo‘g‘inlari 1 taga ko‘p bo‘ladi. D) Doim 4 taga teng bo‘ladi.
+6.	10 sm li 3 ta bo‘g‘indan iborat ochiq siniq chiziqning uzunligi necha sm? A) 10 sm B) 20 sm C) 30 sm D) 40 sm
+7.	Siniq chiziqning bo‘g‘ini nima? A) Nuqta B) Nur C) Kesma D) To‘g‘ri chiziq
+8.	Uzunligi 12 sm bo‘lgan siniq chiziqning 3 ta teng bo‘g‘ini bor. Bitta bo‘g‘in uzunligi necha? A) 4 sm B) 3 sm C) 6 sm D) 5 sm
+9.	Qaysi shakl yopiq siniq chiziqqa misol bo‘la oladi? A) Nur B) Kvadrat C) Kesma D) To‘g‘ri chiziq
+10.	Siniq chiziqning uzunligi 15 sm. Uning 2 ta bo‘g‘ini 5 sm dan bo‘lsa, 3-bo‘g‘ini necha sm?
+11-	MAVZU: KO‘PBURCHAKLAR
+Ushbu bo‘limda yopiq siniq chiziqlardan hosil bo‘ladigan geometrik shakllar — ko‘pburchaklar, ularning turlari va xossalari bilan tanishamiz.
+Asosiy tushunchalar:
+Ko‘pburchak: Yopiq siniq chiziq bilan chegaralangan tekislik qismi.
+Elementlari: Tomonlari (siniq chiziq bo‘g‘inlari), uchlari (siniq chiziq uchlari) va ichki burchaklari.
+	Turlari: Uchburchak (3 ta tomon), to‘rtburchak (4 ta tomon), beshburchak va h.k.  	Perimetr (P ): Ko‘pburchak barcha tomonlari uzunliklarining yig‘indisi.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Ko‘pburchakning 6 ta tomoni bor. Uning nechta uchi va nechta burchagi bor?
+2.	Tomonlari 5 sm, 7 sm va 8 sm bo‘lgan uchburchakning perimetrini toping.
+3.	To‘rtburchakning perimetri 36 sm. Agar barcha tomonlari teng bo‘lsa, bitta tomoni necha sm?
+4.	Beshburchakning hamma tomonlari 4 sm dan. Uning perimetrini toping.
+5.	Oltiburchakning uchlari soni to‘rtburchakning uchlari sonidan nechta ko‘p?
+6.	Uchburchakning bir tomoni 12 sm, ikkinchi tomoni undan 3 sm qisqa, uchinchi tomoni esa ikkinchi tomonidan 2 sm uzun. Perimetrni toping.
+7.	Ixtiyoriy to‘rtburchak chizing va uning diagonallarini o‘tkazing. Nechta diagonal hosil bo‘ldi?
+8.	Perimetri 24 sm bo‘lgan kvadratning tomonini toping.
+9.	To‘rtburchakning bir tomoni 8 sm, qolgan uchta tomoni esa bir-biriga teng va har biri 6 sm dan. Shu to‘rtburchak perimetrini toping.
+10.	Sakkizburchakning nechta uchi bor?
+11.	Uchburchakning perimetri 30 sm. Ikki tomoni yig‘indisi 22 sm bo‘lsa, uchinchi tomonini toping.
+12.	"Smart" savol: Eng kam tomonga ega bo‘lgan ko‘pburchak qaysi? Nega ikki burchakli ko‘pburchak bo‘lishi mumkin emas?
+13.	Tomonlari 3 sm, 4 sm, 5 sm, 6 sm bo‘lgan to‘rtburchak bilan tomoni 4 sm bo‘lgan kvadratning perimetrlarini solishtiring.
+14.	Beshburchakning perimetri 45 sm. Agar uning hamma tomonlari teng bo‘lsa, bitta tomoni uzunligini toping.
+15.	Oltiburchakning perimetri 60 sm. Bir tomoni 15 sm, qolgan 5 ta tomoni esa o‘zaro teng. Teng tomonlarning har biri necha sm?
+16.	Qaysi shaklning perimetri katta: tomoni 6 sm bo‘lgan kvadratnikimi yoki tomonlari 7 sm, 8 sm, 9 sm bo‘lgan uchburchaknikimi?
+17.	To‘rtburchakni bitta to‘g‘ri chiziq bilan kessak, qanday ikkita yangi ko‘pburchak hosil bo‘lishi mumkin? (Barcha variantlarni yozing).
+18.	Perimetri 20 sm bo‘lgan to‘rtburchakning tomonlari butun sonlardan iborat bo‘lsa, uning tomonlari qanday bo‘lishi mumkin? (3 ta variant keltiring).
+19.	O‘n burchakli ko‘pburchakning barcha tomonlari 10 sm dan bo‘lsa, uning perimetrini metrda ifodalang.
+20.	Ikkita teng kvadratni yonma-yon qo‘ysak, qanday shakl hosil bo‘ladi? Uning uchlari soni o‘zgaradimi?
+21.	Perimetri 18 sm bo‘lgan uchburchakning hamma tomonlari teng. Agar har bir tomoni 2 sm dan orttirilsa, yangi perimetr necha bo‘ladi?
+22.	Ko‘pburchakning tomonlari soni n ga teng bo‘lsa, uning uchlari soni nechaga teng bo‘ladi?
+23.	Bir nuqtadan chiqib, beshburchakning barcha uchlariga diagonallar o‘tkazilsa, beshburchak nechta uchburchakka ajraladi?
+24.	Tomonlari 12 sm, 15 sm, 18 sm va 20 sm bo‘lgan to‘rtburchak simdan yasalgan. Shu simni yoyib, undan tomoni teng bo‘lgan uchburchak yasalsa, uning tomoni necha sm bo‘ladi?
+25.	To‘rtburchakning burchaklari soni bilan oltiburchakning burchaklari soni yig‘indisini toping.
+26.	Yulduzcha shakli (5 ta uchli) nechta tomondan iborat siniq chiziq hisoblanadi?
+27.	Qavariq bo‘lmagan to‘rtburchak chizing. (Ichkariga botiq burchagi bo‘lsin).
+28.	Perimetri 32 sm bo‘lgan kvadratning yarmisidan hosil bo‘lgan to‘g‘ri to‘rtburchakning perimetrini toping.
+29.	Sakkizburchakning perimetri 80 sm. Har bir keyingi tomoni oldingisidan 1 sm uzun bo‘lishi mumkinmi? (Butun sonlarda tekshiring).
+30.	"Smart" topshiriq: Shunday to‘rtburchak chizingki, uning ikki tomoni parallel bo‘lsin, qolgan ikki tomoni esa parallel bo‘lmasin. Bu shaklning nomi nima?
+
+II.	TEST (Ko‘pburchaklar)
+1.	Beshburchakning nechta tomoni bor? A) 4 ta B) 5 ta C) 6 ta D) 3 ta
+2.	Barcha tomonlari teng bo‘lgan to‘rtburchak nima deyiladi? A) Uchburchak B) Kvadrat C) Trapetsiya D) To‘g‘ri chiziq
+3.	Ko‘pburchakning perimetri qanday topiladi? A) Tomonlari ko‘paytiriladi. B) Faqat ikkita tomoni qo‘shiladi. C) Barcha tomonlari uzunliklari qo‘shiladi. D) Uchlari soniga bo‘linadi.
+4.	Tomonlari 6 sm, 8 sm va 10 sm bo‘lgan uchburchakning perimetri necha? A) 24 sm B) 14 sm C) 18 sm D) 20 sm
+5.	To‘rtburchakning nechta diagonali bor? A) 1 ta B) 2 ta C) 3 ta D) 4 ta
+6.	Perimetri 40 sm bo‘lgan beshburchakning hamma tomonlari teng bo‘lsa, bitta tomoni necha? A) 10 sm B) 5 sm C) 8 sm D) 4 sm
+7.	Qaysi shakl ko‘pburchak emas? A) Kvadrat B) Uchburchak C) Aylana D) Oltiburchak
+8.	Oltiburchakning uchlari soni nechta? A) 6 ta B) 5 ta C) 12 ta D) 4 ta
+9.	Uchburchakning ikki tomoni 5 sm dan, uchinchi tomoni 8 sm. Bu qanday uchburchak? A) Teng tomonli B) Teng yonli C) Turli tomonli D) To‘rtburchak
+10.	Tomoni 5 sm bo‘lgan kvadratning perimetri necha sm? A) 20 sm B) 25 sm C) 15 sm D) 10 sm
+12-	MAVZU: TO‘G‘RI TO‘RTBURCHAK VA KVADRAT
+Ushbu bo‘limda eng ko‘p uchraydigan to‘rtburchaklar — to‘g‘ri to‘rtburchak va kvadratning xossalari, ularning perimetri va yuzini hisoblashni o‘rganamiz.
+Asosiy tushunchalar:
+	To‘g‘ri to‘rtburchak: Barcha burchaklari to‘g‘ri (90∘) bo‘lgan to‘rtburchak. Qarama-qarshi tomonlari o‘zaro teng va parallel.
+Kvadrat: Barcha tomonlari teng bo‘lgan to‘g‘ri to‘rtburchak. Perimetr (P ): Tomonlar yig‘indisi.
+	Kvadrat uchun: P = 4 × a
+	To‘g‘ri to‘rtburchak uchun: P = 2 × (a + b)
+Yuza (S): Shakl egallagan tekislik miqdori.  	Kvadrat uchun: S = a × a
+	To‘g‘ri to‘rtburchak uchun: S = a × b
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	To‘g‘ri to‘rtburchakning tomonlari 8 sm va 5 sm. Uning perimetri va yuzini toping.
+2.	Kvadratning tomoni 6 sm. Uning perimetri va yuzini hisoblang.
+3.	To‘g‘ri to‘rtburchakning yuzi 48 sm2. Agar bir tomoni 6 sm bo‘lsa, ikkinchi tomonini toping.
+4.	Perimetri 32 sm bo‘lgan kvadratning yuzini toping.
+5.	To‘g‘ri to‘rtburchakning perimetri 24 sm. Bir tomoni 7 sm bo‘lsa, uning yuzini hisoblang.
+6.	Tomoni 10 sm bo‘lgan kvadratning yuzi, tomonlari 20 sm va 4 sm bo‘lgan to‘g‘ri to‘rtburchakning yuzidan qanchaga katta?
+7.	To‘g‘ri to‘rtburchakning bo‘yi 12 sm, eni esa bo‘yidan 3 marta qisqa. Perimetrni toping.
+8.	Kvadratning yuzi 25 sm2. Shu kvadratning perimetri necha sm?
+9.	Ikkita bir xil kvadrat yonma-yon qo‘yildi. Hosil bo‘lgan to‘g‘ri to‘rtburchakning eni 4 sm bo‘lsa, uning perimetrini toping.
+10.	To‘g‘ri to‘rtburchakning eni 6 sm, yuzi 54 sm2. Uning bo‘yini toping va perimetrini hisoblang.
+11.	Tomoni 8 sm bo‘lgan kvadratning perimetri bilan eni 6 sm bo‘lgan to‘g‘ri to‘rtburchakning perimetri teng. To‘g‘ri to‘rtburchakning bo‘yini toping.
+12.	Tomonlari 15 sm va 10 sm bo‘lgan to‘g‘ri to‘rtburchak shaklidagi qog‘ozdan tomoni 4 sm bo‘lgan kvadrat qirqib olindi. Qolgan qog‘ozning yuzini toping.
+13.	To‘g‘ri to‘rtburchakning bo‘yi 2 marta orttirilsa, uning yuzi qanday o‘zgaradi?
+14.	Kvadratning tomoni 3 marta orttirilsa, uning yuzi necha marta ortadi?
+15.	Bog‘ning uzunligi 40 m, eni esa 25 m. Bog‘ atrofini 2 qator sim bilan o‘rash uchun necha metr sim kerak?
+16.	Xonaning poliga tomoni 20 sm bo‘lgan kvadrat shaklidagi kafel yotqizilmoqda. Agar xonaning o‘lchamlari 4 m va 3 m bo‘lsa, jami nechta kafel kerak bo‘ladi?
+17.	Perimetri 40 sm bo‘lgan to‘g‘ri to‘rtburchakning tomonlari qanday bo‘lsa, uning yuzi eng katta bo‘ladi?
+18.	To‘g‘ri to‘rtburchakning yuzi 36 sm2. Uning tomonlari butun sonlarda bo‘lsa, perimetri qabul qilishi mumkin bo‘lgan eng kichik qiymatni toping.
+19.	Simdan tomoni 12 sm bo‘lgan kvadrat yasaldi. Shu simni yoyib, undan eni 8 sm bo‘lgan to‘g‘ri to‘rtburchak yasalsa, uning bo‘yi necha sm bo‘ladi?
+20.	Kvadratning yuzi 100 sm2. Agar uning tomoni 2 sm ga kamaytirilsa, yuzi qanchaga kamayadi?
+21.	To‘g‘ri to‘rtburchak shaklidagi dalaning yuzi 2 gektar. Agar uning bo‘yi 200 m bo‘lsa, enini toping. (1 ga = 10000m2).
+22.	To‘g‘ri to‘rtburchak ichiga tomoni 3 sm bo‘lgan 8 ta kvadrat sig‘adi. To‘g‘ri to‘rtburchakning yuzi necha sm2?
+23.	Shaklni yuzini hisoblang: U 2 ta to‘g‘ri to‘rtburchakdan iborat. Biri 4 × 6 sm, ikkinchisi 3 × 5
+sm. Ular ustma-ust tushmaydi.
+24.	Kvadratni 4 ta teng kichik kvadratga bo‘lishdi. Katta kvadratning perimetri 48 sm bo‘lsa, kichik kvadratlardan birining yuzi necha sm2?
+25.	Perimetri 60 sm bo‘lgan to‘g‘ri to‘rtburchakning bo‘yi enidan 10 sm uzun. Tomonlarini toping.
+26.	To‘g‘ri to‘rtburchakning yuzi 64 sm2. Shu yuzaga ega bo‘lgan kvadratning perimetrini toping.
+27.	Bo‘yi 9 sm, eni 4 sm bo‘lgan to‘g‘ri to‘rtburchak bilan kvadratning yuzlari teng. Kvadratning perimetrini toping.
+28.	Stolning usti to‘g‘ri to‘rtburchak shaklida. Uning perimetri 360 sm. Agar bo‘yi 100 sm bo‘lsa, enini toping.
+29.	Ikkita kvadratning tomonlari nisbati 1 : 2. Ularning yuzlari nisbati qanday?
+30.	"Smart" topshiriq: To‘g‘ri to‘rtburchakning perimetri 18 sm, tomonlari esa butun sonlar. Uning yuzi necha xil qiymatga ega bo‘lishi mumkin?
+
+II.	TEST (To‘rtburchaklar va kvadrat)
+1.	Kvadratning tomoni 7 sm bo‘lsa, uning yuzi necha sm2? A) 28 B) 49 C) 14 D) 21
+2.	To‘g‘ri to‘rtburchakning perimetri 30 sm, eni 5 sm. Uning bo‘yi necha sm? A) 10 B) 15 C) 25 D) 20
+3.	Yuzi 36 sm2 bo‘lgan kvadratning perimetrini toping: A) 36 sm B) 24 sm C) 12 sm D) 18 sm
+4.	Qaysi ifoda to‘g‘ri to‘rtburchak yuzini hisoblash formulasi? A) P = a + b B) S = a × b
+C)	S = a + b D) P = a × b
+5.	To‘g‘ri to‘rtburchakning bo‘yi 8 sm, eni 4 sm. Agar bo‘yi 2 sm qisqarsa, yuzi necha sm2
+bo‘ladi? A) 32 B) 24 C) 20 D) 28
+6.	Kvadratning barcha tomonlari yig‘indisi 36 sm. Uning tomonini toping: A) 6 sm B) 12 sm
+C)	9 sm D) 18 sm
+7.	Tomonlari 5 sm va 4 sm bo‘lgan to‘g‘ri to‘rtburchakning yuzi necha sm2? A) 9 B) 18 C) 20
+D)	40
+8.	Agar kvadratning tomoni 2 marta orttirilsa, uning perimetri necha marta ortadi? A) 2 B) 4
+C)	8 D) O‘zgarmaydi
+9.	To‘g‘ri to‘rtburchakning yuzi 24 sm2. Bo‘lishi mumkin bo‘lgan eng katta perimetr (tomonlari butun bo‘lsa) necha? A) 20 sm B) 28 sm C) 50 sm D) 24 sm
+10.	Kvadrat va to‘g‘ri to‘rtburchakning nima bilan farq qiladi? A) Kvadratda hamma burchaklar to‘g‘ri. B) Kvadratda hamma tomonlar teng. C) To‘g‘ri to‘rtburchakda diagonallar
+13-	MAVZU: VAQT VA VAQT BIRLIKLARI
+Ushbu bo‘limda vaqtni o‘lchash, vaqt birliklari orasidagi bog‘liqlik va soat hamda taqvimga oid mantiqiy masalalarni o‘rganamiz.
+Asosiy bog‘liqliklar:
+1 asr = 100 yil
+1 yil = 12 oy = 365 (yoki 366) kun
+1 hafta = 7 kun
+1 sutka = 24 soat
+1 soat = 60 minut
+	1 minut = 60 sekund
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	3 soat 25 minutni minutlarda ifodalang.
+2.	200 minut necha soat va necha minutga teng?
+3.	2 sutka 5 soat necha soat bo‘ladi?
+4.	Avtobus yo‘lga soat 08:15 da chiqdi va manzilga 2 soat 45 minutdan keyin yetib keldi. Avtobus yetib kelgan vaqtni toping.
+5.	Kitob o‘qish soat 15:40 da boshlanib, 17:10 da tugadi. Kitob o‘qishga qancha vaqt sarflangan?
+6.	180 sekund necha minutga teng?
+7.	Kabisa yilida fevral oyi necha kundan iborat bo‘ladi? Jami yilda-chi?
+8.	Agar bugun seshanba bo‘lsa, 10 kundan keyin haftaning qaysi kuni bo‘ladi?
+9.	5 soatning 1/2 qismi necha minutga teng?
+10.	Soat millari 15:00 ni ko‘rsatmoqda. Soat va minut millari orasidagi burchak necha daraja bo‘ladi? (Chizib ko‘ring).
+11.	2024-yil kabisa yilimi? Nega? (Qoida: 4 ga qoldiqsiz bo‘linsa).
+12.	O‘quvchi har kuni 8 soat uxlaydi. U bir haftada jami necha soat uxlaydi?
+13.	Poezd soat 22:00 da yo‘lga chiqdi va 12 soat yurdi. Poezd manzilga soat nechada yetib kelgan?
+14.	4 asr 25 yil necha yilga teng?
+15.	Dunyo bo‘ylab sayohat 80 kun davom etdi. Bu necha to‘liq hafta va necha kunga teng?
+16.	Agar soat 09:30 bo‘lsa, 45 minutdan keyin soat necha bo‘ladi?
+17.	1 soatning 1/4 qismi 1 minutning necha barobariga teng?
+18.	Akmal 2012-yil 29-fevralda tug‘ilgan. U 2024-yilgacha necha marta tug‘ilgan kunini nishonlagan?
+19.	Soat 12:00 dan 15:30 gacha minut mili necha marta to‘liq aylanadi?
+20.	15 sutka necha soatga teng?
+21.	Yanvar, mart va may oylaridagi jami kunlar sonini toping.
+22.	Shunday vaqtni topingki, u sutkaning 1/3 qismiga teng bo‘lsin.
+23.	1 soat 10 minut 10 sekund jami necha sekund bo‘ladi?
+24.	Agar soat mili 12 dan 3 gacha siljisa, u necha soat o‘tganini bildiradi?
+25.	1-sentyabrdan 31-dekabrgacha jami necha kun bor? (Oylarni sanab chiqing).
+26.	Sportchi 100 metrga 12 sekundda yugurdi. U 1 minutda shunday tezlikda necha metr yugurishi mumkin?
+27.	Soat hozir 14:00. Qancha vaqtdan keyin soat 18:15 bo‘ladi?
+28.	21-asr qaysi yildan boshlangan va qaysi yilda tugaydi?
+29.	"Smart" savol: Agar kecha dushanba bo‘lgan bo‘lsa, ertadan keyingi kun haftaning qaysi kuni bo‘ladi?
+30.	10 minutda necha sekund borligini hisoblang va uni 100 ga bo‘ling.
+
+II.	TEST (Vaqt birliklari)
+1.	1 soatda nechta sekund bor? A) 60 B) 360 C) 3600 D) 120
+2.	Kabisa bo‘lmagan oddiy yilda necha kun bor? A) 366 B) 360 C) 365 D) 355
+3.	0.5 (yarim) sutka necha soatga teng? A) 12 soat B) 6 soat C) 24 soat D) 10 soat
+4.	Soat 16:45 ni so‘z bilan qanday aytish to‘g‘ri? A) 5 ga 15 minut qoldi B) 4 ga 15 minut qoldi
+C) 5 dan 45 minut o‘tdi D) Soat 4
+5.	Quyidagilardan qaysi biri eng katta vaqt birligi? A) Sutka B) Hafta C) Oy D) Asr
+6.	180 minut necha soat bo‘ladi? A) 2 soat B) 3 soat C) 4 soat D) 18 soat
+7.	3 yil 2 oy necha oyga teng? A) 32 oy B) 38 oy C) 36 oy D) 40 oy
+8.	Dars 08:30 da boshlanadi. Har bir dars 45 minut. 2-dars soat nechada tugaydi (tanaffus 5 minut)? A) 10:00 B) 10:05 C) 09:15 D) 10:10
+9.	Fevral oyi qaysi yili 29 kun bo‘ladi? A) 2021 B) 2022 C) 2023 D) 2024
+10.	Soat 12:00 da soat va minut millari orasidagi burchak necha daraja? A) 90 B) 180 C) 0 D) 360
+14-	MAVZU: MANTIQIY SAVOLLAR VA NOSTANDART MASALALAR
+Ushbu bo‘limda biz diqqatni jamlash, berilgan ma’lumotlar orasidagi yashirin bog‘liqliklarni topish va nostandart usullar bilan masalalarni yechishni o‘rganamiz. Bu savollar ko‘pincha matematik olimpiadalarda uchraydi.
+
+I.	Mashqlar to‘plami (30 ta masala)
+1.	Savatda 5 ta olma bor. Ularni 5 ta bolaga shunday tarqatingki, har bir bolaga bittadan olma tegsin, lekin bitta olma savatda qolsin. (Javob: Oxirgi bolaga olmani savati bilan berish kerak).
+2.	Oilada 5 ta o‘g‘il bor. Har bir o‘g‘ilning bittadan singlisi bor. Oilada jami nechta farzand bor?
+3.	Ikkita otasi va ikkita o‘g‘li 3 ta olmani shunday yeyishdiki, har biriga bittadan olma tegdi. Bu qanday bo‘lishi mumkin? (Javob: Bobo, ota va o‘g‘il).
+4.	Bir soat soatiga 1 minut orqada qoladi. Agar hozir soatni to‘g‘rilasak, u necha soatdan keyin yana to‘g‘ri vaqtni ko‘rsatadi?
+5.	Stol ustida 10 ta sham yonib turgan edi. 3 tasini shamol o‘chirdi. Ertalab stol ustida nechta sham qoladi? (Eslatma: O‘chmaganlari erib tugaydi).
+6.	3 ta baliqchi 3 kunda 3 ta baliq tutdi. 9 ta baliqchi 9 kunda nechta baliq tutadi?
+7.	Bir tayoqning 2 ta uchi bor. Ikki yarimta tayoqning nechta uchi bor?
+8.	Qutida 5 ta qizil va 7 ta ko‘k qalam bor. Qorong‘uda qaramasdan kamida nechta qalam olsak, ular orasida albatta bitta qizil qalam bo‘ladi?
+9.	1 dan 100 gacha bo‘lgan sonlar orasida 9 raqami necha marta qatnashadi?
+10.	To‘qqizta 9 raqami yordamida qanday qilib 100 hosil qilish mumkin? (99 + 9/9 = 100).
+11.	Velosipedchi 5 km masofani 20 minutda bosib o‘tdi. U 1 km masofani necha minutda bosib o‘tgan?
+12.	Sinfda 25 ta o‘quvchi bor. Ularning 12 tasi rasm chizishni, 15 tasi esa qo‘shiq aytishni yaxshi ko‘radi. 5 tasi ikkalasini ham yoqtirsa, nechtasi hech birini yoqtirmaydi?
+13.	Devordagi soat 3 marta bong urganda 3 sekund vaqt ketdi. Soat 6 marta bong urishi uchun necha sekund vaqt ketadi? (Ehtiyot bo‘ling: oraliqlarni sanang).
+14.	Otasi 32 yoshda, o‘g‘li esa 8 yoshda. Necha yildan keyin ota o‘g‘lidan 3 marta katta bo‘ladi?
+15.	Zinalardan chiqayotgan Akmal 3-qavatga chiqish uchun 36 ta zina bosib o‘tdi. U 6-qavatga chiqishi uchun jami nechta zina bosib o‘tishi kerak?
+16.	10 metrli matoni 2 metrdan qilib qirqish uchun necha marta kesish kerak?
+17.	It va mushukning og‘irligi birgalikda 10 kg. Mushuk va quyonniki 7 kg, it va quyonniki esa 13 kg bo‘lsa, har birining vaznini toping.
+18.	3 ta qutining birida oltin, birida kumush, birida esa bo‘sh. Qutilardagi yozuvlarning hammasi yolg‘on bo‘lsa, oltin qayerda? (1-quti: Oltin bu yerda; 2-quti: Kumush bu yerda; 3-quti:
+Bo‘sh).
+19.	Shunday ikki xonali sonni topingki, uning raqamlari yig‘indisi eng katta bo‘lsin.
+20.	Shkafda 10 juft qora va 10 juft jigarrang paypoq bor. Bir xil rangli bir juft paypoq olish uchun kamida nechta paypoqni qaramasdan olish kerak?
+21.	Chumoli 10 metrli simyog‘ochga kunduzi 3 metr tepaga chiqadi, kechasi esa 2 metr pastga tushadi. U necha kunda simyog‘och uchiga yetib boradi?
+22.	5 ta ketma-ket sonning yig‘indisi 100 ga teng. Shu sonlarni toping.
+23.	G‘ildirakning 8 ta simi (spitsa) bor. Simlar orasidagi oraliqlar nechta?
+24.	Bir toshning og‘irligi 2 kg va yana yarimta toshga teng. Toshning og‘irligi necha kg?
+25.	1, 2, 3 raqamlari yordamida nechta uch xonali son yozish mumkin (raqamlar takrorlanishi mumkin)?
+26.	Ikki xonali sonning o‘nliklar xonasidagi raqami birliklaridan 2 marta kichik. Agar raqamlar o‘rni almashsa, son 18 taga ortadi. Bu son qaysi?
+27.	"Smart" topshiriq: 1, 2, 3, 4, 5 sonlari orasiga amallar qo‘yib 100 hosil qiling.
+28.	24 kishi o‘zaro qo‘l berib so‘rashishdi. Jami so‘rashishlar soni nechta?
+29.	Bir kilogramm paxta og‘irmi yoki bir kilogramm temir?
+30.	To‘rtta 5 raqami va arifmetik amallar yordamida 16 hosil qiling. (55/5 + 5 = 16).
+
+II.	TEST (Mantiq va zukkolik)
+1.	Agar 3 ta mushuk 3 ta sichqonni 3 minutda tutsa, 10 ta mushuk 10 ta sichqonni necha
+minutda tutadi? A) 10 B) 30 C) 3 D) 1
+2.	Dunyodagi eng katta son qaysi? A) Milliard B) Trillion C) Cheksiz D) Google
+3.	Qaysi oylarda 28 kun bor? A) Faqat fevralda B) Hamma oylarda C) Faqat kabisa yilida D) Yanvarda
+4.	Daraxtda 10 ta qush o‘tirgan edi. Ovchi bittasini urib tushirdi. Daraxtda nechta qush qoldi? A) 9 ta B) 10 ta C) Yo‘q (uchib ketadi) D) 1 ta
+5.	Sinfda 20 ta o‘quvchi bor. Ularning hammasidan boshqa 5 tasi darsga keldi. Nechta o‘quvchi darsga kelmagan? A) 5 ta B) 15 ta C) 20 ta D) 0 ta
+6.	Onasi Aliga 3 ta olma berdi, otasi esa Alining olmalarini 2 barobar ko‘paytirdi. Ali bitta olmani yedi. Nechta olma qoldi? A) 4 ta B) 5 ta C) 6 ta D) 2 ta
+7.	Soat 12:00 da soat millari ustma-ust tushdi. Yana qancha vaqtdan keyin ular birinchi marta yana ustma-ust tushadi? A) 1 soatdan keyin B) 1 soat 5 minutdan keyin C) 2 soatdan keyin D) Kechasi
+8.	Qaysi sonni o‘ziga ko‘paytirib, o‘zini ayirsak, 0 hosil bo‘ladi? A) 1 B) 0 C) Ikkalasi ham D) Faqat 2
+9.	Ketma-ketlikni davom ettiring: 1, 4, 9, 16, ... A) 20 B) 25 C) 30 D) 21
+10.	Aka-ukalarning har birining yoshlari yig‘indisi 20 ga teng. Ularning yoshlari ko‘paytmasi eng katta bo‘lishi uchun ular necha yoshda bo‘lishi kerak? A) 1 va 19 B) 5 va 15 C) 10 va 10

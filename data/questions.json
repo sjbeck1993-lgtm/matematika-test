@@ -1,0 +1,4156 @@
+{
+    "1-MAVZU: QO‘SHISH VA AYIRISHGA DOIR MANTIQIY MASALALAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Teskari yo‘l: Bir son o‘ylandi. Unga 25 ni qo‘shib, natijadan 18 ni ayirganda 40 hosil bo‘ldi. O‘ylangan sonni toping.",
+                "options": [
+                    "A) 30",
+                    "B) 33",
+                    "C) 35",
+                    "D) 40"
+                ],
+                "answer": "B) 33"
+            },
+            {
+                "id": 2,
+                "question": "Qo‘shni betlar: Kitobning ochilgan ikki qo‘shni betlari raqamlarining yig‘indisi 73 ga teng. Bu qaysi betlar?",
+                "options": [
+                    "A) 35, 36",
+                    "B) 36, 37",
+                    "C) 37, 38",
+                    "D) 34, 39"
+                ],
+                "answer": "B) 36, 37"
+            },
+            {
+                "id": 3,
+                "question": "Qushlar va daraxt: Daraxtda bir necha qush o‘tirgan edi. Avval 15 tasi uchib ketdi, so‘ngra 9 tasi qaytib keldi. Shunda daraxtda 20 ta qush bo‘ldi. Dastlab daraxtda nechta qush bo‘lgan?",
+                "options": [
+                    "A) 20",
+                    "B) 25",
+                    "C) 26",
+                    "D) 30"
+                ],
+                "answer": "C) 26"
+            },
+            {
+                "id": 4,
+                "question": "Yig‘indi o‘zgarishi: Ikki sonning yig‘indisi 120 ga teng. Agar birinchi sonni 20 taga oshirib, ikkinchisini 15 taga kamaytirsak, yangi yig‘indi necha bo‘ladi?",
+                "options": [
+                    "A) 120",
+                    "B) 125",
+                    "C) 130",
+                    "D) 135"
+                ],
+                "answer": "B) 125"
+            },
+            {
+                "id": 5,
+                "question": "Venn diagrammasi: Sinfdagi 25 o‘quvchidan 18 tasi matematika, 12 tasi esa ingliz tili to‘garagiga boradi. Agar 5 o‘quvchi har ikkala to‘garakka borsa, necha o‘quvchi hech bir to‘garakka bormaydi?",
+                "options": [
+                    "A) 0",
+                    "B) 5",
+                    "C) 2",
+                    "D) 1"
+                ],
+                "answer": "A) 0"
+            },
+            {
+                "id": 6,
+                "question": "Uchta son: Uchta sonning yig‘indisi 200. Birinchi va ikkinchi son yig‘indisi 130, ikkinchi va uchinchi son yig‘indisi 110 bo‘lsa, har bir sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Yosh masalasi: Akmal hozir 14 yoshda, uning ukasi esa 6 yoshda. Necha yildan keyin ularning yoshlari yig‘indisi 30 ga teng bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Eng katta va kichik: Raqamlari har xil bo‘lgan eng katta uch xonali son va eng kichik uch xonali sonning ayirmasini toping. +45\t−32\t+10",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Zanjir:\t \t \t \t. So‘roq o‘rnidagi sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Tenglik: 12 + 15 + X = 40 + 5 bo‘lsa, X ni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Savatdagi mevalar: Birinchi savatda 45 ta, ikkinchi savatda 23 ta olma bor. Birinchi savatdan nechta olma ikkinchisiga olinsa, ulardagi olmalar soni tenglashadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Gugurt cho‘pi: V I − IV = IX noto‘g‘ri tenglik berilgan. Bitta cho‘pni ko‘chirib to‘g‘ri tenglik hosil qiling.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Ketma-ket sonlar: Uchta ketma-ket natural sonning yig‘indisi 45 ga teng. Shu sonlarni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Raqamlar mantiqi: Raqamlari yig‘indisi 5 ga teng bo‘lgan barcha ikki xonali sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Avtobus: Avtobusda 30 yo‘lovchi bor edi. Bekatda 8 kishi tushdi va bir necha kishi chiqdi. Avtobusda 35 kishi qolgan bo‘lsa, bekatda necha kishi chiqqan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Taqqoslash: 245 + 155□600 − 210 belgisini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "O‘ylangan son: O‘ylangan sondan 45 ni ayirib, natijaga 12 ni qo‘shsak 100 chiqadi. O‘ylangan son necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Kamayuvchi va ayirma: Ayiruvchi 24 ga teng. Agar kamayuvchi 10 taga oshsa, ayirma qanchaga o‘zgaradi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Sehrli kvadrat: 3 × 3 jadvalda har bir qator va ustun yig‘indisi 15 bo‘lishi uchun bo‘sh kataklarni to‘ldiring (Markazda 5 turibdi).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Oylar: Yanvar va fevral (kabisa bo‘lmagan yil) oylarida jami necha kun bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Do‘kon: Ali do‘kondan 4500 so‘mga non va 12000 so‘mga sariyog‘ oldi. Sotuvchiga 20000 so‘m bersa, qancha qaytim olishi kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "Qatorlar: Maktab tadbirida 1-qatorda 15 kishi, har bir keyingi qatorda esa oldingisidan 2 kishi ko‘p o‘tiribdi. 4-qatorda necha kishi bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Poyga: Sardor marraga 4-bo‘lib yetib keldi. Undan keyin yana 7 kishi kelgan bo‘lsa, poygada jami necha kishi qatnashgan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Tanga: Jamshidda 100, 200 va 500 so‘mlik tangalardan bittadan bor. U jami necha xil summani to‘lay oladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "Masofa: A va B nuqtalar orasidagi masofa 100 m. C nuqta ularning o‘rtasida. A dan C gacha masofa qancha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Toq va juft: 1 dan 20 gacha bo‘lgan barcha toq sonlarning yig‘indisini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Raqamlar yig‘indisi: 999 sonining raqamlari yig‘indisidan 100 sonining raqamlari yig‘indisini ayiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Shamlar: Stol ustida 5 ta sham yonib turgan edi, 2 tasini o‘chirishdi. Nechta sham qoldi? (Mantiqiy javob: o‘chgani qoladi, qolgani erib bitadi).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Sim: Uzunligi 40 sm bo‘lgan simdan tomonlari teng bo‘lgan to‘rtburchak (kvadrat) yasaldi. Uning bir tomoni necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "Smart topshiriq: A + B = 10, B + C = 12, A + C = 14. A, B va C ni toping.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Ikki sonning yig‘indisi 50 ga teng. Ulardan biri ikkinchisidan 10 taga ko‘p. Kichik sonni toping.",
+                "options": [
+                    "A) 30",
+                    "B) 20",
+                    "C) 15",
+                    "D) 25"
+                ],
+                "answer": "B) 20"
+            },
+            {
+                "id": 2,
+                "question": "1 + 2 + 3 + ⋯ + 10 yig‘indisi nechaga teng?",
+                "options": [
+                    "A) 45",
+                    "B) 50",
+                    "C) 55",
+                    "D) 60"
+                ],
+                "answer": "C) 55"
+            },
+            {
+                "id": 3,
+                "question": "Qaysi son o‘zidan oldingi sondan 15 taga katta, 85 dan esa 15 taga kichik?",
+                "options": [
+                    "A) 100",
+                    "B) 70",
+                    "C) 80",
+                    "D) 90"
+                ],
+                "answer": "B) 70"
+            },
+            {
+                "id": 4,
+                "question": "Ayirma 45 ga teng. Agar ayiruvchi 5 taga kamaytirilsa, yangi ayirma necha bo‘ladi?",
+                "options": [
+                    "A) 40",
+                    "B) 50",
+                    "C) 45",
+                    "D) 55"
+                ],
+                "answer": "B) 50"
+            },
+            {
+                "id": 5,
+                "question": "Eng kichik uch xonali toq sonni ko‘rsating:",
+                "options": [
+                    "A) 100",
+                    "B) 101",
+                    "C) 111",
+                    "D) 103"
+                ],
+                "answer": "B) 101"
+            },
+            {
+                "id": 6,
+                "question": "Soat 10:45 da dars boshlandi. Dars 45 minut davom etsa, soat nechada tugaydi?",
+                "options": [
+                    "A) 11:30",
+                    "B) 11:15",
+                    "C) 11:45",
+                    "D) 12:00"
+                ],
+                "answer": "A) 11:30"
+            },
+            {
+                "id": 7,
+                "question": "Raqamlari yig‘indisi 3 ga teng bo‘lgan eng katta ikki xonali son:",
+                "options": [
+                    "A) 12",
+                    "B) 21",
+                    "C) 30",
+                    "D) 33"
+                ],
+                "answer": "C) 30"
+            },
+            {
+                "id": 8,
+                "question": "X − 15 = 45 + 5 tenglamada X nechaga teng?",
+                "options": [
+                    "A) 55",
+                    "B) 65",
+                    "C) 50",
+                    "D) 35"
+                ],
+                "answer": "B) 65"
+            },
+            {
+                "id": 9,
+                "question": "Savatda 12 ta ko‘k va 8 ta qizil koptok bor. Qaramasdan kamida nechta koptok olsak, albatta bittasi qizil bo‘ladi?",
+                "options": [
+                    "A) 9",
+                    "B) 12",
+                    "C) 13",
+                    "D) 2"
+                ],
+                "answer": "C) 13"
+            },
+            {
+                "id": 10,
+                "question": "45 va 55 sonlari orasida nechta natural son bor?",
+                "options": [
+                    "A) 10",
+                    "B) 9",
+                    "C) 11",
+                    "D) 8"
+                ],
+                "answer": "B) 9"
+            }
+        ]
+    },
+    "2-MAVZU: KO‘PAYTIRISH VA BO‘LISHGA DOIR MANTIQIY MASALALAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Ko‘paytma o‘zgarishi: Ikki sonning ko‘paytmasi 40 ga teng. Agar birinchi sonni 2 marta orttirib, ikkinchisini 4 marta kamaytirsak, yangi ko‘paytma necha bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Qoldiqli bo‘lish: Sonni 7 ga bo‘lganda bo‘linma 10 va qoldiq 5 chiqdi. Shu sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Mantiqiy ko‘paytirish: 5 ta mushuk 5 ta sichqonni 5 minutda tutsa, 10 ta mushuk 10 ta sichqonni necha minutda tutadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Teskari yo‘l: O‘ylangan sonni 4 marta orttirib, so‘ngra 5 ga bo‘lsak 12 hosil bo‘ladi. O‘ylangan sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Kombinatorika: 4 ta bola o‘zaro qo‘l berib so‘rashishdi. Jami so‘rashishlar soni nechta?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Karra jadvali: 8 ga bo‘linadigan, lekin 16 dan katta va 40 dan kichik bo‘lgan barcha sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Taqsimot: 36 ta konfetni 3 ta bolaga shunday tarqatingki, har bir keyingi bola oldingisidan 2 taga ko‘p olsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Bo‘linish belgisi: 5 ga ham, 2 ga ham qoldiqsiz bo‘linadigan eng kichik uch xonali sonni toping. ×3\t:2\t×4",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Zanjir: X  \t \t \t. X ni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Narxlar: 4 ta kitob 20 000 so‘m turadi. 7 ta shunday kitob necha pul turadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Guruhlash: 60 ta o‘quvchini har birida 4 tadan qilib guruhlarga bo‘lishdi. Jami nechta guruh hosil bo‘ldi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Nolning xossasi: 125 × 48 × 0 × 12 ifodaning qiymati necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Qoldiqlar yig‘indisi: Sonni 5 ga bo‘lganda chiqishi mumkin bo‘lgan barcha qoldiqlar yig‘indisini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Yuzliklar: 400 sonida nechta o‘nlik bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Eng katta qoldiq: Bo‘luvchi 12 ga teng bo‘lsa, qoldiq eng ko‘pi bilan necha bo‘lishi mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Smart hisob: 25 × 4 + 25 × 6 ifodani qulay usulda hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "Ikki xonali son: Shunday ikki xonali sonni topingki, uni 8 ga ko‘paytirib 4 ni qo‘shsak 100 chiqsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Tovuqlar va oyoqlar: Hovlida tovuqlar va quyonlar bor. Ularning jami boshlari soni 5 ta, oyoqlari soni esa 14 ta. Nechta tovuq bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Vaqt: 1 soatda necha sekund bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Bo‘laklash: Uzunligi 12 metrli simni 2 metrli bo‘laklarga bo‘lish uchun simni necha marta qirqish kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Ko‘paytuvchilar: Uchta bir xil sonning ko‘paytmasi 27 ga teng. Shu sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "Bo‘lish mantiqi: Sonni 2 marta orttirib, so‘ngra yana 2 marta orttirish natijani necha marta orttirishga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Konfetlar: Agar har bir bolaga 3 tadan konfet bersak, 2 ta konfet ortib qoladi. Bolalar 4 ta bo‘lsa, jami nechta konfet bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Sinfdagi partalar: Sinfda 12 ta parta bor. Har bir partada 2 tadan o‘quvchi o‘tiradi. Agar 3 ta o‘quvchi darsga kelmagan bo‘lsa, sinfda necha o‘quvchi bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "Oxirgi raqam: 1 × 2 × 3 × 4 × 5 ko‘paytmaning oxirgi raqami necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "To‘rtburchak yuzi: To‘g‘ri to‘rtburchakning yuzi 24 sm2. Agar uning bir tomoni 4 sm bo‘lsa, ikkinchi tomonini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Teng taqsimot: 100 sonini 4 ta teng qismga bo‘ling.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Qayiq: Qayiqda 12 kishi bor. Ularning yarmi qirg‘oqqa tushdi, so‘ngra qolganlarning yarmi yana tushdi. Qayiqda necha kishi qoldi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Smart savol: A × A = B va B + B = 18. A nechaga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "Ketma-ketlik: 2, 4, 8, 16, … navbatdagi sonni toping.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "48 sonini 4 ga bo‘lib, natijani 2 ga ko‘paytiring:",
+                "options": [
+                    "A) 6",
+                    "B) 12",
+                    "C) 24",
+                    "D) 48"
+                ],
+                "answer": "C) 24"
+            },
+            {
+                "id": 2,
+                "question": "Ko‘paytuvchilardan biri 5 ga, ko‘paytma esa 0 ga teng. Ikkinchi ko‘paytuvchi necha?",
+                "options": [
+                    "A) 5",
+                    "B) 1",
+                    "C) 0",
+                    "D) 10"
+                ],
+                "answer": "C) 0"
+            },
+            {
+                "id": 3,
+                "question": "8 ga bo‘lganda 5 qoldiq qoladigan eng kichik ikki xonali son qaysi?",
+                "options": [
+                    "A) 13",
+                    "B) 21",
+                    "C) 16",
+                    "D) 11"
+                ],
+                "answer": "A) 13"
+            },
+            {
+                "id": 4,
+                "question": "12 ta qalam 6000 so‘m tursa, 1 ta qalam necha pul?",
+                "options": [
+                    "A) 500",
+                    "B) 600",
+                    "C) 400",
+                    "D) 1000"
+                ],
+                "answer": "A) 500"
+            },
+            {
+                "id": 5,
+                "question": "Qaysi sonni 5 marta orttirib, natijaga 5 ni qo‘shsak 30 chiqadi?",
+                "options": [
+                    "A) 6",
+                    "B) 5",
+                    "C) 4",
+                    "D) 7"
+                ],
+                "answer": "B) 5"
+            },
+            {
+                "id": 6,
+                "question": "Eng kichik uch xonali sonni eng kichik ikki xonali songa bo‘lganda necha chiqadi?",
+                "options": [
+                    "A) 1",
+                    "B) 10",
+                    "C) 100",
+                    "D) 0"
+                ],
+                "answer": "B) 10"
+            },
+            {
+                "id": 7,
+                "question": "Agar bo‘luvchi 6 ga teng bo‘lsa, qoldiq quyidagilardan qaysi biri bo‘lishi mumkin emas?",
+                "options": [
+                    "A) 0",
+                    "B) 3",
+                    "C) 5",
+                    "D) 7"
+                ],
+                "answer": "D) 7"
+            },
+            {
+                "id": 8,
+                "question": "25 × 4 × 3 hisoblang:",
+                "options": [
+                    "A) 100",
+                    "B) 200",
+                    "C) 300",
+                    "D) 400"
+                ],
+                "answer": "C) 300"
+            },
+            {
+                "id": 9,
+                "question": "Daftarning yarmi 6 bet. To‘liq daftar necha bet?",
+                "options": [
+                    "A) 12",
+                    "B) 18",
+                    "C) 24",
+                    "D) 10"
+                ],
+                "answer": "A) 12"
+            },
+            {
+                "id": 10,
+                "question": "X : 3 = 12 bo‘lsa, X nechaga teng?",
+                "options": [
+                    "A) 4",
+                    "B) 15",
+                    "C) 36",
+                    "D) 9"
+                ],
+                "answer": "C) 36"
+            }
+        ]
+    },
+    "3-MAVZU: TO‘RT AMALGA DOIR MANTIQIY VA MURAKKAB MASALALAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Hisoblang: 150 − (40 + 60) : 2 + 30.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Ifodadagi qavslarni shunday qo‘yingki, natija 100 chiqsin: 20 + 80 : 4 × 5.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Hisoblang: 12 × 5 + 48 : 4 − 15.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Ikki sonning yig‘indisi 54 ga, ayirmasi 12 ga teng. Shu sonlarni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "A = 25 × 4 − 30 va B = 120 : 6 + 15 bo‘lsa, A + B nechaga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Bir sonni 3 marta orttirib, so‘ng 10 ni ayirsak, 50 hosil bo‘ladi. Shu sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "45 × 99 + 45 ifodasini qulay usulda (ko‘paytirishning taqsimot qonuni) hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Do‘konda 5 ta daftar va 3 ta qalam uchun 11 000 so‘m to‘landi. Agar 1 ta qalam 1200 so‘m bo‘lsa, 1 ta daftar necha pul?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "200 − (12 × 5 + 40) : 2 amallar ketma-ketligini bajaring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "O‘ylangan songa 15 ni qo‘shib, natijani 2 ga ko‘paytirsak 80 chiqadi. O‘ylangan sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Qavslarni o‘rniga qo‘ying: 36 + 12 : 6 − 3 = 13.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Ifodani qiymatini toping: (100 − 80) × (45 : 9) + 120.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "7 × 8 − 4 × 9 + 15 : 3 ifodani hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Ikki sonning ko‘paytmasi 48 ga teng. Agar sonlardan biri 2 marta orttirilib, ikkinchisi 3 marta orttirilsa, yangi ko‘paytma qancha bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Birinchi son 120, ikkinchi son undan 3 marta kichik, uchinchi son esa ikkinchisidan 15 taga ko‘p. Shu uchta son yig‘indisini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Tenglamani yeching: (x + 25) : 5 = 12.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "888 : 8 + 111 × 2 ifodaning qiymatini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Mantiqiy savol: 3 ta sonning yig‘indisi ham, ko‘paytmasi ham bir-biriga teng. Bu qaysi sonlar? (1, 2, 3).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "400 − 300 : 5 + 10 × 2 amallarini bajaring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Shunday qavslar qo‘yingki, ifoda qiymati eng kichik bo‘lsin: 12 + 8 × 5 − 2.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "4 ta ketma-ket juft sonning yig‘indisi 44 ga teng. Shu sonlarni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "15 × 4 + 15 × 6 ifodasini qulay usulda hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Bir sonni 10 ga bo‘lib, natijaga 15 ni qo‘shsak 25 chiqadi. Shu sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "(45 + 55) × (12 − 12) + 75 ifodaning javobi necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "100 dan boshlab 5 tadan kamayib boruvchi 6 ta sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Ifodaning qiymatini toping: 125 : 5 + 25 × 4 − 50.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "A × B = 36 va A − B = 5 bo‘lsa, A va B ni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Ikki xonali eng katta son bilan eng kichik uch xonali sonning ayirmasini 5 ga ko‘paytiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 yig‘indisini tezkor hisoblash usulini ko‘rsating.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: 10 − 9 + 8 − 7 + 6 − 5 + 4 − 3 + 2 − 1 ifodani hisoblang.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Ifodaning qiymatini toping: 20 + 20 × 2 − 20 : 2",
+                "options": [
+                    "A) 30",
+                    "B) 50",
+                    "C) 40",
+                    "D) 60"
+                ],
+                "answer": "B) 50"
+            },
+            {
+                "id": 2,
+                "question": "Qaysi ifodada qavslar natijani o‘zgartirmaydi?",
+                "options": [
+                    "A) (12 + 8) × 2",
+                    "B) 45 − (10 + 5)",
+                    "C) (15 × 2) + 10",
+                    "D) 60 : (10 + 2)"
+                ],
+                "answer": "C) (15 × 2) + 10"
+            },
+            {
+                "id": 3,
+                "question": "X ni toping: X × 4 − 10 = 30",
+                "options": [
+                    "A) 5",
+                    "B) 10",
+                    "C) 15",
+                    "D) 8"
+                ],
+                "answer": "B) 10"
+            },
+            {
+                "id": 4,
+                "question": "12 va 8 sonlarining ko‘paytmasi ularning yig‘indisidan qanchaga katta?",
+                "options": [
+                    "A) 96",
+                    "B) 20",
+                    "C) 76",
+                    "D) 80"
+                ],
+                "answer": "C) 76"
+            },
+            {
+                "id": 5,
+                "question": "Agar 35 : 5 + A = 20 bo‘lsa, A nechaga teng?",
+                "options": [
+                    "A) 13",
+                    "B) 7",
+                    "C) 15",
+                    "D) 27"
+                ],
+                "answer": "A) 13"
+            },
+            {
+                "id": 6,
+                "question": "(100 − 25) : 3 + 25 ifodaning qiymati nechaga teng?",
+                "options": [
+                    "A) 50",
+                    "B) 40",
+                    "C) 75",
+                    "D) 100"
+                ],
+                "answer": "A) 50"
+            },
+            {
+                "id": 7,
+                "question": "Amallar tartibini aniqlang: 120 : (15 − 5) + 4 × 3",
+                "options": [
+                    "A) bo‘lish, ayirish, ko‘paytirish, qo‘shish",
+                    "B) ayirish, bo‘lish, ko‘paytirish, qo‘shish",
+                    "C) ayirish, ko‘paytirish, bo‘lish, qo‘shish",
+                    "D) ko‘paytirish, ayirish, bo‘lish, qo‘shish"
+                ],
+                "answer": "B) ayirish, bo‘lish, ko‘paytirish, qo‘shish"
+            },
+            {
+                "id": 8,
+                "question": "Qavslarni shunday qo‘yingki, natija 2 bo‘lsin: 24 : 4 + 2",
+                "options": [
+                    "A) (24 : 4) + 2",
+                    "B) 24 : (4 + 2)",
+                    "C) Qavs kerak emas",
+                    "D) Mumkin emas"
+                ],
+                "answer": "B) 24 : (4 + 2)"
+            },
+            {
+                "id": 9,
+                "question": "Ikki sonning ko‘paytmasi 64, ularning yig‘indisi 20 ga teng. Shu sonlarning ayirmasini toping.",
+                "options": [
+                    "A) 12",
+                    "B) 4",
+                    "C) 8",
+                    "D) 10"
+                ],
+                "answer": "A) 12"
+            },
+            {
+                "id": 10,
+                "question": "Eng kichik uch xonali sonni 5 ga bo‘lib, natijadan 12 ni ayiring. Javob nechaga teng?",
+                "options": [
+                    "A) 8",
+                    "B) 20",
+                    "C) 12",
+                    "D) 15"
+                ],
+                "answer": "A) 8"
+            }
+        ]
+    },
+    "4-MAVZU: RAQAMLAR VA NATURAL SONLAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Raqamlari har xil bo‘lgan eng kichik uch xonali sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Raqamlari har xil bo‘lgan eng katta to‘rt xonali sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "1 dan 20 gacha bo‘lgan natural sonlarni yozishda 1 raqami necha marta ishlatiladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Raqamlari yig‘indisi 4 ga teng bo‘lgan barcha ikki xonali sonlarni o‘sish tartibida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "456 sonida nechta o‘nlik bor? (E’tibor bering: o‘nliklar xonasidagi raqam emas, jami o‘nliklar soni).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Ikki xonali sonning raqamlari yig‘indisi 15 ga teng. Bu sonlar nechta?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "3, 0, 5 raqamlaridan foydalanib (raqamlar takrorlanmasin) nechta har xil uch xonali son yozish mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "10 dan 30 gacha bo‘lgan sonlar orasida nechta juft son bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Eng kichik uch xonali son bilan eng katta ikki xonali sonning ayirmasini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Raqamlari faqat toq sonlardan iborat bo‘lgan eng kichik uch xonali sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "1 dan 50 gacha bo‘lgan sonlar orasida nechta 5 raqami qatnashadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Sahifasi 1 dan 25 gacha raqamlangan kitobni raqamlash uchun jami nechta raqam ishlatilgan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Uch xonali sonning yuzliklar xonasidagi raqami 4 ga, birliklar xonasidagi raqami 2 ga teng. Agar raqamlar yig‘indisi 9 bo‘lsa, bu sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "24 va 56 sonlari orasida nechta natural son bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Raqamlari ko‘paytmasi 6 ga teng bo‘lgan barcha ikki xonali sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "To‘rt xonali sonning raqamlari yig‘indisi eng kamida nechaga teng bo‘lishi mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "1, 2, 3, 4 raqamlari yordamida (raqamlar takrorlanishi mumkin) nechta ikki xonali son yozish mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Eng katta ikki xonali juft son bilan eng kichik ikki xonali toq sonning yig‘indisini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Shunday ikki xonali sonni topingki, uning o‘nliklar xonasidagi raqami birliklar xonasidagi raqamidan 4 marta katta bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "1 dan 100 gacha bo‘lgan sonlar ichida nechta son 0 raqami bilan tugaydi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "555 sonida nechta yuzlik, nechta o‘nlik va nechta birlik borligini alohida ko‘rsating.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "Raqamlari yig‘indisi 3 ga teng bo‘lgan eng katta uch xonali sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "1, 2, 3, ... 15, 16 ketma-ketlikda jami nechta raqam yozilgan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Ikki xonali sonning o‘nliklar xonasidagi raqami 7 ga teng. Bu sonlar ichida nechta toq son bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "99 dan keyin keluvchi 3 ta ketma-ket sonning yig‘indisini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Eng kichik to‘rt xonali son bilan eng kichik uch xonali sonning bo‘linmasi nechaga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Raqamlari takrorlanmaydigan eng katta uch xonali juft sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "x < 25 shartni qanoatlantiruvchi nechta natural son bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "1 dan 100 gacha bo‘lgan sonlar orasida 7 raqami necha marta qatnashadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: 1234567891011... ketma-ketlikda 15-o‘rinda turgan raqamni toping.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Eng kichik ikki xonali sonni ko‘rsating:",
+                "options": [
+                    "A) 11",
+                    "B) 10",
+                    "C) 01",
+                    "D) 9"
+                ],
+                "answer": "B) 10"
+            },
+            {
+                "id": 2,
+                "question": "Raqamlari har xil bo‘lgan eng katta uch xonali son qaysi?",
+                "options": [
+                    "A) 999",
+                    "B) 987",
+                    "C) 900",
+                    "D) 897"
+                ],
+                "answer": "B) 987"
+            },
+            {
+                "id": 3,
+                "question": "1 dan 30 gacha bo‘lgan sonlar ichida 2 raqami necha marta ishlatilgan?",
+                "options": [
+                    "A) 3",
+                    "B) 10",
+                    "C) 13",
+                    "D) 12"
+                ],
+                "answer": "C) 13"
+            },
+            {
+                "id": 4,
+                "question": "789 sonida nechta o‘nlik bor?",
+                "options": [
+                    "A) 8",
+                    "B) 78",
+                    "C) 9",
+                    "D) 7"
+                ],
+                "answer": "B) 78"
+            },
+            {
+                "id": 5,
+                "question": "Raqamlari yig‘indisi 2 ga teng bo‘lgan nechta ikki xonali son bor?",
+                "options": [
+                    "A) 2",
+                    "B) 1",
+                    "C) 3",
+                    "D) 4"
+                ],
+                "answer": "A) 2"
+            },
+            {
+                "id": 6,
+                "question": "5 raqami qatnashgan eng kichik ikki xonali son qaysi?",
+                "options": [
+                    "A) 15",
+                    "B) 50",
+                    "C) 5",
+                    "D) 51"
+                ],
+                "answer": "A) 15"
+            },
+            {
+                "id": 7,
+                "question": "Uch xonali sonlar jami nechta?",
+                "options": [
+                    "A) 999",
+                    "B) 900",
+                    "C) 899",
+                    "D) 100"
+                ],
+                "answer": "B) 900"
+            },
+            {
+                "id": 8,
+                "question": "Qaysi qatorda faqat natural sonlar berilgan?",
+                "options": [
+                    "A) 0, 1, 2, 3",
+                    "B) 1, 2, 3, 4",
+                    "C) 0.5, 1, 2",
+                    "D) -1, 1, 2"
+                ],
+                "answer": "B) 1, 2, 3, 4"
+            },
+            {
+                "id": 9,
+                "question": "Raqamlari ko‘paytmasi 0 ga teng bo‘lgan eng kichik ikki xonali sonni toping:",
+                "options": [
+                    "A) 0",
+                    "B) 10",
+                    "C) 20",
+                    "D) 11"
+                ],
+                "answer": "B) 10"
+            },
+            {
+                "id": 10,
+                "question": "4, 7, 0 raqamlaridan foydalanib yozilgan eng kichik uch xonali son qaysi?",
+                "options": [
+                    "A) 047",
+                    "B) 470",
+                    "C) 407",
+                    "D) 704"
+                ],
+                "answer": "C) 407"
+            }
+        ]
+    },
+    "5-MAVZU: XONA BIRLIKLARI VA RAZRYADLAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "472 sonini xona qo‘shiluvchilari yig‘indisi ko‘rinishida yozing: 472 = 400 + 70 + 2.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "805 sonida nechta yuzlik, nechta o‘nlik va nechta birlik bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "3 ta yuzlik, 5 ta o‘nlik va 0 ta birlikdan tashkil topgan sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "743 sonida 4 raqami qaysi xona birligida turibdi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "928 sonining o‘nliklar xonasidagi raqamini 3 taga oshirsak, son qanchaga ortadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Ikki xonali sonning birliklar xonasidagi raqami 5 ga, o‘nliklar xonasidagi raqami esa undan 2 taga ko‘p. Bu sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "614 sonida jami nechta o‘nlik bor? (Eslatma: O‘nliklar xonasidagi raqam emas, balki sonning ichidagi jami o‘nliklar miqdori).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "500 + 20 + 9 ifodani bitta son ko‘rinishida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Raqamlari yig‘indisi 6 ga teng bo‘lgan barcha uch xonali sonlar ichida eng kichigini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "To‘rt xonali 4567 sonida mingliklar xonasidagi raqam necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "382 sonida 8 raqamining xona qiymati (razryadi) nechaga teng? (Javob: 80).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Uch xonali sonning birliklar xonasi 0 bilan tugaydi. Agar bu 0 ni o‘chirib tashlasak, son qanchaga kamayadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "A = 3 × 100 + 5 × 10 + 4 × 1 bo‘lsa, A sonini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "582 sonining yuzliklar xonasidagi raqami bilan birliklar xonasidagi raqami o‘rni almashsa, yangi son qanchaga kamayadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Raqamlari har xil bo‘lgan eng katta uch xonali sonning o‘nliklar xonasidagi raqami necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "777 sonida yuzliklar xonasidagi 7 ning qiymati birliklar xonasidagi 7 ning qiymatidan necha marta katta?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "Shunday uch xonali sonni topingki, uning har bir keyingi xonadagi raqami oldingisidan 2 marta katta bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "1250 sonida jami nechta yuzlik bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Sonni xona birliklariga ajrating: 8402 = …",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Birinchi xona birligi 4, ikkinchi xona birligi 0, uchinchi xona birligi 7 bo‘lgan sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "345 sonining o‘nliklar xonasidagi raqamini 2 taga kamaytirib, yuzliklar xonasidagi raqamini 1 taga oshirsak, hosil bo‘lgan sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "450 dan 460 gacha bo‘lgan sonlar ichida birliklar xonasidagi raqami 7 bo‘lgan sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Raqamlari yig‘indisi 3 ga teng bo‘lgan barcha uch xonali sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "O‘ylangan sonning yuzliklar xonasidagi raqami 5 ga teng. Bu son 500 dan qancha katta bo‘lishi mumkin? (Eng katta va eng kichik farqni ko‘rsating).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "1000 sonida nechta o‘nlik bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "2, 4, 0 raqamlari yordamida hosil qilingan eng kichik uch xonali sonning xona birliklari yig‘indisini yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "678 sonida 6 raqami 100 likni, 7 raqami 10 likni anglatsa, 8 raqami nimani anglatadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Sonning o‘nliklar xonasi 4 ga, yuzliklar xonasi birliklar xonasidan 2 marta katta. Agar birliklar xonasi 3 bo‘lsa, sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "To‘rt xonali sonning barcha xonalaridagi raqamlar bir xil va ularning yig‘indisi 12 ga teng. Bu qaysi son?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: XY ko‘rinishidagi ikki xonali sonda X - o‘nliklar, Y - birliklar. Agar X + Y = 10 va X − Y = 2 bo‘lsa, bu sonni toping.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "345 sonida nechta yuzlik bor?",
+                "options": [
+                    "A) 34",
+                    "B) 3",
+                    "C) 5",
+                    "D) 45"
+                ],
+                "answer": "B) 3"
+            },
+            {
+                "id": 2,
+                "question": "700 + 5 yig‘indisi qaysi songa teng?",
+                "options": [
+                    "A) 750",
+                    "B) 75",
+                    "C) 705",
+                    "D) 507"
+                ],
+                "answer": "C) 705"
+            },
+            {
+                "id": 3,
+                "question": "981 sonida 8 raqamining xona qiymati (razryadi) nechaga teng?",
+                "options": [
+                    "A) 8",
+                    "B) 80",
+                    "C) 800",
+                    "D) 18"
+                ],
+                "answer": "B) 80"
+            },
+            {
+                "id": 4,
+                "question": "Eng kichik uch xonali son bilan eng kichik ikki xonali sonning yig‘indisi nechaga teng?",
+                "options": [
+                    "A) 110",
+                    "B) 101",
+                    "C) 111",
+                    "D) 100"
+                ],
+                "answer": "A) 110"
+            },
+            {
+                "id": 5,
+                "question": "Qaysi sonda 4 raqami o‘nliklar xonasida turibdi?",
+                "options": [
+                    "A) 456",
+                    "B) 546",
+                    "C) 654",
+                    "D) 400"
+                ],
+                "answer": "B) 546"
+            },
+            {
+                "id": 6,
+                "question": "234 sonini 100 taga oshirish uchun qaysi xonadagi raqamni 1 taga oshirish kerak?",
+                "options": [
+                    "A) Birliklar",
+                    "B) O‘nliklar",
+                    "C) Yuzliklar",
+                    "D) Mingliklar"
+                ],
+                "answer": "C) Yuzliklar"
+            },
+            {
+                "id": 7,
+                "question": "Raqamlari yig‘indisi 2 ga teng bo‘lgan nechta uch xonali son bor?",
+                "options": [
+                    "A) 2",
+                    "B) 3",
+                    "C) 1",
+                    "D) 4"
+                ],
+                "answer": "B) 3"
+            },
+            {
+                "id": 8,
+                "question": "7 minglik, 0 yuzlik, 2 o‘nlik va 4 birlikdan iborat son qaysi?",
+                "options": [
+                    "A) 724",
+                    "B) 7024",
+                    "C) 7204",
+                    "D) 7420"
+                ],
+                "answer": "B) 7024"
+            },
+            {
+                "id": 9,
+                "question": "Sonning o‘nliklar xonasidagi raqami 5 taga kamaytirilsa, son qanchaga kamayadi?",
+                "options": [
+                    "A) 5",
+                    "B) 50",
+                    "C) 500",
+                    "D) Kamaymaydi"
+                ],
+                "answer": "B) 50"
+            },
+            {
+                "id": 10,
+                "question": "444 sonidagi yuzliklar va birliklar xonasidagi raqamlar yig‘indisi necha?",
+                "options": [
+                    "A) 8",
+                    "B) 44",
+                    "C) 12",
+                    "D) 4"
+                ],
+                "answer": "A) 8"
+            }
+        ]
+    },
+    "6-MAVZU: KO‘P XONALI SONLARNI TAQQOSLASH": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Sonlarni solishtiring va kerakli belgini qo‘ying: a) 4567□4576 b) 10203□10230 c) 9999□10000",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "1, 3, 5, 0 raqamlaridan foydalanib (raqamlar takrorlanmasin) yozish mumkin bo‘lgan eng katta va eng kichik to‘rt xonali sonlarni toping va ularni solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "X < 458 tengsizlikni qanoatlantiruvchi eng katta natural sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "125 + 250□130 + 240 ifodalarni hisoblang va solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Berilgan sonlarni kamayish tartibida joylashtiring: 4502, 4052, 5402, 5042, 4520.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "345 < X < 350 shartiga mos keluvchi barcha natural sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Ikki xonali sonlarning eng kattasi bilan uch xonali sonlarning eng kichigini solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "A + 10 > 25 bo‘lsa, A ning eng kichik natural qiymati necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "7, 8, 9 raqamlari yordamida tuzilgan barcha uch xonali sonlarni o‘sish tartibida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "456 × 2□900 ifodaga kerakli belgini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "\"Smart\" savol: Agar A > B va B > C bo‘lsa, A va C sonlarini solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Raqamlari yig‘indisi 5 ga teng bo‘lgan barcha ikki xonali sonlarni o‘sish tartibida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "5 kg 200 g □5200 g belgisini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "To‘rt xonali eng kichik juft son bilan uch xonali eng katta toq sonni solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "X + 150 < 200 shartini qanoatlantiruvchi nechta natural son bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Berilgan sonlar orasiga shunday raqam qo‘yingki, tengsizlik to‘g‘ri bo‘lsin: 45_7 < 4517.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "1, 2, 3 raqamlaridan tuzilgan barcha uch xonali sonlar ichida 200 dan katta, lekin 300 dan kichiklarini yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "120 : 4□120 : 3 hisoblamasdan mantiqiy tushuntiring va belgi qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Raqamlari har xil bo‘lgan eng kichik besh xonali sonni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "A soni B dan 12 taga katta, B esa C dan 5 taga kichik. A va C ni solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "245, 254, 425, 452, 524, 542 sonlari ichida eng kattasi bilan eng kichigining ayirmasini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "3400 + 600□4000 belgisini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Ikki xonali sonning o‘nliklar xonasidagi raqami birliklar xonasidagidan katta. Bunday sonlar nechta? (Faqat 10 dan 20 gacha bo‘lganlarini yozing).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "1000 − 1□900 + 99 belgisini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "Shunday X sonini topingki, u 150 dan katta va 160 dan kichik bo‘lib, raqamlari yig‘indisi 9 bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Uch xonali sonlar ichida raqamlari bir xil bo‘lgan eng katta sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "A - eng kichik uch xonali son, B - raqamlari har xil eng kichik uch xonali son. A□B belgisini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "789 + 111□900 belgisini qo‘ying.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "X - juft son va 12 < X < 18. X ning qabul qilishi mumkin bo‘lgan qiymatlarini yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: A + B = 10 va A > B. A va B natural sonlar bo‘lsa, ularning barcha variantlarini yozing.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Qaysi tengsizlik to‘g‘ri?",
+                "options": [
+                    "A) 4509 > 4590",
+                    "B) 1203 < 1230",
+                    "C) 777 = 770",
+                    "D) 99 < 10"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Raqamlari har xil bo‘lgan eng kichik uch xonali son qaysi?",
+                "options": [
+                    "A) 100",
+                    "B) 101",
+                    "C) 102",
+                    "D) 123"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "X < 15 shartini nechta natural son qanoatlantiradi?",
+                "options": [
+                    "A) 15",
+                    "B) 14",
+                    "C) 16",
+                    "D) Cheksiz"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Agar A = 25 × 4 va B = 120 − 20 bo‘lsa, A□B belgisini toping:",
+                "options": [
+                    "A) >",
+                    "B) <",
+                    "C) =",
+                    "D) ≈"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Eng katta ikki xonali son eng kichik uch xonali sondan nechaga kam?",
+                "options": [
+                    "A) 1",
+                    "B) 10",
+                    "C) 11",
+                    "D) 9"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Qaysi qatordagi sonlar o‘sish tartibida berilgan?",
+                "options": [
+                    "A) 12, 15, 13, 18",
+                    "B) 100, 200, 150",
+                    "C) 45, 54, 63, 72",
+                    "D) 90, 80, 70"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "456 + X > 500 bo‘lishi uchun X ning eng kichik natural qiymati necha bo‘lishi kerak?",
+                "options": [
+                    "A) 44",
+                    "B) 45",
+                    "C) 50",
+                    "D) 43"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "To‘rt xonali son bilan uch xonali son solishtirilganda:",
+                "options": [
+                    "A) Har doim to‘rt xonali son katta.",
+                    "B) Har doim uch xonali son katta.",
+                    "C) Ular teng bo‘lishi mumkin.",
+                    "D) Raqamlariga qarab aniqlanadi."
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "5 × 5□5 + 5 + 5 + 5 + 5 belgisini qo‘ying:",
+                "options": [
+                    "A) >",
+                    "B) <",
+                    "C) =",
+                    "D) =f"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Raqamlari yig‘indisi 3 ga teng bo‘lgan eng katta ikki xonali son qaysi?",
+                "options": [
+                    "A) 12",
+                    "B) 21",
+                    "C) 30",
+                    "D) 33"
+                ],
+                "answer": null
+            }
+        ]
+    },
+    "7-MAVZU: NATURAL SONLARNI YAXLITLASH": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Berilgan sonlarni o‘nliklargacha yaxlitlang: 43, 87, 124, 565, 992.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Berilgan sonlarni yuzliklargacha yaxlitlang: 341, 789, 1250, 499, 851.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Berilgan sonlarni mingliklargacha yaxlitlang: 4500, 7299, 12850, 9999.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "O‘nliklargacha yaxlitlanganda 50 hosil bo‘ladigan barcha natural sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Yuzliklargacha yaxlitlanganda 400 hosil bo‘ladigan eng kichik natural sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Mingliklargacha yaxlitlanganda 3000 hosil bo‘ladigan eng katta natural sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "456 sonini avval o‘nliklargacha, keyin yuzliklargacha yaxlitlang. Natijalarni solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Do‘konda kitob 12 450 so‘m turadi. Uni mingliklargacha yaxlitlab ayting.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Ikki sonning yig‘indisi 45 ga teng. Ularni o‘nliklargacha yaxlitlab qo‘shsak, natija necha bo‘lishi mumkin? (Barcha variantlarni ko‘rib chiqing).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Shunday uch xonali sonni topingki, u yuzliklargacha yaxlitlanganda 1000 hosil bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "24_ (pastki chiziq o‘rniga raqam qo‘ying) soni o‘nliklargacha yaxlitlanganda 240 bo‘lishi uchun qaysi raqamlar mos keladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "O‘nliklargacha yaxlitlanganda 80 hosil bo‘ladigan eng katta va eng kichik sonlar ayirmasini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Sonni yuzliklargacha yaxlitlashganda u 30 taga ortdi. Bu qanday son bo‘lishi mumkin? (Bitta misol keltiring).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "1237 sonini yuzliklargacha yaxlitlaganda hosil bo‘lgan son bilan asl sonning ayirmasini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Raqamlari har xil bo‘lgan eng kichik uch xonali sonni o‘nliklargacha yaxlitlang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Yuzliklargacha yaxlitlanganda 700 hosil bo‘ladigan nechta natural son bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "4, 0, 7 raqamlaridan tuzilgan eng katta uch xonali sonni yuzliklargacha yaxlitlang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "A soni o‘nliklargacha yaxlitlanganda 120 bo‘ldi, B soni esa 130 bo‘ldi. A + B yig‘indining eng katta qiymati necha bo‘lishi mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Shunday X sonini topingki, u o‘nliklargacha yaxlitlanganda 50, yuzliklargacha yaxlitlanganda 0 bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Mingliklargacha yaxlitlanganda 10 000 hosil bo‘ladigan eng kichik 5 xonali sonni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "785 sonini yaxlitlanganda 800 hosil bo‘lishi uchun u qaysi xonagacha yaxlitlangan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "Maktabda 847 o‘quvchi bor. Bu sonni yuzliklargacha yaxlitlab ayting.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Yaxlitlashda xatolik: Ali 445 sonini o‘nliklargacha yaxlitlab 440 dedi. U qayerda xato qildi? To‘g‘ri javob necha?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "O‘nliklargacha yaxlitlanganda 20 hosil bo‘ladigan barcha juft sonlarni yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "156 + 241 yig‘indini avval hisoblab, keyin yuzliklargacha yaxlitlang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "156 va 241 sonlarini avval yuzliklargacha yaxlitlab, keyin qo‘shing. Natijalarni (25-misol bilan) solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Raqamlari yig‘indisi 5 bo‘lgan eng katta uch xonali sonni yuzliklargacha yaxlitlang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "995 sonini o‘nliklargacha yaxlitlang. Natija necha xonali son bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Avtobusda taxminan 40 yo‘lovchi bor. Agar bu son o‘nliklargacha yaxlitlangan bo‘lsa, avtobusda eng kamida necha kishi bo‘lishi mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: Shunday uch xonali sonni topingki, u o‘nliklargacha yaxlitlanganda 10 taga kamaysin, yuzliklargacha yaxlitlanganda esa 40 taga ortsin.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "457 sonini o‘nliklargacha yaxlitlang:",
+                "options": [
+                    "A) 450",
+                    "B) 460",
+                    "C) 500",
+                    "D) 400"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Qaysi son yuzliklargacha yaxlitlanganda 800 hosil bo‘ladi?",
+                "options": [
+                    "A) 749",
+                    "B) 851",
+                    "C) 752",
+                    "D) 890"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "O‘nliklargacha yaxlitlanganda 100 hosil bo‘ladigan eng kichik natural son qaysi?",
+                "options": [
+                    "A) 95",
+                    "B) 94",
+                    "C) 104",
+                    "D) 90"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "7249 sonini mingliklargacha yaxlitlang:",
+                "options": [
+                    "A) 7000",
+                    "B) 7200",
+                    "C) 8000",
+                    "D) 7300"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Yaxlitlanganda son o‘zgarmasligi uchun undan keyingi raqam qaysi bo‘lishi kerak?",
+                "options": [
+                    "A) 5",
+                    "B) 7",
+                    "C) 3",
+                    "D) 9"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "145 va 154 sonlarini yuzliklargacha yaxlitlaganda qanday natijalar chiqadi?",
+                "options": [
+                    "A) 100 va 100",
+                    "B) 100 va 200",
+                    "C) 200 va 200",
+                    "D) 150 va 150"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Yuzliklargacha yaxlitlanganda 500 hosil bo‘ladigan eng katta son qaysi?",
+                "options": [
+                    "A) 549",
+                    "B) 550",
+                    "C) 499",
+                    "D) 504"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "4, 9, 1 raqamlari yordamida tuzilgan eng kichik uch xonali sonni o‘nliklargacha yaxlitlang:",
+                "options": [
+                    "A) 150",
+                    "B) 140",
+                    "C) 190",
+                    "D) 200"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Sonni mingliklargacha yaxlitlaganda 0 hosil bo‘ldi. Bu son eng ko‘pi bilan necha bo‘lishi mumkin?",
+                "options": [
+                    "A) 499",
+                    "B) 500",
+                    "C) 999",
+                    "D) 0"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "99 sonini o‘nliklargacha yaxlitlaganda hosil bo‘lgan son bilan 100 ni solishtiring:",
+                "options": [
+                    "A) Katta",
+                    "B) Kichik",
+                    "C) Teng",
+                    "D) Solishtirib bo‘lmaydi"
+                ],
+                "answer": null
+            }
+        ]
+    },
+    "8-MAVZU: RIM RAQAMLARI": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Quyidagi sonlarni rim raqamlarida ifodalang: 3, 7, 12, 19, 24.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Quyidagi sonlarni rim raqamlarida ifodalang: 38, 45, 59, 72, 88.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Rim raqamlarida berilgan sonlarni arab raqamlariga o‘tkazing: IV, IX, XIII, XVII, XXVI.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Rim raqamlarida berilgan sonlarni arab raqamlariga o‘tkazing: XL, LX, XC, CX, LV.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Hisoblang va natijani rim raqamlarida yozing: X + V =?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Hisoblang va natijani rim raqamlarida yozing: XXV − IX =?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Hisoblang: XIV + XIX.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Hisoblang: L − XX.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Sonlarni solishtiring (<, >, =): XIX□XXI.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Sonlarni solishtiring: XL□LX.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Sonlarni solishtiring: XCIV □CX.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "1 dan 20 gacha bo‘lgan sonlar ichida rim raqamlarida yozilganda eng ko‘p belgi ishlatiladigan sonni toping. (Javob: XVIII).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Berilgan sonlarni o‘sish tartibida joylashtiring: XV , IX, XX, IV , XII.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Berilgan sonlarni kamayish tartibida joylashtiring: XL, L, XXX, LX, IX.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Rim raqamlaridagi soatda soat mili IX da, minut mili esa XII da turibdi. Soat necha bo‘lgan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Siz 9 yoshdasiz. Yoshingizni rim raqamlarida yozing. 3 yildan keyin necha yoshda bo‘lasiz? (Natijani rim raqamlarida yozing).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "O‘quvchi 40 sonini rim raqamlarida XXXX deb yozdi. U qaysi qoidani buzdi? To‘g‘ri yozuvni ko‘rsating.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "XC + X yig‘indi nechaga teng? (Rim raqamida).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Shunday rim raqamini topingki, u bitta belgidan iborat bo‘lsin va qiymati 50 ga teng bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "2024-yilni rim raqamlari yordamida yozishga harakat qiling. (Maslahat: 2000 + 20 + 4).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Raqamlar ketma-ketligini davom ettiring: III, V I, IX, ... (keyingi 3 ta son).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "A = XIV , B = XV I, C = XV bo‘lsa, ularni o‘sish tartibida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "XIX va XXI sonlari orasida qaysi son bor? (Rim raqamida).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Ikki xonali eng kichik sonni rim raqamida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "Eng katta ikki xonali sonni (99) rim raqamida yozing. (Ehtiyot bo‘ling: IC deb yozish mumkin emas, XCIX bo‘ladi).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "(Gugurt cho‘pi jumboqlari): V I − IV = IX tenglik noto‘g‘ri. Faqat bitta cho‘pni ko‘chirib to‘g‘ri tenglik hosil qiling.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "(Gugurt cho‘pi jumboqlari): V + I = V tenglikdagi bitta cho‘pni shunday ko‘chiringki, natija to‘g‘ri bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Kitobning XLV sahifasidan keyin qaysi sahifa keladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "XX × V ko‘paytmaning javobini rim raqamida yozing.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: Rim raqamlarida yozilgan eng kichik uch xonali son bilan eng katta bir xonali sonning ayirmasini toping.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Rim raqamlarida 14 qanday yoziladi?",
+                "options": [
+                    "A) XIIII",
+                    "B) XIV",
+                    "C) VIX",
+                    "D) XVI"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "XL soni arab raqamlarida nechaga teng?",
+                "options": [
+                    "A) 60",
+                    "B) 40",
+                    "C) 50",
+                    "D) 45"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Qaysi javobda sonlar to‘g‘ri o‘sish tartibida berilgan?",
+                "options": [
+                    "A) IX, X, XI",
+                    "B) X, IX, XI",
+                    "C) XI, X, IX",
+                    "D) IX, XI, X"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "XIX + I yig‘indisi nechaga teng?",
+                "options": [
+                    "A) XVIII",
+                    "B) XX",
+                    "C) XXI",
+                    "D) XVIV"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Eng katta bir xonali sonni rim raqamida ko‘rsating:",
+                "options": [
+                    "A) VIII",
+                    "B) X",
+                    "C) IX",
+                    "D) V"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "L harfi qaysi sonni anglatadi?",
+                "options": [
+                    "A) 100",
+                    "B) 50",
+                    "C) 500",
+                    "D) 10"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "XC sonidan keyin keluvchi sonni toping:",
+                "options": [
+                    "A) XCI",
+                    "B) LXXXIX",
+                    "C) C",
+                    "D) IC"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Quyidagi tengliklardan qaysi biri to‘g‘ri?",
+                "options": [
+                    "A) V I + IV = X",
+                    "B) X − V = IV",
+                    "C) XV + V = XXV",
+                    "D) IX + I = XI"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Rim raqamlarida bitta belgidan iborat bo‘lgan eng katta son qaysi?",
+                "options": [
+                    "A) X",
+                    "B) C",
+                    "C) M",
+                    "D) L"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "44 sonining rim raqamidagi to‘g‘ri yozuvini toping:",
+                "options": [
+                    "A) XXXXIV",
+                    "B) XLIV",
+                    "C) LXIV",
+                    "D) XLIIII"
+                ],
+                "answer": null
+            }
+        ]
+    },
+    "9-MAVZU: TO‘G‘RI CHIZIQ, NUR VA KESMA": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Daftaringizga bitta nuqta qo‘ying. Shu nuqta orqali nechta to‘g‘ri chiziq o‘tkazish mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Daftaringizga ikkita nuqta qo‘ying. Shu ikki nuqta orqali nechta to‘g‘ri chiziq o‘tkazish mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "To‘g‘ri chiziqda A, B va C nuqtalar berilgan. Bu yerda nechta kesma borligini aniqlang va ularni nomlang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Nur va kesmaning asosiy farqini tushuntirib bering.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Uzunligi 8 sm bo‘lgan AB kesma chizing. Unda C nuqtani shunday qo‘yingki, AC kesma 3 sm bo‘lsin. CB kesmaning uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "To‘g‘ri chiziqda 4 ta nuqta belgilangan bo‘lsa, u yerda nechta nur hosil bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Uzunligi 12 sm bo‘lgan kesma o‘rtasidan nuqta bilan bo‘lindi. Hosil bo‘lgan har bir kesmaning uzunligi necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Agar kesmaning bir uchini cheksiz davom ettirsak, qanday shakl hosil bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Tekislikda 3 ta nuqta berilgan. Ularni juft-jufti bilan tutashtirib nechta kesma hosil qilish mumkin? (Ikki holatni ko‘ring: nuqtalar bir to‘g‘ri chiziqda yotgan va yotmagan holat).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "AB kesmaning uzunligi 15 sm. Unda K nuqta belgilangan. Agar AK kesma KB dan 3 sm uzun bo‘lsa, har bir kesma uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Nurda uning boshidan boshlab 2 sm, 5 sm va 9 sm masofada nuqtalar qo‘yildi. Hosil bo‘lgan eng uzun va eng qisqa kesmalar ayirmasini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "To‘g‘ri chiziqni bitta nuqta bilan bo‘lsak, nechta nur hosil bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Kesmaning uzunligi 20 sm. Uni 4 ta teng qismga bo‘lish uchun nechta nuqta qo‘yish kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "MN kesma 10 sm. Uni 2 sm dan qilib bo‘lsak, nechta bo‘lak hosil bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Bir nuqtadan chiquvchi 5 ta nur jami nechta burchak hosil qiladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "To‘g‘ri chiziq va nur kesishishi mumkinmi? Chizmada ko‘rsating.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "Uzunliklari 5 sm va 7 sm bo‘lgan ikki kesma bitta to‘g‘ri chiziqda yotibdi. Ularning umumiy qismi (kesishmasi) 2 sm bo‘lsa, bu ikki kesma egallagan jami uzunlikni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "To‘g‘ri chiziqda A, B, C, D nuqtalar ketma-ket turibdi. AB = 2 sm, BC = 3 sm, CD = 4 sm. AD kesma uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Quyoshdan chiqayotgan yorug‘likni geometrik shakllardan qaysi biriga o‘xshatish mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Ikkita kesma faqat bitta nuqtada kesishishi mumkinmi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Vertikal va gorizontal to‘g‘ri chiziqlarga hayotdan misollar keltiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "PQ kesmaning uzunligi 18 sm. Uning 1/3 qismi necha sm ga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Ikkita parallel to‘g‘ri chiziq chizing. Ular kesishadimi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Qalam bilan chizilgan chiziqning \"boshi\" va \"oxiri\" bo‘lsa, u nima deyiladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "To‘g‘ri chiziqda 5 ta nuqta belgilangan. Jami nechta kesma bor? (Formula: n × (n − 1) : 2)",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Uzunligi 1 metr bo‘lgan kesmani 10 sm li bo‘laklarga bo‘lish uchun necha marta kesish kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Nur ustida O (boshi), A va B nuqtalar bor. OA = 6 sm, OB = 10 sm bo‘lsa, AB kesma uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Kesmaning uchlarini qaysi harflar bilan belgilash qabul qilingan? (Katta lotin yoki kichik lotin?)",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "To‘g‘ri chiziqni ikki nuqta bilan bo‘lsak, nechta kesma va nechta nur hosil bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: Uzunligi 24 sm bo‘lgan simdan kvadrat shakli yasaldi. Kvadratning bir tomoni necha sm bo‘lgan?",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "To‘g‘ri chiziqning nechta oxiri bor?",
+                "options": [
+                    "A) 1 ta",
+                    "B) 2 ta",
+                    "C) Yo‘q",
+                    "D) 10 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Boshi bor, lekin oxiri yo‘q chiziq nima deyiladi?",
+                "options": [
+                    "A) Kesma",
+                    "B) Nur",
+                    "C) To‘g‘ri chiziq",
+                    "D) Egri chiziq"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Ikki nuqta orqali nechta to‘g‘ri chiziq o‘tkazish mumkin?",
+                "options": [
+                    "A) 1 ta",
+                    "B) 2 ta",
+                    "C) Cheksiz ko‘p",
+                    "D) Imkonsiz"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Kesmaning uzunligini o‘lchash mumkinmi?",
+                "options": [
+                    "A) Ha",
+                    "B) Yo‘q",
+                    "C) Faqat nurnikini",
+                    "D) Faqat to‘g‘ri chiziqnikini"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "To‘g‘ri chiziqda 3 ta nuqta belgilangan bo‘lsa, nechta nur hosil bo‘ladi?",
+                "options": [
+                    "A) 3 ta",
+                    "B) 4 ta",
+                    "C) 6 ta",
+                    "D) 2 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "15 sm li kesmaning 5 sm i kesib tashlansa, qancha qoladi?",
+                "options": [
+                    "A) 5 sm",
+                    "B) 10 sm",
+                    "C) 20 sm",
+                    "D) 1 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Kesmani belgilash uchun qaysi harflar ishlatiladi?",
+                "options": [
+                    "A) a, b, c",
+                    "B) A, B",
+                    "C) 1, 2, 3",
+                    "D) +, −"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Quyidagilardan qaysi biri to‘g‘ri?",
+                "options": [
+                    "A) Nur - bu ikki uchi chegaralangan chiziq.",
+                    "B) Kesma - bu to‘g‘ri chiziqning bir qismi.",
+                    "C) To‘g‘ri chiziqning uzunligi 100 sm.",
+                    "D) Nuqta orqali faqat bitta chiziq o‘tadi."
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Uzunligi 2 sm, 3 sm va 5 sm bo‘lgan uchta kesma bir-biriga ulanib, bitta katta kesma hosil qilindi. Uning uzunligi qancha?",
+                "options": [
+                    "A) 5 sm",
+                    "B) 8 sm",
+                    "C) 10 sm",
+                    "D) 15 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "To‘g‘ri chiziqda A, B, C nuqtalar berilgan. Nechta kesma bor?",
+                "options": [
+                    "A) 2 ta",
+                    "B) 3 ta",
+                    "C) 1 ta",
+                    "D) 4"
+                ],
+                "answer": null
+            }
+        ]
+    },
+    "10-MAVZU: SINIQ CHIZIQ VA UNING UZUNLIGI": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Siniq chiziq 3 ta bo‘g‘indan iborat. Ularning uzunliklari 4 sm, 7 sm va 9 sm. Siniq chiziqning umumiy uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Uzunligi 20 sm bo‘lgan siniq chiziqning 4 ta teng bo‘g‘ini bor. Har bir bo‘g‘inning uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Yopiq siniq chiziq 3 ta bo‘g‘indan iborat (uchburchak). Bo‘g‘inlari 5 sm, 12 sm va 13 sm. Uning umumiy uzunligini (perimetrini) toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Ochiq siniq chiziqning 5 ta uchi bor. U nechta bo‘g‘indan iborat?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Siniq chiziqning uzunligi 15 sm. Uning ikki bo‘g‘ini 4 sm va 6 sm bo‘lsa, uchinchi bo‘g‘ini necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Bo‘g‘inlari 2 sm, 4 sm, 6 sm, 8 sm va 10 sm bo‘lgan siniq chiziqning uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "To‘rtta bo‘g‘indan iborat yopiq siniq chiziqning barcha tomonlari 6 sm dan. Uning umumiy uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Siniq chiziqning bo‘g‘inlari soni uning uchlari sonidan 1 taga kam bo‘lsa, bu qanday siniq chiziq? (Ochiq yoki yopiq).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Uzunligi 30 sm bo‘lgan simdan bo‘g‘inlari teng bo‘lgan 6 bo‘g‘inli ochiq siniq chiziq yasaldi. Har bir bo‘g‘in uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Ochiq siniq chiziq 4 ta bo‘g‘indan iborat. Har bir keyingi bo‘g‘in oldingisidan 2 sm uzun. Birinchi bo‘g‘in 3 sm bo‘lsa, jami uzunlikni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Siniq chiziqning uzunligi 25 sm. Uning birinchi bo‘g‘ini 10 sm, qolgan uchta bo‘g‘ini esa o‘zaro teng. Teng bo‘g‘inlarning uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "3 ta bo‘g‘indan iborat yopiq siniq chiziq yasash mumkinmi, agar bo‘g‘inlar 2 sm, 3 sm va 10 sm bo‘lsa? (Tushuntirib bering).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Chumoli to‘g‘ri burchak ostida burilib, avval 5 sm, keyin 12 sm yurdi. U jami necha sm yurgan? Uning boshi va oxiri orasidagi eng qisqa masofa necha sm bo‘ladi? (Chizib ko‘ring).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Siniq chiziqning 10 ta uchi bor. Agar u yopiq bo‘lsa, nechta bo‘g‘ini bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Bo‘g‘inlari 1 sm, 2 sm, 3 sm, 4 sm va 5 sm bo‘lgan siniq chiziqni yopiq qilish uchun yana necha sm li bitta bo‘g‘in qo‘shish kerak? (Minimal va maksimal variantlarni o‘ylang).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Besh bo‘g‘inli siniq chiziqning uzunligi 40 sm. Har bir bo‘g‘in 2 sm dan orttirilsa, yangi uzunlik necha sm bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "Uzunligi 18 sm bo‘lgan kesmadan necha xil usulda bo‘g‘inlari butun sonlardan iborat 3 bo‘g‘inli ochiq siniq chiziq yasash mumkin? (3 ta misol keltiring).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Yopiq siniq chiziqning bo‘g‘inlari 8 sm, 8 sm va 8 sm. Bu qanday shakl?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Siniq chiziq bo‘g‘inlari bir-biri bilan kesishishi mumkinmi? Chizmada ko‘rsating.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Eng kamida nechta bo‘g‘in yordamida yopiq siniq chiziq hosil qilish mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Siniq chiziqning uzunligi 1 metr. Unda 10 sm li nechta bo‘g‘in bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "\"Zig-zag\" shaklidagi ochiq siniq chiziqning 20 ta uchi bor. Uning uzunligi 38 sm bo‘lsa va hamma bo‘g‘inlari teng bo‘lsa, har bir bo‘g‘in necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "3 sm, 4 sm va 5 sm li kesmalardan yopiq siniq chiziq yasaldi. Uning uzunligi 12 sm bo‘lgan kesmadan necha sm ga farq qiladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Har bir bo‘g‘ini 5 sm bo‘lgan siniq chiziqning uzunligi 35 sm. U nechta bo‘g‘indan iborat?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "Siniq chiziqning birinchi va oxirgi uchlari ustma-ust tushsa, u nima deyiladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "12 sm li kesmani o‘rtasidan 90 daraja burchak ostida buksak, qanday shakl hosil bo‘ladi va uning uzunligi necha sm bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Siniq chiziq bo‘g‘inlari uzunliklari yig‘indisi 48 sm. Agar bo‘g‘inlar soni 8 ta bo‘lsa, bo‘g‘inlarning o‘rtacha uzunligi necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "To‘rt xonali sonning raqamlari yig‘indisiga teng uzunlikdagi (sm da) siniq chiziq chizing. Son: 1234.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Siniq chiziqning birinchi bo‘g‘ini 1 sm. Har bir keyingi bo‘g‘in 2 marta uzun. 4-bo‘g‘indan keyin jami uzunlik necha sm bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: Bo‘g‘inlari 3 sm, 4 sm va 5 sm bo‘lgan siniq chiziqning uchlari orasidagi masofa eng ko‘pi bilan necha sm bo‘lishi mumkin?",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Siniq chiziqning uzunligi qanday topiladi?",
+                "options": [
+                    "A) Faqat birinchi va oxirgi bo‘g‘in qo‘shiladi.",
+                    "B) Barcha bo‘g‘inlar ko‘paytiriladi.",
+                    "C) Barcha bo‘g‘inlar uzunliklari qo‘shiladi.",
+                    "D) Eng uzun bo‘g‘in olinadi."
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Ochiq siniq chiziqning 4 ta bo‘g‘ini bo‘lsa, uning nechta uchi bor?",
+                "options": [
+                    "A) 4 ta",
+                    "B) 5 ta",
+                    "C) 3 ta",
+                    "D) 8 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Yopiq siniq chiziqning eng kam bo‘g‘inlar soni nechta?",
+                "options": [
+                    "A) 2 ta",
+                    "B) 3 ta",
+                    "C) 4 ta",
+                    "D) 1 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Bo‘g‘inlari 6 sm, 8 sm va 10 sm bo‘lgan siniq chiziq uzunligi necha sm?",
+                "options": [
+                    "A) 24 sm",
+                    "B) 14 sm",
+                    "C) 18 sm",
+                    "D) 20 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Agar siniq chiziq yopiq bo‘lsa, uning uchlari soni va bo‘g‘inlari soni...",
+                "options": [
+                    "A) Teng bo‘ladi.",
+                    "B) Uchlari 1 taga ko‘p bo‘ladi.",
+                    "C) Bo‘g‘inlari 1 taga ko‘p bo‘ladi.",
+                    "D) Doim 4 taga teng bo‘ladi."
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "10 sm li 3 ta bo‘g‘indan iborat ochiq siniq chiziqning uzunligi necha sm?",
+                "options": [
+                    "A) 10 sm",
+                    "B) 20 sm",
+                    "C) 30 sm",
+                    "D) 40 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Siniq chiziqning bo‘g‘ini nima?",
+                "options": [
+                    "A) Nuqta",
+                    "B) Nur",
+                    "C) Kesma",
+                    "D) To‘g‘ri chiziq"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Uzunligi 12 sm bo‘lgan siniq chiziqning 3 ta teng bo‘g‘ini bor. Bitta bo‘g‘in uzunligi necha?",
+                "options": [
+                    "A) 4 sm",
+                    "B) 3 sm",
+                    "C) 6 sm",
+                    "D) 5 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Qaysi shakl yopiq siniq chiziqqa misol bo‘la oladi?",
+                "options": [
+                    "A) Nur",
+                    "B) Kvadrat",
+                    "C) Kesma",
+                    "D) To‘g‘ri chiziq"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Siniq chiziqning uzunligi 15 sm. Uning 2 ta bo‘g‘ini 5 sm dan bo‘lsa, 3-bo‘g‘ini necha sm?",
+                "options": [],
+                "answer": null
+            }
+        ]
+    },
+    "11-MAVZU: KO‘PBURCHAKLAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Ko‘pburchakning 6 ta tomoni bor. Uning nechta uchi va nechta burchagi bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Tomonlari 5 sm, 7 sm va 8 sm bo‘lgan uchburchakning perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "To‘rtburchakning perimetri 36 sm. Agar barcha tomonlari teng bo‘lsa, bitta tomoni necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Beshburchakning hamma tomonlari 4 sm dan. Uning perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Oltiburchakning uchlari soni to‘rtburchakning uchlari sonidan nechta ko‘p?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Uchburchakning bir tomoni 12 sm, ikkinchi tomoni undan 3 sm qisqa, uchinchi tomoni esa ikkinchi tomonidan 2 sm uzun. Perimetrni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Ixtiyoriy to‘rtburchak chizing va uning diagonallarini o‘tkazing. Nechta diagonal hosil bo‘ldi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Perimetri 24 sm bo‘lgan kvadratning tomonini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "To‘rtburchakning bir tomoni 8 sm, qolgan uchta tomoni esa bir-biriga teng va har biri 6 sm dan. Shu to‘rtburchak perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Sakkizburchakning nechta uchi bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Uchburchakning perimetri 30 sm. Ikki tomoni yig‘indisi 22 sm bo‘lsa, uchinchi tomonini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "\"Smart\" savol: Eng kam tomonga ega bo‘lgan ko‘pburchak qaysi? Nega ikki burchakli ko‘pburchak bo‘lishi mumkin emas?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Tomonlari 3 sm, 4 sm, 5 sm, 6 sm bo‘lgan to‘rtburchak bilan tomoni 4 sm bo‘lgan kvadratning perimetrlarini solishtiring.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Beshburchakning perimetri 45 sm. Agar uning hamma tomonlari teng bo‘lsa, bitta tomoni uzunligini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Oltiburchakning perimetri 60 sm. Bir tomoni 15 sm, qolgan 5 ta tomoni esa o‘zaro teng. Teng tomonlarning har biri necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Qaysi shaklning perimetri katta: tomoni 6 sm bo‘lgan kvadratnikimi yoki tomonlari 7 sm, 8 sm, 9 sm bo‘lgan uchburchaknikimi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "To‘rtburchakni bitta to‘g‘ri chiziq bilan kessak, qanday ikkita yangi ko‘pburchak hosil bo‘lishi mumkin? (Barcha variantlarni yozing).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Perimetri 20 sm bo‘lgan to‘rtburchakning tomonlari butun sonlardan iborat bo‘lsa, uning tomonlari qanday bo‘lishi mumkin? (3 ta variant keltiring).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "O‘n burchakli ko‘pburchakning barcha tomonlari 10 sm dan bo‘lsa, uning perimetrini metrda ifodalang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Ikkita teng kvadratni yonma-yon qo‘ysak, qanday shakl hosil bo‘ladi? Uning uchlari soni o‘zgaradimi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Perimetri 18 sm bo‘lgan uchburchakning hamma tomonlari teng. Agar har bir tomoni 2 sm dan orttirilsa, yangi perimetr necha bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "Ko‘pburchakning tomonlari soni n ga teng bo‘lsa, uning uchlari soni nechaga teng bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Bir nuqtadan chiqib, beshburchakning barcha uchlariga diagonallar o‘tkazilsa, beshburchak nechta uchburchakka ajraladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Tomonlari 12 sm, 15 sm, 18 sm va 20 sm bo‘lgan to‘rtburchak simdan yasalgan. Shu simni yoyib, undan tomoni teng bo‘lgan uchburchak yasalsa, uning tomoni necha sm bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "To‘rtburchakning burchaklari soni bilan oltiburchakning burchaklari soni yig‘indisini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Yulduzcha shakli (5 ta uchli) nechta tomondan iborat siniq chiziq hisoblanadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Qavariq bo‘lmagan to‘rtburchak chizing. (Ichkariga botiq burchagi bo‘lsin).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Perimetri 32 sm bo‘lgan kvadratning yarmisidan hosil bo‘lgan to‘g‘ri to‘rtburchakning perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Sakkizburchakning perimetri 80 sm. Har bir keyingi tomoni oldingisidan 1 sm uzun bo‘lishi mumkinmi? (Butun sonlarda tekshiring).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: Shunday to‘rtburchak chizingki, uning ikki tomoni parallel bo‘lsin, qolgan ikki tomoni esa parallel bo‘lmasin. Bu shaklning nomi nima?",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Beshburchakning nechta tomoni bor?",
+                "options": [
+                    "A) 4 ta",
+                    "B) 5 ta",
+                    "C) 6 ta",
+                    "D) 3 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Barcha tomonlari teng bo‘lgan to‘rtburchak nima deyiladi?",
+                "options": [
+                    "A) Uchburchak",
+                    "B) Kvadrat",
+                    "C) Trapetsiya",
+                    "D) To‘g‘ri chiziq"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Ko‘pburchakning perimetri qanday topiladi?",
+                "options": [
+                    "A) Tomonlari ko‘paytiriladi.",
+                    "B) Faqat ikkita tomoni qo‘shiladi.",
+                    "C) Barcha tomonlari uzunliklari qo‘shiladi.",
+                    "D) Uchlari soniga bo‘linadi."
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Tomonlari 6 sm, 8 sm va 10 sm bo‘lgan uchburchakning perimetri necha?",
+                "options": [
+                    "A) 24 sm",
+                    "B) 14 sm",
+                    "C) 18 sm",
+                    "D) 20 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "To‘rtburchakning nechta diagonali bor?",
+                "options": [
+                    "A) 1 ta",
+                    "B) 2 ta",
+                    "C) 3 ta",
+                    "D) 4 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Perimetri 40 sm bo‘lgan beshburchakning hamma tomonlari teng bo‘lsa, bitta tomoni necha?",
+                "options": [
+                    "A) 10 sm",
+                    "B) 5 sm",
+                    "C) 8 sm",
+                    "D) 4 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Qaysi shakl ko‘pburchak emas?",
+                "options": [
+                    "A) Kvadrat",
+                    "B) Uchburchak",
+                    "C) Aylana",
+                    "D) Oltiburchak"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Oltiburchakning uchlari soni nechta?",
+                "options": [
+                    "A) 6 ta",
+                    "B) 5 ta",
+                    "C) 12 ta",
+                    "D) 4 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Uchburchakning ikki tomoni 5 sm dan, uchinchi tomoni 8 sm. Bu qanday uchburchak?",
+                "options": [
+                    "A) Teng tomonli",
+                    "B) Teng yonli",
+                    "C) Turli tomonli",
+                    "D) To‘rtburchak"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Tomoni 5 sm bo‘lgan kvadratning perimetri necha sm?",
+                "options": [
+                    "A) 20 sm",
+                    "B) 25 sm",
+                    "C) 15 sm",
+                    "D) 10 sm"
+                ],
+                "answer": null
+            }
+        ]
+    },
+    "12-MAVZU: TO‘G‘RI TO‘RTBURCHAK VA KVADRAT": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "To‘g‘ri to‘rtburchakning tomonlari 8 sm va 5 sm. Uning perimetri va yuzini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Kvadratning tomoni 6 sm. Uning perimetri va yuzini hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "To‘g‘ri to‘rtburchakning yuzi 48 sm2. Agar bir tomoni 6 sm bo‘lsa, ikkinchi tomonini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Perimetri 32 sm bo‘lgan kvadratning yuzini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "To‘g‘ri to‘rtburchakning perimetri 24 sm. Bir tomoni 7 sm bo‘lsa, uning yuzini hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Tomoni 10 sm bo‘lgan kvadratning yuzi, tomonlari 20 sm va 4 sm bo‘lgan to‘g‘ri to‘rtburchakning yuzidan qanchaga katta?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "To‘g‘ri to‘rtburchakning bo‘yi 12 sm, eni esa bo‘yidan 3 marta qisqa. Perimetrni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Kvadratning yuzi 25 sm2. Shu kvadratning perimetri necha sm?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Ikkita bir xil kvadrat yonma-yon qo‘yildi. Hosil bo‘lgan to‘g‘ri to‘rtburchakning eni 4 sm bo‘lsa, uning perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "To‘g‘ri to‘rtburchakning eni 6 sm, yuzi 54 sm2. Uning bo‘yini toping va perimetrini hisoblang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Tomoni 8 sm bo‘lgan kvadratning perimetri bilan eni 6 sm bo‘lgan to‘g‘ri to‘rtburchakning perimetri teng. To‘g‘ri to‘rtburchakning bo‘yini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Tomonlari 15 sm va 10 sm bo‘lgan to‘g‘ri to‘rtburchak shaklidagi qog‘ozdan tomoni 4 sm bo‘lgan kvadrat qirqib olindi. Qolgan qog‘ozning yuzini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "To‘g‘ri to‘rtburchakning bo‘yi 2 marta orttirilsa, uning yuzi qanday o‘zgaradi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Kvadratning tomoni 3 marta orttirilsa, uning yuzi necha marta ortadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Bog‘ning uzunligi 40 m, eni esa 25 m. Bog‘ atrofini 2 qator sim bilan o‘rash uchun necha metr sim kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Xonaning poliga tomoni 20 sm bo‘lgan kvadrat shaklidagi kafel yotqizilmoqda. Agar xonaning o‘lchamlari 4 m va 3 m bo‘lsa, jami nechta kafel kerak bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "Perimetri 40 sm bo‘lgan to‘g‘ri to‘rtburchakning tomonlari qanday bo‘lsa, uning yuzi eng katta bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "To‘g‘ri to‘rtburchakning yuzi 36 sm2. Uning tomonlari butun sonlarda bo‘lsa, perimetri qabul qilishi mumkin bo‘lgan eng kichik qiymatni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Simdan tomoni 12 sm bo‘lgan kvadrat yasaldi. Shu simni yoyib, undan eni 8 sm bo‘lgan to‘g‘ri to‘rtburchak yasalsa, uning bo‘yi necha sm bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Kvadratning yuzi 100 sm2. Agar uning tomoni 2 sm ga kamaytirilsa, yuzi qanchaga kamayadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "To‘g‘ri to‘rtburchak shaklidagi dalaning yuzi 2 gektar. Agar uning bo‘yi 200 m bo‘lsa, enini toping. (1 ga = 10000m2).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "To‘g‘ri to‘rtburchak ichiga tomoni 3 sm bo‘lgan 8 ta kvadrat sig‘adi. To‘g‘ri to‘rtburchakning yuzi necha sm2?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "Shaklni yuzini hisoblang: U 2 ta to‘g‘ri to‘rtburchakdan iborat. Biri 4 × 6 sm, ikkinchisi 3 × 5 sm. Ular ustma-ust tushmaydi.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Kvadratni 4 ta teng kichik kvadratga bo‘lishdi. Katta kvadratning perimetri 48 sm bo‘lsa, kichik kvadratlardan birining yuzi necha sm2?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "Perimetri 60 sm bo‘lgan to‘g‘ri to‘rtburchakning bo‘yi enidan 10 sm uzun. Tomonlarini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "To‘g‘ri to‘rtburchakning yuzi 64 sm2. Shu yuzaga ega bo‘lgan kvadratning perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Bo‘yi 9 sm, eni 4 sm bo‘lgan to‘g‘ri to‘rtburchak bilan kvadratning yuzlari teng. Kvadratning perimetrini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "Stolning usti to‘g‘ri to‘rtburchak shaklida. Uning perimetri 360 sm. Agar bo‘yi 100 sm bo‘lsa, enini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Ikkita kvadratning tomonlari nisbati 1 : 2. Ularning yuzlari nisbati qanday?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "\"Smart\" topshiriq: To‘g‘ri to‘rtburchakning perimetri 18 sm, tomonlari esa butun sonlar. Uning yuzi necha xil qiymatga ega bo‘lishi mumkin?",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Kvadratning tomoni 7 sm bo‘lsa, uning yuzi necha sm2?",
+                "options": [
+                    "A) 28",
+                    "B) 49",
+                    "C) 14",
+                    "D) 21"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "To‘g‘ri to‘rtburchakning perimetri 30 sm, eni 5 sm. Uning bo‘yi necha sm?",
+                "options": [
+                    "A) 10",
+                    "B) 15",
+                    "C) 25",
+                    "D) 20"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Yuzi 36 sm2 bo‘lgan kvadratning perimetrini toping:",
+                "options": [
+                    "A) 36 sm",
+                    "B) 24 sm",
+                    "C) 12 sm",
+                    "D) 18 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Qaysi ifoda to‘g‘ri to‘rtburchak yuzini hisoblash formulasi?",
+                "options": [
+                    "A) P = a + b",
+                    "B) S = a × b",
+                    "C) S = a + b",
+                    "D) P = a × b"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "To‘g‘ri to‘rtburchakning bo‘yi 8 sm, eni 4 sm. Agar bo‘yi 2 sm qisqarsa, yuzi necha sm2 bo‘ladi?",
+                "options": [
+                    "A) 32",
+                    "B) 24",
+                    "C) 20",
+                    "D) 28"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Kvadratning barcha tomonlari yig‘indisi 36 sm. Uning tomonini toping:",
+                "options": [
+                    "A) 6 sm",
+                    "B) 12 sm",
+                    "C) 9 sm",
+                    "D) 18 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Tomonlari 5 sm va 4 sm bo‘lgan to‘g‘ri to‘rtburchakning yuzi necha sm2?",
+                "options": [
+                    "A) 9",
+                    "B) 18",
+                    "C) 20",
+                    "D) 40"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Agar kvadratning tomoni 2 marta orttirilsa, uning perimetri necha marta ortadi?",
+                "options": [
+                    "A) 2",
+                    "B) 4",
+                    "C) 8",
+                    "D) O‘zgarmaydi"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "To‘g‘ri to‘rtburchakning yuzi 24 sm2. Bo‘lishi mumkin bo‘lgan eng katta perimetr (tomonlari butun bo‘lsa) necha?",
+                "options": [
+                    "A) 20 sm",
+                    "B) 28 sm",
+                    "C) 50 sm",
+                    "D) 24 sm"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Kvadrat va to‘g‘ri to‘rtburchakning nima bilan farq qiladi? A) Kvadratda hamma burchaklar to‘g‘ri. B) Kvadratda hamma tomonlar teng. C) To‘g‘ri to‘rtburchakda diagonallar",
+                "options": [],
+                "answer": null
+            }
+        ]
+    },
+    "13-MAVZU: VAQT VA VAQT BIRLIKLARI": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "3 soat 25 minutni minutlarda ifodalang.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "200 minut necha soat va necha minutga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "2 sutka 5 soat necha soat bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Avtobus yo‘lga soat 08:15 da chiqdi va manzilga 2 soat 45 minutdan keyin yetib keldi. Avtobus yetib kelgan vaqtni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Kitob o‘qish soat 15:40 da boshlanib, 17:10 da tugadi. Kitob o‘qishga qancha vaqt sarflangan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "180 sekund necha minutga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Kabisa yilida fevral oyi necha kundan iborat bo‘ladi? Jami yilda-chi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Agar bugun seshanba bo‘lsa, 10 kundan keyin haftaning qaysi kuni bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "5 soatning 1/2 qismi necha minutga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Soat millari 15:00 ni ko‘rsatmoqda. Soat va minut millari orasidagi burchak necha daraja bo‘ladi? (Chizib ko‘ring).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "2024-yil kabisa yilimi? Nega? (Qoida: 4 ga qoldiqsiz bo‘linsa).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "O‘quvchi har kuni 8 soat uxlaydi. U bir haftada jami necha soat uxlaydi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Poezd soat 22:00 da yo‘lga chiqdi va 12 soat yurdi. Poezd manzilga soat nechada yetib kelgan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "4 asr 25 yil necha yilga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Dunyo bo‘ylab sayohat 80 kun davom etdi. Bu necha to‘liq hafta va necha kunga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "Agar soat 09:30 bo‘lsa, 45 minutdan keyin soat necha bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "1 soatning 1/4 qismi 1 minutning necha barobariga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "Akmal 2012-yil 29-fevralda tug‘ilgan. U 2024-yilgacha necha marta tug‘ilgan kunini nishonlagan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Soat 12:00 dan 15:30 gacha minut mili necha marta to‘liq aylanadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "15 sutka necha soatga teng?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Yanvar, mart va may oylaridagi jami kunlar sonini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "Shunday vaqtni topingki, u sutkaning 1/3 qismiga teng bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "1 soat 10 minut 10 sekund jami necha sekund bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Agar soat mili 12 dan 3 gacha siljisa, u necha soat o‘tganini bildiradi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "1-sentyabrdan 31-dekabrgacha jami necha kun bor? (Oylarni sanab chiqing).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Sportchi 100 metrga 12 sekundda yugurdi. U 1 minutda shunday tezlikda necha metr yugurishi mumkin?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "Soat hozir 14:00. Qancha vaqtdan keyin soat 18:15 bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "21-asr qaysi yildan boshlangan va qaysi yilda tugaydi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "\"Smart\" savol: Agar kecha dushanba bo‘lgan bo‘lsa, ertadan keyingi kun haftaning qaysi kuni bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "10 minutda necha sekund borligini hisoblang va uni 100 ga bo‘ling.",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "1 soatda nechta sekund bor?",
+                "options": [
+                    "A) 60",
+                    "B) 360",
+                    "C) 3600",
+                    "D) 120"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Kabisa bo‘lmagan oddiy yilda necha kun bor?",
+                "options": [
+                    "A) 366",
+                    "B) 360",
+                    "C) 365",
+                    "D) 355"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "0.5 (yarim) sutka necha soatga teng?",
+                "options": [
+                    "A) 12 soat",
+                    "B) 6 soat",
+                    "C) 24 soat",
+                    "D) 10 soat"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Soat 16:45 ni so‘z bilan qanday aytish to‘g‘ri?",
+                "options": [
+                    "A) 5 ga 15 minut qoldi",
+                    "B) 4 ga 15 minut qoldi",
+                    "C) 5 dan 45 minut o‘tdi",
+                    "D) Soat 4"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Quyidagilardan qaysi biri eng katta vaqt birligi?",
+                "options": [
+                    "A) Sutka",
+                    "B) Hafta",
+                    "C) Oy",
+                    "D) Asr"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "180 minut necha soat bo‘ladi?",
+                "options": [
+                    "A) 2 soat",
+                    "B) 3 soat",
+                    "C) 4 soat",
+                    "D) 18 soat"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "3 yil 2 oy necha oyga teng?",
+                "options": [
+                    "A) 32 oy",
+                    "B) 38 oy",
+                    "C) 36 oy",
+                    "D) 40 oy"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Dars 08:30 da boshlanadi. Har bir dars 45 minut. 2-dars soat nechada tugaydi (tanaffus 5 minut)?",
+                "options": [
+                    "A) 10:00",
+                    "B) 10:05",
+                    "C) 09:15",
+                    "D) 10:10"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Fevral oyi qaysi yili 29 kun bo‘ladi?",
+                "options": [
+                    "A) 2021",
+                    "B) 2022",
+                    "C) 2023",
+                    "D) 2024"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Soat 12:00 da soat va minut millari orasidagi burchak necha daraja?",
+                "options": [
+                    "A) 90",
+                    "B) 180",
+                    "C) 0",
+                    "D) 360"
+                ],
+                "answer": null
+            }
+        ]
+    },
+    "14-MAVZU: MANTIQIY SAVOLLAR VA NOSTANDART MASALALAR": {
+        "exercises": [
+            {
+                "id": 1,
+                "question": "Savatda 5 ta olma bor. Ularni 5 ta bolaga shunday tarqatingki, har bir bolaga bittadan olma tegsin, lekin bitta olma savatda qolsin. (Javob: Oxirgi bolaga olmani savati bilan berish kerak).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Oilada 5 ta o‘g‘il bor. Har bir o‘g‘ilning bittadan singlisi bor. Oilada jami nechta farzand bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Ikkita otasi va ikkita o‘g‘li 3 ta olmani shunday yeyishdiki, har biriga bittadan olma tegdi. Bu qanday bo‘lishi mumkin? (Javob: Bobo, ota va o‘g‘il).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Bir soat soatiga 1 minut orqada qoladi. Agar hozir soatni to‘g‘rilasak, u necha soatdan keyin yana to‘g‘ri vaqtni ko‘rsatadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Stol ustida 10 ta sham yonib turgan edi. 3 tasini shamol o‘chirdi. Ertalab stol ustida nechta sham qoladi? (Eslatma: O‘chmaganlari erib tugaydi).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "3 ta baliqchi 3 kunda 3 ta baliq tutdi. 9 ta baliqchi 9 kunda nechta baliq tutadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Bir tayoqning 2 ta uchi bor. Ikki yarimta tayoqning nechta uchi bor?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Qutida 5 ta qizil va 7 ta ko‘k qalam bor. Qorong‘uda qaramasdan kamida nechta qalam olsak, ular orasida albatta bitta qizil qalam bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "1 dan 100 gacha bo‘lgan sonlar orasida 9 raqami necha marta qatnashadi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "To‘qqizta 9 raqami yordamida qanday qilib 100 hosil qilish mumkin? (99 + 9/9 = 100).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 11,
+                "question": "Velosipedchi 5 km masofani 20 minutda bosib o‘tdi. U 1 km masofani necha minutda bosib o‘tgan?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 12,
+                "question": "Sinfda 25 ta o‘quvchi bor. Ularning 12 tasi rasm chizishni, 15 tasi esa qo‘shiq aytishni yaxshi ko‘radi. 5 tasi ikkalasini ham yoqtirsa, nechtasi hech birini yoqtirmaydi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 13,
+                "question": "Devordagi soat 3 marta bong urganda 3 sekund vaqt ketdi. Soat 6 marta bong urishi uchun necha sekund vaqt ketadi? (Ehtiyot bo‘ling: oraliqlarni sanang).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 14,
+                "question": "Otasi 32 yoshda, o‘g‘li esa 8 yoshda. Necha yildan keyin ota o‘g‘lidan 3 marta katta bo‘ladi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 15,
+                "question": "Zinalardan chiqayotgan Akmal 3-qavatga chiqish uchun 36 ta zina bosib o‘tdi. U 6-qavatga chiqishi uchun jami nechta zina bosib o‘tishi kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 16,
+                "question": "10 metrli matoni 2 metrdan qilib qirqish uchun necha marta kesish kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 17,
+                "question": "It va mushukning og‘irligi birgalikda 10 kg. Mushuk va quyonniki 7 kg, it va quyonniki esa 13 kg bo‘lsa, har birining vaznini toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 18,
+                "question": "3 ta qutining birida oltin, birida kumush, birida esa bo‘sh. Qutilardagi yozuvlarning hammasi yolg‘on bo‘lsa, oltin qayerda? (1-quti: Oltin bu yerda; 2-quti: Kumush bu yerda; 3-quti: Bo‘sh).",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 19,
+                "question": "Shunday ikki xonali sonni topingki, uning raqamlari yig‘indisi eng katta bo‘lsin.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 20,
+                "question": "Shkafda 10 juft qora va 10 juft jigarrang paypoq bor. Bir xil rangli bir juft paypoq olish uchun kamida nechta paypoqni qaramasdan olish kerak?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 21,
+                "question": "Chumoli 10 metrli simyog‘ochga kunduzi 3 metr tepaga chiqadi, kechasi esa 2 metr pastga tushadi. U necha kunda simyog‘och uchiga yetib boradi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 22,
+                "question": "5 ta ketma-ket sonning yig‘indisi 100 ga teng. Shu sonlarni toping.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 23,
+                "question": "G‘ildirakning 8 ta simi (spitsa) bor. Simlar orasidagi oraliqlar nechta?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 24,
+                "question": "Bir toshning og‘irligi 2 kg va yana yarimta toshga teng. Toshning og‘irligi necha kg?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 25,
+                "question": "1, 2, 3 raqamlari yordamida nechta uch xonali son yozish mumkin (raqamlar takrorlanishi mumkin)?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 26,
+                "question": "Ikki xonali sonning o‘nliklar xonasidagi raqami birliklaridan 2 marta kichik. Agar raqamlar o‘rni almashsa, son 18 taga ortadi. Bu son qaysi?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 27,
+                "question": "\"Smart\" topshiriq: 1, 2, 3, 4, 5 sonlari orasiga amallar qo‘yib 100 hosil qiling.",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 28,
+                "question": "24 kishi o‘zaro qo‘l berib so‘rashishdi. Jami so‘rashishlar soni nechta?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 29,
+                "question": "Bir kilogramm paxta og‘irmi yoki bir kilogramm temir?",
+                "options": [],
+                "answer": null
+            },
+            {
+                "id": 30,
+                "question": "To‘rtta 5 raqami va arifmetik amallar yordamida 16 hosil qiling. (55/5 + 5 = 16).",
+                "options": [],
+                "answer": null
+            }
+        ],
+        "tests": [
+            {
+                "id": 1,
+                "question": "Agar 3 ta mushuk 3 ta sichqonni 3 minutda tutsa, 10 ta mushuk 10 ta sichqonni necha minutda tutadi?",
+                "options": [
+                    "A) 10",
+                    "B) 30",
+                    "C) 3",
+                    "D) 1"
+                ],
+                "answer": null
+            },
+            {
+                "id": 2,
+                "question": "Dunyodagi eng katta son qaysi?",
+                "options": [
+                    "A) Milliard",
+                    "B) Trillion",
+                    "C) Cheksiz",
+                    "D) Google"
+                ],
+                "answer": null
+            },
+            {
+                "id": 3,
+                "question": "Qaysi oylarda 28 kun bor?",
+                "options": [
+                    "A) Faqat fevralda",
+                    "B) Hamma oylarda",
+                    "C) Faqat kabisa yilida",
+                    "D) Yanvarda"
+                ],
+                "answer": null
+            },
+            {
+                "id": 4,
+                "question": "Daraxtda 10 ta qush o‘tirgan edi. Ovchi bittasini urib tushirdi. Daraxtda nechta qush qoldi?",
+                "options": [
+                    "A) 9 ta",
+                    "B) 10 ta",
+                    "C) Yo‘q (uchib ketadi)",
+                    "D) 1 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 5,
+                "question": "Sinfda 20 ta o‘quvchi bor. Ularning hammasidan boshqa 5 tasi darsga keldi. Nechta o‘quvchi darsga kelmagan?",
+                "options": [
+                    "A) 5 ta",
+                    "B) 15 ta",
+                    "C) 20 ta",
+                    "D) 0 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 6,
+                "question": "Onasi Aliga 3 ta olma berdi, otasi esa Alining olmalarini 2 barobar ko‘paytirdi. Ali bitta olmani yedi. Nechta olma qoldi?",
+                "options": [
+                    "A) 4 ta",
+                    "B) 5 ta",
+                    "C) 6 ta",
+                    "D) 2 ta"
+                ],
+                "answer": null
+            },
+            {
+                "id": 7,
+                "question": "Soat 12:00 da soat millari ustma-ust tushdi. Yana qancha vaqtdan keyin ular birinchi marta yana ustma-ust tushadi?",
+                "options": [
+                    "A) 1 soatdan keyin",
+                    "B) 1 soat 5 minutdan keyin",
+                    "C) 2 soatdan keyin",
+                    "D) Kechasi"
+                ],
+                "answer": null
+            },
+            {
+                "id": 8,
+                "question": "Qaysi sonni o‘ziga ko‘paytirib, o‘zini ayirsak, 0 hosil bo‘ladi?",
+                "options": [
+                    "A) 1",
+                    "B) 0",
+                    "C) Ikkalasi ham",
+                    "D) Faqat 2"
+                ],
+                "answer": null
+            },
+            {
+                "id": 9,
+                "question": "Ketma-ketlikni davom ettiring: 1, 4, 9, 16, ...",
+                "options": [
+                    "A) 20",
+                    "B) 25",
+                    "C) 30",
+                    "D) 21"
+                ],
+                "answer": null
+            },
+            {
+                "id": 10,
+                "question": "Aka-ukalarning har birining yoshlari yig‘indisi 20 ga teng. Ularning yoshlari ko‘paytmasi eng katta bo‘lishi uchun ular necha yoshda bo‘lishi kerak? A) 1 va 19 B) 5 va 15 C) 10 va 10",
+                "options": [],
+                "answer": null
+            }
+        ]
+    }
+}
