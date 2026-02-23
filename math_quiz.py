@@ -2,6 +2,8 @@ import streamlit as st
 import random
 import time
 import os
+import io
+from certificate import create_certificate
 
 # Set page config
 st.set_page_config(page_title="Matematika Testi", page_icon="🔢")
@@ -263,6 +265,29 @@ def main():
         st.subheader(f"{st.session_state.user_name}, natijalaringiz:")
         st.write(f"✅ **Jami ball:** {st.session_state.score}")
         st.write(f"⏱ **Vaqt:** {st.session_state.final_duration} soniya")
+
+        # Check for 100% result for Certificate
+        points_per_q = 1 if st.session_state.level == 1 else (2 if st.session_state.level == 2 else 3)
+        max_possible_score = 10 * points_per_q
+
+        if st.session_state.score == max_possible_score:
+            st.success("Tabriklaymiz! Siz barcha savollarga to'g'ri javob berdingiz!")
+
+            # Certificate generation
+            cert_img = create_certificate(st.session_state.user_name)
+            st.image(cert_img, caption="Sizning sertifikatingiz", use_container_width=True)
+
+            # Convert to bytes for download
+            buf = io.BytesIO()
+            cert_img.save(buf, format="PNG")
+            byte_im = buf.getvalue()
+
+            st.download_button(
+                label="📥 Sertifikatni yuklab olish",
+                data=byte_im,
+                file_name="Sertifikat.png",
+                mime="image/png"
+            )
 
         if st.button("Qayta boshlash"):
             st.session_state.quiz_state = 'welcome'
