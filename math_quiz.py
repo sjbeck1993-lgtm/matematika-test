@@ -138,7 +138,16 @@ def main():
         else:
             st.write("Hozircha natijalar yo'q.")
 
-        if st.button("Boshlash"):
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            start_btn = st.button("Boshlash", use_container_width=True)
+        with col2:
+            new_q_btn = st.button("Yangi savollar", use_container_width=True)
+
+        if new_q_btn:
+             st.success("Savollar yangilandi! 'Boshlash' tugmasini bosing.")
+
+        if start_btn:
             if name:
                 st.session_state.user_name = name
                 st.session_state.topic = topic

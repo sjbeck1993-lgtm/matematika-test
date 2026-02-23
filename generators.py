@@ -3,7 +3,8 @@ import random
 DYNAMIC_TOPICS = [
     "Mantiqiy masalalar",
     "Sonli zanjirlar",
-    "Geometrik hisob-kitoblar"
+    "Geometrik hisob-kitoblar",
+    "3-sinf Mukammal Matematika"
 ]
 
 def get_names(n=2):
@@ -175,6 +176,69 @@ def generate_geometry_questions(count=10):
         })
     return questions
 
+def generate_mukammal_questions(count=10):
+    questions = []
+    names_list = ["Ali", "Vali", "Sardor", "Malika", "Zebo", "Anvar", "Dilnoza", "Jasur", "Madina", "Bobur"]
+    items_list = ["daftar", "qalam", "kitob", "olma", "konfet", "shar", "gul"]
+
+    for _ in range(count):
+        name1, name2 = random.sample(names_list, 2)
+        item = random.choice(items_list)
+        q_type = random.choice(['add', 'sub', 'mult', 'div'])
+
+        if q_type == 'add':
+            n1 = random.randint(10, 50)
+            n2 = random.randint(10, 50)
+            question_text = f"{name1} {n1} ta {item} oldi va yana {n2} ta oldi. Hammasi qancha?"
+            ans = n1 + n2
+        elif q_type == 'sub':
+            n1 = random.randint(20, 80)
+            n2 = random.randint(5, n1 - 5)
+            question_text = f"{name1}da {n1} ta {item} bor edi. U {name2}ga {n2} tasini berdi. {name1}da nechta {item} qoldi?"
+            ans = n1 - n2
+        elif q_type == 'mult':
+            n1 = random.randint(2, 9)
+            n2 = random.randint(2, 9)
+            question_text = f"{name1}da {n1} ta quti bor. Har bir qutida {n2} tadan {item} bor. Jami nechta {item} bor?"
+            ans = n1 * n2
+        else: # div
+            total = random.randint(10, 50)
+            divisor = random.randint(2, 5)
+            # Ensure divisibility
+            while total % divisor != 0:
+                total = random.randint(10, 50)
+
+            question_text = f"{name1} {total} ta {item}ni {divisor} ta do'stiga teng bo'lib berdi. Har biriga nechtadan tegdi?"
+            ans = total // divisor
+
+        # Options
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-5, 5)
+            if fake > 0 and fake != ans:
+                options.add(fake)
+
+        opts_list = list(options)
+        random.shuffle(opts_list)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+
+        for i, val in enumerate(opts_list):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "mukammal"
+        })
+    return questions
+
 def generate_quiz(topic_name, count=10):
     if "Mantiqiy" in topic_name:
         return generate_logical_questions(count)
@@ -182,6 +246,8 @@ def generate_quiz(topic_name, count=10):
         return generate_number_chain_questions(count)
     elif "Geometrik" in topic_name:
         return generate_geometry_questions(count)
+    elif "Mukammal" in topic_name:
+        return generate_mukammal_questions(count)
     else:
         return []
 
