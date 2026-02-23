@@ -60,40 +60,73 @@ def save_result(name, score, level, duration):
     with open("results.txt", "a") as file:
         file.write(f"{name},{score},{level},{duration}\n")
 
-def generate_question(level):
-    if level == 1:
-        range_max = 10
-        ops = ['+', '-']
-    elif level == 2:
-        range_max = 50
-        ops = ['+', '-', '*']
-    else:
-        range_max = 100
-        ops = ['+', '-', '*', '/']
+def generate_question(level, topic):
+    q_type = 'standard'
 
-    op = random.choice(ops)
-    num1 = random.randint(1, range_max)
-    num2 = random.randint(1, range_max)
+    if topic == "Ko'paytirish va bo'lish":
+        ops = ['*', '/']
+        op = random.choice(ops)
+        num1 = random.randint(2, 9)
+        num2 = random.randint(2, 9)
 
-    if op == '+':
-        ans = num1 + num2
-        q_str = f"{num1} + {num2}"
-    elif op == '-':
-        if num1 < num2:
-            num1, num2 = num2, num1
-        ans = num1 - num2
-        q_str = f"{num1} - {num2}"
-    elif op == '*':
-        ans = num1 * num2
-        q_str = f"{num1} * {num2}"
-    elif op == '/':
+        if op == '*':
+            ans = num1 * num2
+            q_str = f"{num1} * {num2}"
+        else: # Division
+            product = num1 * num2
+            ans = num1
+            q_str = f"{product} / {num2}"
+
+    elif topic == "Qoldiqli bo'lish":
+        dividend = random.randint(10, 99)
+        divisor = random.randint(2, 9)
+        quotient = dividend // divisor
+        remainder = dividend % divisor
+        ans = {'quotient': quotient, 'remainder': remainder}
+        q_str = f"{dividend} : {divisor}"
+        q_type = 'remainder'
+
+    elif topic == "Mantiqiy amallar":
+        start = random.randint(1, 20)
+        diff = random.randint(2, 5)
+        seq = [start + i*diff for i in range(4)]
+        ans = start + 4*diff
+        q_str = f"{seq[0]}, {seq[1]}, {seq[2]}, {seq[3]}, ..."
+
+    else: # Umumiy (General)
+        if level == 1:
+            range_max = 10
+            ops = ['+', '-']
+        elif level == 2:
+            range_max = 50
+            ops = ['+', '-', '*']
+        else:
+            range_max = 100
+            ops = ['+', '-', '*', '/']
+
+        op = random.choice(ops)
         num1 = random.randint(1, range_max)
-        factors = [x for x in range(1, num1 + 1) if num1 % x == 0]
-        num2 = random.choice(factors)
-        ans = num1 // num2
-        q_str = f"{num1} / {num2}"
+        num2 = random.randint(1, range_max)
 
-    return {'q': q_str, 'a': ans}
+        if op == '+':
+            ans = num1 + num2
+            q_str = f"{num1} + {num2}"
+        elif op == '-':
+            if num1 < num2:
+                num1, num2 = num2, num1
+            ans = num1 - num2
+            q_str = f"{num1} - {num2}"
+        elif op == '*':
+            ans = num1 * num2
+            q_str = f"{num1} * {num2}"
+        elif op == '/':
+            num1 = random.randint(1, range_max)
+            factors = [x for x in range(1, num1 + 1) if num1 % x == 0]
+            num2 = random.choice(factors)
+            ans = num1 // num2
+            q_str = f"{num1} / {num2}"
+
+    return {'q': q_str, 'a': ans, 'type': q_type}
 
 def main():
     # Logo centered
@@ -115,6 +148,14 @@ def main():
     if st.session_state.quiz_state == 'welcome':
         st.subheader("Xush kelibsiz!")
         name = st.text_input("Ismingizni kiriting:")
+
+        topic = st.selectbox("Mavzuni tanlang:", [
+            "Umumiy",
+            "Ko'paytirish va bo'lish",
+            "Qoldiqli bo'lish",
+            "Mantiqiy amallar"
+        ])
+
         level = st.selectbox("Darajani tanlang:", [1, 2, 3], format_func=lambda x: f"Daraja {x}")
 
         st.markdown("---")
@@ -130,11 +171,12 @@ def main():
             if name:
                 st.session_state.user_name = name
                 st.session_state.level = level
+                st.session_state.topic = topic
                 st.session_state.quiz_state = 'playing'
                 st.session_state.score = 0
                 st.session_state.question_count = 0
                 st.session_state.start_time = time.time()
-                st.session_state.current_question = generate_question(level)
+                st.session_state.current_question = generate_question(level, topic)
                 # Clear feedback from previous games
                 if 'feedback' in st.session_state:
                     del st.session_state.feedback
@@ -166,21 +208,38 @@ def main():
 
         with st.form(key=f"q_form_{q_num}"):
             st.header(f"{q_data['q']} = ?")
-            user_ans = st.number_input("Javobingizni kiriting:", step=1, value=0)
+
+            if q_data.get('type') == 'remainder':
+                c1, c2 = st.columns(2)
+                with c1:
+                    user_q = st.number_input("Bo'linma (Javob):", step=1, value=0)
+                with c2:
+                    user_r = st.number_input("Qoldiq:", step=1, value=0)
+                user_ans = {'quotient': user_q, 'remainder': user_r}
+            else:
+                user_ans = st.number_input("Javobingizni kiriting:", step=1, value=0)
+
             submit = st.form_submit_button("Javob berish")
 
             if submit:
-                correct = (user_ans == q_data['a'])
+                if q_data.get('type') == 'remainder':
+                    correct = (user_ans['quotient'] == q_data['a']['quotient'] and
+                               user_ans['remainder'] == q_data['a']['remainder'])
+                    ans_display = f"{q_data['a']['quotient']} (Qoldiq: {q_data['a']['remainder']})"
+                else:
+                    correct = (user_ans == q_data['a'])
+                    ans_display = q_data['a']
+
                 points = 1 if st.session_state.level == 1 else (2 if st.session_state.level == 2 else 3)
 
                 if correct:
                     st.session_state.score += points
 
-                st.session_state.feedback = {'correct': correct, 'ans': q_data['a']}
+                st.session_state.feedback = {'correct': correct, 'ans': ans_display}
                 st.session_state.question_count += 1
 
                 if st.session_state.question_count < 10:
-                    st.session_state.current_question = generate_question(st.session_state.level)
+                    st.session_state.current_question = generate_question(st.session_state.level, st.session_state.topic)
 
                 st.rerun()
 
