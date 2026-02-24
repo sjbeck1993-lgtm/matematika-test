@@ -1706,8 +1706,7 @@ def main():
 
     st.sidebar.markdown(
         """<div style="text-align: center; margin-bottom: 20px;">
-            <h4 style="color: #FFD700;">Mukammal Matematika</h4>
-            <p style="color: #FFD700; font-size: 0.9em;">Sardorbek Jo'raboyev muallifligidagi maxsus platforma</p>
+            <p style="color: #FFD700; font-weight: bold;">Sardorbek Jo'raboyev muallifligidagi Mukammal Matematika platformasi</p>
         </div>""", unsafe_allow_html=True
     )
 
@@ -1726,13 +1725,19 @@ def main():
     elif st.session_state.current_view == 'mukammal': color = "#FF4500"
 
     inject_css(color, is_home=(st.session_state.current_view == 'home'))
-    show_header()
+
+    if st.session_state.current_view != 'home':
+        show_header()
 
     if st.session_state.current_view == 'home':
         if os.path.exists("logo.png"):
-            _, col2, _ = st.columns([1, 2, 1])
+            _, col2, _ = st.columns([1, 1, 1])
             with col2:
                 st.image("logo.png", use_container_width=True)
+
+        st.markdown("<h1 style='text-align: center;'>SMART LEARNING CENTER</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
+        st.write("---")
 
         c1, c2, c3, c4 = st.columns(4)
         with c1:
