@@ -56,13 +56,15 @@ def set_view(view):
     st.rerun()
 
 # --- CSS Injection ---
-def inject_css(theme_color):
+def inject_css(theme_color, is_home=False):
     hover_color = "#0056b3" # Default
     if theme_color == "#28a745": hover_color = "#218838"
     if theme_color == "#003366": hover_color = "#002244"
     if theme_color == "#0072CE": hover_color = "#0056b3"
+    if theme_color == "#FF4500": hover_color = "#CC3700"
 
-    st.markdown(f"""
+    # Base CSS
+    css = f"""
     <style>
     .stAppHeader {{
         background-color: transparent;
@@ -89,6 +91,14 @@ def inject_css(theme_color):
         color: {theme_color};
     }}
 
+    .highlight {{
+        background-color: #FFD700;
+        padding: 5px;
+        border-radius: 5px;
+        color: #000000;
+        font-weight: bold;
+    }}
+
     /* Standard Button Style */
     div.stButton > button:first-child {{
         background-color: {theme_color} !important;
@@ -99,35 +109,55 @@ def inject_css(theme_color):
     div.stButton > button:first-child:hover {{
         background-color: {hover_color} !important;
     }}
+    """
 
-    .highlight {{
-        background-color: #FFD700;
-        padding: 5px;
-        border-radius: 5px;
-        color: #000000;
-        font-weight: bold;
-    }}
-    </style>
-    """, unsafe_allow_html=True)
+    if is_home:
+        # Inject Big Button styles for Home but reset for Sidebar
+        css += f"""
+        /* Big buttons for Home Main Area */
+        div.stButton > button:first-child {{
+            height: 100px;
+            font-size: 20px !important;
+            font-weight: bold;
+        }}
+
+        /* Reset Sidebar buttons to normal */
+        section[data-testid="stSidebar"] div.stButton > button:first-child {{
+            height: auto !important;
+            font-size: 1rem !important;
+            font-weight: normal !important;
+        }}
+        """
+    else:
+        # Ensure sidebar buttons (and other buttons) are normal size on other pages
+        css += """
+        div.stButton > button:first-child {
+            height: auto !important;
+            font-size: 1rem !important;
+            font-weight: normal !important;
+        }
+        """
+
+    css += "</style>"
+    st.markdown(css, unsafe_allow_html=True)
+
+def show_header():
+    st.markdown("<h1 style='text-align: center;'>SMART LEARNING CENTER</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
+    st.write("---")
 
 # --- Views ---
 
-def show_home():
-    inject_css("#0072CE") # Default blue
-
-    col1, col2, col3 = st.columns([1, 2, 1])
+def show_home_buttons():
+    col1, col2 = st.columns([1, 2])
     with col2:
         if os.path.exists("logo.png"):
             st.image("logo.png", use_container_width=True)
 
-    st.title("SMART LEARNING CENTER")
-    st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
-
-    st.write("")
     st.write("")
 
-    # Navigation Cards
-    c1, c2, c3 = st.columns(3)
+    # Navigation Cards (4 buttons)
+    c1, c2, c3, c4 = st.columns(4)
 
     with c1:
         if st.button("1-sinf", use_container_width=True):
@@ -138,35 +168,18 @@ def show_home():
     with c3:
         if st.button("3-sinf", use_container_width=True):
             set_view('3-sinf')
+    with c4:
+        if st.button("Mukammal Matematika", use_container_width=True):
+            set_view('mukammal')
 
-def show_class_view(class_name, topics, color):
-    inject_css(color)
-
+def show_class_view(class_name, topics):
     col1, col2 = st.columns([1, 4])
     with col1:
          if st.button("⬅️ Orqaga"):
              set_view('home')
     with col2:
-        st.header(f"{class_name} Matematika")
+        st.header(f"{class_name} Matematika" if "Mukammal" not in class_name else class_name)
 
-    run_quiz_interface(topics)
-
-def show_mukammal_view():
-    inject_css("#FF4500") # Orange/Red for special section
-
-    col1, col2 = st.columns([1, 4])
-    with col1:
-         if st.button("⬅️ Bosh sahifa"):
-             set_view('home')
-    with col2:
-        st.header("Mukammal Matematika")
-        st.info("Mantiqiy va qiziqarli masalalar")
-
-    topics = [
-        "Mantiqiy masalalar",
-        "Sonli zanjirlar",
-        "Geometrik hisob-kitoblar"
-    ]
     run_quiz_interface(topics)
 
 def run_quiz_interface(topics_list):
@@ -295,23 +308,43 @@ def main():
     st.sidebar.title("Menyu")
     if st.sidebar.button("🏠 Bosh sahifa", use_container_width=True):
         set_view('home')
+    if st.sidebar.button("1-sinf", use_container_width=True):
+        set_view('1-sinf')
+    if st.sidebar.button("2-sinf", use_container_width=True):
+        set_view('2-sinf')
+    if st.sidebar.button("3-sinf", use_container_width=True):
+        set_view('3-sinf')
 
     st.sidebar.markdown("---")
     if st.sidebar.button("🏆 Mukammal Matematika", use_container_width=True):
         set_view('mukammal')
 
+    # Determine Theme Color
+    color = "#0072CE" # Default Blue
+    if st.session_state.current_view == '1-sinf':
+        color = "#28a745"
+    elif st.session_state.current_view == '2-sinf':
+        color = "#003366"
+    elif st.session_state.current_view == '3-sinf':
+        color = "#0072CE"
+    elif st.session_state.current_view == 'mukammal':
+        color = "#FF4500"
+
+    # Inject CSS & Show Header
+    inject_css(color, is_home=(st.session_state.current_view == 'home'))
+    show_header()
+
     # Main Content
     if st.session_state.current_view == 'home':
-        show_home()
+        show_home_buttons()
     elif st.session_state.current_view == '1-sinf':
-        show_class_view("1-sinf", ["Sonlar olami", "Sodda yig'indi", "Mantiqiy o'yinlar"], "#28a745")
+        show_class_view("1-sinf", ["Sonlar olami", "Sodda yig'indi", "Mantiqiy o'yinlar"])
     elif st.session_state.current_view == '2-sinf':
-        show_class_view("2-sinf", ["Jadvalli ko'paytirish", "O'nliklar bilan ishlash", "Matnli masalalar"], "#003366")
+        show_class_view("2-sinf", ["Jadvalli ko'paytirish", "O'nliklar bilan ishlash", "Matnli masalalar"])
     elif st.session_state.current_view == '3-sinf':
-        # "Dinamik generator" was requested to correspond to 3-sinf
-        show_class_view("3-sinf", ["Dinamik generator"], "#0072CE")
+        show_class_view("3-sinf", ["Matnli masalalar (3-sinf)"])
     elif st.session_state.current_view == 'mukammal':
-        show_mukammal_view()
+        show_class_view("Mukammal Matematika", ["Olimpiada masalalari"])
 
 if __name__ == "__main__":
     main()
