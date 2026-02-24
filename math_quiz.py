@@ -5,21 +5,26 @@ import os
 import io
 import json
 from certificate import create_certificate
-from generators import generate_quiz, DYNAMIC_TOPICS
+from generators import generate_quiz
 
 # Set page config
 st.set_page_config(page_title="SMART LEARNING CENTER: Mukammal Matematika", page_icon="📚")
 
+# --- State Management ---
+if 'current_view' not in st.session_state:
+    st.session_state.current_view = 'home' # home, 1-sinf, 2-sinf, 3-sinf, mukammal
+if 'quiz_state' not in st.session_state:
+    st.session_state.quiz_state = 'welcome' # welcome, playing, finished
+if 'score' not in st.session_state:
+    st.session_state.score = 0
+if 'question_count' not in st.session_state:
+    st.session_state.question_count = 0
+if 'quiz_questions' not in st.session_state:
+    st.session_state.quiz_questions = []
+if 'total_questions' not in st.session_state:
+    st.session_state.total_questions = 0
 
-@st.cache_data
-def load_questions():
-    try:
-        with open('data/questions.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return data
-    except FileNotFoundError:
-        return {}
-
+# --- Helper Functions ---
 def load_top_scores():
     if not os.path.exists("results.txt"):
         return []
@@ -33,12 +38,11 @@ def load_top_scores():
                     scores.append({
                         'name': name,
                         'score': int(score),
-                        'level': level, # Can be string now (topic)
+                        'level': level,
                         'time': float(duration)
                     })
             except ValueError:
                 continue
-    # Sort: High score first (desc), then low time (asc)
     scores.sort(key=lambda x: (-x['score'], x['time']))
     return scores[:5]
 
@@ -46,72 +50,46 @@ def save_result(name, score, level, duration):
     with open("results.txt", "a") as file:
         file.write(f"{name},{score},{level},{duration}\n")
 
-def get_question_pool(topic_key, data):
-    topic_data = data.get(topic_key)
-    if not topic_data:
-        return []
+def set_view(view):
+    st.session_state.current_view = view
+    st.session_state.quiz_state = 'welcome'
+    st.rerun()
 
-    # Combine exercises and tests
-    # Filter only questions that have options and an answer
-    pool = []
+# --- CSS Injection ---
+def inject_css(theme_color):
+    hover_color = "#0056b3" # Default
+    if theme_color == "#28a745": hover_color = "#218838"
+    if theme_color == "#003366": hover_color = "#002244"
+    if theme_color == "#0072CE": hover_color = "#0056b3"
 
-    # Add Tests
-    for q in topic_data.get('tests', []):
-        if q.get('options') and q.get('answer'):
-            q['type'] = 'test'
-            pool.append(q)
-
-    # Add Exercises
-    for q in topic_data.get('exercises', []):
-        if q.get('options') and q.get('answer'):
-            q['type'] = 'exercise'
-            pool.append(q)
-
-    return pool
-
-def main():
-    # Logo centered
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if os.path.exists("logo.png"):
-            st.image("logo.png", use_container_width=True)
-        else:
-            pass # No logo, no warning needed strictly
-
-    st.title("SMART LEARNING CENTER: Mukammal Matematika")
-
-    data = load_questions()
-    all_topics = list(data.keys())
-
-    # Sort topics numerically if they start with number
-    all_topics.sort(key=lambda x: int(x.split('-')[0]) if x.split('-')[0].isdigit() else 999)
-
-    # Add dynamic topics
-    all_topics.extend(DYNAMIC_TOPICS)
-
-    # Sidebar Menu
-    st.sidebar.title("Menyu")
-    section = st.sidebar.radio("Bo'limni tanlang:", ["Bosh sahifa", "1-sinf", "2-sinf", "3-sinf"])
-
-    # Determine Theme Color
-    if section == "1-sinf":
-        theme_color = "#28a745" # Green
-        hover_color = "#218838"
-    elif section == "2-sinf":
-        theme_color = "#003366" # Dark Blue
-        hover_color = "#002244"
-    else:
-        theme_color = "#0072CE" # Default Blue
-        hover_color = "#0056b3"
-
-    # Inject CSS
     st.markdown(f"""
     <style>
-    /* Headers */
+    .stAppHeader {{
+        background-color: transparent;
+    }}
     h1, h2, h3, .stHeading, span[data-testid="stHeader"] {{
         color: {theme_color} !important;
     }}
-    /* Buttons */
+    /* Custom Card Style for Home */
+    .card {{
+        background-color: #f0f2f6;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: 0.3s;
+    }}
+    .card:hover {{
+        background-color: #e0e2e6;
+        transform: scale(1.02);
+    }}
+    .card h3 {{
+        color: {theme_color};
+    }}
+
+    /* Standard Button Style */
     div.stButton > button:first-child {{
         background-color: {theme_color} !important;
         color: white !important;
@@ -121,7 +99,7 @@ def main():
     div.stButton > button:first-child:hover {{
         background-color: {hover_color} !important;
     }}
-    /* Highlight/Accent in Yellow */
+
     .highlight {{
         background-color: #FFD700;
         padding: 5px;
@@ -132,44 +110,69 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    # Reset state if section changes
-    if 'last_section' not in st.session_state:
-        st.session_state.last_section = section
+# --- Views ---
 
-    if st.session_state.last_section != section:
-        st.session_state.quiz_state = 'welcome'
-        st.session_state.last_section = section
-        st.rerun()
+def show_home():
+    inject_css("#0072CE") # Default blue
 
-    # Filter topics based on section
-    if section == "1-sinf":
-        current_topics = ["1-sinf Matematika"]
-    elif section == "2-sinf":
-        current_topics = ["2-sinf Matematika"]
-    elif section == "3-sinf":
-        # Only show the specific dynamic topic for 3-sinf
-        current_topics = ["3-sinf Mukammal Matematika"]
-    else:
-        # Show everything else, excluding class-specific dynamic topics
-        excluded_topics = ["1-sinf Matematika", "2-sinf Matematika", "3-sinf Mukammal Matematika"]
-        current_topics = [t for t in all_topics if t not in excluded_topics]
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if os.path.exists("logo.png"):
+            st.image("logo.png", use_container_width=True)
 
-    # Initialize Session State
-    if 'quiz_state' not in st.session_state:
-        st.session_state.quiz_state = 'welcome'
-        st.session_state.score = 0
-        st.session_state.question_count = 0
-        st.session_state.question_pool = []
+    st.title("SMART LEARNING CENTER")
+    st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
 
+    st.write("")
+    st.write("")
+
+    # Navigation Cards
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        if st.button("1-sinf", use_container_width=True):
+            set_view('1-sinf')
+    with c2:
+        if st.button("2-sinf", use_container_width=True):
+            set_view('2-sinf')
+    with c3:
+        if st.button("3-sinf", use_container_width=True):
+            set_view('3-sinf')
+
+def show_class_view(class_name, topics, color):
+    inject_css(color)
+
+    col1, col2 = st.columns([1, 4])
+    with col1:
+         if st.button("⬅️ Orqaga"):
+             set_view('home')
+    with col2:
+        st.header(f"{class_name} Matematika")
+
+    run_quiz_interface(topics)
+
+def show_mukammal_view():
+    inject_css("#FF4500") # Orange/Red for special section
+
+    col1, col2 = st.columns([1, 4])
+    with col1:
+         if st.button("⬅️ Bosh sahifa"):
+             set_view('home')
+    with col2:
+        st.header("Mukammal Matematika")
+        st.info("Mantiqiy va qiziqarli masalalar")
+
+    topics = [
+        "Mantiqiy masalalar",
+        "Sonli zanjirlar",
+        "Geometrik hisob-kitoblar"
+    ]
+    run_quiz_interface(topics)
+
+def run_quiz_interface(topics_list):
     if st.session_state.quiz_state == 'welcome':
-        st.subheader("Xush kelibsiz!")
-        name = st.text_input("Ismingizni kiriting:")
-
-        if not current_topics:
-            st.warning("Hozircha bu bo'limda mavzular yo'q.")
-            topic = None
-        else:
-            topic = st.selectbox("Mavzuni tanlang:", current_topics)
+        name = st.text_input("Ismingizni kiriting:", key="user_name_input")
+        topic = st.selectbox("Mavzuni tanlang:", topics_list)
 
         st.markdown("---")
         st.write("🏆 **Eng yaxshi 5 natija:**")
@@ -180,51 +183,36 @@ def main():
         else:
             st.write("Hozircha natijalar yo'q.")
 
-        col1, col2 = st.columns([1, 1])
+        col1, col2 = st.columns(2)
         with col1:
-            start_btn = st.button("Boshlash", use_container_width=True)
-        with col2:
-            new_q_btn = st.button("Yangi savollar", use_container_width=True)
+            if st.button("Boshlash", use_container_width=True):
+                if name:
+                    st.session_state.user_name = name
+                    st.session_state.topic = topic
 
-        if new_q_btn:
-             st.success("Savollar yangilandi! 'Boshlash' tugmasini bosing.")
-
-        if start_btn:
-            if name:
-                st.session_state.user_name = name
-                st.session_state.topic = topic
-
-                # Load pool
-                if topic in DYNAMIC_TOPICS:
+                    # Generate Questions
                     pool = generate_quiz(topic, 10)
+                    if not pool:
+                        st.error("Savollar topilmadi.")
+                    else:
+                        st.session_state.quiz_questions = pool
+                        st.session_state.total_questions = len(pool)
+                        st.session_state.score = 0
+                        st.session_state.question_count = 0
+                        st.session_state.start_time = time.time()
+                        st.session_state.quiz_state = 'playing'
+                        if 'feedback' in st.session_state: del st.session_state.feedback
+                        st.rerun()
                 else:
-                    pool = get_question_pool(topic, data)
-
-                if not pool:
-                    st.error("Ushbu mavzu bo'yicha savollar tayyorlanmoqda (javoblar kiritilmagan). Iltimos, boshqa mavzuni tanlang (masalan, 1-5 mavzular).")
-                    return
-
-                # Shuffle pool and take 10 (or less if pool is small)
-                random.shuffle(pool)
-                selected_questions = pool[:10]
-
-                st.session_state.quiz_questions = selected_questions
-                st.session_state.total_questions = len(selected_questions)
-
-                st.session_state.quiz_state = 'playing'
-                st.session_state.score = 0
-                st.session_state.question_count = 0
-                st.session_state.start_time = time.time()
-
-                # Clear feedback
-                if 'feedback' in st.session_state:
-                    del st.session_state.feedback
-                st.rerun()
-            else:
-                st.error("Iltimos, ismingizni kiriting!")
+                    st.error("Iltimos, ismingizni kiriting!")
+        with col2:
+             if st.button("Yangi savollar", use_container_width=True):
+                 st.success("Savollar yangilanmoqda...")
+                 # Just rerun to refresh random seeds if needed, though 'Boshlash' calls generate_quiz fresh anyway.
+                 st.rerun()
 
     elif st.session_state.quiz_state == 'playing':
-        # Show feedback from previous question
+        # Feedback Display
         if 'feedback' in st.session_state:
             if st.session_state.feedback['correct']:
                 st.success("To'g'ri! ✅")
@@ -234,62 +222,46 @@ def main():
             else:
                 st.error(f"Xato! ❌ To'g'ri javob: {st.session_state.feedback['ans']}")
 
-        # Check if finished
+        # Check finish
         if st.session_state.question_count >= st.session_state.total_questions:
             st.session_state.end_time = time.time()
             st.session_state.quiz_state = 'finished'
             st.rerun()
 
+        # Display Question
         q_idx = st.session_state.question_count
         q_data = st.session_state.quiz_questions[q_idx]
-
         q_num = q_idx + 1
-        total_q = st.session_state.total_questions
+        total = st.session_state.total_questions
 
-        st.progress(q_idx / total_q)
-        st.markdown(f"**Savol {q_num}/{total_q}** | Ball: <span class='highlight'>{st.session_state.score}</span>", unsafe_allow_html=True)
-
+        st.progress(q_idx / total)
+        st.markdown(f"**Savol {q_num}/{total}** | Ball: <span class='highlight'>{st.session_state.score}</span>", unsafe_allow_html=True)
         st.header(q_data['question'])
 
         with st.form(key=f"q_form_{q_num}"):
-            # Shuffle options for display? Text implies A, B, C, D are fixed.
-            # "A) 30"
-            # If I shuffle, A) might be at position 3. That's confusing.
-            # Better to keep order A, B, C, D as in source.
-            options = q_data['options']
-
-            # The answer is stored as the full string "B) 20" or similar.
-
-            user_ans = st.radio("Javobni tanlang:", options, index=None)
-
-            submit = st.form_submit_button("Javob berish")
-
-            if submit:
+            user_ans = st.radio("Javobni tanlang:", q_data['options'], index=None)
+            if st.form_submit_button("Javob berish"):
                 if user_ans:
-                    # Compare full string match
-                    # Some cleaning might be needed if format varies
                     correct = (user_ans.strip() == q_data['answer'].strip())
-
                     if correct:
-                        st.session_state.score += 1 # 1 point per question
+                        st.session_state.score += 1
 
                     st.session_state.feedback = {'correct': correct, 'ans': q_data['answer']}
                     st.session_state.question_count += 1
                     st.rerun()
                 else:
-                    st.warning("Iltimos, javobni tanlang!")
+                    st.warning("Javobni tanlang!")
 
     elif st.session_state.quiz_state == 'finished':
         # Show last feedback
         if 'feedback' in st.session_state:
-            if st.session_state.feedback['correct']:
+             if st.session_state.feedback['correct']:
                 st.success("Oxirgi savol: To'g'ri! ✅")
-            else:
+             else:
                 st.error(f"Oxirgi savol: Xato! ❌ To'g'ri javob: {st.session_state.feedback['ans']}")
 
         if 'saved' not in st.session_state or not st.session_state.saved:
              duration = round(st.session_state.end_time - st.session_state.start_time, 2)
-             # Use topic name as level/context
              save_result(st.session_state.user_name, st.session_state.score, st.session_state.topic, duration)
              st.session_state.saved = True
              st.session_state.final_duration = duration
@@ -300,30 +272,46 @@ def main():
         st.write(f"✅ **Jami ball:** {st.session_state.score} / {st.session_state.total_questions}")
         st.write(f"⏱ **Vaqt:** {st.session_state.final_duration} soniya")
 
-        # Certificate condition: 100%
         if st.session_state.score == st.session_state.total_questions and st.session_state.total_questions > 0:
             st.success("Tabriklaymiz! Siz barcha savollarga to'g'ri javob berdingiz!")
-
             cert_img = create_certificate(st.session_state.user_name)
-            st.image(cert_img, caption="Sizning sertifikatingiz", use_container_width=True)
+            st.image(cert_img, caption="Sertifikat", use_container_width=True)
 
             buf = io.BytesIO()
             cert_img.save(buf, format="PNG")
             byte_im = buf.getvalue()
-
-            st.download_button(
-                label="📥 Sertifikatni yuklab olish",
-                data=byte_im,
-                file_name="Sertifikat.png",
-                mime="image/png"
-            )
+            st.download_button("📥 Sertifikatni yuklab olish", data=byte_im, file_name="Sertifikat.png", mime="image/png")
 
         if st.button("Qayta boshlash"):
             st.session_state.quiz_state = 'welcome'
             st.session_state.saved = False
-            if 'feedback' in st.session_state:
-                del st.session_state.feedback
+            if 'feedback' in st.session_state: del st.session_state.feedback
             st.rerun()
+
+
+# --- Main Dispatcher ---
+def main():
+    # Sidebar
+    st.sidebar.title("Menyu")
+    if st.sidebar.button("🏠 Bosh sahifa", use_container_width=True):
+        set_view('home')
+
+    st.sidebar.markdown("---")
+    if st.sidebar.button("🏆 Mukammal Matematika", use_container_width=True):
+        set_view('mukammal')
+
+    # Main Content
+    if st.session_state.current_view == 'home':
+        show_home()
+    elif st.session_state.current_view == '1-sinf':
+        show_class_view("1-sinf", ["Sonlar olami", "Sodda yig'indi", "Mantiqiy o'yinlar"], "#28a745")
+    elif st.session_state.current_view == '2-sinf':
+        show_class_view("2-sinf", ["Jadvalli ko'paytirish", "O'nliklar bilan ishlash", "Matnli masalalar"], "#003366")
+    elif st.session_state.current_view == '3-sinf':
+        # "Dinamik generator" was requested to correspond to 3-sinf
+        show_class_view("3-sinf", ["Dinamik generator"], "#0072CE")
+    elif st.session_state.current_view == 'mukammal':
+        show_mukammal_view()
 
 if __name__ == "__main__":
     main()

@@ -6,7 +6,13 @@ DYNAMIC_TOPICS = [
     "Mantiqiy masalalar",
     "Sonli zanjirlar",
     "Geometrik hisob-kitoblar",
-    "3-sinf Mukammal Matematika"
+    "3-sinf Mukammal Matematika",
+    "Sonlar olami",
+    "Sodda yig'indi",
+    "Mantiqiy o'yinlar",
+    "Jadvalli ko'paytirish",
+    "O'nliklar bilan ishlash",
+    "Matnli masalalar"
 ]
 
 def get_names(n=2):
@@ -363,19 +369,302 @@ def generate_mukammal_questions(count=10):
         })
     return questions
 
+def generate_1sinf_sonlar(count=10):
+    questions = []
+    for _ in range(count):
+        q_type = random.choice(['compare', 'sequence'])
+        if q_type == 'compare':
+            n1 = random.randint(1, 20)
+            n2 = random.randint(1, 20)
+            while n1 == n2:
+                n2 = random.randint(1, 20)
+
+            question_text = f"{n1} va {n2}: qaysi biri katta?"
+            if n1 > n2:
+                ans = str(n1)
+            else:
+                ans = str(n2)
+
+            options = [str(n1), str(n2), "="]
+            random.shuffle(options)
+        else:
+            # Simple sequence 1, 2, 3, ?
+            start = random.randint(1, 15)
+            seq = [start, start+1, start+2, start+3]
+            missing_idx = 3
+            ans = str(seq[missing_idx])
+            seq_display = [str(x) for x in seq]
+            seq_display[missing_idx] = "?"
+            question_text = f"Ketma-ketlikni to'ldiring: {', '.join(seq_display)}"
+
+            opts = {ans}
+            while len(opts) < 3:
+                fake = str(int(ans) + random.randint(-2, 2))
+                if fake != ans and int(fake) > 0:
+                    opts.add(fake)
+            options = list(opts)
+            random.shuffle(options)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+
+        for i, val in enumerate(options):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "1sinf_sonlar"
+        })
+    return questions
+
+def generate_1sinf_yigindi(count=10):
+    questions = []
+    for _ in range(count):
+        n1 = random.randint(1, 10)
+        n2 = random.randint(1, 10)
+        question_text = f"{n1} + {n2} = ?"
+        ans = n1 + n2
+
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-3, 3)
+            if fake >= 0 and fake != ans:
+                options.add(fake)
+
+        opts_list = list(options)
+        random.shuffle(opts_list)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+
+        for i, val in enumerate(opts_list):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "1sinf_yigindi"
+        })
+    return questions
+
+def generate_1sinf_mantiq(count=10):
+    questions = []
+    for _ in range(count):
+        q_type = random.choice(['odd_one', 'logic'])
+
+        if q_type == 'odd_one':
+            cats = [
+                (["olma", "nok", "uzum"], "sabzi"),
+                (["mushuk", "kuchuk", "sigir"], "chumoli"),
+                (["qalam", "daftar", "o'chirgich"], "to'p"),
+                (["mashina", "avtobus", "poyezd"], "uy")
+            ]
+            cat, odd = random.choice(cats)
+
+            c_items = random.sample(cat, 2)
+            options = c_items + [odd]
+            random.shuffle(options)
+
+            question_text = f"Qaysi biri ortiqcha: {', '.join(options)}?"
+            ans = odd
+
+        else:
+            question_text = "Qizil olma yashil olmadan shirinroq. Yashil olma sariq olmadan shirinroq. Qaysi biri eng shirin?"
+            ans = "Qizil olma"
+            options = ["Qizil olma", "Yashil olma", "Sariq olma"]
+            random.shuffle(options)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+
+        for i, val in enumerate(options):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "1sinf_mantiq"
+        })
+    return questions
+
+def generate_2sinf_jadvalli(count=10):
+    questions = []
+    for _ in range(count):
+        n1 = random.randint(2, 9)
+        n2 = random.randint(2, 9)
+        question_text = f"{n1} x {n2} = ?"
+        ans = n1 * n2
+
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-5, 5)
+            if fake > 0 and fake != ans:
+                options.add(fake)
+        options = list(options)
+        random.shuffle(options)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+        for i, val in enumerate(options):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "2sinf_jadvalli"
+        })
+    return questions
+
+def generate_2sinf_onliklar(count=10):
+    questions = []
+    for _ in range(count):
+        op = random.choice(['add', 'sub'])
+        if op == 'add':
+            if random.random() < 0.5:
+                n1 = random.randint(1, 9) * 10
+                n2 = random.randint(1, 9) * 10
+            else:
+                n1 = random.randint(10, 89)
+                n2 = 10
+            ans = n1 + n2
+            question_text = f"{n1} + {n2} = ?"
+        else:
+            if random.random() < 0.5:
+                n1 = random.randint(2, 9) * 10
+                n2 = random.randint(1, n1//10 - 1) * 10
+            else:
+                n1 = random.randint(20, 99)
+                n2 = 10
+            ans = n1 - n2
+            question_text = f"{n1} - {n2} = ?"
+
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-10, 10)
+            if fake > 0 and fake != ans:
+                options.add(fake)
+        options = list(options)
+        random.shuffle(options)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+        for i, val in enumerate(options):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "2sinf_onliklar"
+        })
+    return questions
+
+def generate_2sinf_matnli(count=10):
+    questions = []
+    for _ in range(count):
+        names = get_names(2)
+        q_type = random.choice(['fabric', 'logic'])
+
+        if q_type == 'fabric':
+            dresses = random.randint(2, 10)
+            per_dress = random.randint(2, 4)
+            total_material = dresses * per_dress
+
+            if random.random() < 0.5:
+                question_text = f"{total_material} metr matodan {dresses} ta ko'ylak tikishdi. Bitta ko'ylak uchun necha metr mato ketgan?"
+                ans = per_dress
+            else:
+                question_text = f"Bitta ko'ylak uchun {per_dress} metr mato kerak. {total_material} metr matodan nechta ko'ylak tikish mumkin?"
+                ans = dresses
+        else:
+             age1 = random.randint(7, 15)
+             diff = random.randint(2, 5)
+             age2 = age1 + diff
+             question_text = f"{names[0]} {age1} yoshda. {names[1]} undan {diff} yosh katta. {names[1]} necha yoshda?"
+             ans = age2
+
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-3, 3)
+            if fake > 0 and fake != ans:
+                options.add(fake)
+        options = list(options)
+        random.shuffle(options)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+        for i, val in enumerate(options):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "2sinf_matnli"
+        })
+    return questions
+
 def generate_quiz(topic_name, count=10):
-    if "1-sinf" in topic_name:
+    # 1-sinf
+    if topic_name == "Sonlar olami":
+        return generate_1sinf_sonlar(count)
+    elif topic_name == "Sodda yig'indi":
+        return generate_1sinf_yigindi(count)
+    elif topic_name == "Mantiqiy o'yinlar":
+        return generate_1sinf_mantiq(count)
+    elif "1-sinf" in topic_name: # Fallback or Legacy
         return generate_1sinf_questions(count)
-    elif "2-sinf" in topic_name:
+
+    # 2-sinf
+    elif topic_name == "Jadvalli ko'paytirish":
+        return generate_2sinf_jadvalli(count)
+    elif topic_name == "O'nliklar bilan ishlash":
+        return generate_2sinf_onliklar(count)
+    elif topic_name == "Matnli masalalar":
+        return generate_2sinf_matnli(count)
+    elif "2-sinf" in topic_name: # Fallback or Legacy
         return generate_2sinf_questions(count)
+
+    # 3-sinf / Mukammal
+    elif "Mukammal" in topic_name or "Dinamik generator" in topic_name:
+        return generate_mukammal_questions(count)
+
+    # Legacy / General
     elif "Mantiqiy" in topic_name:
         return generate_logical_questions(count)
     elif "Sonli zanjirlar" in topic_name:
         return generate_number_chain_questions(count)
     elif "Geometrik" in topic_name:
         return generate_geometry_questions(count)
-    elif "Mukammal" in topic_name:
-        return generate_mukammal_questions(count)
     else:
         return []
 
