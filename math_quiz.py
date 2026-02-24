@@ -1590,7 +1590,7 @@ def show_header():
 def run_quiz_interface(topics_list):
     if st.session_state.quiz_state == 'welcome':
         name = st.text_input("Ismingizni kiriting:", key="user_name_input")
-        topic = st.selectbox("Mavzuni tanlang:", topics_list)
+        topic = st.sidebar.selectbox("Mavzuni tanlang:", topics_list)
 
         st.markdown("---")
         st.write("🏆 **Eng yaxshi 5 natija:**")
@@ -1702,17 +1702,14 @@ def main():
 
     # Sidebar Logo
     if os.path.exists("logo.png"):
-        with open("logo.png", "rb") as f:
-            encoded = base64.b64encode(f.read()).decode()
-        st.sidebar.markdown(
-            f"""<div style="text-align: center; margin-bottom: 20px;">
-                <img src="data:image/png;base64,{encoded}" style="width: 80px; border-radius: 50%;">
-                <h4 style="color: #FFD700;">Mukammal Matematika</h4>
-            </div>""", unsafe_allow_html=True
-        )
-    else:
-        st.sidebar.markdown("""<div style="text-align: center; margin-bottom: 20px;">
-            <h4 style="color: #FFD700;">Mukammal Matematika</h4></div>""", unsafe_allow_html=True)
+        st.sidebar.image("logo.png", width=150)
+
+    st.sidebar.markdown(
+        """<div style="text-align: center; margin-bottom: 20px;">
+            <h4 style="color: #FFD700;">Mukammal Matematika</h4>
+            <p style="color: #FFD700; font-size: 0.9em;">Sardorbek Jo'raboyev muallifligidagi maxsus platforma</p>
+        </div>""", unsafe_allow_html=True
+    )
 
     st.sidebar.title("Menyu")
     if st.sidebar.button("🏠 Bosh sahifa", use_container_width=True): set_view('home')
@@ -1732,9 +1729,11 @@ def main():
     show_header()
 
     if st.session_state.current_view == 'home':
-        col1, col2 = st.columns([1, 2])
-        with col2:
-            if os.path.exists("logo.png"): st.image("logo.png", use_container_width=True)
+        if os.path.exists("logo.png"):
+            _, col2, _ = st.columns([1, 2, 1])
+            with col2:
+                st.image("logo.png", use_container_width=True)
+
         c1, c2, c3, c4 = st.columns(4)
         with c1:
             if st.button("1-sinf", use_container_width=True): set_view('1-sinf')
