@@ -1,6 +1,8 @@
 import random
 
 DYNAMIC_TOPICS = [
+    "1-sinf Matematika",
+    "2-sinf Matematika",
     "Mantiqiy masalalar",
     "Sonli zanjirlar",
     "Geometrik hisob-kitoblar",
@@ -14,6 +16,126 @@ def get_names(n=2):
 def get_item():
     items = ["daftar", "qalam", "olma", "kitob", "shar", "gul", "konfet"]
     return random.choice(items)
+
+def generate_1sinf_questions(count=10):
+    questions = []
+    for _ in range(count):
+        names = get_names(2)
+        item = get_item()
+        q_type = random.choice(['add', 'sub'])
+
+        if q_type == 'add':
+            n1 = random.randint(1, 10)
+            n2 = random.randint(1, 10)
+            # Sum is max 20, so no check needed
+            question_text = f"{names[0]}da {n1} ta {item} bor edi, unga yana {n2} ta {item} berishdi. Jami nechta?"
+            ans = n1 + n2
+        else: # sub
+            n1 = random.randint(5, 20)
+            n2 = random.randint(1, 10)
+            # Ensure n1 > n2
+            while n2 >= n1:
+                n2 = random.randint(1, n1 - 1)
+            question_text = f"{names[0]}da {n1} ta {item} bor edi. U {names[1]}ga {n2} tasini berdi. {names[0]}da nechta {item} qoldi?"
+            ans = n1 - n2
+
+        # Options
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-3, 3)
+            if fake >= 0 and fake != ans:
+                options.add(fake)
+
+        opts_list = list(options)
+        random.shuffle(opts_list)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+
+        for i, val in enumerate(opts_list):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "1sinf"
+        })
+    return questions
+
+def generate_2sinf_questions(count=10):
+    questions = []
+    for _ in range(count):
+        names = get_names(2)
+        q_type = random.choice(['fabric', 'logic', 'arithmetic'])
+
+        if q_type == 'fabric':
+            # Example: 40 meters -> 20 dresses.
+            # Dresses count
+            dresses = random.randint(2, 20)
+            # Material per dress
+            per_dress = random.randint(2, 5)
+            total_material = dresses * per_dress
+
+            if random.random() < 0.5:
+                question_text = f"{total_material} metr matodan {dresses} ta ko'ylak tikishdi. Bitta ko'ylak uchun necha metr mato ketgan?"
+                ans = per_dress
+            else:
+                question_text = f"Bitta ko'ylak uchun {per_dress} metr mato kerak. {total_material} metr matodan nechta ko'ylak tikish mumkin?"
+                ans = dresses
+
+        elif q_type == 'logic':
+             # Simple logic: Age difference, or comparisons
+             age1 = random.randint(7, 15)
+             diff = random.randint(2, 5)
+             age2 = age1 + diff
+             question_text = f"{names[0]} {age1} yoshda. {names[1]} undan {diff} yosh katta. {names[1]} necha yoshda?"
+             ans = age2
+
+        else: # Arithmetic mix up to 100
+            op = random.choice(['add', 'sub'])
+            if op == 'add':
+                n1 = random.randint(10, 50)
+                n2 = random.randint(10, 50)
+                question_text = f"{n1} ga {n2} ni qo'shing."
+                ans = n1 + n2
+            else:
+                n1 = random.randint(20, 100)
+                n2 = random.randint(10, n1)
+                question_text = f"{n1} dan {n2} ni ayiring."
+                ans = n1 - n2
+
+        # Options
+        options = {ans}
+        while len(options) < 3:
+            fake = ans + random.randint(-5, 5)
+            if fake >= 0 and fake != ans:
+                options.add(fake)
+
+        opts_list = list(options)
+        random.shuffle(opts_list)
+
+        formatted_options = []
+        answer_str = ""
+        labels = ["A", "B", "C"]
+
+        for i, val in enumerate(opts_list):
+            opt_str = f"{labels[i]}) {val}"
+            formatted_options.append(opt_str)
+            if val == ans:
+                answer_str = opt_str
+
+        questions.append({
+            "question": question_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "2sinf"
+        })
+    return questions
 
 def generate_logical_questions(count=10):
     questions = []
@@ -242,7 +364,11 @@ def generate_mukammal_questions(count=10):
     return questions
 
 def generate_quiz(topic_name, count=10):
-    if "Mantiqiy" in topic_name:
+    if "1-sinf" in topic_name:
+        return generate_1sinf_questions(count)
+    elif "2-sinf" in topic_name:
+        return generate_2sinf_questions(count)
+    elif "Mantiqiy" in topic_name:
         return generate_logical_questions(count)
     elif "Sonli zanjirlar" in topic_name:
         return generate_number_chain_questions(count)

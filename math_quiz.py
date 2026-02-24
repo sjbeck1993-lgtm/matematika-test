@@ -10,33 +10,6 @@ from generators import generate_quiz, DYNAMIC_TOPICS
 # Set page config
 st.set_page_config(page_title="SMART LEARNING CENTER: Mukammal Matematika", page_icon="📚")
 
-# Custom CSS for Blue and Yellow theme optimization
-st.markdown("""
-    <style>
-    /* Headers in Blue */
-    h1, h2, h3, .stHeading, span[data-testid="stHeader"] {
-        color: #0072CE !important;
-    }
-    /* Buttons in Blue */
-    div.stButton > button:first-child {
-        background-color: #0072CE !important;
-        color: white !important;
-        border-radius: 5px;
-        border: none;
-    }
-    div.stButton > button:first-child:hover {
-        background-color: #0056b3 !important;
-    }
-    /* Highlight/Accent in Yellow */
-    .highlight {
-        background-color: #FFD700;
-        padding: 5px;
-        border-radius: 5px;
-        color: #000000;
-        font-weight: bold;
-    }
-    </style>
-    """, unsafe_allow_html=True)
 
 @st.cache_data
 def load_questions():
@@ -118,7 +91,46 @@ def main():
 
     # Sidebar Menu
     st.sidebar.title("Menyu")
-    section = st.sidebar.radio("Bo'limni tanlang:", ["Bosh sahifa", "3-sinf"])
+    section = st.sidebar.radio("Bo'limni tanlang:", ["Bosh sahifa", "1-sinf", "2-sinf", "3-sinf"])
+
+    # Determine Theme Color
+    if section == "1-sinf":
+        theme_color = "#28a745" # Green
+        hover_color = "#218838"
+    elif section == "2-sinf":
+        theme_color = "#003366" # Dark Blue
+        hover_color = "#002244"
+    else:
+        theme_color = "#0072CE" # Default Blue
+        hover_color = "#0056b3"
+
+    # Inject CSS
+    st.markdown(f"""
+    <style>
+    /* Headers */
+    h1, h2, h3, .stHeading, span[data-testid="stHeader"] {{
+        color: {theme_color} !important;
+    }}
+    /* Buttons */
+    div.stButton > button:first-child {{
+        background-color: {theme_color} !important;
+        color: white !important;
+        border-radius: 5px;
+        border: none;
+    }}
+    div.stButton > button:first-child:hover {{
+        background-color: {hover_color} !important;
+    }}
+    /* Highlight/Accent in Yellow */
+    .highlight {{
+        background-color: #FFD700;
+        padding: 5px;
+        border-radius: 5px;
+        color: #000000;
+        font-weight: bold;
+    }}
+    </style>
+    """, unsafe_allow_html=True)
 
     # Reset state if section changes
     if 'last_section' not in st.session_state:
@@ -130,12 +142,17 @@ def main():
         st.rerun()
 
     # Filter topics based on section
-    if section == "3-sinf":
+    if section == "1-sinf":
+        current_topics = ["1-sinf Matematika"]
+    elif section == "2-sinf":
+        current_topics = ["2-sinf Matematika"]
+    elif section == "3-sinf":
         # Only show the specific dynamic topic for 3-sinf
         current_topics = ["3-sinf Mukammal Matematika"]
     else:
-        # Show everything else
-        current_topics = [t for t in all_topics if "3-sinf Mukammal Matematika" not in t]
+        # Show everything else, excluding class-specific dynamic topics
+        excluded_topics = ["1-sinf Matematika", "2-sinf Matematika", "3-sinf Mukammal Matematika"]
+        current_topics = [t for t in all_topics if t not in excluded_topics]
 
     # Initialize Session State
     if 'quiz_state' not in st.session_state:
