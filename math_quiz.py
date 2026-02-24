@@ -502,6 +502,697 @@ def generate_1sinf_topic_questions(topic, count=10):
     return questions
 
 
+# --- 3rd Grade Generators ---
+
+def gen_3_digits_1000():
+    # Place value or simple add/sub
+    n = random.randint(100, 999)
+    if random.random() < 0.5:
+        # Place value
+        hundreds = n // 100
+        tens = (n % 100) // 10
+        units = n % 10
+        question_text = f"{n} sonida nechta yuzlik, o'nlik va birlik bor?"
+        ans = f"{hundreds} yuzlik, {tens} o'nlik, {units} birlik"
+        f1 = f"{hundreds} yuzlik, {units} o'nlik, {tens} birlik"
+        f2 = f"{tens} yuzlik, {hundreds} o'nlik, {units} birlik"
+        options = [ans, f1, f2]
+    else:
+        # Comparison
+        n2 = random.randint(100, 999)
+        while n == n2: n2 = random.randint(100, 999)
+        question_text = f"{n} ... {n2}. Qaysi belgi mos?"
+        ans = ">" if n > n2 else "<"
+        options = [">", "<", "="]
+    return question_text, ans, options
+
+def gen_logic_equations():
+    # x * a + b = c
+    a = random.randint(2, 9)
+    x = random.randint(2, 9)
+    b = random.randint(1, 20)
+    c = x * a + b
+    question_text = f"Tenglamani yeching: x * {a} + {b} = {c}"
+    ans = x
+    options = generate_wrong_options(ans, 1, 20)
+    return question_text, ans, options
+
+def gen_speed_distance():
+    v = random.randint(30, 80) # km/h
+    t = random.randint(2, 5)   # h
+    s = v * t
+    if random.random() < 0.5:
+        question_text = f"Avtomobil {v} km/soat tezlik bilan {t} soat yurdi. U qancha masofani bosib o'tgan?"
+        ans = s
+    else:
+        question_text = f"Avtomobil {s} km masofani {t} soatda bosib o'tdi. Uning tezligini toping."
+        ans = v
+    options = generate_wrong_options(ans, 10, 500)
+    return question_text, ans, options
+
+def gen_area_square():
+    # Square or Rectangle area
+    if random.random() < 0.5:
+        a = random.randint(2, 12)
+        ans = a * a
+        question_text = f"Kvadratning tomoni {a} sm. Uning yuzini toping (kv. sm)."
+    else:
+        a = random.randint(2, 10)
+        b = random.randint(2, 10)
+        ans = a * b
+        question_text = f"To'g'ri to'rtburchakning tomonlari {a} sm va {b} sm. Uning yuzini toping."
+    options = generate_wrong_options(ans, 4, 144)
+    return question_text, ans, options
+
+def gen_column_mult():
+    # 2-digit * 1-digit or simple 3-digit add
+    if random.random() < 0.5:
+        a = random.randint(12, 99)
+        b = random.randint(2, 9)
+        ans = a * b
+        question_text = f"{a} * {b} = ?"
+    else:
+        a = random.randint(100, 500)
+        b = random.randint(100, 499)
+        ans = a + b
+        question_text = f"{a} + {b} = ?"
+    options = generate_wrong_options(ans, 20, 1000)
+    return question_text, ans, options
+
+def gen_remainder_div():
+    a = random.randint(10, 50)
+    b = random.randint(2, 9)
+    while a % b == 0: a = random.randint(10, 50)
+    q = a // b
+    r = a % b
+    question_text = f"{a} : {b} = ? (qoldiqni toping)"
+    ans = f"{q} (qoldiq {r})"
+    # fakes
+    f1 = f"{q} (qoldiq {r+1 if r+1<b else r-1})"
+    f2 = f"{q-1} (qoldiq {b-1})"
+    options = [ans, f1, f2]
+    return question_text, ans, options
+
+def gen_floors_puzzle():
+    # Interval logic
+    f1 = 1
+    f2 = random.randint(3, 5)
+    steps = random.randint(20, 60)
+    # steps must be divisible by intervals (f2 - f1)
+    intervals = f2 - f1
+    steps = (steps // intervals) * intervals
+    per_interval = steps // intervals
+
+    target_f = random.randint(6, 10)
+    target_intervals = target_f - f1
+    ans = target_intervals * per_interval
+
+    question_text = f"Zulmira {f1}-qavatdan {f2}-qavatga chiqish uchun {steps} ta zina bosib o'tdi. {f1}-qavatdan {target_f}-qavatga chiqish uchun nechta zina bosib o'tishi kerak?"
+    options = generate_wrong_options(ans, 20, 200)
+    return question_text, ans, options
+
+def gen_fractions_intro():
+    # a/b + c/b
+    den = random.randint(3, 10)
+    num1 = random.randint(1, den-2)
+    num2 = random.randint(1, den - num1)
+    ans_num = num1 + num2
+    question_text = f"{num1}/{den} + {num2}/{den} = ?"
+    ans = f"{ans_num}/{den}"
+    options = [ans, f"{ans_num+1}/{den}", f"{ans_num}/{den+1}"]
+    return question_text, ans, options
+
+def gen_diagrams():
+    # Text based table reading
+    items = ["Olma", "Anor", "Nok"]
+    counts = [random.randint(5, 15) for _ in range(3)]
+    table_str = "\n".join([f"{i}: {c} kg" for i, c in zip(items, counts)])
+
+    q_type = random.choice(["max", "min", "sum"])
+    if q_type == "max":
+        idx = counts.index(max(counts))
+        question_text = f"Jadvalga qarang:\n{table_str}\n\nEng ko'p meva qaysi?"
+        ans = items[idx]
+        options = items
+    elif q_type == "min":
+        idx = counts.index(min(counts))
+        question_text = f"Jadvalga qarang:\n{table_str}\n\nEng kam meva qaysi?"
+        ans = items[idx]
+        options = items
+    else:
+        question_text = f"Jadvalga qarang:\n{table_str}\n\nJami mevalar necha kg?"
+        ans = sum(counts)
+        options = generate_wrong_options(ans, 10, 100)
+
+    return question_text, ans, options
+
+def gen_olympiad_analog():
+    # Simple logic puzzle
+    # Heads and legs (light version) or similar
+    rabbits = random.randint(2, 5)
+    chickens = random.randint(2, 5)
+    heads = rabbits + chickens
+    legs = rabbits * 4 + chickens * 2
+    question_text = f"Hovlida quyonlar va tovuqlar bor. Ularning boshlari soni {heads} ta, oyoqlari soni {legs} ta. Nechta quyon bor?"
+    ans = rabbits
+    options = generate_wrong_options(ans, 1, 10)
+    return question_text, ans, options
+
+def gen_roman_numerals():
+    map_roman = {
+        1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX", 10: "X",
+        11: "XI", 12: "XII", 15: "XV", 20: "XX", 50: "L", 100: "C"
+    }
+    n = random.choice(list(map_roman.keys()))
+    question_text = f"{n} sonining rim raqamlaridagi ifodasini toping."
+    ans = map_roman[n]
+    # Generate fake options
+    fake_pool = list(map_roman.values())
+    if ans in fake_pool: fake_pool.remove(ans)
+    fakes = random.sample(fake_pool, 2)
+    options = [ans] + fakes
+    return question_text, ans, options
+
+def gen_rounding():
+    # Round to nearest 10 or 100
+    if random.random() < 0.5:
+        n = random.randint(10, 99)
+        # Round to 10
+        rem = n % 10
+        if rem < 5: ans = n - rem
+        else: ans = n + (10 - rem)
+        question_text = f"{n} sonini o'nliklargacha yaxlitlang."
+    else:
+        n = random.randint(100, 999)
+        rem = n % 100
+        if rem < 50: ans = n - rem
+        else: ans = n + (100 - rem)
+        question_text = f"{n} sonini yuzliklargacha yaxlitlang."
+
+    options = [ans, ans+10, ans-10]
+    return question_text, ans, options
+
+def gen_time_units():
+    # Century, year
+    q_type = random.choice(["century", "year"])
+    if q_type == "century":
+        c = random.randint(1, 21)
+        question_text = f"{c}-asr necha yil?"
+        ans = c * 100 # Technically "100 years in a century" but usually implies conversion logic?
+        # Actually usually "1 asr = 100 yil". Let's do simple conversion.
+        question_text = f"{c} asr necha yilga teng?"
+        ans = c * 100
+    else:
+        y = random.randint(2, 5)
+        question_text = f"{y} yil necha oy?"
+        ans = y * 12
+
+    options = generate_wrong_options(ans, 10, 2500)
+    return question_text, ans, options
+
+def gen_triangle_types():
+    types = [
+        ("Teng tomonli", "Hamma tomonlari teng"),
+        ("Teng yonli", "Ikki tomoni teng"),
+        ("Turli tomonli", "Hamma tomonlari har xil")
+    ]
+    t, desc = random.choice(types)
+    question_text = f"{desc} uchburchak nima deb ataladi?"
+    ans = t
+    options = ["Teng tomonli", "Teng yonli", "Turli tomonli"]
+    return question_text, ans, options
+
+def gen_mass_calc():
+    # Ton to kg
+    t = random.randint(1, 10)
+    question_text = f"{t} tonna necha kilogramm?"
+    ans = t * 1000
+    options = [ans, ans/10, ans*10]
+    return question_text, ans, options
+
+def gen_length_calc():
+    # km to m
+    k = random.randint(1, 10)
+    m = random.randint(100, 900)
+    question_text = f"{k} km {m} m necha metr?"
+    ans = k * 1000 + m
+    options = generate_wrong_options(ans, 1000, 15000)
+    return question_text, ans, options
+
+def gen_volume_liter():
+    # Simple liter addition
+    l1 = random.randint(10, 100)
+    l2 = random.randint(10, 100)
+    question_text = f"Idishda {l1} litr suv bor. Unga yana {l2} litr quyildi. Jami qancha bo'ldi?"
+    ans = l1 + l2
+    options = generate_wrong_options(ans, 10, 300)
+    return question_text, ans, options
+
+def gen_three_ops():
+    # a * b - c / d ? Too complex integer division issues.
+    # a * b + c - d
+    a = random.randint(2, 9)
+    b = random.randint(2, 9)
+    c = random.randint(10, 50)
+    d = random.randint(1, 20)
+    ans = a * b + c - d
+    question_text = f"{a} * {b} + {c} - {d} = ?"
+    options = generate_wrong_options(ans, 0, 200)
+    return question_text, ans, options
+
+def gen_complex_sequences():
+    # Two steps or Fibonacci-like
+    if random.random() < 0.5:
+        # +a, -b
+        start = 10
+        step1 = random.randint(3, 5)
+        step2 = random.randint(1, 2)
+        seq = [start]
+        curr = start
+        for i in range(3):
+            curr += step1
+            seq.append(curr)
+            curr -= step2
+            seq.append(curr)
+        # seq e.g. 10, 15, 13, 18, 16, 21, 19
+        ans = seq[-1]
+        seq_str = ", ".join(map(str, seq[:-1]))
+        question_text = f"Ketma-ketlikni davom ettiring: {seq_str}, ... ?"
+        options = generate_wrong_options(ans, 0, 100)
+    else:
+        # Doubling
+        start = random.randint(1, 3)
+        seq = [start, start*2, start*4, start*8, start*16]
+        ans = seq[-1]
+        seq_str = ", ".join(map(str, seq[:-1]))
+        question_text = f"Ketma-ketlikni davom ettiring: {seq_str}, ... ?"
+        options = generate_wrong_options(ans, 0, 100)
+    return question_text, ans, options
+
+def gen_two_step_problems():
+    names = get_names(2)
+    item = get_item()
+    n1 = random.randint(10, 50)
+    n2 = random.randint(5, 20)
+    n3 = random.randint(5, 20)
+
+    question_text = f"{names[0]}da {n1} ta {item} bor. {names[1]}da esa undan {n2} ta ko'p. Ikkalasida jami nechta {item} bor?"
+    p2 = n1 + n2
+    ans = n1 + p2
+    options = generate_wrong_options(ans, 10, 200)
+    return question_text, ans, options
+
+def generate_3sinf_topic_questions(topic, count=10):
+    questions = []
+
+    generator_map = {
+        "Uch xonali sonlar (1-1000)": gen_3_digits_1000,
+        "Mantiqiy tenglamalar (Sodda)": gen_logic_equations,
+        "Harakatga doir: Tezlik va masofa": gen_speed_distance,
+        "Yuzani hisoblash (Kvadrat)": gen_area_square,
+        "Ustun shaklida ko'paytirish": gen_column_mult,
+        "Qoldiqli bo'lish": gen_remainder_div,
+        "Zulmira va qavatlar (Mantiqiy tuzoq)": gen_floors_puzzle,
+        "Kasrlar bilan tanishuv": gen_fractions_intro,
+        "Diagramma va jadvallar": gen_diagrams,
+        "Olimpiada masalalari (Analog)": gen_olympiad_analog,
+        "Rim raqamlari": gen_roman_numerals,
+        "Yaxlitlash (O'nlik va yuzlikkacha)": gen_rounding,
+        "Vaqt birliklari (Asr, yil, oy)": gen_time_units,
+        "Geometriya: Uchburchak turlari": gen_triangle_types,
+        "Massani hisoblash (kg, t)": gen_mass_calc,
+        "Uzunlikni hisoblash (km, m)": gen_length_calc,
+        "Hajm birliklari (Litr)": gen_volume_liter,
+        "3 ta amal qatnashgan ifodalar": gen_three_ops,
+        "Mantiqiy ketma-ketliklar (Murakkab)": gen_complex_sequences,
+        "Matnli masalalar (Ikki bosqichli)": gen_two_step_problems
+    }
+
+    gen_func = generator_map.get(topic)
+
+    # Fallback
+    if not gen_func:
+        gen_func = gen_column_mult
+
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
+        try:
+            q_text, ans, options = gen_func()
+        except Exception as e:
+            print(f"Error in {topic}: {e}")
+            continue
+
+        if q_text in seen:
+            continue
+        seen.add(q_text)
+
+        formatted_options, answer_str = format_options(ans, options)
+
+        questions.append({
+            "question": q_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "3sinf_analog"
+        })
+
+    random.shuffle(questions)
+    return questions
+
+
+# --- 2nd Grade Generators ---
+
+def gen_2_digits_100():
+    # Identify digits or composition
+    num = random.randint(10, 99)
+    if random.random() < 0.5:
+        tens = num // 10
+        units = num % 10
+        question_text = f"{num} sonida nechta o'nlik va nechta birlik bor?"
+        ans = f"{tens} o'nlik, {units} birlik"
+        # Fake options
+        f1 = f"{units} o'nlik, {tens} birlik"
+        f2 = f"{tens+1} o'nlik, {units} birlik"
+        options = [ans, f1, f2]
+    else:
+        # Decomposition
+        tens = num // 10 * 10
+        units = num % 10
+        question_text = f"{num} soni qanday yoziladi? (Xona qo'shiluvchilari yig'indisi ko'rinishida)"
+        ans = f"{tens} + {units}"
+        f1 = f"{tens} + {units+1}"
+        f2 = f"{tens-10} + {units}"
+        options = [ans, f1, f2]
+    return question_text, ans, options
+
+def gen_add_100():
+    # a + b <= 100
+    a = random.randint(1, 89)
+    b = random.randint(1, 100 - a)
+    ans = a + b
+    question_text = f"{a} + {b} = ?"
+    options = generate_wrong_options(ans, 1, 100)
+    return question_text, ans, options
+
+def gen_sub_100():
+    # a - b >= 0
+    a = random.randint(10, 100)
+    b = random.randint(1, a)
+    ans = a - b
+    question_text = f"{a} - {b} = ?"
+    options = generate_wrong_options(ans, 0, 100)
+    return question_text, ans, options
+
+def gen_mult_table():
+    a = random.randint(2, 9)
+    b = random.randint(2, 9)
+    ans = a * b
+    question_text = f"{a} * {b} = ?"
+    options = generate_wrong_options(ans, 4, 81)
+    return question_text, ans, options
+
+def gen_div_basics():
+    # Exact division
+    b = random.randint(2, 9)
+    ans = random.randint(2, 9)
+    a = b * ans
+    question_text = f"{a} : {b} = ?"
+    options = generate_wrong_options(ans, 1, 9)
+    return question_text, ans, options
+
+def gen_sequences_2sinf():
+    step = random.randint(2, 5)
+    start = random.randint(1, 20)
+    seq = [start + i*step for i in range(4)]
+    ans = seq[3]
+    question_text = f"Ketma-ketlikni davom ettiring: {seq[0]}, {seq[1]}, {seq[2]}, ... ?"
+    options = [ans, ans+step, ans-step]
+    return question_text, ans, options
+
+def gen_perimeter():
+    if random.random() < 0.5:
+        # Square
+        a = random.randint(1, 10)
+        ans = 4 * a
+        question_text = f"Kvadratning tomoni {a} sm. Uning perimetrini toping."
+    else:
+        # Rectangle
+        a = random.randint(1, 10)
+        b = random.randint(1, 10)
+        while a == b: b = random.randint(1, 10)
+        ans = 2 * (a + b)
+        question_text = f"To'g'ri to'rtburchakning tomonlari {a} sm va {b} sm. Perimetrini toping."
+
+    options = generate_wrong_options(ans, 4, 100)
+    return question_text, ans, options
+
+def gen_time_clock():
+    h = random.randint(1, 12)
+    m = random.choice([0, 15, 30, 45])
+
+    if m == 0:
+        time_str = f"{h}:00"
+        ans = f"Soat {h} bo'ldi"
+    elif m == 30:
+        time_str = f"{h}:30"
+        ans = f"{h} yarim"
+    else:
+        time_str = f"{h}:{m}"
+        ans = f"{h} dan {m} minut o'tdi"
+
+    question_text = f"Soatdagi vaqtni toping: {time_str}"
+    # Fakes are hard to generate generically for text, so randomizing logic
+    f1 = f"{h+1}:00"
+    f2 = f"{h-1}:30"
+    options = [ans, f1, f2]
+    return question_text, ans, options
+
+def gen_weight_kg():
+    # Simple addition of weights
+    w1 = random.randint(1, 50)
+    w2 = random.randint(1, 50)
+    ans = w1 + w2
+    item1 = get_item()
+    item2 = get_item()
+    question_text = f"{item1} {w1} kg, {item2} {w2} kg. Ikkolasi birgalikda qancha?"
+    options = generate_wrong_options(ans, 2, 100)
+    return question_text, ans, options
+
+def gen_order_ops():
+    # a + (b - c) or a - (b + c)
+    if random.random() < 0.5:
+        a = random.randint(10, 50)
+        b = random.randint(10, 20)
+        c = random.randint(1, 9)
+        # a + (b - c)
+        ans = a + (b - c)
+        question_text = f"{a} + ({b} - {c}) = ?"
+    else:
+        a = random.randint(30, 80)
+        b = random.randint(1, 10)
+        c = random.randint(1, 10)
+        # a - (b + c)
+        ans = a - (b + c)
+        question_text = f"{a} - ({b} + {c}) = ?"
+
+    options = generate_wrong_options(ans, 0, 100)
+    return question_text, ans, options
+
+def gen_compare_2sinf():
+    a = random.randint(10, 99)
+    b = random.randint(10, 99)
+    while a == b: b = random.randint(10, 99)
+    question_text = f"{a} ... {b}. Qaysi belgi qo'yiladi?"
+    if a > b: ans = ">"
+    elif a < b: ans = "<"
+    else: ans = "="
+    options = [">", "<", "="]
+    return question_text, ans, options
+
+def gen_money_uzs():
+    prices = [100, 200, 500, 1000]
+    p = random.choice(prices)
+    count = random.randint(2, 5)
+    total = p * count
+    item = get_item()
+    question_text = f"Bitta {item} {p} so'm turadi. {count} ta {item} qancha turadi?"
+    ans = total
+    options = generate_wrong_options(ans, 200, 5000)
+    return question_text, ans, options
+
+def gen_length_measure():
+    # conversion dm -> sm or m -> dm
+    if random.random() < 0.5:
+        dm = random.randint(1, 9)
+        ans = dm * 10
+        question_text = f"{dm} dm necha sm?"
+    else:
+        m = random.randint(1, 9)
+        ans = m * 10
+        question_text = f"{m} m necha dm?"
+    options = generate_wrong_options(ans, 10, 100)
+    return question_text, ans, options
+
+def gen_geo_properties():
+    shapes = [
+        ("Uchburchak", 3), ("Kvadrat", 4), ("To'g'ri to'rtburchak", 4), ("Beshburchak", 5), ("Oltiburchak", 6)
+    ]
+    s, v = random.choice(shapes)
+    question_text = f"{s}ning nechta uchi bor?"
+    ans = v
+    # Select correct answer and 2 distinct wrong answers
+    all_opts = {3, 4, 5, 6}
+    if v in all_opts:
+        all_opts.remove(v)
+    wrong = random.sample(list(all_opts), 2)
+    options = [ans] + wrong
+    return question_text, ans, options
+
+def gen_even_odd_100():
+    n = random.randint(10, 99)
+    question_text = f"{n} soni juftmi yoki toqmi?"
+    ans = "Juft" if n % 2 == 0 else "Toq"
+    options = ["Juft", "Toq"]
+    return question_text, ans, options
+
+def gen_equations_simple():
+    # x + a = b
+    a = random.randint(1, 50)
+    b = random.randint(a + 1, 99)
+    x = b - a
+    question_text = f"Tenglamani yeching: x + {a} = {b}"
+    ans = x
+    options = generate_wrong_options(ans, 1, 99)
+    return question_text, ans, options
+
+def gen_logic_age():
+    names = get_names(2)
+    age1 = random.randint(7, 12)
+    diff = random.randint(2, 5)
+    age2 = age1 + diff
+    question_text = f"{names[0]} {age1} yoshda. {names[1]} undan {diff} yosh katta. {names[1]} necha yoshda?"
+    ans = age2
+    options = generate_wrong_options(ans, 5, 20)
+    return question_text, ans, options
+
+def gen_fractions_simple():
+    # Concept of half and quarter
+    if random.random() < 0.5:
+        question_text = "Butunning yarmi qanday yoziladi?"
+        ans = "1/2"
+        options = ["1/2", "1/4", "1/3"]
+    else:
+        question_text = "Butunning choragi (to'rtdan biri) qanday yoziladi?"
+        ans = "1/4"
+        options = ["1/2", "1/4", "3/4"]
+    return question_text, ans, options
+
+def gen_mult_div_word():
+    # Simple word problems
+    if random.random() < 0.5:
+        # Mult
+        per_box = random.randint(2, 10)
+        boxes = random.randint(2, 5)
+        item = get_item()
+        question_text = f"Har bir qutida {per_box} tadan {item} bor. {boxes} ta qutida jami nechta {item} bor?"
+        ans = per_box * boxes
+    else:
+        # Div
+        total = random.randint(4, 20)
+        kids = random.randint(2, 5)
+        # Ensure divisibility
+        total = total - (total % kids)
+        if total == 0: total = kids * 2
+
+        question_text = f"{total} ta konfetni {kids} nafar bolaga teng bo'lib berilsa, har biriga nechtadan tegadi?"
+        ans = total // kids
+
+    options = generate_wrong_options(ans, 1, 100)
+    return question_text, ans, options
+
+def gen_mixed_ops():
+    # a * b + c or a * b - c
+    a = random.randint(2, 9)
+    b = random.randint(2, 9)
+    c = random.randint(1, 20)
+    if random.random() < 0.5:
+        ans = a * b + c
+        question_text = f"{a} * {b} + {c} = ?"
+    else:
+        # ensure positive
+        prod = a * b
+        if c > prod: c = prod - 1
+        ans = prod - c
+        question_text = f"{a} * {b} - {c} = ?"
+
+    options = generate_wrong_options(ans, 0, 100)
+    return question_text, ans, options
+
+def generate_2sinf_topic_questions(topic, count=10):
+    questions = []
+
+    generator_map = {
+        "Ikki xonali sonlar (1-100)": gen_2_digits_100,
+        "Yuzlik ichida qo'shish (Analog)": gen_add_100,
+        "Yuzlik ichida ayirish (Analog)": gen_sub_100,
+        "Ko'paytirish jadvali (Dinamik)": gen_mult_table,
+        "Bo'lish asoslari (Mantiqiy)": gen_div_basics,
+        "Sonli ketma-ketliklar": gen_sequences_2sinf,
+        "Perimetr hisoblash (To'rtburchak)": gen_perimeter,
+        "Vaqt: Soat va minutlar": gen_time_clock,
+        "Og'irlik: kg va gramm": gen_weight_kg,
+        "Qavsli amallar tartibi": gen_order_ops,
+        "Taqqoslash (Katta, kichik, teng)": gen_compare_2sinf,
+        "Pul birliklari (So'm)": gen_money_uzs,
+        "Uzunlik o'lchovlari (sm, dm, m)": gen_length_measure,
+        "Geometrik shakllar xossalari": gen_geo_properties,
+        "Juft va toq sonlar (100 gacha)": gen_even_odd_100,
+        "Tenglamalar (Noma'lum qo'shiluvchini topish)": gen_equations_simple,
+        "Mantiqiy masalalar (Yoshga doir)": gen_logic_age,
+        "Kasr tushunchasi (Yarim, chorak)": gen_fractions_simple,
+        "Ko'paytirish va bo'lish (Matnli)": gen_mult_div_word,
+        "Murakkab ifodalar": gen_mixed_ops
+    }
+
+    gen_func = generator_map.get(topic)
+
+    # Fallback to general 2nd grade mix if specific topic not found
+    if not gen_func:
+        # Default fallback
+        gen_func = gen_add_100
+
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
+        try:
+            q_text, ans, options = gen_func()
+        except Exception as e:
+            print(f"Error in {topic}: {e}")
+            continue
+
+        if q_text in seen:
+            continue
+        seen.add(q_text)
+
+        formatted_options, answer_str = format_options(ans, options)
+
+        questions.append({
+            "question": q_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "2sinf_analog"
+        })
+
+    random.shuffle(questions)
+    return questions
+
+
 # --- 2nd & 3rd Grade + Mukammal Generators ---
 
 def generate_2sinf_jadvalli(count=10):
@@ -762,7 +1453,31 @@ def generate_quiz(topic_name, count=10):
     ]:
         return generate_1sinf_topic_questions(topic_name, count)
 
-    # 2-sinf
+    # 2-sinf Specific Topics
+    elif topic_name in [
+        "Ikki xonali sonlar (1-100)", "Yuzlik ichida qo'shish (Analog)", "Yuzlik ichida ayirish (Analog)",
+        "Ko'paytirish jadvali (Dinamik)", "Bo'lish asoslari (Mantiqiy)", "Sonli ketma-ketliklar",
+        "Perimetr hisoblash (To'rtburchak)", "Vaqt: Soat va minutlar", "Og'irlik: kg va gramm",
+        "Qavsli amallar tartibi", "Taqqoslash (Katta, kichik, teng)", "Pul birliklari (So'm)",
+        "Uzunlik o'lchovlari (sm, dm, m)", "Geometrik shakllar xossalari", "Juft va toq sonlar (100 gacha)",
+        "Tenglamalar (Noma'lum qo'shiluvchini topish)", "Mantiqiy masalalar (Yoshga doir)",
+        "Kasr tushunchasi (Yarim, chorak)", "Ko'paytirish va bo'lish (Matnli)", "Murakkab ifodalar"
+    ]:
+        return generate_2sinf_topic_questions(topic_name, count)
+
+    # 3-sinf Specific Topics
+    elif topic_name in [
+        "Uch xonali sonlar (1-1000)", "Mantiqiy tenglamalar (Sodda)", "Harakatga doir: Tezlik va masofa",
+        "Yuzani hisoblash (Kvadrat)", "Ustun shaklida ko'paytirish", "Qoldiqli bo'lish",
+        "Zulmira va qavatlar (Mantiqiy tuzoq)", "Kasrlar bilan tanishuv", "Diagramma va jadvallar",
+        "Olimpiada masalalari (Analog)", "Rim raqamlari", "Yaxlitlash (O'nlik va yuzlikkacha)",
+        "Vaqt birliklari (Asr, yil, oy)", "Geometriya: Uchburchak turlari", "Massani hisoblash (kg, t)",
+        "Uzunlikni hisoblash (km, m)", "Hajm birliklari (Litr)", "3 ta amal qatnashgan ifodalar",
+        "Mantiqiy ketma-ketliklar (Murakkab)", "Matnli masalalar (Ikki bosqichli)"
+    ]:
+        return generate_3sinf_topic_questions(topic_name, count)
+
+    # Legacy / Generic Fallbacks
     elif topic_name == "Jadvalli ko'paytirish":
         return generate_2sinf_jadvalli(count)
     elif topic_name == "O'nliklar bilan ishlash":
@@ -772,7 +1487,6 @@ def generate_quiz(topic_name, count=10):
     elif "2-sinf" in topic_name:
          return generate_2sinf_questions(count)
 
-    # 3-sinf
     elif "3-sinf" in topic_name or topic_name == "Matnli masalalar (3-sinf)":
         return generate_3sinf_word_problems(count)
 
@@ -1044,10 +1758,28 @@ def main():
         run_quiz_interface(topics_1sinf)
 
     elif st.session_state.current_view == '2-sinf':
-        run_quiz_interface(["Jadvalli ko'paytirish", "O'nliklar bilan ishlash", "Matnli masalalar"])
+        topics_2sinf = [
+            "Ikki xonali sonlar (1-100)", "Yuzlik ichida qo'shish (Analog)", "Yuzlik ichida ayirish (Analog)",
+            "Ko'paytirish jadvali (Dinamik)", "Bo'lish asoslari (Mantiqiy)", "Sonli ketma-ketliklar",
+            "Perimetr hisoblash (To'rtburchak)", "Vaqt: Soat va minutlar", "Og'irlik: kg va gramm",
+            "Qavsli amallar tartibi", "Taqqoslash (Katta, kichik, teng)", "Pul birliklari (So'm)",
+            "Uzunlik o'lchovlari (sm, dm, m)", "Geometrik shakllar xossalari", "Juft va toq sonlar (100 gacha)",
+            "Tenglamalar (Noma'lum qo'shiluvchini topish)", "Mantiqiy masalalar (Yoshga doir)",
+            "Kasr tushunchasi (Yarim, chorak)", "Ko'paytirish va bo'lish (Matnli)", "Murakkab ifodalar"
+        ]
+        run_quiz_interface(topics_2sinf)
 
     elif st.session_state.current_view == '3-sinf':
-        run_quiz_interface(["Matnli masalalar (3-sinf)"])
+        topics_3sinf = [
+            "Uch xonali sonlar (1-1000)", "Mantiqiy tenglamalar (Sodda)", "Harakatga doir: Tezlik va masofa",
+            "Yuzani hisoblash (Kvadrat)", "Ustun shaklida ko'paytirish", "Qoldiqli bo'lish",
+            "Zulmira va qavatlar (Mantiqiy tuzoq)", "Kasrlar bilan tanishuv", "Diagramma va jadvallar",
+            "Olimpiada masalalari (Analog)", "Rim raqamlari", "Yaxlitlash (O'nlik va yuzlikkacha)",
+            "Vaqt birliklari (Asr, yil, oy)", "Geometriya: Uchburchak turlari", "Massani hisoblash (kg, t)",
+            "Uzunlikni hisoblash (km, m)", "Hajm birliklari (Litr)", "3 ta amal qatnashgan ifodalar",
+            "Mantiqiy ketma-ketliklar (Murakkab)", "Matnli masalalar (Ikki bosqichli)"
+        ]
+        run_quiz_interface(topics_3sinf)
 
     elif st.session_state.current_view == 'mukammal':
         run_quiz_interface(["Olimpiada masalalari"])
