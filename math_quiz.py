@@ -6,7 +6,7 @@ import io
 import json
 import base64
 from certificate import create_certificate
-from generators import generate_quiz
+from generators import generate_quiz, get_3rd_grade_questions, get_advanced_questions
 
 # Set page config
 st.set_page_config(page_title="SMART LEARNING CENTER: Mukammal Matematika", page_icon="📚")
@@ -54,6 +54,17 @@ def save_result(name, score, level, duration):
 def set_view(view):
     st.session_state.current_view = view
     st.session_state.quiz_state = 'welcome'
+    # Reset quiz state when switching views
+    if 'quiz_questions' in st.session_state:
+        st.session_state.quiz_questions = []
+    if 'score' in st.session_state:
+        st.session_state.score = 0
+    if 'question_count' in st.session_state:
+        st.session_state.question_count = 0
+    if 'topic' in st.session_state:
+        del st.session_state.topic
+    if 'feedback' in st.session_state:
+        del st.session_state.feedback
     st.rerun()
 
 # --- CSS Injection ---
@@ -206,6 +217,14 @@ def run_quiz_interface(topics_list):
 
                     # Generate Questions
                     pool = generate_quiz(topic, 10)
+
+                    # Fallback if empty
+                    if not pool:
+                        if st.session_state.current_view == '3-sinf':
+                            pool = get_3rd_grade_questions(5)
+                        elif st.session_state.current_view == 'mukammal':
+                            pool = get_advanced_questions(5)
+
                     if not pool:
                         st.error("Savollar topilmadi.")
                     else:
@@ -215,6 +234,7 @@ def run_quiz_interface(topics_list):
                         st.session_state.question_count = 0
                         st.session_state.start_time = time.time()
                         st.session_state.quiz_state = 'playing'
+                        st.session_state.saved = False
                         if 'feedback' in st.session_state: del st.session_state.feedback
                         st.rerun()
                 else:

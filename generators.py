@@ -306,6 +306,12 @@ def generate_geometry_questions(count=10):
         })
     return questions
 
+def get_3rd_grade_questions(count=10):
+    return generate_3sinf_word_problems(count)
+
+def get_advanced_questions(count=10):
+    return generate_olympiad_questions(count)
+
 def generate_3sinf_word_problems(count=10):
     questions = []
     names_list = ["Ali", "Sadiya", "Vali", "Madina"]
@@ -675,15 +681,15 @@ def generate_quiz(topic_name, count=10):
 
     # 3-sinf
     elif "Matnli masalalar (3-sinf)" in topic_name:
-        return generate_3sinf_word_problems(count)
+        return get_3rd_grade_questions(count)
 
     # Mukammal / Olimpiada
     elif "Olimpiada masalalari" in topic_name:
-        return generate_olympiad_questions(count)
+        return get_advanced_questions(count)
 
     # Legacy mapping for backward compatibility
     elif "Mukammal" in topic_name or "Dinamik generator" in topic_name:
-        return generate_3sinf_word_problems(count)
+        return get_3rd_grade_questions(count)
 
     # Legacy / General
     elif "Mantiqiy" in topic_name:
