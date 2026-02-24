@@ -12,7 +12,9 @@ DYNAMIC_TOPICS = [
     "Mantiqiy o'yinlar",
     "Jadvalli ko'paytirish",
     "O'nliklar bilan ishlash",
-    "Matnli masalalar"
+    "Matnli masalalar",
+    "Matnli masalalar (3-sinf)",
+    "Olimpiada masalalari"
 ]
 
 def get_names(n=2):
@@ -304,7 +306,7 @@ def generate_geometry_questions(count=10):
         })
     return questions
 
-def generate_mukammal_questions(count=10):
+def generate_3sinf_word_problems(count=10):
     questions = []
     names_list = ["Ali", "Sadiya", "Vali", "Madina"]
     items_list = ["daftar", "qalam", "kitob", "olma", "konfet", "shar", "gul"]
@@ -367,6 +369,23 @@ def generate_mukammal_questions(count=10):
             "answer": answer_str,
             "type": "mukammal"
         })
+    return questions
+
+def generate_olympiad_questions(count=10):
+    questions = []
+    for _ in range(count):
+        choice = random.choice(['logic', 'chain', 'geometry'])
+        if choice == 'logic':
+            pool = generate_logical_questions(1)
+        elif choice == 'chain':
+            pool = generate_number_chain_questions(1)
+        else:
+            pool = generate_geometry_questions(1)
+
+        if pool:
+            q = pool[0]
+            # q['type'] = 'olympiad' # Override type - keep original type
+            questions.append(q)
     return questions
 
 def generate_1sinf_sonlar(count=10):
@@ -654,9 +673,17 @@ def generate_quiz(topic_name, count=10):
     elif "2-sinf" in topic_name: # Fallback or Legacy
         return generate_2sinf_questions(count)
 
-    # 3-sinf / Mukammal
+    # 3-sinf
+    elif "Matnli masalalar (3-sinf)" in topic_name:
+        return generate_3sinf_word_problems(count)
+
+    # Mukammal / Olimpiada
+    elif "Olimpiada masalalari" in topic_name:
+        return generate_olympiad_questions(count)
+
+    # Legacy mapping for backward compatibility
     elif "Mukammal" in topic_name or "Dinamik generator" in topic_name:
-        return generate_mukammal_questions(count)
+        return generate_3sinf_word_problems(count)
 
     # Legacy / General
     elif "Mantiqiy" in topic_name:
