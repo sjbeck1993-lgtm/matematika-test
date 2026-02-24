@@ -4,6 +4,7 @@ import time
 import os
 import io
 import json
+import base64
 from certificate import create_certificate
 from generators import generate_quiz
 
@@ -304,6 +305,34 @@ def run_quiz_interface(topics_list):
 
 # --- Main Dispatcher ---
 def main():
+    # Sidebar Header
+    if os.path.exists("logo.png"):
+        with open("logo.png", "rb") as f:
+            data = f.read()
+            encoded = base64.b64encode(data).decode()
+
+        st.sidebar.markdown(
+            f"""
+            <div style="background-color: #003366; padding: 20px; border-radius: 10px; border: 2px solid #FFD700; text-align: center; margin-bottom: 20px;">
+                <img src="data:image/png;base64,{encoded}" style="width: 80px; margin-bottom: 10px; border-radius: 50%;">
+                <p style="color: white; font-size: 12px; margin: 0;">Sardorbek Jo'raboyev muallifligidagi</p>
+                <h4 style="color: #FFD700; margin: 0; padding-top: 5px;">Mukammal Matematika platformasi</h4>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        st.sidebar.markdown(
+            """
+            <div style="background-color: #003366; padding: 20px; border-radius: 10px; border: 2px solid #FFD700; text-align: center; margin-bottom: 20px;">
+                <div style="width: 60px; height: 60px; background-color: #FFD700; border-radius: 50%; display: inline-block; margin-bottom: 10px; line-height: 60px; color: #003366; font-weight: bold; font-size: 24px;">M</div>
+                <p style="color: white; font-size: 12px; margin: 0;">Sardorbek Jo'raboyev muallifligidagi</p>
+                <h4 style="color: #FFD700; margin: 0; padding-top: 5px;">Mukammal Matematika platformasi</h4>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
     # Sidebar
     st.sidebar.title("Menyu")
     if st.sidebar.button("🏠 Bosh sahifa", use_container_width=True):
