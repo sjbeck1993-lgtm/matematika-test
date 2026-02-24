@@ -13,7 +13,12 @@ UZBEK_NAMES = [
     "Aziza", "Barno", "Jamshid", "Dilshod", "Nigora", "Anvar", "Malika", "Jasur", "Umid", "Laylo",
     "Bobur", "Kamola", "Sardor", "Dilnoza", "Shahzod", "Iroda", "Sanjar", "Nargiza", "Oybek", "Ra'no",
     "Ulug'bek", "Dildora", "Bekzod", "Feruza", "Javlon", "Gulnoza", "Ziyoda", "Sherzod", "Durdona", "Alisher",
-    "Shahnoza", "Muzaffar", "Sevara", "Davron", "Charos", "Ilhom", "Yulduz", "Rustam", "Lobar", "Shoxrux"
+    "Shahnoza", "Muzaffar", "Sevara", "Davron", "Charos", "Ilhom", "Yulduz", "Rustam", "Lobar", "Shoxrux",
+    "Lola", "Bahodir", "Nodira", "Botir", "Kumush", "Odil", "Zafar", "Karim", "Salim", "Nasiba",
+    "Zahro", "Husniddin", "Sojida", "Murod", "Dilfuza", "Ruxshona", "Akmal", "Nodir", "Jamol", "Sarvinoz",
+    "Tohir", "Zuhra", "Fotima", "Hasan", "Husan", "Shabnam", "Munira", "Saida", "Aziz", "Ravshan",
+    "Malohat", "Nozima", "Farida", "Umida", "Jahongir", "Shokir", "Bahrom", "Abbos", "Shohruh", "Guli",
+    "Maftuna", "Zarina", "Nilufar", "Oydin", "Zamira", "Ozoda", "Hilola", "Adolat", "Sobir", "G'ayrat"
 ]
 
 UZBEK_OBJECTS = [
@@ -21,7 +26,12 @@ UZBEK_OBJECTS = [
     "qo'g'irchoq", "koptok", "gul", "daraxt", "mushuk", "kuchuk", "soat", "stul", "stol", "sumka",
     "kitob", "o'chirgich", "qoshiq", "piyola", "choynak", "varrak", "bayroq", "kalit", "tugma", "telefon",
     "kompyuter", "sichqoncha", "oynak", "shapka", "etik", "paypoq", "ko'ylak", "shim", "ro'mol", "non",
-    "tuxum", "sut", "qaychi", "yelim", "bo'yoq", "mo'yqalam", "chizg'ich", "parta", "doska"
+    "tuxum", "sut", "qaychi", "yelim", "bo'yoq", "mo'yqalam", "chizg'ich", "parta", "doska",
+    "chiroq", "gilam", "eshik", "deraza", "parda", "ko'rpa", "yostiq", "sochiq", "sovun", "taroq",
+    "oyna", "supurgi", "chelak", "jo'mrak", "quvur", "g'isht", "qog'oz", "quti", "savat", "jo'xori",
+    "bug'doy", "un", "yog'", "shakar", "tuz", "murch", "piyoz", "kartoshka", "sabzi", "bodring", "pomidor",
+    "karam", "qovun", "tarvuz", "anjir", "shaftoli", "o'rik", "gilos", "behi", "anor", "limon",
+    "apelsin", "mandarin", "banan", "kivi", "xurmo", "yong'oq", "bodom", "pista", "mayiz", "qalamdon"
 ]
 
 # --- Certificate Generator Logic ---
@@ -187,10 +197,13 @@ def gen_shapes():
         ("Uchburchak", "3 ta burchagi bor shakl qaysi?"),
         ("Kvadrat", "Hamma tomoni teng bo'lgan to'rtburchak qaysi?"),
         ("Doira", "Burchagi yo'q shakl qaysi?"),
-        ("To'g'ri to'rtburchak", "2 ta tomoni uzun, 2 ta tomoni qisqa bo'lgan shakl qaysi?")
+        ("To'g'ri to'rtburchak", "2 ta tomoni uzun, 2 ta tomoni qisqa bo'lgan shakl qaysi?"),
+        ("Beshburchak", "5 ta burchagi bor shakl qaysi?"),
+        ("Oltiburchak", "6 ta burchagi bor shakl qaysi?"),
+        ("Romb", "Hamma tomonlari teng, lekin burchaklari to'g'ri bo'lmagan to'rtburchak qaysi?")
     ]
     ans, question_text = random.choice(shapes)
-    options = ["Uchburchak", "Kvadrat", "Doira", "To'g'ri to'rtburchak"]
+    options = ["Uchburchak", "Kvadrat", "Doira", "To'g'ri to'rtburchak", "Beshburchak", "Oltiburchak", "Romb"]
     # Filter options to include answer and 2 others
     opts = [ans]
     while len(opts) < 3:
@@ -200,16 +213,22 @@ def gen_shapes():
     return question_text, ans, opts
 
 def gen_left_right():
-    scenarios = [
-        ("o'ng", "chap"),
-        ("chap", "o'ng")
-    ]
-    direction, opposite = random.choice(scenarios)
-    items = random.sample(UZBEK_OBJECTS, 2)
+    if random.random() < 0.7:
+        scenarios = [
+            ("o'ng", "chap"),
+            ("chap", "o'ng")
+        ]
+        direction, opposite = random.choice(scenarios)
+        items = random.sample(UZBEK_OBJECTS, 2)
 
-    question_text = f"Stolning {direction} tomonida {items[0]}, {opposite} tomonida {items[1]} turibdi. {direction} tomonda nima bor?"
-    ans = items[0]
-    options = [items[0], items[1], "Hech narsa"]
+        question_text = f"Stolning {direction} tomonida {items[0]}, {opposite} tomonida {items[1]} turibdi. {direction} tomonda nima bor?"
+        ans = items[0]
+        options = [items[0], items[1], "Hech narsa"]
+    else:
+        items = random.sample(UZBEK_OBJECTS, 3)
+        question_text = f"Stol ustida {items[0]}, {items[1]} va {items[2]} turibdi. {items[1]} {items[0]} va {items[2]}ning o'rtasida. O'rtada nima bor?"
+        ans = items[1]
+        options = items
     return question_text, ans, options
 
 def gen_first_last():
@@ -252,7 +271,19 @@ def gen_logic_simple():
         ("Muzlatgichda suv nima bo'ladi?", "Muzlaydi", ["Muzlaydi", "Qaynaydi", "Bug'lanadi"]),
         ("Qaysi biri uchadi?", "Qush", ["Qush", "Mushuk", "Kuchuk"]),
         ("Yozda havo qanday bo'ladi?", "Issiq", ["Issiq", "Sovuq", "Qorli"]),
-        ("Baliq qayerda yashaydi?", "Suvda", ["Suvda", "Daraxtda", "Osmonda"])
+        ("Baliq qayerda yashaydi?", "Suvda", ["Suvda", "Daraxtda", "Osmonda"]),
+        ("Qishda nima yog'adi?", "Qor", ["Qor", "Yomg'ir", "Barg"]),
+        ("Daraxtda nima o'sadi?", "Meva", ["Meva", "Non", "Konfet"]),
+        ("Maktabga nima uchun boramiz?", "O'qish uchun", ["O'qish uchun", "Uxlash uchun", "O'ynash uchun"]),
+        ("Qaysi faslda gullar ochiladi?", "Bahorda", ["Bahorda", "Qishda", "Kuzda"]),
+        ("Quyosh qachon chiqadi?", "Kunduzi", ["Kunduzi", "Kechasi", "Qishda"]),
+        ("Oy qachon chiqadi?", "Kechasi", ["Kechasi", "Kunduzi", "Tushda"]),
+        ("Svetoforning qaysi rangida to'xtash kerak?", "Qizil", ["Qizil", "Yashil", "Sariq"]),
+        ("Qaysi hayvon vovullaydi?", "Kuchuk", ["Kuchuk", "Mushuk", "Sigir"]),
+        ("Qaysi hayvon miyovlaydi?", "Mushuk", ["Mushuk", "Kuchuk", "Ot"]),
+        ("Qo'l yuvish uchun nima kerak?", "Sovun va suv", ["Sovun va suv", "Qalam va qog'oz", "Osh va non"]),
+        ("Choyni nima bilan ichamiz?", "Piyola", ["Piyola", "Qozon", "Chelak"]),
+        ("Rasmni nima bilan chizamiz?", "Qalam", ["Qalam", "Qoshiq", "Taroq"])
     ]
     q, ans, opts = random.choice(puzzles)
     return q, ans, opts
@@ -319,9 +350,21 @@ def gen_money():
 
 def gen_time_days():
     days = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba", "Yakshanba"]
-    idx = random.randint(0, 5)
-    question_text = f"Bugun {days[idx]}. Ertaga qaysi kun?"
-    ans = days[idx+1]
+    idx = random.randint(0, 6)
+
+    q_type = random.choice(["ertaga", "kecha", "indin"])
+
+    if q_type == "ertaga":
+        question_text = f"Bugun {days[idx]}. Ertaga qaysi kun?"
+        ans_idx = (idx + 1) % 7
+    elif q_type == "kecha":
+        question_text = f"Bugun {days[idx]}. Kecha qaysi kun edi?"
+        ans_idx = (idx - 1) % 7
+    else: # indin
+        question_text = f"Bugun {days[idx]}. Indin (ertadan keyin) qaysi kun?"
+        ans_idx = (idx + 2) % 7
+
+    ans = days[ans_idx]
 
     opts = [ans]
     while len(opts) < 3:
@@ -335,7 +378,17 @@ def gen_heavy_light():
         ("Fil", "Chumoli", "Fil"),
         ("Mashina", "Velosiped", "Mashina"),
         ("Tarvuz", "Olma", "Tarvuz"),
-        ("Kitob", "Daftar", "Kitob") # Generally true
+        ("Kitob", "Daftar", "Kitob"), # Generally true
+        ("Tosh", "Pat", "Tosh"),
+        ("Qozon", "Qoshiq", "Qozon"),
+        ("Avtobus", "Samokat", "Avtobus"),
+        ("Kit", "Baliq", "Kit"),
+        ("Daraxt", "Gul", "Daraxt"),
+        ("Stol", "Stul", "Stol"),
+        ("Kompyuter", "Telefon", "Kompyuter"),
+        ("Yuk mashinasi", "Yengil mashina", "Yuk mashinasi"),
+        ("Tarvuz", "Uzum", "Tarvuz"),
+        ("Qop", "Xalta", "Qop")
     ]
     heavy, light, heaviest = random.choice(pairs)
     question_text = f"{heavy} og'irmi yoki {light}?"
@@ -344,14 +397,45 @@ def gen_heavy_light():
     return question_text, ans, options
 
 def gen_sequences():
-    # Pattern 1, 2, 1, 2...
-    p1 = random.randint(1, 5)
-    p2 = random.randint(1, 5)
-    while p1 == p2: p2 = random.randint(1, 5)
+    # Multiple patterns
+    p_type = random.choice(["repeat", "step2", "step3", "reverse", "double"])
 
-    question_text = f"Ketma-ketlikni davom ettiring: {p1}, {p2}, {p1}, {p2}, ... ?"
-    ans = p1
-    options = [p1, p2, p1+p2]
+    if p_type == "repeat":
+        p1 = random.randint(1, 5)
+        p2 = random.randint(1, 5)
+        while p1 == p2: p2 = random.randint(1, 5)
+        question_text = f"Ketma-ketlikni davom ettiring: {p1}, {p2}, {p1}, {p2}, ... ?"
+        ans = p1
+        options = [p1, p2, p1+p2]
+
+    elif p_type == "step2":
+        start = random.randint(1, 10)
+        seq = [start, start+2, start+4, start+6]
+        question_text = f"Ketma-ketlikni davom ettiring: {seq[0]}, {seq[1]}, {seq[2]}, ... ?"
+        ans = seq[3]
+        options = [seq[3], seq[3]-1, seq[3]+1]
+
+    elif p_type == "step3":
+        start = random.randint(1, 10)
+        seq = [start, start+3, start+6, start+9]
+        question_text = f"Ketma-ketlikni davom ettiring: {seq[0]}, {seq[1]}, {seq[2]}, ... ?"
+        ans = seq[3]
+        options = [seq[3], seq[3]-1, seq[3]+1]
+
+    elif p_type == "reverse":
+        start = random.randint(10, 20)
+        seq = [start, start-1, start-2, start-3]
+        question_text = f"Orqaga sanang: {seq[0]}, {seq[1]}, {seq[2]}, ... ?"
+        ans = seq[3]
+        options = [seq[3], seq[3]+2, seq[3]-2]
+
+    else: # double
+        start = random.randint(1, 5)
+        seq = [start, start*2, start*4, start*8]
+        question_text = f"Ketma-ketlikni davom ettiring: {seq[0]}, {seq[1]}, {seq[2]}, ... ?"
+        ans = seq[3]
+        options = [seq[3], seq[3]-2, seq[3]+2]
+
     return question_text, ans, options
 
 def gen_competition():
@@ -393,8 +477,17 @@ def generate_1sinf_topic_questions(topic, count=10):
     if not gen_func:
         gen_func = gen_add_simple
 
-    for _ in range(count):
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
         q_text, ans, options = gen_func()
+
+        if q_text in seen:
+            continue
+        seen.add(q_text)
 
         formatted_options, answer_str = format_options(ans, options)
 
@@ -405,6 +498,7 @@ def generate_1sinf_topic_questions(topic, count=10):
             "type": "1sinf_analog"
         })
 
+    random.shuffle(questions)
     return questions
 
 
@@ -412,10 +506,20 @@ def generate_1sinf_topic_questions(topic, count=10):
 
 def generate_2sinf_jadvalli(count=10):
     questions = []
-    for _ in range(count):
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
         n1 = random.randint(2, 9)
         n2 = random.randint(2, 9)
         question_text = f"{n1} x {n2} = ?"
+
+        if question_text in seen:
+            continue
+        seen.add(question_text)
+
         ans = n1 * n2
         options = generate_wrong_options(ans, 4, 81, 2)
         formatted_options, answer_str = format_options(ans, options)
@@ -425,11 +529,17 @@ def generate_2sinf_jadvalli(count=10):
             "answer": answer_str,
             "type": "2sinf_jadvalli"
         })
+    random.shuffle(questions)
     return questions
 
 def generate_2sinf_onliklar(count=10):
     questions = []
-    for _ in range(count):
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
         op = random.choice(['add', 'sub'])
         if op == 'add':
             if random.random() < 0.5:
@@ -450,6 +560,10 @@ def generate_2sinf_onliklar(count=10):
             ans = n1 - n2
             question_text = f"{n1} - {n2} = ?"
 
+        if question_text in seen:
+            continue
+        seen.add(question_text)
+
         options = generate_wrong_options(ans, 10, 100, 2)
         formatted_options, answer_str = format_options(ans, options)
         questions.append({
@@ -458,13 +572,19 @@ def generate_2sinf_onliklar(count=10):
             "answer": answer_str,
             "type": "2sinf_onliklar"
         })
+    random.shuffle(questions)
     return questions
 
 def generate_2sinf_matnli(count=10):
     questions = []
-    for _ in range(count):
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
         names = get_names(2)
-        q_type = random.choice(['fabric', 'logic'])
+        q_type = random.choice(['fabric', 'logic', 'money', 'time'])
 
         if q_type == 'fabric':
             dresses = random.randint(2, 10)
@@ -477,14 +597,32 @@ def generate_2sinf_matnli(count=10):
             else:
                 question_text = f"Bitta ko'ylak uchun {per_dress} metr mato kerak. {total_material} metr matodan nechta ko'ylak tikish mumkin?"
                 ans = dresses
-        else:
+
+        elif q_type == 'logic':
              age1 = random.randint(7, 15)
              diff = random.randint(2, 5)
              age2 = age1 + diff
              question_text = f"{names[0]} {age1} yoshda. {names[1]} undan {diff} yosh katta. {names[1]} necha yoshda?"
              ans = age2
 
-        options = generate_wrong_options(ans, 1, 100, 2)
+        elif q_type == 'money':
+            total_money = random.choice([50, 100, 200, 500, 1000])
+            price = random.randint(1, total_money // 10) * 10
+            question_text = f"{names[0]}da {total_money} so'm bor edi. U {price} so'mga muzqaymoq oldi. Qancha puli qoldi?"
+            ans = total_money - price
+
+        else: # time
+            start_hour = random.randint(8, 18)
+            duration = random.randint(1, 4)
+            end_hour = start_hour + duration
+            question_text = f"Dars soat {start_hour}:00 da boshlandi va {duration} soat davom etdi. Dars soat nechida tugadi?"
+            ans = end_hour
+
+        if question_text in seen:
+            continue
+        seen.add(question_text)
+
+        options = generate_wrong_options(ans, 1, 2000 if q_type=='money' else 100, 2)
         formatted_options, answer_str = format_options(ans, options)
 
         questions.append({
@@ -493,6 +631,7 @@ def generate_2sinf_matnli(count=10):
             "answer": answer_str,
             "type": "2sinf_matnli"
         })
+    random.shuffle(questions)
     return questions
 
 def generate_2sinf_questions(count=10):
@@ -508,7 +647,12 @@ def generate_2sinf_questions(count=10):
 
 def generate_3sinf_word_problems(count=10):
     questions = []
-    for _ in range(count):
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
         names = get_names(2)
         item = get_item()
         q_type = random.choice(['add', 'sub', 'mult', 'div'])
@@ -536,6 +680,10 @@ def generate_3sinf_word_problems(count=10):
             question_text = f"{names[0]} {total} ta {item}ni {divisor} ta do'stiga teng bo'lib berdi. Har biriga nechtadan tegdi?"
             ans = total // divisor
 
+        if question_text in seen:
+            continue
+        seen.add(question_text)
+
         options = generate_wrong_options(ans, 0, 500, 2)
         formatted_options, answer_str = format_options(ans, options)
 
@@ -545,22 +693,27 @@ def generate_3sinf_word_problems(count=10):
             "answer": answer_str,
             "type": "mukammal"
         })
+    random.shuffle(questions)
     return questions
 
 def generate_olympiad_questions(count=10):
     questions = []
-    for _ in range(count):
-        # Placeholder for complex logic, reusing 3-sinf mixed with patterns
-        q_type = random.choice(['logic', 'chain'])
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
+        q_type = random.choice(['logic', 'chain', 'heads_legs'])
+
         if q_type == 'logic':
-            # Simple logic reusing 2sinf logic for now but harder numbers?
-            # Keeping it simple as per original code structure
             names = get_names(2)
             n1 = random.randint(20, 50)
             n2 = random.randint(20, 50)
             question_text = f"{names[0]}da {n1} ta, {names[1]}da {n2} ta olma bor. {names[0]}da {names[1]}ga qaraganda nechta ko'p yoki kam olma bor (farqi)?"
             ans = abs(n1 - n2)
-        else:
+
+        elif q_type == 'chain':
             start = random.randint(1, 20)
             step = random.randint(2, 9)
             seq = [start + i*step for i in range(5)]
@@ -568,6 +721,18 @@ def generate_olympiad_questions(count=10):
             ans = seq[missing_idx]
             seq[missing_idx] = "?"
             question_text = f"Sonli zanjirni davom ettiring: {', '.join(map(str, seq))}"
+
+        else: # heads_legs
+            rabbits = random.randint(1, 5)
+            chickens = random.randint(1, 10)
+            heads = rabbits + chickens
+            legs = (rabbits * 4) + (chickens * 2)
+            question_text = f"Hovlida tovuqlar va quyonlar yuribdi. Ularning jami boshlari soni {heads} ta, oyoqlari soni {legs} ta. Nechta quyon bor?"
+            ans = rabbits
+
+        if question_text in seen:
+            continue
+        seen.add(question_text)
 
         options = generate_wrong_options(ans, 0, 100, 2)
         formatted_options, answer_str = format_options(ans, options)
@@ -578,6 +743,7 @@ def generate_olympiad_questions(count=10):
             "answer": answer_str,
             "type": "olympiad"
         })
+    random.shuffle(questions)
     return questions
 
 
@@ -817,6 +983,7 @@ def run_quiz_interface(topics_list):
             st.rerun()
 
 def main():
+    random.seed(time.time())
     initialize_session()
 
     # Sidebar Logo
