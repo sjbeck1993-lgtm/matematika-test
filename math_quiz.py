@@ -65,6 +65,19 @@ TOPICS_3SINF = [
     "Mantiqiy ketma-ketliklar (Murakkab)", "Matnli masalalar (Ikki bosqichli)"
 ]
 
+TOPICS_MUKAMMAL = [
+    "Mantiqiy 'tuzoq' masalalar (Shamlar, tayoqchalar)",
+    "Teskari yo'l usuli (O'ylangan sonni topish)",
+    "Venn diagrammasi (To'plamlar mantiqi)",
+    "Harakatga doir: Poezd va tunnel masalalari",
+    "Ish unumdorligi: Birgalikda ishlash",
+    "Kombinatorika: Qo'l berib so'rashishlar",
+    "Fazoviy tasavvur: Kub va uning sirtlari",
+    "Rim raqamlari bilan mantiqiy amallar",
+    "Qavatlar va oraliqlar (Zulmira masalasi)",
+    "Raqamlar siri: Eng katta va kichik kombinatsiyalar"
+]
+
 # --- Certificate Generator Logic ---
 def create_certificate(name):
     # Dimensions (A4 Landscape approx @ 72dpi is 842x595, let's use 1000x700 for better res)
@@ -1469,6 +1482,315 @@ def generate_olympiad_questions(count=10):
     return questions
 
 
+# --- Mukammal Matematika Generators ---
+
+def gen_logic_traps():
+    # Logic 1: Candles
+    if random.random() < 0.5:
+        n = random.randint(5, 15)
+        m = random.randint(2, n - 1)
+        question_text = f"Xonada {n} ta sham yonib turgan edi. {m} tasi o'chirildi, qolganlari esa oxirigacha yonib tugadi. Xonada nechta sham qoldi?"
+        ans = m
+        options = [m, n, n - m]
+    # Logic 2: Sticks/Cuts
+    else:
+        pieces = random.randint(3, 10)
+        cuts = pieces - 1
+        question_text = f"Uzun taxtani {pieces} bo'lakka bo'lish uchun uni necha joyidan arralash kerak?"
+        ans = cuts
+        options = [cuts, pieces, pieces + 1]
+
+    return question_text, ans, options
+
+def gen_reverse_method():
+    # ((x + a) * b) - c = d  -> Reverse: (d + c) / b - a = x
+    x = random.randint(1, 20)
+    a = random.randint(1, 20)
+    b = random.randint(2, 5)
+    c = random.randint(1, 20)
+
+    d = ((x + a) * b) - c
+
+    question_text = f"Men bir son o'yladim. Unga {a} ni qo'shdim, hosil bo'lgan sonni {b} ga ko'paytirdim va {c} ni ayirdim. Natijada {d} chiqdi. Men qanday son o'yladim?"
+    ans = x
+    options = generate_wrong_options(ans, 1, 50)
+    return question_text, ans, options
+
+def gen_venn_diagram():
+    # Sets: A, B, Both
+    both = random.randint(2, 10)
+    only_a = random.randint(5, 15)
+    only_b = random.randint(5, 15)
+
+    total_a = only_a + both
+    total_b = only_b + both
+    total = only_a + only_b + both
+
+    subjects_pool = [
+        ("shaxmat", "shashka", "o'ynaydi"),
+        ("futbol", "voleybol", "o'ynaydi"),
+        ("ingliz tili", "rus tili", "biladi"),
+        ("suzish", "yugurish", "bilan shug'ullanadi"),
+        ("matematika", "fizika", "fani to'garagiga qatnashadi")
+    ]
+    s1, s2, verb = random.choice(subjects_pool)
+
+    # Adjust verb grammar if needed (simple suffix logic or just string formatting)
+    # The verb usually goes at the end.
+    # "20 nafari shaxmatni, 15 nafari shashkani o'ynaydi."
+    # "20 nafari ingliz tilini, 15 nafari rus tilini biladi."
+
+    # Need correct accusative suffixes (-ni).
+    # Simple heuristic: add 'ni' if ends in vowel, 'ni' otherwise (uzbek cases are complex).
+    # To be safe, manual suffixes in tuple? Or just assume '-ni' works generally or omit object marker if ambiguous.
+    # "Sinfdagi o'quvchilarning {total_a} nafari {s1}, {total_b} nafari {s2} {verb}."
+    # Let's fix suffixes manually for best quality.
+
+    if s1.endswith(('a', 'i', 'o', 'u', 'e', 'o\'')):
+        s1_acc = s1 + "ni"
+    else:
+        s1_acc = s1 + "ni" # Generally -ni works, sometimes -ni after consonant too.
+
+    if s2.endswith(('a', 'i', 'o', 'u', 'e', 'o\'')):
+        s2_acc = s2 + "ni"
+    else:
+        s2_acc = s2 + "ni"
+
+    q_type = random.choice(['only_one', 'total', 'both'])
+
+    base_text = f"Sinfdagi o'quvchilarning {total_a} nafari {s1_acc}, {total_b} nafari {s2_acc} {verb}. {both} nafari esa ikkalasini ham {verb}."
+
+    if q_type == 'only_one':
+        question_text = f"{base_text} Nechta o'quvchi faqat {s1_acc} {verb}?"
+        ans = only_a
+    elif q_type == 'total':
+        question_text = f"{base_text} Sinfda jami nechta o'quvchi bor (agar hamma hech bo'lmasa bitta o'yin o'ynasa)?"
+        ans = total
+    else:
+        # Given total, find both (variation)
+        question_text = f"Sinfda {total} nafar o'quvchi bor. {total_a} kishi {s1_acc}, {total_b} kishi {s2_acc} {verb}. Nechta kishi ikkalasini ham {verb}?"
+        ans = both
+
+    options = generate_wrong_options(ans, 1, 50)
+    return question_text, ans, options
+
+def gen_train_tunnel():
+    # L_train + L_tunnel = v * t
+    v = random.randint(10, 30) # m/s
+    t = random.randint(20, 60) # seconds
+    total_dist = v * t
+
+    l_train = random.randint(100, 400)
+    l_tunnel = total_dist - l_train
+
+    # Ensure tunnel length is positive and reasonable
+    while l_tunnel < 100:
+        v = random.randint(15, 25)
+        t = random.randint(30, 80)
+        total_dist = v * t
+        l_train = random.randint(100, 300)
+        l_tunnel = total_dist - l_train
+
+    if random.random() < 0.5:
+        # Find time
+        question_text = f"Uzunligi {l_train} metr bo'lgan poezd uzunligi {l_tunnel} metr bo'lgan tunneldan {v} m/s tezlik bilan o'tmoqda. Poezd tunneldan to'liq chiqib ketishi uchun qancha vaqt ketadi?"
+        ans = t
+    else:
+        # Find train length
+        question_text = f"Uzunligi {l_tunnel} metr bo'lgan tunneldan {v} m/s tezlikda harakatlanayotgan poezd {t} sekundda to'liq o'tib bo'ldi. Poezdning uzunligini toping."
+        ans = l_train
+
+    options = generate_wrong_options(ans, 10, 1000)
+    return question_text, ans, options
+
+def gen_work_efficiency():
+    # Pairs (t1, t2) where result is integer
+    pairs = [
+        (3, 6, 2), (6, 12, 4), (10, 15, 6), (12, 24, 8),
+        (20, 30, 12), (10, 40, 8), (4, 12, 3), (6, 3, 2), # Reverse order
+        (5, 20, 4), (12, 4, 3)
+    ]
+    t1, t2, res = random.choice(pairs)
+    names = get_names(2)
+
+    question_text = f"{names[0]} bir ishni {t1} soatda, {names[1]} esa shu ishni {t2} soatda bajaradi. Agar ular birgalikda ishlasalar, ishni necha soatda tugatadilar?"
+    ans = res
+    options = generate_wrong_options(ans, 1, 50)
+    return question_text, ans, options
+
+def gen_combinatorics():
+    n = random.randint(3, 10)
+    ans = (n * (n - 1)) // 2
+    question_text = f"{n} nafar do'st uchrashganda hamma bir-biri bilan qo'l berib ko'rishdi. Jami qo'l berib ko'rishishlar soni nechta bo'lgan?"
+    options = generate_wrong_options(ans, 1, 100)
+    return question_text, ans, options
+
+def gen_cube_surfaces():
+    n = random.randint(3, 6)
+    q_type = random.choice(['3_face', '2_face', '1_face', '0_face'])
+
+    base_text = f"Kubning sirti qizil rangga bo'yaldi va u {n}x{n}x{n} o'lchamdagi kichik kubchalarga bo'lindi."
+
+    if q_type == '3_face':
+        question_text = f"{base_text} Nechta kichik kubchaning 3 ta tomoni bo'yalgan?"
+        ans = 8
+    elif q_type == '2_face':
+        question_text = f"{base_text} Nechta kichik kubchaning 2 ta tomoni bo'yalgan?"
+        ans = 12 * (n - 2)
+    elif q_type == '1_face':
+        question_text = f"{base_text} Nechta kichik kubchaning 1 ta tomoni bo'yalgan?"
+        ans = 6 * ((n - 2) ** 2)
+    else:
+        question_text = f"{base_text} Nechta kichik kubchaning hech qaysi tomoni bo'yalmagan?"
+        ans = (n - 2) ** 3
+
+    options = generate_wrong_options(ans, 0, 216)
+    if ans == 8: # Fix options for constant answer
+        options = [8, 12, 6]
+
+    return question_text, ans, options
+
+def gen_roman_logic():
+    map_roman = {
+        1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX", 10: "X",
+        11: "XI", 12: "XII", 13: "XIII", 14: "XIV", 15: "XV", 16: "XVI", 17: "XVII", 18: "XVIII", 19: "XIX", 20: "XX",
+        30: "XXX", 40: "XL", 50: "L", 60: "LX", 100: "C"
+    }
+    # Operations: + or -
+    keys = list(map_roman.keys())
+    valid_pairs = []
+
+    # Precompute valid pairs to avoid loops
+    for k1 in keys:
+        for k2 in keys:
+            if k1 + k2 in map_roman:
+                valid_pairs.append((k1, k2, '+'))
+            if k1 - k2 in map_roman:
+                valid_pairs.append((k1, k2, '-'))
+
+    n1, n2, op = random.choice(valid_pairs)
+
+    if op == '+':
+        res = n1 + n2
+        question_text = f"{map_roman[n1]} + {map_roman[n2]} = ?"
+    else:
+        res = n1 - n2
+        question_text = f"{map_roman[n1]} - {map_roman[n2]} = ?"
+
+    ans = map_roman[res]
+
+    # Fake options
+    fakes = []
+    attempts = 0
+    while len(fakes) < 2 and attempts < 20:
+        attempts += 1
+        fake_val = res + random.choice([-1, 1, -2, 2, -5, 5])
+        if fake_val in map_roman and map_roman[fake_val] != ans and map_roman[fake_val] not in fakes:
+            fakes.append(map_roman[fake_val])
+
+    # Fallback fakes
+    if len(fakes) < 2:
+        fakes = ["II", "V"] # Generic fallback
+
+    options = [ans] + fakes
+    return question_text, ans, options
+
+def gen_floors_intervals_mukammal():
+    f_start = 1
+    f_mid = random.randint(3, 5)
+
+    intervals_mid = f_mid - f_start
+    steps_per_interval = random.randint(10, 20)
+    steps_mid = intervals_mid * steps_per_interval
+
+    f_target = random.randint(6, 12)
+    intervals_target = f_target - f_start
+    ans = intervals_target * steps_per_interval
+
+    name = random.choice(["Zulmira", "Malika", "Anvar", "Sardor"])
+    question_text = f"{name} {f_start}-qavatdan {f_mid}-qavatga chiqish uchun {steps_mid} ta zina bosib o'tdi. U {f_start}-qavatdan {f_target}-qavatga chiqish uchun nechta zina bosib o'tishi kerak?"
+
+    # Common trap: calculate based on floors directly (steps_mid / f_mid * f_target)
+    trap = (steps_mid // f_mid) * f_target
+    options = [ans, trap, ans + steps_per_interval]
+
+    return question_text, ans, options
+
+def gen_number_secrets():
+    # Digits
+    digits = random.sample(range(1, 10), 3) # No 0 to keep it simple for 3-digit
+    digits_sorted = sorted(digits)
+
+    min_num = int("".join(map(str, digits_sorted)))
+    max_num = int("".join(map(str, digits_sorted[::-1])))
+
+    q_type = random.choice(['max', 'min', 'sum'])
+
+    digits_str = ", ".join(map(str, digits))
+
+    if q_type == 'max':
+        question_text = f"Quyidagi raqamlardan foydalanib yozish mumkin bo'lgan eng katta 3 xonali sonni toping: {digits_str}"
+        ans = max_num
+    elif q_type == 'min':
+        question_text = f"Quyidagi raqamlardan foydalanib yozish mumkin bo'lgan eng kichik 3 xonali sonni toping: {digits_str}"
+        ans = min_num
+    else:
+        question_text = f"Quyidagi raqamlardan tuzilgan eng katta va eng kichik 3 xonali sonlar yig'indisini toping: {digits_str}"
+        ans = max_num + min_num
+
+    options = generate_wrong_options(ans, 100, 2000)
+    return question_text, ans, options
+
+def generate_mukammal_topic_questions(topic, count=10):
+    questions = []
+
+    generator_map = {
+        "Mantiqiy 'tuzoq' masalalar (Shamlar, tayoqchalar)": gen_logic_traps,
+        "Teskari yo'l usuli (O'ylangan sonni topish)": gen_reverse_method,
+        "Venn diagrammasi (To'plamlar mantiqi)": gen_venn_diagram,
+        "Harakatga doir: Poezd va tunnel masalalari": gen_train_tunnel,
+        "Ish unumdorligi: Birgalikda ishlash": gen_work_efficiency,
+        "Kombinatorika: Qo'l berib so'rashishlar": gen_combinatorics,
+        "Fazoviy tasavvur: Kub va uning sirtlari": gen_cube_surfaces,
+        "Rim raqamlari bilan mantiqiy amallar": gen_roman_logic,
+        "Qavatlar va oraliqlar (Zulmira masalasi)": gen_floors_intervals_mukammal,
+        "Raqamlar siri: Eng katta va kichik kombinatsiyalar": gen_number_secrets
+    }
+
+    gen_func = generator_map.get(topic)
+
+    # Fallback
+    if not gen_func:
+        gen_func = gen_logic_traps
+
+    seen = set()
+    attempts = 0
+    max_attempts = count * 10
+
+    while len(questions) < count and attempts < max_attempts:
+        attempts += 1
+        try:
+            q_text, ans, options = gen_func()
+        except Exception as e:
+            print(f"Error in {topic}: {e}")
+            continue
+
+        if q_text in seen:
+            continue
+        seen.add(q_text)
+
+        formatted_options, answer_str = format_options(ans, options)
+
+        questions.append({
+            "question": q_text,
+            "options": formatted_options,
+            "answer": answer_str,
+            "type": "mukammal_new"
+        })
+
+    random.shuffle(questions)
+    return questions
+
 # --- Main Generator Dispatcher ---
 
 def generate_quiz(topic_name, count=10):
@@ -1483,6 +1805,10 @@ def generate_quiz(topic_name, count=10):
     # 3-sinf Specific Topics
     elif topic_name in TOPICS_3SINF:
         return generate_3sinf_topic_questions(topic_name, count)
+
+    # Mukammal Specific Topics
+    elif topic_name in TOPICS_MUKAMMAL:
+        return generate_mukammal_topic_questions(topic_name, count)
 
     # Legacy / Generic Fallbacks
     elif topic_name == "Jadvalli ko'paytirish":
@@ -1589,6 +1915,8 @@ def show_header():
 
     if st.session_state.current_view == '1-sinf':
         title = "1-sinf Mukammal Matematika (Analog tizim)"
+    elif st.session_state.current_view == 'mukammal':
+        title = "Mukammal Matematika (Olimpiada darajasi)"
 
     st.markdown(f"<h1 style='text-align: center;'>{subtitle}</h1>", unsafe_allow_html=True)
     st.markdown(f"<h3 style='text-align: center;'>{title}</h3>", unsafe_allow_html=True)
@@ -1764,7 +2092,7 @@ def main():
         run_quiz_interface(TOPICS_3SINF)
 
     elif st.session_state.current_view == 'mukammal':
-        run_quiz_interface(["Olimpiada masalalari"])
+        run_quiz_interface(TOPICS_MUKAMMAL)
 
 if __name__ == "__main__":
     main()
