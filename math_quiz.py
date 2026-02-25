@@ -34,6 +34,37 @@ UZBEK_OBJECTS = [
     "apelsin", "mandarin", "banan", "kivi", "xurmo", "yong'oq", "bodom", "pista", "mayiz", "qalamdon"
 ]
 
+# --- Topic Constants ---
+TOPICS_1SINF = [
+    "Sonlarni sanash (1-10)", "Kimda ko'p? (Taqqoslash)", "Shakllarni topamiz",
+    "O'ng va chapni o'rganamiz", "Birinchi va oxirgi tartibi", "Qo'shni sonlarni top",
+    "10 ichida qo'shish (Sodda)", "10 ichida ayirish (Sodda)", "Zukko bolajon (Mantiq)",
+    "Juft va toq sonlar", "Chizg'ich bilan o'lchash", "Kesmalarni sanash",
+    "20 ichida sanash", "Yashiringan sonni top", "So'm bilan hisob-kitob",
+    "Bugun, kecha va ertaga", "Hafta kunlari tartibi", "Og'ir va yengil narsalar",
+    "Navbatni davom ettir", "Bilimdonlar bellashuvi"
+]
+
+TOPICS_2SINF = [
+    "Ikki xonali sonlar (1-100)", "Yuzlik ichida qo'shish (Analog)", "Yuzlik ichida ayirish (Analog)",
+    "Ko'paytirish jadvali (Dinamik)", "Bo'lish asoslari (Mantiqiy)", "Sonli ketma-ketliklar",
+    "Perimetr hisoblash (To'rtburchak)", "Vaqt: Soat va minutlar", "Og'irlik: kg va gramm",
+    "Qavsli amallar tartibi", "Taqqoslash (Katta, kichik, teng)", "Pul birliklari (So'm)",
+    "Uzunlik o'lchovlari (sm, dm, m)", "Geometrik shakllar xossalari", "Juft va toq sonlar (100 gacha)",
+    "Tenglamalar (Noma'lum qo'shiluvchini topish)", "Mantiqiy masalalar (Yoshga doir)",
+    "Kasr tushunchasi (Yarim, chorak)", "Ko'paytirish va bo'lish (Matnli)", "Murakkab ifodalar"
+]
+
+TOPICS_3SINF = [
+    "Uch xonali sonlar (1-1000)", "Mantiqiy tenglamalar (Sodda)", "Harakatga doir: Tezlik va masofa",
+    "Yuzani hisoblash (Kvadrat)", "Ustun shaklida ko'paytirish", "Qoldiqli bo'lish",
+    "Zulmira va qavatlar (Mantiqiy tuzoq)", "Kasrlar bilan tanishuv", "Diagramma va jadvallar",
+    "Olimpiada masalalari (Analog)", "Rim raqamlari", "Yaxlitlash (O'nlik va yuzlikkacha)",
+    "Vaqt birliklari (Asr, yil, oy)", "Geometriya: Uchburchak turlari", "Massani hisoblash (kg, t)",
+    "Uzunlikni hisoblash (km, m)", "Hajm birliklari (Litr)", "3 ta amal qatnashgan ifodalar",
+    "Mantiqiy ketma-ketliklar (Murakkab)", "Matnli masalalar (Ikki bosqichli)"
+]
+
 # --- Certificate Generator Logic ---
 def create_certificate(name):
     # Dimensions (A4 Landscape approx @ 72dpi is 842x595, let's use 1000x700 for better res)
@@ -1442,39 +1473,15 @@ def generate_olympiad_questions(count=10):
 
 def generate_quiz(topic_name, count=10):
     # 1-sinf Specific Topics (The 20 new topics)
-    if topic_name in [
-        "Sonlarni sanash (1-10)", "Kimda ko'p? (Taqqoslash)", "Shakllarni topamiz",
-        "O'ng va chapni o'rganamiz", "Birinchi va oxirgi tartibi", "Qo'shni sonlarni top",
-        "10 ichida qo'shish (Sodda)", "10 ichida ayirish (Sodda)", "Zukko bolajon (Mantiq)",
-        "Juft va toq sonlar", "Chizg'ich bilan o'lchash", "Kesmalarni sanash",
-        "20 ichida sanash", "Yashiringan sonni top", "So'm bilan hisob-kitob",
-        "Bugun, kecha va ertaga", "Hafta kunlari tartibi", "Og'ir va yengil narsalar",
-        "Navbatni davom ettir", "Bilimdonlar bellashuvi"
-    ]:
+    if topic_name in TOPICS_1SINF:
         return generate_1sinf_topic_questions(topic_name, count)
 
     # 2-sinf Specific Topics
-    elif topic_name in [
-        "Ikki xonali sonlar (1-100)", "Yuzlik ichida qo'shish (Analog)", "Yuzlik ichida ayirish (Analog)",
-        "Ko'paytirish jadvali (Dinamik)", "Bo'lish asoslari (Mantiqiy)", "Sonli ketma-ketliklar",
-        "Perimetr hisoblash (To'rtburchak)", "Vaqt: Soat va minutlar", "Og'irlik: kg va gramm",
-        "Qavsli amallar tartibi", "Taqqoslash (Katta, kichik, teng)", "Pul birliklari (So'm)",
-        "Uzunlik o'lchovlari (sm, dm, m)", "Geometrik shakllar xossalari", "Juft va toq sonlar (100 gacha)",
-        "Tenglamalar (Noma'lum qo'shiluvchini topish)", "Mantiqiy masalalar (Yoshga doir)",
-        "Kasr tushunchasi (Yarim, chorak)", "Ko'paytirish va bo'lish (Matnli)", "Murakkab ifodalar"
-    ]:
+    elif topic_name in TOPICS_2SINF:
         return generate_2sinf_topic_questions(topic_name, count)
 
     # 3-sinf Specific Topics
-    elif topic_name in [
-        "Uch xonali sonlar (1-1000)", "Mantiqiy tenglamalar (Sodda)", "Harakatga doir: Tezlik va masofa",
-        "Yuzani hisoblash (Kvadrat)", "Ustun shaklida ko'paytirish", "Qoldiqli bo'lish",
-        "Zulmira va qavatlar (Mantiqiy tuzoq)", "Kasrlar bilan tanishuv", "Diagramma va jadvallar",
-        "Olimpiada masalalari (Analog)", "Rim raqamlari", "Yaxlitlash (O'nlik va yuzlikkacha)",
-        "Vaqt birliklari (Asr, yil, oy)", "Geometriya: Uchburchak turlari", "Massani hisoblash (kg, t)",
-        "Uzunlikni hisoblash (km, m)", "Hajm birliklari (Litr)", "3 ta amal qatnashgan ifodalar",
-        "Mantiqiy ketma-ketliklar (Murakkab)", "Matnli masalalar (Ikki bosqichli)"
-    ]:
+    elif topic_name in TOPICS_3SINF:
         return generate_3sinf_topic_questions(topic_name, count)
 
     # Legacy / Generic Fallbacks
@@ -1701,9 +1708,9 @@ def main():
     initialize_session()
 
     # Sidebar Logo
-    if os.path.exists("logo.png"):
-        st.sidebar.image("logo.png", width=150)
+    st.sidebar.image("logo.png", width=150)
 
+    # Sidebar Title - Sardorbek Jo'raboyev muallifligidagi Mukammal Matematika platformasi (Gold)
     st.sidebar.markdown(
         """<div style="text-align: center; margin-bottom: 20px;">
             <p style="color: #FFD700; font-weight: bold;">Sardorbek Jo'raboyev muallifligidagi Mukammal Matematika platformasi</p>
@@ -1730,10 +1737,9 @@ def main():
         show_header()
 
     if st.session_state.current_view == 'home':
-        if os.path.exists("logo.png"):
-            _, col2, _ = st.columns([1, 1, 1])
-            with col2:
-                st.image("logo.png", use_container_width=True)
+        _, col2, _ = st.columns([1, 1, 1])
+        with col2:
+            st.image("logo.png", width=300)
 
         st.markdown("<h1 style='text-align: center;'>SMART LEARNING CENTER</h1>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
@@ -1750,40 +1756,13 @@ def main():
             if st.button("Mukammal Matematika", use_container_width=True): set_view('mukammal')
 
     elif st.session_state.current_view == '1-sinf':
-        topics_1sinf = [
-            "Sonlarni sanash (1-10)", "Kimda ko'p? (Taqqoslash)", "Shakllarni topamiz",
-            "O'ng va chapni o'rganamiz", "Birinchi va oxirgi tartibi", "Qo'shni sonlarni top",
-            "10 ichida qo'shish (Sodda)", "10 ichida ayirish (Sodda)", "Zukko bolajon (Mantiq)",
-            "Juft va toq sonlar", "Chizg'ich bilan o'lchash", "Kesmalarni sanash",
-            "20 ichida sanash", "Yashiringan sonni top", "So'm bilan hisob-kitob",
-            "Bugun, kecha va ertaga", "Hafta kunlari tartibi", "Og'ir va yengil narsalar",
-            "Navbatni davom ettir", "Bilimdonlar bellashuvi"
-        ]
-        run_quiz_interface(topics_1sinf)
+        run_quiz_interface(TOPICS_1SINF)
 
     elif st.session_state.current_view == '2-sinf':
-        topics_2sinf = [
-            "Ikki xonali sonlar (1-100)", "Yuzlik ichida qo'shish (Analog)", "Yuzlik ichida ayirish (Analog)",
-            "Ko'paytirish jadvali (Dinamik)", "Bo'lish asoslari (Mantiqiy)", "Sonli ketma-ketliklar",
-            "Perimetr hisoblash (To'rtburchak)", "Vaqt: Soat va minutlar", "Og'irlik: kg va gramm",
-            "Qavsli amallar tartibi", "Taqqoslash (Katta, kichik, teng)", "Pul birliklari (So'm)",
-            "Uzunlik o'lchovlari (sm, dm, m)", "Geometrik shakllar xossalari", "Juft va toq sonlar (100 gacha)",
-            "Tenglamalar (Noma'lum qo'shiluvchini topish)", "Mantiqiy masalalar (Yoshga doir)",
-            "Kasr tushunchasi (Yarim, chorak)", "Ko'paytirish va bo'lish (Matnli)", "Murakkab ifodalar"
-        ]
-        run_quiz_interface(topics_2sinf)
+        run_quiz_interface(TOPICS_2SINF)
 
     elif st.session_state.current_view == '3-sinf':
-        topics_3sinf = [
-            "Uch xonali sonlar (1-1000)", "Mantiqiy tenglamalar (Sodda)", "Harakatga doir: Tezlik va masofa",
-            "Yuzani hisoblash (Kvadrat)", "Ustun shaklida ko'paytirish", "Qoldiqli bo'lish",
-            "Zulmira va qavatlar (Mantiqiy tuzoq)", "Kasrlar bilan tanishuv", "Diagramma va jadvallar",
-            "Olimpiada masalalari (Analog)", "Rim raqamlari", "Yaxlitlash (O'nlik va yuzlikkacha)",
-            "Vaqt birliklari (Asr, yil, oy)", "Geometriya: Uchburchak turlari", "Massani hisoblash (kg, t)",
-            "Uzunlikni hisoblash (km, m)", "Hajm birliklari (Litr)", "3 ta amal qatnashgan ifodalar",
-            "Mantiqiy ketma-ketliklar (Murakkab)", "Matnli masalalar (Ikki bosqichli)"
-        ]
-        run_quiz_interface(topics_3sinf)
+        run_quiz_interface(TOPICS_3SINF)
 
     elif st.session_state.current_view == 'mukammal':
         run_quiz_interface(["Olimpiada masalalari"])
