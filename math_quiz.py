@@ -1708,10 +1708,7 @@ def main():
     initialize_session()
 
     # Sidebar Logo
-    try:
-        st.sidebar.image("logo.png", use_container_width=True)
-    except Exception:
-        st.sidebar.markdown("<h2 style='text-align: center;'>SMART LEARNING CENTER</h2>", unsafe_allow_html=True)
+    st.sidebar.image("logo.png", use_container_width=True)
 
     # Sidebar Title - Sardorbek Jo'raboyev muallifligidagi Mukammal Matematika platformasi (Gold)
     st.sidebar.markdown(
@@ -1740,12 +1737,9 @@ def main():
         show_header()
 
     if st.session_state.current_view == 'home':
-        try:
-            _, col2, _ = st.columns([1, 1, 1])
-            with col2:
-                st.image("logo.png")
-        except Exception:
-            st.markdown("<h1 style='text-align: center;'>SMART LEARNING CENTER</h1>", unsafe_allow_html=True)
+        _, col2, _ = st.columns([1, 1, 1])
+        with col2:
+            st.image("logo.png", use_container_width=True)
 
         st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
         st.write("---")
