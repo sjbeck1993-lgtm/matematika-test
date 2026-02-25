@@ -2132,6 +2132,32 @@ def initialize_session():
         st.session_state.question_count = 0
     if 'quiz_questions' not in st.session_state:
         st.session_state.quiz_questions = []
+    if 'authenticated' not in st.session_state:
+        st.session_state.authenticated = False
+
+def check_login():
+    if st.session_state.get('authenticated', False):
+        return True
+
+    st.markdown("<h1 style='text-align: center; color: #0072CE;'>Smart Learning Center</h1>", unsafe_allow_html=True)
+
+    if os.path.exists("logo.png"):
+        col1, col2, col3 = st.columns([1, 1, 1])
+        with col2:
+            st.image("logo.png", use_container_width=True)
+
+    st.markdown("<h3 style='text-align: center;'>Platformaga kirish uchun parolni kiriting</h3>", unsafe_allow_html=True)
+
+    password = st.text_input("Parol", type="password")
+
+    if st.button("Kirish"):
+        if password == "Smart2026":
+            st.session_state.authenticated = True
+            st.rerun()
+        else:
+            st.error("Xato parol, iltimos ustozingizdan so'rang!")
+
+    return False
 
 def load_top_scores():
     if not os.path.exists("results.txt"):
@@ -2324,6 +2350,9 @@ def run_quiz_interface(topics_list):
 def main():
     random.seed(time.time())
     initialize_session()
+
+    if not check_login():
+        return
 
     # Sidebar Logo
     st.sidebar.image("logo.png", use_container_width=True)
