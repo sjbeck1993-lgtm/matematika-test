@@ -66,16 +66,26 @@ TOPICS_3SINF = [
 ]
 
 TOPICS_MUKAMMAL = [
-    "Mantiqiy 'tuzoq' masalalar (Shamlar, tayoqchalar)",
-    "Teskari yo'l usuli (O'ylangan sonni topish)",
-    "Venn diagrammasi (To'plamlar mantiqi)",
-    "Harakatga doir: Poezd va tunnel masalalari",
-    "Ish unumdorligi: Birgalikda ishlash",
-    "Kombinatorika: Qo'l berib so'rashishlar",
-    "Fazoviy tasavvur: Kub va uning sirtlari",
-    "Rim raqamlari bilan mantiqiy amallar",
-    "Qavatlar va oraliqlar (Zulmira masalasi)",
-    "Raqamlar siri: Eng katta va kichik kombinatsiyalar"
+    "1. Qo‘shish va ayirishga doir mantiqiy masalalar",
+    "2. Ko‘paytirish va bo‘lishga doir mantiqiy masalalar",
+    "3. To‘rt amalga doir murakkab masalalar",
+    "4. Raqamlar va natural sonlar siri",
+    "5. Xona birliklari va razryadlar mantiqi",
+    "6. Ko‘p xonali sonlarni taqqoslash (Mantiqiy)",
+    "7. Natural sonlarni yaxlitlash mantiqi",
+    "8. Rim raqamlari (Gugurt cho'pi jumboqlari)",
+    "9. Geometriya: To‘g‘ri chiziq, nur va kesma",
+    "10. Siniq chiziq va uning uzunligi",
+    "11. Ko‘pburchaklar va ularning perimetri",
+    "12. To‘g‘ri to‘rtburchak va kvadrat (Murakkab)",
+    "13. Vaqt va vaqt birliklari (Kabisa yili mantiqi)",
+    "14. Mantiqiy savollar: Shamlar va tayoqchalar",
+    "15. Harakatga doir: Poezd va tunnel",
+    "16. Daryo oqimi bo‘ylab va qarshi harakat",
+    "17. Ish unumdorligi (Birgalikda ishlash)",
+    "18. Geometriya: Yuza va hajm (3D tasavvur)",
+    "19. To‘plamlar va Venn diagrammasi",
+    "20. Mantiqiy xulosalar va algoritmlar"
 ]
 
 # --- Certificate Generator Logic ---
@@ -1484,6 +1494,273 @@ def generate_olympiad_questions(count=10):
 
 # --- Mukammal Matematika Generators ---
 
+def gen_logic_add_sub():
+    # Type 1: Consecutive numbers sum
+    if random.random() < 0.33:
+        n = random.randint(10, 50)
+        # Sum of 3 consecutive integers = 3*x
+        total = 3 * n
+        question_text = f"Uchta ketma-ket kelgan natural sonlarning yig'indisi {total} ga teng. Bu sonlarning eng kichigini toping."
+        ans = n - 1
+        options = [n-1, n, n+1]
+    # Type 2: Balance logic
+    elif random.random() < 0.66:
+        val = random.randint(20, 100)
+        diff = random.randint(5, 15)
+        # A + diff = val, B - diff = val
+        # A = val - diff, B = val + diff
+        question_text = f"A soniga {diff} ni qo'shsak {val} bo'ladi. B sonidan {diff} ni ayirsak ham {val} bo'ladi. Qaysi son katta: A yoki B?"
+        ans = "B"
+        options = ["A", "B", "Ikkisi teng"]
+    # Type 3: Missing digit (simplified as find X)
+    else:
+        # X + Y = Z
+        x = random.randint(10, 50)
+        y = random.randint(10, 50)
+        z = x + y
+        # Hide one
+        question_text = f"O'ylangan songa {y} ni qo'shib, yig'indidan {x} ni ayirsak, natija 20 bo'ldi. O'ylangan sonni toping."
+        # (N + y) - x = 20 => N = 20 + x - y
+        ans = 20 + x - y
+        options = generate_wrong_options(ans, 0, 100)
+
+    return question_text, ans, options
+
+def gen_logic_mult_div():
+    # Type 1: X * A / B = C
+    if random.random() < 0.5:
+        a = random.randint(2, 5)
+        b = random.randint(2, 5)
+        c = random.randint(10, 50)
+        # X * a / b = c => X = c * b / a
+        # Ensure integer
+        while (c * b) % a != 0:
+            c = random.randint(10, 50)
+        ans = (c * b) // a
+        question_text = f"O'ylangan sonni {a} ga ko'paytirib, {b} ga bo'lsak, {c} hosil bo'ldi. O'ylangan sonni toping."
+        options = generate_wrong_options(ans, 1, 100)
+    # Type 2: Factor logic
+    else:
+        # Product of two numbers is P. One is A. If A is increased by 2... too complex?
+        # A * B = P.
+        a = random.randint(2, 9)
+        b = random.randint(2, 9)
+        p = a * b
+        question_text = f"Ikki sonning ko'paytmasi {p} ga teng. Agar birinchi ko'paytuvchi {a} ga teng bo'lsa, ikkinchi ko'paytuvchini toping."
+        ans = b
+        options = generate_wrong_options(ans, 1, 20)
+    return question_text, ans, options
+
+def gen_complex_four_ops():
+    # (A + B) * C - D
+    a = random.randint(2, 20)
+    b = random.randint(2, 20)
+    c = random.randint(2, 5)
+    d = random.randint(1, 50)
+    ans = (a + b) * c - d
+    question_text = f"Ifodaning qiymatini toping: ({a} + {b}) * {c} - {d} = ?"
+    options = generate_wrong_options(ans, 0, 200)
+    return question_text, ans, options
+
+def gen_place_value_logic():
+    # Type 1: How many tens
+    if random.random() < 0.5:
+        n = random.randint(100, 999)
+        question_text = f"{n} sonida nechta o'nlik bor? (Diqqat: jami o'nliklar soni so'ralmoqda, xona birligi emas)"
+        ans = n // 10
+        options = [n // 10, (n % 100) // 10, n // 100]
+    # Type 2: Swap digits
+    else:
+        digits = random.sample(range(1, 10), 3)
+        n = digits[0]*100 + digits[1]*10 + digits[2]
+        swapped = digits[2]*100 + digits[1]*10 + digits[0]
+        question_text = f"{n} sonining yuzlar va birlar xonasidagi raqamlari o'rnini almashtirsak, hosil bo'lgan son qanchaga o'zgaradi?"
+        ans = abs(n - swapped)
+        options = generate_wrong_options(ans, 0, 1000)
+    return question_text, ans, options
+
+def gen_compare_large_numbers():
+    # Compare expressions
+    a = random.randint(1000, 5000)
+    b = random.randint(100, 999)
+    res1 = a + b
+
+    c = random.randint(1000, 5000)
+    d = random.randint(100, 999)
+    res2 = c + d
+
+    question_text = f"Taqqislang: {a} + {b} ... {c} + {d}"
+    if res1 > res2: ans = ">"
+    elif res1 < res2: ans = "<"
+    else: ans = "="
+    options = [">", "<", "="]
+    return question_text, ans, options
+
+def gen_rounding_logic():
+    targets = [100, 200, 300, 400, 500]
+    t = random.choice(targets)
+
+    # Generate 3 numbers, one rounds to t
+    # Range for rounding to t (nearest 100): t-50 to t+49
+    correct = random.randint(t - 49, t + 49)
+
+    # Wrongs
+    w1 = random.randint(t + 51, t + 140)
+    w2 = random.randint(t - 150, t - 51)
+
+    cands = [correct, w1, w2]
+    random.shuffle(cands)
+
+    question_text = f"Qaysi son yuzliklargacha yaxlitlanganda {t} ga teng bo'ladi?"
+    ans = correct
+    options = cands
+    return question_text, ans, options
+
+def gen_geometry_lines():
+    # Type 1: Definitions
+    if random.random() < 0.5:
+        definitions = [
+            ("To'g'ri chiziq", "Boshi ham, oxiri ham yo'q"),
+            ("Nur", "Boshi bor, lekin oxiri yo'q"),
+            ("Kesma", "Boshi ham, oxiri ham bor")
+        ]
+        ans_name, ans_desc = random.choice(definitions)
+        question_text = f"Geometrik shakl ta'rifi: {ans_desc}. Bu nima?"
+        ans = ans_name
+        options = ["To'g'ri chiziq", "Nur", "Kesma"]
+    # Type 2: Counting segments on a line with points
+    else:
+        n_points = random.randint(3, 5) # A, B, C, D...
+        # Number of segments from n collinear points is n*(n-1)/2
+        ans = (n_points * (n_points - 1)) // 2
+        question_text = f"To'g'ri chiziqda {n_points} ta nuqta belgilandi. Bu nuqtalar yordamida jami nechta kesma hosil bo'ladi?"
+        options = generate_wrong_options(ans, 1, 20)
+    return question_text, ans, options
+
+def gen_polyline_length():
+    segments = random.randint(3, 5)
+    lengths = [random.randint(2, 10) for _ in range(segments)]
+    total = sum(lengths)
+    lengths_str = ", ".join(map(str, lengths))
+    question_text = f"Siniq chiziq {segments} ta kesmadan iborat. Ularning uzunliklari: {lengths_str} (sm). Siniq chiziqning umumiy uzunligini toping."
+    ans = total
+    options = generate_wrong_options(ans, 5, 100)
+    return question_text, ans, options
+
+def gen_polygon_perimeter():
+    # Regular or irregular
+    if random.random() < 0.5:
+        # Regular
+        sides = random.randint(5, 8)
+        side_len = random.randint(3, 10)
+        ans = sides * side_len
+        shape_names = {5: "Beshburchak", 6: "Oltiburchak", 7: "Yettiburchak", 8: "Sakkizburchak"}
+        name = shape_names.get(sides, f"{sides}-burchak")
+        question_text = f"Muntazam {name}ning tomoni {side_len} sm. Uning perimetrini toping."
+    else:
+        # Triangle or Quad with mixed sides
+        sides = [random.randint(5, 15) for _ in range(4)]
+        ans = sum(sides)
+        s_str = ", ".join(map(str, sides))
+        question_text = f"To'rtburchakning tomonlari {s_str} sm. Uning perimetrini toping."
+
+    options = generate_wrong_options(ans, 10, 200)
+    return question_text, ans, options
+
+def gen_rect_square_complex():
+    # Type 1: Given Perimeter, find side (Square)
+    if random.random() < 0.33:
+        a = random.randint(5, 20)
+        p = 4 * a
+        question_text = f"Kvadratning perimetri {p} sm ga teng. Uning tomonini toping."
+        ans = a
+        options = generate_wrong_options(ans, 1, 50)
+    # Type 2: Given Area, find side (Square)
+    elif random.random() < 0.66:
+        a = random.randint(4, 12)
+        area = a * a
+        question_text = f"Kvadratning yuzi {area} kv. sm. Uning perimetrini toping."
+        ans = 4 * a
+        options = generate_wrong_options(ans, 10, 100)
+    # Type 3: Rect perimeter and one side, find area
+    else:
+        a = random.randint(5, 15)
+        b = random.randint(5, 15)
+        p = 2 * (a + b)
+        question_text = f"To'g'ri to'rtburchakning perimetri {p} sm, bir tomoni esa {a} sm. Uning yuzini toping."
+        ans = a * b
+        options = generate_wrong_options(ans, 10, 300)
+    return question_text, ans, options
+
+def gen_time_leap_year():
+    # Type 1: Leap year check
+    if random.random() < 0.5:
+        base_year = random.choice([2000, 2004, 2008, 2012, 2016, 2020, 2024])
+        # Generate options: one leap, others not
+        # Or asking "Which year is leap?"
+        cands = []
+        # Add one leap year
+        leap = base_year + random.choice([-4, 0, 4, 8])
+        cands.append(leap)
+        # Add non-leap years
+        while len(cands) < 3:
+            y = leap + random.randint(1, 3)
+            if y % 4 != 0:
+                cands.append(y)
+
+        random.shuffle(cands)
+        question_text = f"Quyidagi yillardan qaysi biri kabisa yili (366 kun)?"
+        ans = leap
+        options = cands
+    # Type 2: Time calculation
+    else:
+        # 1 asr = 100 yil, 1 yil = 12 oy...
+        # "2 sutka necha soat?"
+        d = random.randint(2, 5)
+        ans = d * 24
+        question_text = f"{d} sutka necha soatga teng?"
+        options = generate_wrong_options(ans, 24, 200)
+    return question_text, ans, options
+
+def gen_river_motion():
+    # V_down = V_boat + V_stream
+    # V_up = V_boat - V_stream
+    v_boat = random.randint(15, 30)
+    v_stream = random.randint(2, 5)
+
+    if random.random() < 0.5:
+        # Downstream
+        question_text = f"Katerning turg'un suvdagi tezligi {v_boat} km/soat, daryo oqimining tezligi {v_stream} km/soat. Katerning oqim bo'ylab tezligini toping."
+        ans = v_boat + v_stream
+        options = [v_boat + v_stream, v_boat - v_stream, v_boat]
+    else:
+        # Upstream
+        question_text = f"Katerning turg'un suvdagi tezligi {v_boat} km/soat, daryo oqimining tezligi {v_stream} km/soat. Katerning oqimga qarshi tezligini toping."
+        ans = v_boat - v_stream
+        options = [v_boat + v_stream, v_boat - v_stream, v_boat]
+    return question_text, ans, options
+
+def gen_logic_algorithms():
+    # Sequence or simple algorithm
+    # Type 1: If-Then logic
+    if random.random() < 0.5:
+        # A > B, B > C -> A ? C
+        names = get_names(3)
+        question_text = f"{names[0]} {names[1]}dan baland. {names[1]} {names[2]}dan baland. Eng baland kim?"
+        ans = names[0]
+        options = names
+    # Type 2: Simple alg step
+    else:
+        # Input -> +3 -> *2 -> Output. Find Output given Input.
+        inp = random.randint(1, 10)
+        add = random.randint(1, 5)
+        mult = random.randint(2, 4)
+        out = (inp + add) * mult
+        question_text = f"Algoritm bajarilishini hisoblang: Kirish soni {inp}. 1-qadam: {add} ni qo'shish. 2-qadam: Natijani {mult} ga ko'paytirish. Chiqish soni necha?"
+        ans = out
+        options = generate_wrong_options(ans, 1, 100)
+    return question_text, ans, options
+
 def gen_logic_traps():
     # Logic 1: Candles
     if random.random() < 0.5:
@@ -1745,16 +2022,26 @@ def generate_mukammal_topic_questions(topic, count=10):
     questions = []
 
     generator_map = {
-        "Mantiqiy 'tuzoq' masalalar (Shamlar, tayoqchalar)": gen_logic_traps,
-        "Teskari yo'l usuli (O'ylangan sonni topish)": gen_reverse_method,
-        "Venn diagrammasi (To'plamlar mantiqi)": gen_venn_diagram,
-        "Harakatga doir: Poezd va tunnel masalalari": gen_train_tunnel,
-        "Ish unumdorligi: Birgalikda ishlash": gen_work_efficiency,
-        "Kombinatorika: Qo'l berib so'rashishlar": gen_combinatorics,
-        "Fazoviy tasavvur: Kub va uning sirtlari": gen_cube_surfaces,
-        "Rim raqamlari bilan mantiqiy amallar": gen_roman_logic,
-        "Qavatlar va oraliqlar (Zulmira masalasi)": gen_floors_intervals_mukammal,
-        "Raqamlar siri: Eng katta va kichik kombinatsiyalar": gen_number_secrets
+        "1. Qo‘shish va ayirishga doir mantiqiy masalalar": gen_logic_add_sub,
+        "2. Ko‘paytirish va bo‘lishga doir mantiqiy masalalar": gen_logic_mult_div,
+        "3. To‘rt amalga doir murakkab masalalar": gen_complex_four_ops,
+        "4. Raqamlar va natural sonlar siri": gen_number_secrets,
+        "5. Xona birliklari va razryadlar mantiqi": gen_place_value_logic,
+        "6. Ko‘p xonali sonlarni taqqoslash (Mantiqiy)": gen_compare_large_numbers,
+        "7. Natural sonlarni yaxlitlash mantiqi": gen_rounding_logic,
+        "8. Rim raqamlari (Gugurt cho'pi jumboqlari)": gen_roman_logic,
+        "9. Geometriya: To‘g‘ri chiziq, nur va kesma": gen_geometry_lines,
+        "10. Siniq chiziq va uning uzunligi": gen_polyline_length,
+        "11. Ko‘pburchaklar va ularning perimetri": gen_polygon_perimeter,
+        "12. To‘g‘ri to‘rtburchak va kvadrat (Murakkab)": gen_rect_square_complex,
+        "13. Vaqt va vaqt birliklari (Kabisa yili mantiqi)": gen_time_leap_year,
+        "14. Mantiqiy savollar: Shamlar va tayoqchalar": gen_logic_traps,
+        "15. Harakatga doir: Poezd va tunnel": gen_train_tunnel,
+        "16. Daryo oqimi bo‘ylab va qarshi harakat": gen_river_motion,
+        "17. Ish unumdorligi (Birgalikda ishlash)": gen_work_efficiency,
+        "18. Geometriya: Yuza va hajm (3D tasavvur)": gen_cube_surfaces,
+        "19. To‘plamlar va Venn diagrammasi": gen_venn_diagram,
+        "20. Mantiqiy xulosalar va algoritmlar": gen_logic_algorithms
     }
 
     gen_func = generator_map.get(topic)
@@ -1916,7 +2203,10 @@ def show_header():
     if st.session_state.current_view == '1-sinf':
         title = "1-sinf Mukammal Matematika (Analog tizim)"
     elif st.session_state.current_view == 'mukammal':
-        title = "Mukammal Matematika (Olimpiada darajasi)"
+        if st.session_state.quiz_state == 'playing' and 'topic' in st.session_state:
+             title = st.session_state.topic
+        else:
+             title = "Mukammal Matematika (Olimpiada darajasi)"
 
     st.markdown(f"<h1 style='text-align: center;'>{subtitle}</h1>", unsafe_allow_html=True)
     st.markdown(f"<h3 style='text-align: center;'>{title}</h3>", unsafe_allow_html=True)
