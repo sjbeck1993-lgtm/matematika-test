@@ -1747,7 +1747,6 @@ def main():
         except Exception:
             st.markdown("<h1 style='text-align: center;'>SMART LEARNING CENTER</h1>", unsafe_allow_html=True)
 
-        st.markdown("<h1 style='text-align: center;'>SMART LEARNING CENTER</h1>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
         st.write("---")
 
