@@ -115,7 +115,7 @@ def format_homework_status(status_str):
             else:
                 formatted_items.append(str(item))
 
-        return ", ".join(formatted_items)
+        return "\n".join(formatted_items)
     except Exception:
         return status_str
 
@@ -2190,6 +2190,45 @@ def generate_mukammal_topic_questions(topic, count=10):
     random.shuffle(questions)
     return questions
 
+# --- Student Profile ---
+def show_student_profile(user_id):
+    st.markdown("<h2 style='text-align: center; color: #0072CE;'>Mening Profilim</h2>", unsafe_allow_html=True)
+
+    conn = sqlite3.connect('students.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM students WHERE student_id=?", (user_id,))
+    student = c.fetchone()
+    conn.close()
+
+    if not student:
+        st.error("O'quvchi topilmadi!")
+        return
+
+    # Unpack student data: 0:id, 1:name, 2:phone, 3:pass, 4:attend, 5:hw, 6:bal, 7:date
+    full_name = student[1]
+    attendance = student[4]
+    homework_json = student[5]
+    balance = student[6]
+
+    st.subheader(f"Xush kelibsiz, {full_name}!")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("Darslar soni", attendance)
+    with col2:
+        st.metric("Balans", f"{balance:,} so'm")
+        if balance < 0:
+            st.warning("⚠️ Sizda qarzdorlik mavjud! (Qizil)")
+        else:
+            st.success("✅ Balansingiz joyida. (Yashil)")
+
+    st.markdown("### 📚 Uy vazifalari tarixi")
+    hw_text = format_homework_status(homework_json)
+    if hw_text:
+        st.text_area("Bajarilgan vazifalar:", value=hw_text, height=300, disabled=True)
+    else:
+        st.info("Hozircha vazifalar bajarilmagan.")
+
 # --- Admin Panel ---
 def show_admin_panel():
     st.markdown("<h2 style='text-align: center; color: #0072CE;'>Admin Panel</h2>", unsafe_allow_html=True)
@@ -2205,6 +2244,10 @@ def show_admin_panel():
     if 'homework_status' in df.columns:
         df['homework_status'] = df['homework_status'].apply(format_homework_status)
 
+    # Add status column based on balance
+    if 'balance' in df.columns:
+        df['Holat'] = df['balance'].apply(lambda x: '🔴 Qarz' if x < 0 else '🟢 Yaxshi')
+
     # Add temporary column for incrementing attendance
     df['add_attendance'] = False
 
@@ -2219,7 +2262,8 @@ def show_admin_panel():
             "attendance_count": st.column_config.NumberColumn("Darslar soni", min_value=0, step=1),
             "add_attendance": st.column_config.CheckboxColumn("Keldi (+)", default=False),
             "balance": st.column_config.NumberColumn("Balans", format="%d"),
-            "homework_status": st.column_config.TextColumn("Uy vazifalari", disabled=True),
+            "Holat": st.column_config.TextColumn("Holat", disabled=True),
+            "homework_status": st.column_config.TextColumn("Uy vazifalari", disabled=True, width="large"),
             "registration_date": st.column_config.DatetimeColumn("Ro'yxatdan o'tgan sana", disabled=True),
         },
         hide_index=True,
@@ -2585,6 +2629,10 @@ def main():
     st.sidebar.markdown("---")
     if st.sidebar.button("🏆 Mukammal Matematika", use_container_width=True): set_view('mukammal')
 
+    if st.session_state.authenticated:
+        if st.sidebar.button("👤 Mening Profilim", use_container_width=True):
+            set_view('profile')
+
     st.sidebar.markdown("---")
     if st.sidebar.button("⚙️ Admin Panel", use_container_width=True):
         set_view('admin_login')
@@ -2646,6 +2694,12 @@ def main():
 
     elif st.session_state.current_view == 'mukammal':
         run_quiz_interface(TOPICS_MUKAMMAL)
+
+    elif st.session_state.current_view == 'profile':
+        if st.session_state.authenticated:
+            show_student_profile(st.session_state.user_id)
+        else:
+            set_view('home')
 
 if __name__ == "__main__":
     main()
