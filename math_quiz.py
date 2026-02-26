@@ -97,11 +97,14 @@ def get_all_students():
 
 def format_homework_status(status_str):
     if not status_str:
-        return ""
+        return "Hozircha yo'q"
     try:
         data = json.loads(status_str)
         if not isinstance(data, list):
             return str(data)
+
+        if not data:
+            return "Hozircha yo'q"
 
         formatted_items = []
         for item in data:
@@ -257,13 +260,13 @@ def create_certificate(name, topic):
     # Load Fonts
     try:
         # Try to load a nice font
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
-        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
-        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
-        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
-        slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf", 20)
-        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
+        title_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 60)
+        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 30)
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 40)
+        text_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 45)
+        small_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", 20)
+        slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf", 20)
+        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", 15)
     except IOError:
         # Fallback to default
         title_font = ImageFont.load_default()
@@ -298,14 +301,14 @@ def create_certificate(name, topic):
         x = (width - text_width) // 2
         draw.text((x, y), text, font=font, fill=color)
 
-    y_offset = 180
+    y_offset = 220
 
     # "SERTIFIKAT"
     draw_centered_text("SERTIFIKAT", title_font, y_offset, color=border_color)
     y_offset += 70
 
     # "Ushbu sertifikat ..."
-    draw_centered_text("Ushbu sertifikat", subtitle_font, y_offset)
+    draw_centered_text("Ushbu sertifikat", subtitle_font, y_offset, color=(0, 0, 0))
     y_offset += 50
 
     # Name
@@ -315,7 +318,7 @@ def create_certificate(name, topic):
     # Topic
     topic_line = f"{topic} bo'limini"
     draw_centered_text(topic_line, text_font, y_offset, color=(0, 0, 0))
-    y_offset += 40
+    y_offset += 50
 
     # "... muvaffaqiyatli yakunlagani uchun beriladi"
     draw_centered_text("muvaffaqiyatli yakunlagani uchun beriladi", text_font, y_offset, color=(0, 0, 0))
@@ -334,18 +337,18 @@ def create_certificate(name, topic):
         qr.make(fit=True)
         qr_img = qr.make_image(fill_color="black", back_color="white")
         qr_img = qr_img.resize((100, 100), Image.Resampling.LANCZOS)
-        img.paste(qr_img, (50, height - 150))
+        img.paste(qr_img, (60, height - 170))
     except Exception as e:
         print(f"QR Code Error: {e}")
 
     # Slogan at bottom center
     slogan = "Jarayon natijadan ko‘ra muhimroq!"
-    draw_centered_text(slogan, slogan_font, height - 40, color=(0, 0, 0))
+    draw_centered_text(slogan, slogan_font, height - 70, color=(0, 0, 0))
 
     # Bottom Right: Signature and Seal
     # Coordinates for Signature Area
     sig_center_x = width - 200
-    sig_y = height - 160
+    sig_y = height - 180
 
     # Load Signature
     if os.path.exists("imzo.png"):
