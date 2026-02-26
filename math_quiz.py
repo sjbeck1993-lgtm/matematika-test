@@ -119,6 +119,41 @@ def format_homework_status(status_str):
     except Exception:
         return status_str
 
+def get_topic_category(topic_name):
+    topic_lower = topic_name.lower()
+    if any(k in topic_lower for k in ["geometriya", "shakl", "perimetr", "yuza", "hajm", "kesma", "chiziq", "uchburchak", "to'rtburchak", "kvadrat", "doira", "romb", "beshburchak", "oltiburchak"]):
+        return "Geometriya"
+    elif any(k in topic_lower for k in ["mantiq", "zukko", "tenglama", "ketma-ketlik", "vaqt", "soat", "yosh", "poezd", "daryo", "ish", "kombinatorika", "diagramma", "rim", "tuzoq", "sirlar", "almashtirsak", "algoritm"]):
+        return "Mantiq"
+    else:
+        return "Arifmetika"
+
+def get_leaderboard_data():
+    conn = sqlite3.connect('students.db')
+    try:
+        df = pd.read_sql_query("SELECT full_name, homework_status FROM students", conn)
+    except:
+        return []
+    finally:
+        conn.close()
+
+    leaderboard = []
+    for index, row in df.iterrows():
+        total_score = 0
+        try:
+            status = json.loads(row['homework_status'])
+            if isinstance(status, list):
+                for item in status:
+                    if isinstance(item, dict):
+                        total_score += item.get('score', 0)
+        except:
+            pass
+        if total_score > 0:
+            leaderboard.append({'name': row['full_name'], 'score': total_score})
+
+    leaderboard.sort(key=lambda x: x['score'], reverse=True)
+    return leaderboard[:5]
+
 # --- Vocabulary Constants ---
 UZBEK_NAMES = [
     "Ali", "Vali", "Gani", "Sadiya", "Madina", "Temur", "Otabek", "Zilola", "Mohira", "Farruh",
@@ -2222,6 +2257,34 @@ def show_student_profile(user_id):
         else:
             st.success("✅ Balansingiz joyida. (Yashil)")
 
+    st.markdown("### 📊 O'zlashtirish ko'rsatkichlari")
+    try:
+        hw_data = json.loads(homework_json) if homework_json else []
+    except:
+        hw_data = []
+
+    if isinstance(hw_data, list) and hw_data:
+        stats = {"Mantiq": {"correct": 0, "total": 0},
+                 "Geometriya": {"correct": 0, "total": 0},
+                 "Arifmetika": {"correct": 0, "total": 0}}
+
+        for item in hw_data:
+            if isinstance(item, dict):
+                cat = get_topic_category(item.get('topic', ''))
+                stats[cat]["correct"] += item.get('score', 0)
+                stats[cat]["total"] += item.get('total', 0)
+
+        # Prepare data for chart
+        chart_data = []
+        for cat, data in stats.items():
+            percentage = (data["correct"] / data["total"] * 100) if data["total"] > 0 else 0
+            chart_data.append({"Kategoriya": cat, "Foiz": round(percentage, 1)})
+
+        chart_df = pd.DataFrame(chart_data)
+        st.bar_chart(chart_df, x="Kategoriya", y="Foiz", color="#0072CE")
+    else:
+        st.info("Hozircha natijalar yo'q.")
+
     st.markdown("### 📚 Uy vazifalari tarixi")
     hw_text = format_homework_status(homework_json)
     if hw_text:
@@ -2294,6 +2357,26 @@ def show_admin_panel():
         st.success("Ma'lumotlar saqlandi!")
         time.sleep(1)
         st.rerun()
+
+    st.markdown("---")
+    st.subheader("📤 Telegram Hisobot")
+
+    student_list = edited_df['full_name'].tolist() if not edited_df.empty else []
+    selected_student = st.selectbox("O'quvchini tanlang:", [""] + student_list, key="report_select")
+
+    if st.button("Hisobotni tayyorlash") and selected_student:
+        student_data = edited_df[edited_df['full_name'] == selected_student].iloc[0]
+
+        name = student_data['full_name']
+        phone = student_data['phone']
+        attend = student_data['attendance_count']
+        bal = student_data['balance']
+        # The homework_status here is already formatted by format_homework_status at the start of this function
+        hw_raw = student_data['homework_status']
+
+        report = f"👤 O'quvchi: {name}\n📞 Telefon: {phone}\n✅ Davomat: {attend} ta dars\n💰 Balans: {bal:,} so'm\n\n📊 Bajarilgan vazifalar:\n{hw_raw}\n\nMuvaffaqiyat tilaymiz! ✨"
+
+        st.code(report, language='text')
 
 # --- Main Generator Dispatcher ---
 
@@ -2589,6 +2672,11 @@ def run_quiz_interface(topics_list):
         st.write(f"✅ **Jami ball:** {st.session_state.score} / {st.session_state.total_questions}")
         st.write(f"⏱ **Vaqt:** {st.session_state.final_duration} soniya")
 
+        if st.session_state.total_questions > 0:
+            percentage = st.session_state.score / st.session_state.total_questions
+            if percentage < 0.5:
+                st.info("💡 Xato qilsang ham, o'z fikringni asosla! Jarayon muhimroq!")
+
         if st.session_state.score == st.session_state.total_questions and st.session_state.total_questions > 0:
             st.success("Tabriklaymiz! 100% natija!")
             cert_img = create_certificate(st.session_state.user_name)
@@ -2672,6 +2760,13 @@ def main():
 
         st.markdown("<h3 style='text-align: center;'>Mukammal Matematika</h3>", unsafe_allow_html=True)
         st.write("---")
+
+        leaderboard = get_leaderboard_data()
+        if leaderboard:
+            st.markdown("### 🏆 Hafta Qahramonlari")
+            for i, student in enumerate(leaderboard, 1):
+                st.write(f"{i}. **{student['name']}** — {student['score']} ball")
+            st.write("---")
 
         c1, c2, c3, c4 = st.columns(4)
         with c1:
