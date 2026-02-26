@@ -9,6 +9,7 @@ import sqlite3
 import json
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
+import qrcode
 
 # --- Database Helper Functions ---
 def init_db():
@@ -236,11 +237,11 @@ TOPICS_MUKAMMAL = [
 ]
 
 # --- Certificate Generator Logic ---
-def create_certificate(name):
-    # Dimensions (A4 Landscape approx @ 72dpi is 842x595, let's use 1000x700 for better res)
+def create_certificate(name, topic):
+    # Dimensions (A4 Landscape approx @ 72dpi is 842x595, let's use 1000x750 for better res)
     width, height = 1000, 750
     background_color = (255, 255, 255)
-    border_color = (0, 114, 206) # Blue from theme
+    border_color = (255, 215, 0) # Gold
 
     img = Image.new('RGB', (width, height), color=background_color)
     draw = ImageDraw.Draw(img)
@@ -258,9 +259,11 @@ def create_certificate(name):
         # Try to load a nice font
         title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
         subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 70)
-        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
+        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
         small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
+        slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf", 20)
+        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
     except IOError:
         # Fallback to default
         title_font = ImageFont.load_default()
@@ -268,54 +271,117 @@ def create_certificate(name):
         name_font = ImageFont.load_default()
         text_font = ImageFont.load_default()
         small_font = ImageFont.load_default()
+        slogan_font = ImageFont.load_default()
+        tiny_font = ImageFont.load_default()
 
     # Add Logo
     if os.path.exists("logo.png"):
         try:
             logo = Image.open("logo.png")
             # Resize logo to reasonable size (e.g., 150px height)
-            logo_height = 150
+            logo_height = 120
             aspect_ratio = logo.width / logo.height
             logo_width = int(logo_height * aspect_ratio)
             logo = logo.resize((logo_width, logo_height), Image.Resampling.LANCZOS)
 
             # Paste at top center
             x_pos = (width - logo_width) // 2
-            y_pos = 50
+            y_pos = 40
             img.paste(logo, (x_pos, y_pos), logo if logo.mode == 'RGBA' else None)
         except Exception as e:
             print(f"Error loading logo: {e}")
 
-    # Add Text
+    # Helper function for centering text
     def draw_centered_text(text, font, y, color=(0, 0, 0)):
-        # textbbox returns (left, top, right, bottom)
         bbox = draw.textbbox((0, 0), text, font=font)
         text_width = bbox[2] - bbox[0]
         x = (width - text_width) // 2
         draw.text((x, y), text, font=font, fill=color)
 
-    y_offset = 220
+    y_offset = 180
 
     # "SERTIFIKAT"
     draw_centered_text("SERTIFIKAT", title_font, y_offset, color=border_color)
-    y_offset += 80
+    y_offset += 70
 
-    # "Ushbu sertifikat taqdim etiladi:"
-    draw_centered_text("Ushbu sertifikat taqdim etiladi:", subtitle_font, y_offset)
-    y_offset += 60
+    # "Ushbu sertifikat ..."
+    draw_centered_text("Ushbu sertifikat", subtitle_font, y_offset)
+    y_offset += 50
 
     # Name
-    draw_centered_text(name, name_font, y_offset, color=(0, 0, 0))
-    y_offset += 100
+    draw_centered_text(f"{name}ga", name_font, y_offset, color=(0, 0, 0))
+    y_offset += 80
 
-    # "Matematika bilimdoni"
-    draw_centered_text("Matematika bilimdoni", text_font, y_offset, color=border_color)
+    # Topic
+    topic_line = f"{topic} bo'limini"
+    draw_centered_text(topic_line, text_font, y_offset, color=(0, 0, 0))
+    y_offset += 40
+
+    # "... muvaffaqiyatli yakunlagani uchun beriladi"
+    draw_centered_text("muvaffaqiyatli yakunlagani uchun beriladi", text_font, y_offset, color=(0, 0, 0))
     y_offset += 80
 
     # Date
     now = datetime.datetime.now()
-    date_str = now.strftime("%d.%m.%Y %H:%M")
-    draw_centered_text(f"Sana: {date_str}", small_font, height - 60, color=(100, 100, 100))
+    date_str = now.strftime("%d.%m.%Y")
+    draw_centered_text(f"Sana: {date_str}", small_font, y_offset, color=(100, 100, 100))
+
+    # Bottom Left: QR Code
+    try:
+        qr_url = "https://t.me/Smart_mukammal_matematika"
+        qr = qrcode.QRCode(box_size=2, border=1)
+        qr.add_data(qr_url)
+        qr.make(fit=True)
+        qr_img = qr.make_image(fill_color="black", back_color="white")
+        qr_img = qr_img.resize((100, 100), Image.Resampling.LANCZOS)
+        img.paste(qr_img, (50, height - 150))
+    except Exception as e:
+        print(f"QR Code Error: {e}")
+
+    # Slogan at bottom center
+    slogan = "Jarayon natijadan ko‘ra muhimroq!"
+    draw_centered_text(slogan, slogan_font, height - 40, color=(0, 0, 0))
+
+    # Bottom Right: Signature and Seal
+    # Coordinates for Signature Area
+    sig_center_x = width - 200
+    sig_y = height - 160
+
+    # Load Signature
+    if os.path.exists("imzo.png"):
+        try:
+            sig = Image.open("imzo.png")
+            # Resize
+            sig_h = 60
+            ar = sig.width / sig.height
+            sig_w = int(sig_h * ar)
+            sig = sig.resize((sig_w, sig_h), Image.Resampling.LANCZOS)
+            # Center it around sig_center_x
+            img.paste(sig, (sig_center_x - sig_w//2, sig_y), sig if sig.mode == 'RGBA' else None)
+        except Exception as e:
+            print(f"Imzo Error: {e}")
+
+    # Load Seal
+    if os.path.exists("muhr.png"):
+        try:
+            seal = Image.open("muhr.png")
+            seal_size = 100
+            seal = seal.resize((seal_size, seal_size), Image.Resampling.LANCZOS)
+            # Overlap slightly
+            img.paste(seal, (sig_center_x + 20, sig_y - 20), seal if seal.mode == 'RGBA' else None)
+        except Exception as e:
+            print(f"Muhr Error: {e}")
+
+    # Text under signature
+    text_y = sig_y + 70
+    bbox = draw.textbbox((0, 0), "Sardorbek Jo'raboyev", font=small_font)
+    tw = bbox[2] - bbox[0]
+    draw.text((sig_center_x - tw//2, text_y), "Sardorbek Jo'raboyev", font=small_font, fill=(0,0,0))
+
+    text_y += 25
+    bbox = draw.textbbox((0, 0), "Smart Learning Center", font=tiny_font)
+    tw = bbox[2] - bbox[0]
+    draw.text((sig_center_x - tw//2, text_y), "Smart Learning Center", font=tiny_font, fill=(0,0,0))
 
     return img
 
@@ -2679,11 +2745,22 @@ def run_quiz_interface(topics_list):
 
         if st.session_state.score == st.session_state.total_questions and st.session_state.total_questions > 0:
             st.success("Tabriklaymiz! 100% natija!")
-            cert_img = create_certificate(st.session_state.user_name)
+
+            # Pass topic name
+            topic_name = st.session_state.topic if 'topic' in st.session_state else "Matematika"
+            cert_img = create_certificate(st.session_state.user_name, topic_name)
+
             st.image(cert_img, caption="Sertifikat", use_container_width=True)
-            buf = io.BytesIO()
-            cert_img.save(buf, format="PNG")
-            st.download_button("📥 Sertifikatni yuklab olish", data=buf.getvalue(), file_name="Sertifikat.png", mime="image/png")
+
+            # PNG Download
+            buf_png = io.BytesIO()
+            cert_img.save(buf_png, format="PNG")
+            st.download_button("📥 Sertifikatni yuklab olish (PNG)", data=buf_png.getvalue(), file_name="Sertifikat.png", mime="image/png")
+
+            # PDF Download
+            buf_pdf = io.BytesIO()
+            cert_img.save(buf_pdf, format="PDF")
+            st.download_button("📥 Sertifikatni yuklab olish (PDF)", data=buf_pdf.getvalue(), file_name="Sertifikat.pdf", mime="application/pdf")
 
         if st.button("Qayta boshlash"):
             st.session_state.quiz_state = 'welcome'
