@@ -94,6 +94,31 @@ def get_all_students():
     conn.close()
     return df
 
+def format_homework_status(status_str):
+    if not status_str:
+        return ""
+    try:
+        data = json.loads(status_str)
+        if not isinstance(data, list):
+            return str(data)
+
+        formatted_items = []
+        for item in data:
+            if isinstance(item, dict):
+                view = item.get('view', '')
+                topic = item.get('topic', '')
+                score = item.get('score', 0)
+                total = item.get('total', 0)
+                # Format: '1-sinf: Sonlarni sanash (10/10)'
+                prefix = f"{view}: " if view else ""
+                formatted_items.append(f"{prefix}{topic} ({score}/{total})")
+            else:
+                formatted_items.append(str(item))
+
+        return ", ".join(formatted_items)
+    except Exception:
+        return status_str
+
 # --- Vocabulary Constants ---
 UZBEK_NAMES = [
     "Ali", "Vali", "Gani", "Sadiya", "Madina", "Temur", "Otabek", "Zilola", "Mohira", "Farruh",
@@ -2176,6 +2201,13 @@ def show_admin_panel():
         st.info("Hozircha o'quvchilar yo'q.")
         return
 
+    # Process homework_status for display
+    if 'homework_status' in df.columns:
+        df['homework_status'] = df['homework_status'].apply(format_homework_status)
+
+    # Add temporary column for incrementing attendance
+    df['add_attendance'] = False
+
     # Configure columns
     edited_df = st.data_editor(
         df,
@@ -2184,8 +2216,9 @@ def show_admin_panel():
             "full_name": "F.I.O",
             "phone": "Telefon",
             "password": "Parol",
-            "attendance_count": st.column_config.NumberColumn("Darslar soni", min_value=0),
-            "balance": st.column_config.NumberColumn("Balans", format="%d so'm"),
+            "attendance_count": st.column_config.NumberColumn("Darslar soni", min_value=0, step=1),
+            "add_attendance": st.column_config.CheckboxColumn("Keldi (+)", default=False),
+            "balance": st.column_config.NumberColumn("Balans", format="%d"),
             "homework_status": st.column_config.TextColumn("Uy vazifalari", disabled=True),
             "registration_date": st.column_config.DatetimeColumn("Ro'yxatdan o'tgan sana", disabled=True),
         },
@@ -2202,10 +2235,15 @@ def show_admin_panel():
             # Handle potentially missing password column in older dataframes if not refreshed
             password_val = row['password'] if 'password' in row else ''
 
+            # Calculate new attendance
+            current_attendance = row['attendance_count']
+            if row.get('add_attendance', False):
+                current_attendance += 1
+
             c.execute("""UPDATE students
                          SET full_name=?, phone=?, password=?, attendance_count=?, balance=?
                          WHERE student_id=?""",
-                      (row['full_name'], row['phone'], password_val, row['attendance_count'], row['balance'], row['student_id']))
+                      (row['full_name'], row['phone'], password_val, current_attendance, row['balance'], row['student_id']))
 
         conn.commit()
         conn.close()
