@@ -12,28 +12,44 @@ from PIL import Image, ImageDraw, ImageFont
 
 # --- Database Helper Functions ---
 def init_db():
-    conn = sqlite3.connect('math_quiz.db')
+    conn = sqlite3.connect('students.db')
     c = conn.cursor()
+    # Create table with password column
     c.execute('''CREATE TABLE IF NOT EXISTS students
-                 (student_id INTEGER PRIMARY KEY, full_name TEXT, phone TEXT UNIQUE,
+                 (student_id INTEGER PRIMARY KEY, full_name TEXT, phone TEXT UNIQUE, password TEXT,
                   attendance_count INTEGER DEFAULT 0, homework_status TEXT DEFAULT '[]',
                   balance INTEGER DEFAULT 0, registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+
+    # Attempt to add password column if it doesn't exist (migration for existing DBs)
+    try:
+        c.execute("ALTER TABLE students ADD COLUMN password TEXT")
+    except sqlite3.OperationalError:
+        pass # Column likely exists
+
     conn.commit()
     conn.close()
 
 def get_student_by_phone(phone):
-    conn = sqlite3.connect('math_quiz.db')
+    conn = sqlite3.connect('students.db')
     c = conn.cursor()
     c.execute("SELECT * FROM students WHERE phone=?", (phone,))
     student = c.fetchone()
     conn.close()
     return student
 
-def register_student(full_name, phone):
-    conn = sqlite3.connect('math_quiz.db')
+def login_student(phone, password):
+    conn = sqlite3.connect('students.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM students WHERE phone=? AND password=?", (phone, password))
+    student = c.fetchone()
+    conn.close()
+    return student
+
+def register_student(full_name, phone, password):
+    conn = sqlite3.connect('students.db')
     c = conn.cursor()
     try:
-        c.execute("INSERT INTO students (full_name, phone) VALUES (?, ?)", (full_name, phone))
+        c.execute("INSERT INTO students (full_name, phone, password) VALUES (?, ?, ?)", (full_name, phone, password))
         conn.commit()
         success = True
     except sqlite3.IntegrityError:
@@ -42,16 +58,16 @@ def register_student(full_name, phone):
     return success
 
 def update_student_field(student_id, field, value):
-    conn = sqlite3.connect('math_quiz.db')
+    conn = sqlite3.connect('students.db')
     c = conn.cursor()
     # Validate field to prevent injection (though internal use only)
-    if field in ['attendance_count', 'balance', 'full_name', 'phone']:
+    if field in ['attendance_count', 'balance', 'full_name', 'phone', 'password']:
         c.execute(f"UPDATE students SET {field}=? WHERE student_id=?", (value, student_id))
         conn.commit()
     conn.close()
 
 def add_homework_result(student_id, result):
-    conn = sqlite3.connect('math_quiz.db')
+    conn = sqlite3.connect('students.db')
     c = conn.cursor()
     c.execute("SELECT homework_status FROM students WHERE student_id=?", (student_id,))
     row = c.fetchone()
@@ -70,7 +86,7 @@ def add_homework_result(student_id, result):
     conn.close()
 
 def get_all_students():
-    conn = sqlite3.connect('math_quiz.db')
+    conn = sqlite3.connect('students.db')
     try:
         df = pd.read_sql_query("SELECT * FROM students", conn)
     except:
@@ -2167,6 +2183,7 @@ def show_admin_panel():
             "student_id": st.column_config.NumberColumn("ID", disabled=True),
             "full_name": "F.I.O",
             "phone": "Telefon",
+            "password": "Parol",
             "attendance_count": st.column_config.NumberColumn("Darslar soni", min_value=0),
             "balance": st.column_config.NumberColumn("Balans", format="%d so'm"),
             "homework_status": st.column_config.TextColumn("Uy vazifalari", disabled=True),
@@ -2178,14 +2195,17 @@ def show_admin_panel():
     )
 
     if st.button("O'zgarishlarni saqlash"):
-        conn = sqlite3.connect('math_quiz.db')
+        conn = sqlite3.connect('students.db')
         c = conn.cursor()
 
         for index, row in edited_df.iterrows():
+            # Handle potentially missing password column in older dataframes if not refreshed
+            password_val = row['password'] if 'password' in row else ''
+
             c.execute("""UPDATE students
-                         SET full_name=?, phone=?, attendance_count=?, balance=?
+                         SET full_name=?, phone=?, password=?, attendance_count=?, balance=?
                          WHERE student_id=?""",
-                      (row['full_name'], row['phone'], row['attendance_count'], row['balance'], row['student_id']))
+                      (row['full_name'], row['phone'], password_val, row['attendance_count'], row['balance'], row['student_id']))
 
         conn.commit()
         conn.close()
@@ -2249,12 +2269,10 @@ def initialize_session():
         st.session_state.quiz_questions = []
     if 'authenticated' not in st.session_state:
         st.session_state.authenticated = False
-    if 'global_auth' not in st.session_state:
-        st.session_state.global_auth = False
     if 'user_id' not in st.session_state:
         st.session_state.user_id = None
-    if 'is_admin' not in st.session_state:
-        st.session_state.is_admin = False
+    if 'admin_unlocked' not in st.session_state:
+        st.session_state.admin_unlocked = False
 
 def check_login():
     if st.session_state.get('authenticated', False):
@@ -2267,59 +2285,39 @@ def check_login():
         with col2:
             st.image("logo.png", use_container_width=True)
 
-    # Step 1: Global Password
-    if not st.session_state.get('global_auth', False):
-        st.markdown("<h3 style='text-align: center;'>Platformaga kirish uchun parolni kiriting</h3>", unsafe_allow_html=True)
-        password = st.text_input("Parol", type="password")
-        if st.button("Kirish"):
-            if password == "Smart2026":
-                st.session_state.global_auth = True
-                st.rerun()
-            else:
-                st.error("Xato parol!")
-        return False
+    tab1, tab2 = st.tabs(["Kirish", "Ro'yxatdan o'tish"])
 
-    # Step 2: User Identification
-    st.markdown("<h3 style='text-align: center;'>Shaxsiy kabinetga kirish</h3>", unsafe_allow_html=True)
-
-    phone = st.text_input("Telefon raqamingiz (masalan: 901234567)", key="phone_input")
-
-    if st.button("Tekshirish"):
-        if phone:
-            student = get_student_by_phone(phone)
-            if student:
-                # Login existing user
-                st.session_state.user_id = student[0]
-                st.session_state.user_name = student[1]
-                st.session_state.phone = student[2]
-                st.session_state.is_admin = ("sardorbek" in student[1].strip().lower())
+    with tab1:
+        st.subheader("Tizimga kirish")
+        phone = st.text_input("Telefon raqami", key="login_phone")
+        password = st.text_input("Parol", type="password", key="login_pass")
+        if st.button("Kirish", key="btn_login"):
+            user = login_student(phone, password)
+            if user:
+                st.session_state.user_id = user[0]
+                st.session_state.user_name = user[1]
+                st.session_state.phone = user[2]
                 st.session_state.authenticated = True
                 st.rerun()
             else:
-                st.session_state.show_register = True
-                st.session_state.reg_phone = phone
-        else:
-            st.warning("Telefon raqamni kiriting!")
+                st.error("Telefon yoki parol xato!")
 
-    if st.session_state.get('show_register', False):
-        st.warning("Siz ro'yxatdan o'tmagansiz. Iltimos, ismingizni kiriting.")
-        full_name = st.text_input("Ism va Familiya", key="reg_name")
-        if st.button("Ro'yxatdan o'tish"):
-            if full_name and st.session_state.reg_phone:
-                if register_student(full_name, st.session_state.reg_phone):
-                    student = get_student_by_phone(st.session_state.reg_phone)
-                    st.session_state.user_id = student[0]
-                    st.session_state.user_name = student[1]
-                    st.session_state.phone = student[2]
-                    st.session_state.is_admin = ("sardorbek" in student[1].strip().lower())
-                    st.session_state.authenticated = True
-                    st.success("Ro'yxatdan o'tdingiz!")
+    with tab2:
+        st.subheader("Yangi foydalanuvchi")
+        reg_name = st.text_input("Ism va Familiya", key="reg_name")
+        reg_phone = st.text_input("Telefon raqami", key="reg_phone")
+        reg_pass = st.text_input("Parol o'ylab toping", type="password", key="reg_pass")
+
+        if st.button("Ro'yxatdan o'tish", key="btn_register"):
+            if reg_name and reg_phone and reg_pass:
+                if register_student(reg_name, reg_phone, reg_pass):
+                    st.success("Muvaffaqiyatli ro'yxatdan o'tdingiz! Endi kirishingiz mumkin.")
                     time.sleep(1)
                     st.rerun()
                 else:
-                    st.error("Xatolik yuz berdi yoki bu raqam allaqachon mavjud.")
+                    st.error("Bu telefon raqami allaqachon mavjud!")
             else:
-                st.warning("Ism va familiyani kiriting!")
+                st.warning("Barcha maydonlarni to'ldiring!")
 
     return False
 
@@ -2489,9 +2487,10 @@ def run_quiz_interface(topics_list):
              duration = round(st.session_state.end_time - st.session_state.start_time, 2)
              save_result(st.session_state.user_name, st.session_state.score, st.session_state.topic, duration)
 
-             # Database tracking for Mukammal
-             if st.session_state.get('user_id') and st.session_state.current_view == 'mukammal':
+             # Database tracking for ALL logged in users
+             if st.session_state.get('user_id'):
                  result_entry = {
+                     "view": st.session_state.current_view,
                      "topic": st.session_state.topic,
                      "score": st.session_state.score,
                      "total": st.session_state.total_questions,
@@ -2548,22 +2547,35 @@ def main():
     st.sidebar.markdown("---")
     if st.sidebar.button("🏆 Mukammal Matematika", use_container_width=True): set_view('mukammal')
 
-    if st.session_state.get('is_admin'):
-        st.sidebar.markdown("---")
-        if st.sidebar.button("⚙️ Admin Panel", use_container_width=True):
-            set_view('admin')
+    st.sidebar.markdown("---")
+    if st.sidebar.button("⚙️ Admin Panel", use_container_width=True):
+        set_view('admin_login')
 
     color = "#0072CE"
     if st.session_state.current_view == '1-sinf': color = "#28a745"
     elif st.session_state.current_view == '2-sinf': color = "#003366"
     elif st.session_state.current_view == '3-sinf': color = "#0072CE"
     elif st.session_state.current_view == 'mukammal': color = "#FF4500"
-    elif st.session_state.current_view == 'admin': color = "#333333"
+    elif st.session_state.current_view == 'admin' or st.session_state.current_view == 'admin_login': color = "#333333"
 
     inject_css(color, is_home=(st.session_state.current_view == 'home'))
 
-    if st.session_state.current_view == 'admin' and st.session_state.get('is_admin'):
-        show_admin_panel()
+    if st.session_state.current_view == 'admin_login':
+        st.markdown("<h2 style='text-align: center;'>Admin Kirish</h2>", unsafe_allow_html=True)
+        admin_pass = st.text_input("Admin parolini kiriting", type="password")
+        if st.button("Kirish"):
+            if admin_pass == "Admin2026":
+                st.session_state.admin_unlocked = True
+                set_view('admin')
+            else:
+                st.error("Parol xato!")
+
+    elif st.session_state.current_view == 'admin':
+        if st.session_state.get('admin_unlocked'):
+            show_admin_panel()
+        else:
+            set_view('admin_login')
+
     elif st.session_state.current_view != 'home':
         show_header()
 
