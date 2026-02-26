@@ -5,7 +5,78 @@ import os
 import io
 import base64
 import datetime
+import sqlite3
+import json
+import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
+
+# --- Database Helper Functions ---
+def init_db():
+    conn = sqlite3.connect('math_quiz.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS students
+                 (student_id INTEGER PRIMARY KEY, full_name TEXT, phone TEXT UNIQUE,
+                  attendance_count INTEGER DEFAULT 0, homework_status TEXT DEFAULT '[]',
+                  balance INTEGER DEFAULT 0, registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+    conn.commit()
+    conn.close()
+
+def get_student_by_phone(phone):
+    conn = sqlite3.connect('math_quiz.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM students WHERE phone=?", (phone,))
+    student = c.fetchone()
+    conn.close()
+    return student
+
+def register_student(full_name, phone):
+    conn = sqlite3.connect('math_quiz.db')
+    c = conn.cursor()
+    try:
+        c.execute("INSERT INTO students (full_name, phone) VALUES (?, ?)", (full_name, phone))
+        conn.commit()
+        success = True
+    except sqlite3.IntegrityError:
+        success = False
+    conn.close()
+    return success
+
+def update_student_field(student_id, field, value):
+    conn = sqlite3.connect('math_quiz.db')
+    c = conn.cursor()
+    # Validate field to prevent injection (though internal use only)
+    if field in ['attendance_count', 'balance', 'full_name', 'phone']:
+        c.execute(f"UPDATE students SET {field}=? WHERE student_id=?", (value, student_id))
+        conn.commit()
+    conn.close()
+
+def add_homework_result(student_id, result):
+    conn = sqlite3.connect('math_quiz.db')
+    c = conn.cursor()
+    c.execute("SELECT homework_status FROM students WHERE student_id=?", (student_id,))
+    row = c.fetchone()
+    if row:
+        current_status = row[0]
+        try:
+            homework_list = json.loads(current_status) if current_status else []
+        except:
+            homework_list = []
+
+        homework_list.append(result)
+        new_status = json.dumps(homework_list)
+
+        c.execute("UPDATE students SET homework_status=? WHERE student_id=?", (new_status, student_id))
+        conn.commit()
+    conn.close()
+
+def get_all_students():
+    conn = sqlite3.connect('math_quiz.db')
+    try:
+        df = pd.read_sql_query("SELECT * FROM students", conn)
+    except:
+        df = pd.DataFrame()
+    conn.close()
+    return df
 
 # --- Vocabulary Constants ---
 UZBEK_NAMES = [
@@ -2078,6 +2149,50 @@ def generate_mukammal_topic_questions(topic, count=10):
     random.shuffle(questions)
     return questions
 
+# --- Admin Panel ---
+def show_admin_panel():
+    st.markdown("<h2 style='text-align: center; color: #0072CE;'>Admin Panel</h2>", unsafe_allow_html=True)
+    st.write("O'quvchilar ro'yxati va ma'lumotlarini tahrirlash.")
+
+    df = get_all_students()
+
+    if df.empty:
+        st.info("Hozircha o'quvchilar yo'q.")
+        return
+
+    # Configure columns
+    edited_df = st.data_editor(
+        df,
+        column_config={
+            "student_id": st.column_config.NumberColumn("ID", disabled=True),
+            "full_name": "F.I.O",
+            "phone": "Telefon",
+            "attendance_count": st.column_config.NumberColumn("Darslar soni", min_value=0),
+            "balance": st.column_config.NumberColumn("Balans", format="%d so'm"),
+            "homework_status": st.column_config.TextColumn("Uy vazifalari", disabled=True),
+            "registration_date": st.column_config.DatetimeColumn("Ro'yxatdan o'tgan sana", disabled=True),
+        },
+        hide_index=True,
+        use_container_width=True,
+        key="admin_editor"
+    )
+
+    if st.button("O'zgarishlarni saqlash"):
+        conn = sqlite3.connect('math_quiz.db')
+        c = conn.cursor()
+
+        for index, row in edited_df.iterrows():
+            c.execute("""UPDATE students
+                         SET full_name=?, phone=?, attendance_count=?, balance=?
+                         WHERE student_id=?""",
+                      (row['full_name'], row['phone'], row['attendance_count'], row['balance'], row['student_id']))
+
+        conn.commit()
+        conn.close()
+        st.success("Ma'lumotlar saqlandi!")
+        time.sleep(1)
+        st.rerun()
+
 # --- Main Generator Dispatcher ---
 
 def generate_quiz(topic_name, count=10):
@@ -2134,6 +2249,12 @@ def initialize_session():
         st.session_state.quiz_questions = []
     if 'authenticated' not in st.session_state:
         st.session_state.authenticated = False
+    if 'global_auth' not in st.session_state:
+        st.session_state.global_auth = False
+    if 'user_id' not in st.session_state:
+        st.session_state.user_id = None
+    if 'is_admin' not in st.session_state:
+        st.session_state.is_admin = False
 
 def check_login():
     if st.session_state.get('authenticated', False):
@@ -2146,16 +2267,59 @@ def check_login():
         with col2:
             st.image("logo.png", use_container_width=True)
 
-    st.markdown("<h3 style='text-align: center;'>Platformaga kirish uchun parolni kiriting</h3>", unsafe_allow_html=True)
+    # Step 1: Global Password
+    if not st.session_state.get('global_auth', False):
+        st.markdown("<h3 style='text-align: center;'>Platformaga kirish uchun parolni kiriting</h3>", unsafe_allow_html=True)
+        password = st.text_input("Parol", type="password")
+        if st.button("Kirish"):
+            if password == "Smart2026":
+                st.session_state.global_auth = True
+                st.rerun()
+            else:
+                st.error("Xato parol!")
+        return False
 
-    password = st.text_input("Parol", type="password")
+    # Step 2: User Identification
+    st.markdown("<h3 style='text-align: center;'>Shaxsiy kabinetga kirish</h3>", unsafe_allow_html=True)
 
-    if st.button("Kirish"):
-        if password == "Smart2026":
-            st.session_state.authenticated = True
-            st.rerun()
+    phone = st.text_input("Telefon raqamingiz (masalan: 901234567)", key="phone_input")
+
+    if st.button("Tekshirish"):
+        if phone:
+            student = get_student_by_phone(phone)
+            if student:
+                # Login existing user
+                st.session_state.user_id = student[0]
+                st.session_state.user_name = student[1]
+                st.session_state.phone = student[2]
+                st.session_state.is_admin = ("sardorbek" in student[1].strip().lower())
+                st.session_state.authenticated = True
+                st.rerun()
+            else:
+                st.session_state.show_register = True
+                st.session_state.reg_phone = phone
         else:
-            st.error("Xato parol, iltimos ustozingizdan so'rang!")
+            st.warning("Telefon raqamni kiriting!")
+
+    if st.session_state.get('show_register', False):
+        st.warning("Siz ro'yxatdan o'tmagansiz. Iltimos, ismingizni kiriting.")
+        full_name = st.text_input("Ism va Familiya", key="reg_name")
+        if st.button("Ro'yxatdan o'tish"):
+            if full_name and st.session_state.reg_phone:
+                if register_student(full_name, st.session_state.reg_phone):
+                    student = get_student_by_phone(st.session_state.reg_phone)
+                    st.session_state.user_id = student[0]
+                    st.session_state.user_name = student[1]
+                    st.session_state.phone = student[2]
+                    st.session_state.is_admin = ("sardorbek" in student[1].strip().lower())
+                    st.session_state.authenticated = True
+                    st.success("Ro'yxatdan o'tdingiz!")
+                    time.sleep(1)
+                    st.rerun()
+                else:
+                    st.error("Xatolik yuz berdi yoki bu raqam allaqachon mavjud.")
+            else:
+                st.warning("Ism va familiyani kiriting!")
 
     return False
 
@@ -2324,6 +2488,17 @@ def run_quiz_interface(topics_list):
         if 'saved' not in st.session_state or not st.session_state.saved:
              duration = round(st.session_state.end_time - st.session_state.start_time, 2)
              save_result(st.session_state.user_name, st.session_state.score, st.session_state.topic, duration)
+
+             # Database tracking for Mukammal
+             if st.session_state.get('user_id') and st.session_state.current_view == 'mukammal':
+                 result_entry = {
+                     "topic": st.session_state.topic,
+                     "score": st.session_state.score,
+                     "total": st.session_state.total_questions,
+                     "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                 }
+                 add_homework_result(st.session_state.user_id, result_entry)
+
              st.session_state.saved = True
              st.session_state.final_duration = duration
 
@@ -2350,6 +2525,7 @@ def run_quiz_interface(topics_list):
 def main():
     random.seed(time.time())
     initialize_session()
+    init_db()
 
     if not check_login():
         return
@@ -2372,15 +2548,23 @@ def main():
     st.sidebar.markdown("---")
     if st.sidebar.button("🏆 Mukammal Matematika", use_container_width=True): set_view('mukammal')
 
+    if st.session_state.get('is_admin'):
+        st.sidebar.markdown("---")
+        if st.sidebar.button("⚙️ Admin Panel", use_container_width=True):
+            set_view('admin')
+
     color = "#0072CE"
     if st.session_state.current_view == '1-sinf': color = "#28a745"
     elif st.session_state.current_view == '2-sinf': color = "#003366"
     elif st.session_state.current_view == '3-sinf': color = "#0072CE"
     elif st.session_state.current_view == 'mukammal': color = "#FF4500"
+    elif st.session_state.current_view == 'admin': color = "#333333"
 
     inject_css(color, is_home=(st.session_state.current_view == 'home'))
 
-    if st.session_state.current_view != 'home':
+    if st.session_state.current_view == 'admin' and st.session_state.get('is_admin'):
+        show_admin_panel()
+    elif st.session_state.current_view != 'home':
         show_header()
 
     if st.session_state.current_view == 'home':
