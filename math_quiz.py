@@ -10,6 +10,8 @@ import json
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
+import cv2
+import numpy as np
 
 # --- Database Helper Functions ---
 def init_db():
@@ -106,13 +108,11 @@ def format_homework_status(status_str):
         formatted_items = []
         for item in data:
             if isinstance(item, dict):
-                view = item.get('view', '')
                 topic = item.get('topic', '')
                 score = item.get('score', 0)
                 total = item.get('total', 0)
-                # Format: '1-sinf: Sonlarni sanash (10/10)'
-                prefix = f"{view}: " if view else ""
-                formatted_items.append(f"{prefix}{topic} ({score}/{total})")
+                # Format: 'Sonlarni sanash: 10/10'
+                formatted_items.append(f"{topic}: {score}/{total}")
             else:
                 formatted_items.append(str(item))
 
@@ -256,18 +256,18 @@ def create_certificate(name, topic):
 
     # Load Fonts
     try:
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)
+        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 150)
         subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 100)
-        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
-        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 35)
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
+        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 55)
+        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
         # Try to load italic font for slogan
         try:
              slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSansOblique.ttf", 40)
         except:
              slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40) # Fallback
 
-        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
+        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 45)
     except IOError:
         # Fallback to default (though this will look small on 2000px canvas, it ensures no crash)
         title_font = ImageFont.load_default()
@@ -297,12 +297,12 @@ def create_certificate(name, topic):
             print(f"Error loading logo: {e}")
 
     # Layout Y-positions
-    y_title = 320
-    y_sub = 480
+    y_title = 250
+    y_sub = 450
     y_name = 600
-    y_topic = 780
-    y_award = 880
-    y_date = 1000
+    y_topic = 800
+    y_award = 900
+    y_date = 1050
     y_slogan = 1300
 
     # "SERTIFIKAT"
@@ -365,7 +365,7 @@ def create_certificate(name, topic):
         print(f"QR Code Error: {e}")
 
     # Signature (Bottom Right)
-    sig_center_x = width - 250
+    sig_center_x = width - 350
     sig_y_start = height - 300
 
     # Load Signature
@@ -400,7 +400,7 @@ def create_certificate(name, topic):
     tw = bbox[2] - bbox[0]
     draw_text_safe((sig_center_x - tw//2, text_y), name_sig, small_font, fill=(0,0,0))
 
-    text_y += 40
+    text_y += 55
     org_sig = "Smart Learning Center"
     bbox = draw.textbbox((0, 0), org_sig, font=tiny_font)
     tw = bbox[2] - bbox[0]
@@ -2402,6 +2402,40 @@ def show_admin_panel():
 
     # Add temporary column for incrementing attendance
     df['add_attendance'] = False
+
+    # QR Scanner
+    img_file = st.camera_input("QR Skaner")
+    if img_file is not None:
+        bytes_data = img_file.getvalue()
+        cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
+        detector = cv2.QRCodeDetector()
+        data, bbox, _ = detector.detectAndDecode(cv2_img)
+
+        if data:
+            try:
+                # Try to extract Student ID from URL or raw text
+                # Expecting format like "https://t.me/...?start=123" or just "123"
+                student_id_val = int(data) # naive attempt
+
+                # Check if exists
+                conn = sqlite3.connect('students.db')
+                c = conn.cursor()
+                c.execute("SELECT full_name, attendance_count FROM students WHERE student_id=?", (student_id_val,))
+                res = c.fetchone()
+
+                if res:
+                    new_count = res[1] + 1
+                    c.execute("UPDATE students SET attendance_count=? WHERE student_id=?", (new_count, student_id_val))
+                    conn.commit()
+                    st.success(f"✅ {res[0]} uchun davomat +1 qilindi! (Jami: {new_count})")
+                    time.sleep(2)
+                    st.rerun()
+                else:
+                    st.error("❌ O'quvchi topilmadi!")
+                conn.close()
+
+            except ValueError:
+                st.warning("⚠️ QR kodda ID raqami topilmadi.")
 
     # Configure columns
     edited_df = st.data_editor(
