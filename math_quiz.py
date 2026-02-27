@@ -238,173 +238,53 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # Dimensions (High-res approx A4 Landscape: 2000x1414)
-    width, height = 2000, 1414
-    background_color = (255, 255, 255)
-    border_color = (212, 175, 55) # Gold
+    # Load background image
+    try:
+        img = Image.open("sertifikat_bazasi.png")
+        if img.mode != 'RGB':
+            img = img.convert('RGB')
+    except Exception as e:
+        print(f"Background loading error: {e}")
+        # Fallback to blank canvas if file missing
+        img = Image.new('RGB', (2000, 1414), color=(255, 255, 255))
 
-    img = Image.new('RGB', (width, height), color=background_color)
+    width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # Draw Border
-    border_width = 40
-    draw.rectangle(
-        [(border_width, border_width), (width - border_width, height - border_width)],
-        outline=border_color,
-        width=20
-    )
+    # Dynamic font sizing based on image height
+    # Name ~ 10% of height, Topic ~ 6% of height
+    name_font_size = int(height * 0.10)
+    topic_font_size = int(height * 0.06)
 
-    # Load Fonts
     try:
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 150)
-        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)
-        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 60)
-        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 45)
-        # Try to load italic font for slogan
-        try:
-             slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSansBoldOblique.ttf", 50)
-        except:
-             slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50) # Fallback
-
-        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
+        # Load fonts
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", name_font_size)
+        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", topic_font_size)
     except IOError:
-        # Fallback to default (though this will look small on 2000px canvas, it ensures no crash)
-        title_font = ImageFont.load_default()
-        subtitle_font = ImageFont.load_default()
         name_font = ImageFont.load_default()
-        text_font = ImageFont.load_default()
-        small_font = ImageFont.load_default()
-        slogan_font = ImageFont.load_default()
-        tiny_font = ImageFont.load_default()
+        topic_font = ImageFont.load_default()
 
-    # Helper wrapper for safety
-    def draw_text_safe(xy, text, font, fill=(0,0,0)):
-        draw.text(xy, text, font=font, fill=fill)
+    # Define Text Colors
+    text_color = (0, 0, 0) # Black
 
-    # Add Logo (Top Center)
-    if os.path.exists("logo.png"):
-        try:
-            logo = Image.open("logo.png")
-            logo_height = 200
-            aspect_ratio = logo.width / logo.height
-            logo_width = int(logo_height * aspect_ratio)
-            logo = logo.resize((logo_width, logo_height), Image.Resampling.LANCZOS)
-            x_pos = (width - logo_width) // 2
-            y_pos = 60
-            img.paste(logo, (x_pos, y_pos), logo if logo.mode == 'RGBA' else None)
-        except Exception as e:
-            print(f"Error loading logo: {e}")
+    # Helper function to draw centered text
+    def draw_centered_text(y_pos, text, font, fill_color):
+        bbox = draw.textbbox((0, 0), text, font=font)
+        text_width = bbox[2] - bbox[0]
+        x_pos = (width - text_width) // 2
+        draw.text((x_pos, y_pos), text, font=font, fill=fill_color)
 
-    # Layout Y-positions
-    y_title = 300
-    y_sub = 550
-    y_name = 700
-    y_topic = 920
-    y_award = 1080
-    y_date = 1240
-    y_slogan = 1360
+    # Position calculations (Relative to height)
+    # Adjust these ratios based on the empty space in sertifikat_bazasi.png
+    y_name = int(height * 0.45)
+    y_topic = int(height * 0.60)
 
-    # "SERTIFIKAT"
-    # Centering manually to be safe with draw.text
-    bbox = draw.textbbox((0, 0), "SERTIFIKAT", font=title_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_title), "SERTIFIKAT", title_font, fill=border_color)
+    # Draw Name
+    draw_centered_text(y_name, name, name_font, text_color)
 
-    # "Ushbu sertifikat"
-    bbox = draw.textbbox((0, 0), "Ushbu sertifikat", font=subtitle_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_sub), "Ushbu sertifikat", subtitle_font, fill=(0,0,0))
-
-    # Name
-    name_text = f"{name}ga"
-    bbox = draw.textbbox((0, 0), name_text, font=name_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_name), name_text, name_font, fill=(0,0,0))
-
-    # Topic
-    topic_text = f"{topic} bo'limini"
-    bbox = draw.textbbox((0, 0), topic_text, font=text_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_topic), topic_text, text_font, fill=(0,0,0))
-
-    # Award Text
-    award_text = "muvaffaqiyatli yakunlagani uchun beriladi"
-    bbox = draw.textbbox((0, 0), award_text, font=text_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_award), award_text, text_font, fill=(0,0,0))
-
-    # Date
-    now = datetime.datetime.now()
-    date_str = f"Sana: {now.strftime('%d.%m.%Y')}"
-    bbox = draw.textbbox((0, 0), date_str, font=small_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_date), date_str, small_font, fill=(100,100,100))
-
-    # Slogan (Bottom Center)
-    slogan_text = "Jarayon natijadan ko‘ra muhimroq!"
-    bbox = draw.textbbox((0, 0), slogan_text, font=slogan_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_slogan), slogan_text, slogan_font, fill=(0,0,0))
-
-    # QR Code (Bottom Left)
-    try:
-        qr_url = "https://t.me/Smart_mukammal_matematika"
-        qr = qrcode.QRCode(box_size=10, border=1) # increased box size for res
-        qr.add_data(qr_url)
-        qr.make(fit=True)
-        qr_img = qr.make_image(fill_color="black", back_color="white")
-        qr_img = qr_img.resize((300, 300), Image.Resampling.LANCZOS)
-        img.paste(qr_img, (80, height - 380))
-
-        # Text under QR
-        bbox = draw.textbbox((0, 0), "Bizga a'zo bo'ling", font=tiny_font)
-        tw = bbox[2] - bbox[0]
-        draw_text_safe((80 + (300 - tw)//2, height - 45), "Bizga a'zo bo'ling", tiny_font, fill=(0,0,0))
-    except Exception as e:
-        print(f"QR Code Error: {e}")
-
-    # Signature (Bottom Right)
-    sig_center_x = width - 500
-    sig_y_start = height - 300
-
-    # Load Signature
-    if os.path.exists("imzo.png"):
-        try:
-            sig = Image.open("imzo.png")
-            # Resize (Height ~ 120)
-            sig_h = 120
-            ar = sig.width / sig.height
-            sig_w = int(sig_h * ar)
-            sig = sig.resize((sig_w, sig_h), Image.Resampling.LANCZOS)
-            # Center horizontally at sig_center_x
-            img.paste(sig, (sig_center_x - sig_w//2, sig_y_start), sig if sig.mode == 'RGBA' else None)
-        except Exception as e:
-            print(f"Imzo Error: {e}")
-
-    # Load Seal
-    if os.path.exists("muhr.png"):
-        try:
-            seal = Image.open("muhr.png")
-            seal_size = 180
-            seal = seal.resize((seal_size, seal_size), Image.Resampling.LANCZOS)
-            # Paste slightly offset
-            img.paste(seal, (sig_center_x + 20, sig_y_start - 30), seal if seal.mode == 'RGBA' else None)
-        except Exception as e:
-            print(f"Muhr Error: {e}")
-
-    # Text under signature
-    text_y = sig_y_start + 130
-    name_sig = "Sardorbek Jo'raboyev"
-    bbox = draw.textbbox((0, 0), name_sig, font=small_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe((sig_center_x - tw//2, text_y), name_sig, small_font, fill=(0,0,0))
-
-    text_y += 55
-    org_sig = "Smart Learning Center"
-    bbox = draw.textbbox((0, 0), org_sig, font=tiny_font)
-    tw = bbox[2] - bbox[0]
-    draw_text_safe((sig_center_x - tw//2, text_y), org_sig, tiny_font, fill=(0,0,0))
+    # Draw Topic
+    # Optional: wrapping topic if too long? For now, assume it fits or simple centering
+    draw_centered_text(y_topic, topic, topic_font, text_color)
 
     return img
 
