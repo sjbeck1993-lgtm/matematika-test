@@ -238,53 +238,42 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # Load background image
+    # 1. Fonni yuklash
     try:
-        img = Image.open("sertifikat_bazasi.png")
-        if img.mode != 'RGB':
-            img = img.convert('RGB')
-    except Exception as e:
-        print(f"Background loading error: {e}")
-        # Fallback to blank canvas if file missing
+        img = Image.open('sertifikat_bazasi.png')
+    except:
+        # Agar fon topilmasa, noldan yaratish (zaxira varianti)
         img = Image.new('RGB', (2000, 1414), color=(255, 255, 255))
 
     width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # Dynamic font sizing based on image height
-    # Name ~ 10% of height, Topic ~ 6% of height
-    name_font_size = int(height * 0.10)
-    topic_font_size = int(height * 0.06)
-
+    # 2. Shriftlarni yuklash (Kattalashtirilgan)
     try:
-        # Load fonts
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", name_font_size)
-        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", topic_font_size)
-    except IOError:
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
+        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 55)
+    except:
         name_font = ImageFont.load_default()
         topic_font = ImageFont.load_default()
 
-    # Define Text Colors
-    text_color = (0, 0, 0) # Black
+    # 3. Ismni yozish (Markazga)
+    name_text = f"{name}ga"
+    bbox_n = draw.textbbox((0, 0), name_text, font=name_font)
+    draw.text(((width - (bbox_n[2]-bbox_n[0]))//2, 600), name_text, font=name_font, fill=(0,0,0))
 
-    # Helper function to draw centered text
-    def draw_centered_text(y_pos, text, font, fill_color):
-        bbox = draw.textbbox((0, 0), text, font=font)
-        text_width = bbox[2] - bbox[0]
-        x_pos = (width - text_width) // 2
-        draw.text((x_pos, y_pos), text, font=font, fill=fill_color)
+    # 4. Mavzuni yozish
+    topic_text = f"{topic} bo'limini"
+    bbox_t = draw.textbbox((0, 0), topic_text, font=topic_font)
+    draw.text(((width - (bbox_t[2]-bbox_t[0]))//2, 800), topic_text, font=topic_font, fill=(0,0,0))
 
-    # Position calculations (Relative to height)
-    # Adjust these ratios based on the empty space in sertifikat_bazasi.png
-    y_name = int(height * 0.45)
-    y_topic = int(height * 0.60)
-
-    # Draw Name
-    draw_centered_text(y_name, name, name_font, text_color)
-
-    # Draw Topic
-    # Optional: wrapping topic if too long? For now, assume it fits or simple centering
-    draw_centered_text(y_topic, topic, topic_font, text_color)
+    # 5. QR-kodni yaratish va joylash
+    qr_url = "https://t.me/Smart_mukammal_matematika"
+    qr = qrcode.QRCode(box_size=10, border=1)
+    qr.add_data(qr_url)
+    qr.make(fit=True)
+    qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
+    qr_img = qr_img.resize((200, 200), Image.Resampling.LANCZOS)
+    img.paste(qr_img, (100, height - 300)) # Pastki chap burchak
 
     return img
 
