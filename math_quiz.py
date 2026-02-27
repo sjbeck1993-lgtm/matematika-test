@@ -251,8 +251,8 @@ def create_certificate(name, topic):
 
     # 2. Shriftlarni yuklash (Kattalashtirilgan)
     try:
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)
-        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 60)
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
+        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
     except:
         name_font = ImageFont.load_default()
         topic_font = ImageFont.load_default()
@@ -261,7 +261,7 @@ def create_certificate(name, topic):
     name_text = f"{name}ga"
     draw.text((width // 2, height // 2), name_text, font=name_font, fill=(0,0,0), anchor="mm")
 
-    # 4. Mavzuni yozish
+    # 4. Mavzuni yozish (Ismning pastiga)
     topic_text = f"{topic} bo'limini"
     draw.text((width // 2, height // 2 + 150), topic_text, font=topic_font, fill=(0,0,0), anchor="mm")
 
@@ -271,8 +271,14 @@ def create_certificate(name, topic):
     qr.add_data(qr_url)
     qr.make(fit=True)
     qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
-    qr_img = qr_img.resize((250, 250), Image.Resampling.LANCZOS)
-    img.paste(qr_img, (width - 400, height - 400))
+
+    # QR-kodni resize((200, 200)) o'lchamga keltir.
+    qr_img = qr_img.resize((200, 200), Image.Resampling.LANCZOS)
+
+    # Uni pastki chap burchakka, ramkadan biroz ichkariga joylashtir.
+    qr_x = 100
+    qr_y = height - 200 - 100
+    img.paste(qr_img, (qr_x, qr_y))
 
     return img
 
