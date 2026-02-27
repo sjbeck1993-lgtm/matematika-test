@@ -238,53 +238,31 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # 1. PNG fonni yuklash
+    # 1. Siz yuklagan PNG fonni ochadi
     try:
-        # Fayl nomi SERTIFIKAT.png bo'lishi kerak
         img = Image.open('SERTIFIKAT.png').convert('RGB')
-    except Exception as e:
-        # Fayl topilmasa oq fon yaratish (crash bo'lmasligi uchun)
-        print(f"Error loading background: {e}")
-        img = Image.new('RGB', (2000, 1414), color=(255, 255, 255))
+    except:
+        # Fayl nomi SERTIFIKAT.png ekanligiga ishonch hosil qiling
+        img = Image.open('SERTIFIKAT.jpg').convert('RGB')
 
     width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # 2. Ism uchun shrift sozlamalari
+    # 2. Ism uchun shrift (Katta va salobatli)
     try:
-        # Shrift o'lchami: 100, agar ism uzun bo'lsa Jules buni avtomatik kichraytirsin
-        font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-        font_size = 100
-        font_name = ImageFont.truetype(font_path, font_size)
-
-        # Auto-resize logic
-        max_text_width = width * 0.9 # 90% of image width
-        while font_size > 20:
-             bbox = draw.textbbox((0, 0), name, font=font_name)
-             text_width = bbox[2] - bbox[0]
-             if text_width <= max_text_width:
-                 break
-             font_size -= 5
-             font_name = ImageFont.truetype(font_path, font_size)
-
+        # Shrift o'lchamini 110 qildik, rangni foningizga mos tilla-jigarrang tanladik
+        font_name = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
     except:
         font_name = ImageFont.load_default()
 
-    # 3. FAQAT ISMNI YOZISH
-    # Koordinata: X (o'rtada), Y (700-piksel balandlikda)
-    # Rang: To'q tilla-jigarrang (RGB: 84, 60, 27)
-    draw.text((width // 2, 700), name, font=font_name, fill=(84, 60, 27), anchor="mm")
+    # 3. ISMNI FAQAT KERAKLI JOYGA YOZISH
+    # Bu yerda 650 - bu balandlik (Y o'qi).
+    # Agar ism juda tepada bo'lsa, bu sonni oshiring (masalan, 700).
+    # Agar juda pastda bo'lsa, kamaytiring (masalan, 600).
+    draw.text((width // 2, 650), name, font=font_name, fill=(84, 60, 27), anchor="mm")
 
-    # 4. QR-KOD (O'ng burchak bo'shlig'iga)
-    qr_url = "https://t.me/Smart_mukammal_matematika"
-    qr = qrcode.QRCode(box_size=8, border=2)
-    qr.add_data(qr_url)
-    qr.make(fit=True)
-    qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
-    qr_img = qr_img.resize((180, 180), Image.Resampling.LANCZOS)
-
-    # QR-kodni muhrdan teparoqdagi bo'sh joyga qo'yish
-    img.paste(qr_img, (width - 450, height - 520))
+    # QR-kod va boshqa matnlarni koddan butunlay olib tashladik,
+    # chunki ular foningizda allaqachon bor.
 
     return img
 
