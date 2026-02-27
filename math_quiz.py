@@ -258,16 +258,16 @@ def create_certificate(name, topic):
     try:
         title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 150)
         subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
-        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 55)
-        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)
+        text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 60)
+        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 45)
         # Try to load italic font for slogan
         try:
-             slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSansOblique.ttf", 40)
+             slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSansBoldOblique.ttf", 50)
         except:
-             slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40) # Fallback
+             slogan_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50) # Fallback
 
-        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 45)
+        tiny_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
     except IOError:
         # Fallback to default (though this will look small on 2000px canvas, it ensures no crash)
         title_font = ImageFont.load_default()
@@ -297,13 +297,13 @@ def create_certificate(name, topic):
             print(f"Error loading logo: {e}")
 
     # Layout Y-positions
-    y_title = 250
-    y_sub = 450
-    y_name = 600
-    y_topic = 800
-    y_award = 900
-    y_date = 1050
-    y_slogan = 1300
+    y_title = 300
+    y_sub = 550
+    y_name = 700
+    y_topic = 920
+    y_award = 1080
+    y_date = 1240
+    y_slogan = 1360
 
     # "SERTIFIKAT"
     # Centering manually to be safe with draw.text
@@ -342,10 +342,10 @@ def create_certificate(name, topic):
     draw_text_safe(((width - tw)//2, y_date), date_str, small_font, fill=(100,100,100))
 
     # Slogan (Bottom Center)
-    slogan = "Jarayon natijadan ko‘ra muhimroq!"
-    bbox = draw.textbbox((0, 0), slogan, font=slogan_font)
+    slogan_text = "Jarayon natijadan ko‘ra muhimroq!"
+    bbox = draw.textbbox((0, 0), slogan_text, font=slogan_font)
     tw = bbox[2] - bbox[0]
-    draw_text_safe(((width - tw)//2, y_slogan), slogan, slogan_font, fill=(0,0,0))
+    draw_text_safe(((width - tw)//2, y_slogan), slogan_text, slogan_font, fill=(0,0,0))
 
     # QR Code (Bottom Left)
     try:
@@ -354,18 +354,18 @@ def create_certificate(name, topic):
         qr.add_data(qr_url)
         qr.make(fit=True)
         qr_img = qr.make_image(fill_color="black", back_color="white")
-        qr_img = qr_img.resize((200, 200), Image.Resampling.LANCZOS)
-        img.paste(qr_img, (80, height - 250))
+        qr_img = qr_img.resize((300, 300), Image.Resampling.LANCZOS)
+        img.paste(qr_img, (80, height - 380))
 
         # Text under QR
         bbox = draw.textbbox((0, 0), "Bizga a'zo bo'ling", font=tiny_font)
         tw = bbox[2] - bbox[0]
-        draw_text_safe((80 + (200 - tw)//2, height - 45), "Bizga a'zo bo'ling", tiny_font, fill=(0,0,0))
+        draw_text_safe((80 + (300 - tw)//2, height - 45), "Bizga a'zo bo'ling", tiny_font, fill=(0,0,0))
     except Exception as e:
         print(f"QR Code Error: {e}")
 
     # Signature (Bottom Right)
-    sig_center_x = width - 350
+    sig_center_x = width - 500
     sig_y_start = height - 300
 
     # Load Signature
@@ -2404,7 +2404,7 @@ def show_admin_panel():
     df['add_attendance'] = False
 
     # QR Scanner
-    img_file = st.camera_input("QR Skaner")
+    img_file = st.camera_input("QR Davomatni tekshirish")
     if img_file is not None:
         bytes_data = img_file.getvalue()
         cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
@@ -2413,17 +2413,17 @@ def show_admin_panel():
 
         if data:
             try:
-                # Try to extract Student ID from URL or raw text
-                # Expecting format like "https://t.me/...?start=123" or just "123"
-                student_id_val = int(data) # naive attempt
+                # Logic: Parse ID -> Check DB -> Increment attendance_count -> Save
+                # Expecting format like "123" or extracted ID
+                student_id_val = int(data)
 
-                # Check if exists
                 conn = sqlite3.connect('students.db')
                 c = conn.cursor()
                 c.execute("SELECT full_name, attendance_count FROM students WHERE student_id=?", (student_id_val,))
                 res = c.fetchone()
 
                 if res:
+                    # Increment attendance and update DB
                     new_count = res[1] + 1
                     c.execute("UPDATE students SET attendance_count=? WHERE student_id=?", (new_count, student_id_val))
                     conn.commit()
