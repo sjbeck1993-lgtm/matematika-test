@@ -238,101 +238,53 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # 1. Background
+    # 1. PNG fonni yuklash
     try:
-        img = Image.open('sertifikat_bazasi.png')
-        img = img.resize((2000, 1414), Image.Resampling.LANCZOS)
+        # Fayl nomi SERTIFIKAT.png bo'lishi kerak
+        img = Image.open('SERTIFIKAT.png').convert('RGB')
     except Exception as e:
+        # Fayl topilmasa oq fon yaratish (crash bo'lmasligi uchun)
         print(f"Error loading background: {e}")
         img = Image.new('RGB', (2000, 1414), color=(255, 255, 255))
 
     width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # 2. Fonts
+    # 2. Ism uchun shrift sozlamalari
     try:
-        font_path_bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-        font_path_reg = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+        # Shrift o'lchami: 100, agar ism uzun bo'lsa Jules buni avtomatik kichraytirsin
+        font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+        font_size = 100
+        font_name = ImageFont.truetype(font_path, font_size)
 
-        bold_font = ImageFont.truetype(font_path_bold, 110)
-        reg_font = ImageFont.truetype(font_path_reg, 65)
-        date_font = ImageFont.truetype(font_path_reg, 50)
+        # Auto-resize logic
+        max_text_width = width * 0.9 # 90% of image width
+        while font_size > 20:
+             bbox = draw.textbbox((0, 0), name, font=font_name)
+             text_width = bbox[2] - bbox[0]
+             if text_width <= max_text_width:
+                 break
+             font_size -= 5
+             font_name = ImageFont.truetype(font_path, font_size)
+
     except:
-        bold_font = ImageFont.load_default()
-        reg_font = ImageFont.load_default()
-        date_font = ImageFont.load_default()
+        font_name = ImageFont.load_default()
 
-    # 3. Text Structure
-    # We will define lines as lists of (text, font) tuples
-    today = datetime.date.today().strftime("%d.%m.%Y")
+    # 3. FAQAT ISMNI YOZISH
+    # Koordinata: X (o'rtada), Y (700-piksel balandlikda)
+    # Rang: To'q tilla-jigarrang (RGB: 84, 60, 27)
+    draw.text((width // 2, 700), name, font=font_name, fill=(84, 60, 27), anchor="mm")
 
-    lines = [
-        [("Ushbu ", reg_font), ("SERTIFIKAT", bold_font)],
-        [(name, bold_font), ("ga", reg_font)],
-        [(f"{topic} bo'limini", reg_font)],
-        [("muvaffaqiyatli yakunlagani uchun beriladi.", reg_font)],
-        [(f"Sana: {today}", date_font)]
-    ]
-
-    # 4. Layout Calculation
-    line_spacing = 30
-    total_text_height = 0
-    line_heights = []
-    line_widths = []
-
-    for line in lines:
-        # Calculate line width and max height
-        current_width = 0
-        current_height = 0
-        for text, font in line:
-            bbox = draw.textbbox((0, 0), text, font=font)
-            text_w = bbox[2] - bbox[0]
-            text_h = bbox[3] - bbox[1]
-            current_width += text_w
-            current_height = max(current_height, text_h)
-
-        line_widths.append(current_width)
-        line_heights.append(current_height)
-        total_text_height += current_height
-
-    total_text_height += (len(lines) - 1) * line_spacing
-
-    # 5. Drawing Text
-    start_y = (height - total_text_height) // 2
-
-    current_y = start_y
-    for i, line in enumerate(lines):
-        line_w = line_widths[i]
-        line_h = line_heights[i]
-        start_x = (width - line_w) // 2
-
-        current_x = start_x
-        for text, font in line:
-            draw.text((current_x, current_y + line_h), text, font=font, fill="black", anchor="lb")
-
-            # Advance x
-            bbox = draw.textbbox((0, 0), text, font=font)
-            text_w = bbox[2] - bbox[0]
-            current_x += text_w
-
-        current_y += line_h + line_spacing
-
-    # 6. QR Code
+    # 4. QR-KOD (O'ng burchak bo'shlig'iga)
     qr_url = "https://t.me/Smart_mukammal_matematika"
-    qr = qrcode.QRCode(box_size=10, border=2)
+    qr = qrcode.QRCode(box_size=8, border=2)
     qr.add_data(qr_url)
     qr.make(fit=True)
     qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
+    qr_img = qr_img.resize((180, 180), Image.Resampling.LANCZOS)
 
-    # Resize to (230, 230)
-    qr_img = qr_img.resize((230, 230), Image.Resampling.LANCZOS)
-
-    # Position: (width - 450, height - 550)
-    qr_x = width - 450
-    qr_y = height - 550
-
-    # Paste QR
-    img.paste(qr_img, (qr_x, qr_y))
+    # QR-kodni muhrdan teparoqdagi bo'sh joyga qo'yish
+    img.paste(qr_img, (width - 450, height - 520))
 
     return img
 
