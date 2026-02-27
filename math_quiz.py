@@ -241,6 +241,7 @@ def create_certificate(name, topic):
     # 1. Fonni yuklash
     try:
         img = Image.open('sertifikat_bazasi.png')
+        img = img.resize((2000, 1414), Image.Resampling.LANCZOS)
     except:
         # Agar fon topilmasa, noldan yaratish (zaxira varianti)
         img = Image.new('RGB', (2000, 1414), color=(255, 255, 255))
@@ -250,30 +251,28 @@ def create_certificate(name, topic):
 
     # 2. Shriftlarni yuklash (Kattalashtirilgan)
     try:
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
-        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 55)
+        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)
+        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 60)
     except:
         name_font = ImageFont.load_default()
         topic_font = ImageFont.load_default()
 
     # 3. Ismni yozish (Markazga)
     name_text = f"{name}ga"
-    bbox_n = draw.textbbox((0, 0), name_text, font=name_font)
-    draw.text(((width - (bbox_n[2]-bbox_n[0]))//2, 600), name_text, font=name_font, fill=(0,0,0))
+    draw.text((width // 2, height // 2), name_text, font=name_font, fill=(0,0,0), anchor="mm")
 
     # 4. Mavzuni yozish
     topic_text = f"{topic} bo'limini"
-    bbox_t = draw.textbbox((0, 0), topic_text, font=topic_font)
-    draw.text(((width - (bbox_t[2]-bbox_t[0]))//2, 800), topic_text, font=topic_font, fill=(0,0,0))
+    draw.text((width // 2, height // 2 + 150), topic_text, font=topic_font, fill=(0,0,0), anchor="mm")
 
     # 5. QR-kodni yaratish va joylash
     qr_url = "https://t.me/Smart_mukammal_matematika"
-    qr = qrcode.QRCode(box_size=10, border=1)
+    qr = qrcode.QRCode(box_size=10, border=2)
     qr.add_data(qr_url)
     qr.make(fit=True)
     qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
-    qr_img = qr_img.resize((200, 200), Image.Resampling.LANCZOS)
-    img.paste(qr_img, (100, height - 300)) # Pastki chap burchak
+    qr_img = qr_img.resize((250, 250), Image.Resampling.LANCZOS)
+    img.paste(qr_img, (width - 400, height - 400))
 
     return img
 
