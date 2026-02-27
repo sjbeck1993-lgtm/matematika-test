@@ -238,46 +238,100 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # 1. Fonni yuklash
+    # 1. Background
     try:
         img = Image.open('sertifikat_bazasi.png')
         img = img.resize((2000, 1414), Image.Resampling.LANCZOS)
-    except:
-        # Agar fon topilmasa, noldan yaratish (zaxira varianti)
+    except Exception as e:
+        print(f"Error loading background: {e}")
         img = Image.new('RGB', (2000, 1414), color=(255, 255, 255))
 
     width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # 2. Shriftlarni yuklash (Kattalashtirilgan)
+    # 2. Fonts
     try:
-        name_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
-        topic_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 50)
+        font_path_bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+        font_path_reg = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+
+        bold_font = ImageFont.truetype(font_path_bold, 110)
+        reg_font = ImageFont.truetype(font_path_reg, 65)
+        date_font = ImageFont.truetype(font_path_reg, 50)
     except:
-        name_font = ImageFont.load_default()
-        topic_font = ImageFont.load_default()
+        bold_font = ImageFont.load_default()
+        reg_font = ImageFont.load_default()
+        date_font = ImageFont.load_default()
 
-    # 3. Ismni yozish (Markazga)
-    name_text = f"{name}ga"
-    draw.text((width // 2, height // 2), name_text, font=name_font, fill=(0,0,0), anchor="mm")
+    # 3. Text Structure
+    # We will define lines as lists of (text, font) tuples
+    today = datetime.date.today().strftime("%d.%m.%Y")
 
-    # 4. Mavzuni yozish (Ismning pastiga)
-    topic_text = f"{topic} bo'limini"
-    draw.text((width // 2, height // 2 + 150), topic_text, font=topic_font, fill=(0,0,0), anchor="mm")
+    lines = [
+        [("Ushbu ", reg_font), ("SERTIFIKAT", bold_font)],
+        [(name, bold_font), ("ga", reg_font)],
+        [(f"{topic} bo'limini", reg_font)],
+        [("muvaffaqiyatli yakunlagani uchun beriladi.", reg_font)],
+        [(f"Sana: {today}", date_font)]
+    ]
 
-    # 5. QR-kodni yaratish va joylash
+    # 4. Layout Calculation
+    line_spacing = 30
+    total_text_height = 0
+    line_heights = []
+    line_widths = []
+
+    for line in lines:
+        # Calculate line width and max height
+        current_width = 0
+        current_height = 0
+        for text, font in line:
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_w = bbox[2] - bbox[0]
+            text_h = bbox[3] - bbox[1]
+            current_width += text_w
+            current_height = max(current_height, text_h)
+
+        line_widths.append(current_width)
+        line_heights.append(current_height)
+        total_text_height += current_height
+
+    total_text_height += (len(lines) - 1) * line_spacing
+
+    # 5. Drawing Text
+    start_y = (height - total_text_height) // 2
+
+    current_y = start_y
+    for i, line in enumerate(lines):
+        line_w = line_widths[i]
+        line_h = line_heights[i]
+        start_x = (width - line_w) // 2
+
+        current_x = start_x
+        for text, font in line:
+            draw.text((current_x, current_y + line_h), text, font=font, fill="black", anchor="lb")
+
+            # Advance x
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_w = bbox[2] - bbox[0]
+            current_x += text_w
+
+        current_y += line_h + line_spacing
+
+    # 6. QR Code
     qr_url = "https://t.me/Smart_mukammal_matematika"
     qr = qrcode.QRCode(box_size=10, border=2)
     qr.add_data(qr_url)
     qr.make(fit=True)
     qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
 
-    # QR-kodni resize((200, 200)) o'lchamga keltir.
-    qr_img = qr_img.resize((200, 200), Image.Resampling.LANCZOS)
+    # Resize to (230, 230)
+    qr_img = qr_img.resize((230, 230), Image.Resampling.LANCZOS)
 
-    # Uni pastki chap burchakka, ramkadan biroz ichkariga joylashtir.
-    qr_x = 100
-    qr_y = height - 200 - 100
+    # Position: (width - 450, height - 550)
+    qr_x = width - 450
+    qr_y = height - 550
+
+    # Paste QR
     img.paste(qr_img, (qr_x, qr_y))
 
     return img
