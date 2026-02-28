@@ -238,7 +238,7 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # 1. Tayyor fonni yuklash (PNG yoki JPG ekanligini tekshir)
+    # 1. Siz yuklagan PNG fonni ochish
     try:
         img = Image.open('SERTIFIKAT.png').convert('RGB')
     except:
@@ -247,21 +247,18 @@ def create_certificate(name, topic):
     width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # 2. Shrift sozlamalari
-    # Ism katta va salobatli bo'lishi kerak
+    # 2. Ism uchun shrift (Katta va qalin)
     try:
         font_name = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
     except:
         font_name = ImageFont.load_default()
 
-    # 3. FAQAT ISMNI KERAKLI KOORDINATAGA YOZISH
-    # Markazlashtirish: X = o'rtada, Y = 700 (balandlik)
+    # 3. ISMNI FAQAT KERAKLI JOYGA YOZISH
+    # Markazlashtirish: X = width // 2, Y = 750 (ism tushadigan bo'sh joy)
     # Rang: To'q tilla-jigarrang (RGB: 84, 60, 27)
-    draw.text((width // 2, 700), name, font=font_name, fill=(84, 60, 27), anchor="mm")
+    draw.text((width // 2, 750), name, font=font_name, fill=(84, 60, 27), anchor="mm")
 
-    # Ortiqcha QR-kod, Sarlavha yoki boshqa matnlarni chizma!
-    # Ular fonning o'zida allaqachon bor.
-
+    # Boshqa hech narsa (QR-kod yoki sarlavha) chizilmasin!
     return img
 
 # --- Helper Functions ---
