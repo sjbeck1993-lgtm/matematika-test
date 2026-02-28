@@ -238,6 +238,7 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
+    name = name.upper()
     # 1. Fonni yuklash
     try:
         img = Image.open('SERTIFIKAT.jpg').convert('RGB')
