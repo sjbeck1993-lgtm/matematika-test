@@ -238,27 +238,45 @@ TOPICS_MUKAMMAL = [
 
 # --- Certificate Generator Logic ---
 def create_certificate(name, topic):
-    # 1. Siz yuklagan PNG fonni ochish
+    # 1. Fonni yuklash
     try:
-        img = Image.open('SERTIFIKAT.png').convert('RGB')
-    except:
         img = Image.open('SERTIFIKAT.jpg').convert('RGB')
+    except:
+        img = Image.open('SERTIFIKAT.png').convert('RGB')
 
     width, height = img.size
     draw = ImageDraw.Draw(img)
 
-    # 2. Ism uchun shrift (Katta va qalin)
-    try:
-        font_name = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 110)
-    except:
+    # 2. Serverdagi bor shriftlarni qidirish (Xavfsiz usul)
+    font_path = None
+    possible_fonts = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf"
+    ]
+
+    for path in possible_fonts:
+        if os.path.exists(path):
+            font_path = path
+            break
+
+    if font_path:
+        font_name = ImageFont.truetype(font_path, 110)
+    else:
+        # Agar hech qaysi shrift topilmasa
         font_name = ImageFont.load_default()
 
-    # 3. ISMNI FAQAT KERAKLI JOYGA YOZISH
-    # Markazlashtirish: X = width // 2, Y = 750 (ism tushadigan bo'sh joy)
-    # Rang: To'q tilla-jigarrang (RGB: 84, 60, 27)
-    draw.text((width // 2, 750), name, font=font_name, fill=(84, 60, 27), anchor="mm")
+    # 3. Matnni xatosiz markazlashtirish (anchor ishlatmasdan)
+    bbox = draw.textbbox((0, 0), name, font=font_name)
+    text_w = bbox[2] - bbox[0]
 
-    # Boshqa hech narsa (QR-kod yoki sarlavha) chizilmasin!
+    x = (width - text_w) // 2
+    y = 700  # Ism tushadigan balandlik
+
+    # 4. Ismni yozish
+    draw.text((x, y), name, font=font_name, fill=(84, 60, 27))
+
     return img
 
 # --- Helper Functions ---
